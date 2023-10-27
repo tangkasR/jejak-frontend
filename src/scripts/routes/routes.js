@@ -14,6 +14,8 @@ import EditProfilPage from '../views/pages/admin/EditProfilPage';
 import AddWisataPage from '../views/pages/admin/AddWisataPage';
 import EditWisataPage from '../views/pages/admin/EditWisataPage';
 
+// view sementara untuk mencoba backend review
+import CobaReviewPage from '../views/pages/admin/COBA_REVIEW';
 const routes = {
   // USER
   '/': HomePage,
@@ -29,6 +31,7 @@ const routes = {
   '/wisata': WisataPage,
   '/editprofil': EditProfilPage,
   '/addwisata': AddWisataPage,
-  '/editwisata/:id': EditWisataPage
+  '/editwisata/:id': EditWisataPage,
+  '/cobareview/:id': CobaReviewPage
 };
 export default routes;

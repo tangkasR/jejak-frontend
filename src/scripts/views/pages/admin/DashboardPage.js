@@ -1,4 +1,4 @@
-import AdminSource from '../../../data/admin-source';
+import WisataSource from '../../../data/wisata-source';
 import { async } from 'regenerator-runtime';
 
 const DashboardPage = {
@@ -9,7 +9,9 @@ const DashboardPage = {
       <div class="row">
         <sidebar-element></sidebar-element>
         <div class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
-
+          <div id="card-container" class="p-5 d-flex flex-wrap align-items-center justify-content-center gap-2">
+           
+          </div>
         </div>
       </div>
     </div>
@@ -29,6 +31,22 @@ const DashboardPage = {
     //   active side bar
     const navLink = document.getElementById('dashboard-link');
     navLink.classList.add('active');
+
+    // render item wisata
+    const itemContainer = document.getElementById('card-container');
+    const response = await WisataSource.getWisata();
+    const datas = response.data;
+    datas.forEach(data => {
+      itemContainer.innerHTML += `
+      <div class="card shadow p-3">
+        <img src="${data.url}" style="max-width: 200px; min-height: 200px; object-fit:cover">
+        <a href="#/cobareview/${data.id}" style="text-decoration: none"><h5 class="text-dark mt-3 mb-3">${data.nama}</h5></a>
+        <p>${data.kategori}</p>
+        <p>${data.lokasi}</p>
+        <p>${data.deskripsi}</p>
+      </div>
+      `;
+    });
   }
 };
 export default DashboardPage;

@@ -10,7 +10,9 @@ const API_ENDPOINT = {
   GETWISATABYID: id => `${CONFIG.BASE_URL}/getwisatabyid/${id}`,
   ADDWISATA: `${CONFIG.BASE_URL}/createwisata`,
   EDITWISATA: id => `${CONFIG.BASE_URL}/updatewisata/${id}`,
-  DELETEWISATA: id => `${CONFIG.BASE_URL}/deletewisata/${id}`
+  DELETEWISATA: id => `${CONFIG.BASE_URL}/deletewisata/${id}`,
+  GET_REVIEW_BY_WISATA_ID: id => `${CONFIG.BASE_URL}/getreviewbywisataid/${id}`,
+  ADD_REVIEW: id => `${CONFIG.BASE_URL}/createreview/${id}`
 };
 
 export default API_ENDPOINT;
