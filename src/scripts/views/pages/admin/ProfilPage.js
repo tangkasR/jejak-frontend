@@ -8,8 +8,9 @@ const ProfilPage = {
       <div class="row">
         <sidebar-element></sidebar-element>
         <div class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
-            <div class="my-5 w-100 d-flex align-items-center justify-content-center">
-                <div class="card shadow  text-left p-3" style="width:fit-content" id="card-container">
+            <div class="my-5 w-100 d-flex align-items-center justify-content-center"> 
+                <div class="card shadow  text-left p-5" style="width:50%" id="card-container">
+                  <h2 class="mb-5 text-center">Profil Admin</h2>
                 </div>
             </div>
         </div>
@@ -37,10 +38,12 @@ const ProfilPage = {
     const container = document.getElementById('card-container');
     const data = await AdminSource.getData(id.id);
     console.log(data);
-    container.innerHTML = `
-        <h2 class="mb-3 text-center">Nama: ${data.data.name}</h2>
-        <img class="mb-3" src="${data.data
-          .url}" alt="" style="width:300px; border-radius:10px;"></img>
+    container.innerHTML += `
+        <div class="d-flex w-100 align-items-center justify-content-center">
+          <img class="mb-3" src="${data.data
+            .url}" alt="" style="width:300px; height:300px; border-radius:50%; object-fit: cover;"></img>
+        </div>
+        <h4 class="mb-3">Nama: ${data.data.name}</h4>
         <h5 class="mb-3">Email: ${data.data.email}</h5>
         <h5 class="mb-3">Role: ${data.data.role}</h5>
         <h5 class="mb-3">Jenis Kelamin: ${data.data.jenis_kelamin}</h5>
