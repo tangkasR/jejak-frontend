@@ -11,6 +11,9 @@ import RegistrasiPage from '../views/pages/admin/RegistrasiPage';
 import ProfilPage from '../views/pages/admin/ProfilPage';
 import WisataPage from '../views/pages/admin/WisataPage';
 import EditProfilPage from '../views/pages/admin/EditProfilPage';
+import AddWisataPage from '../views/pages/admin/AddWisataPage';
+import EditWisataPage from '../views/pages/admin/EditWisataPage';
+
 const routes = {
   // USER
   '/': HomePage,
@@ -24,6 +27,8 @@ const routes = {
   '/dashboard': DashboardPage,
   '/profil': ProfilPage,
   '/wisata': WisataPage,
-  '/editprofil': EditProfilPage
+  '/editprofil': EditProfilPage,
+  '/addwisata': AddWisataPage,
+  '/editwisata/:id': EditWisataPage
 };
 export default routes;

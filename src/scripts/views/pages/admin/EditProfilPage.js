@@ -33,8 +33,8 @@ const EditProfilPage = {
     form.innerHTML = `
      <div class="mb-3">
          <label for="inputName" class="form-label">Nama</label>
-         <input type="text" class="form-control" id="inputName" name="name" value=${data
-           .data.name}>
+         <input type="text" class="form-control" id="inputName" name="name" value="${data
+           .data.name}">
      </div>
      <div class="mb-3">
          <label for="inputJenisKelamin" class="form-label">Jenis Kelamin</label>
@@ -49,8 +49,8 @@ const EditProfilPage = {
      </div>
      <div class="mb-3">
          <label for="inputEmail" class="form-label">Email</label>
-         <input type="email" class="form-control" id="inputEmail" placeholder="example@gmail.com" name="email" value=${data
-           .data.email}>
+         <input type="email" class="form-control" id="inputEmail" placeholder="example@gmail.com" name="email" value="${data
+           .data.email}">
      </div>
      <div class="mb-3">
          <label for="inputPassword" class="form-label">Password</label>
