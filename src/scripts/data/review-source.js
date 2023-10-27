@@ -24,5 +24,27 @@ class ReviewSource {
       console.log(error);
     }
   }
+  static async getReviewHotel (id) {
+    try {
+      const response = await axios.get(
+        API_ENDPOINT.GET_REVIEW_HOTEL_BY_WISATA_ID(id)
+      );
+      return response;
+    } catch (error) {
+      console.log(error);
+    }
+  }
+  static async addReviewHotel (id, data) {
+    try {
+      const response = await axios.post(API_ENDPOINT.ADD_REVIEW_HOTEL(id), data, {
+        headers: {
+          'Content-Type': 'multipart/form-data'
+        }
+      });
+      return response;
+    } catch (error) {
+      console.log(error);
+    }
+  }
 }
 export default ReviewSource;

@@ -1,10 +1,9 @@
-import WisataSource from '../../../data/wisata-source';
-import ReviewSource from '../../../data/review-source';
 import HotelSource from '../../../data/hotel-source';
 import { async } from 'regenerator-runtime';
 import UrlParser from '../../../routes/url-parser';
+import ReviewSource from '../../../data/review-source';
 
-const CobaReviewPage = {
+const CobaReviewHotelPage = {
   async render () {
     return `
     <navbar-admin></navbar-admin>
@@ -38,7 +37,7 @@ const CobaReviewPage = {
     navLink.classList.add('active');
 
     // get data wisata
-    const response = await WisataSource.getWisataById(url.id);
+    const response = await HotelSource.getHotelById(url.id);
     const data = response.data;
 
     // render page
@@ -50,10 +49,9 @@ const CobaReviewPage = {
         </div>
         <div class="col-6">
             <h5>Nama: ${data.nama}</h5>
-            <p>Lokasi: ${data.lokasi}</p>
-            <p>Kategori: ${data.kategori}</p>
-            <p>Deskripsi: ${data.deskripsi}</p>
             <p id="rating-item">Rating: </p>
+            <p>Lokasi: ${data.lokasi}</p>
+            <p>Deskripsi: ${data.deskripsi}</p>
         </div>
         <div class="d-flex flex-column align-items-center justify-content-center w-100 card shadow my-4 mx-5 p-2 border rounded">
         <h4 class="text-center mb-3">Review</h4>
@@ -75,8 +73,6 @@ const CobaReviewPage = {
     </div>
     <div id="review-container" class="mt-3 d-flex flex-wrap align-items-center juatify-content-center gap-2">
     </div>
-    <h4 class="mt-5">Hotel Terdekat</h4>
-    <div id="conatinerHotel" class="mt-3 d-flex flex-wrap align-items-center juatify-content-center gap-2">
     </div>
     `;
     // render rating value
@@ -88,7 +84,7 @@ const CobaReviewPage = {
     }
 
     // get data review
-    const review = await ReviewSource.getReview(url.id);
+    const review = await ReviewSource.getReviewHotel(url.id);
     const dataReview = review.data;
     console.log(dataReview);
 
@@ -112,27 +108,10 @@ const CobaReviewPage = {
       const formData = new FormData(form);
       const newReview = Object.fromEntries(formData);
       console.log(newReview);
-      const response = await ReviewSource.addReview(url.id, newReview);
+      const response = await ReviewSource.addReviewHotel(url.id, newReview);
       console.log(response);
       location.reload();
     });
-
-    // render hotel terdekat dari wisata
-    const hotels = await HotelSource.getHotelByWisataId(url.id);
-    const dataHotel = hotels.data;
-    console.log(dataHotel);
-    const hotelContainer = document.getElementById('conatinerHotel');
-    dataHotel.forEach(data => {
-      hotelContainer.innerHTML += `
-        <div class="card shadow px-4 py-3 text-center">
-            <img src="${data.url}" style="width:100%; height:100px; object-fit-:cover">
-            <a href="#/cobareviewhotel/${data.id}" class="text-dark" style="text-decoration:none"><h5 class="mb-3">${data.nama}</h5></a>
-            <p>${data.lokasi}</p>
-            <p>rating</p>
-            <p>${data.deskripsi}</p>
-        </div>
-    `;
-    });
   }
 };
-export default CobaReviewPage;
+export default CobaReviewHotelPage;

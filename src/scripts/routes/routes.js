@@ -13,9 +13,12 @@ import WisataPage from '../views/pages/admin/WisataPage';
 import EditProfilPage from '../views/pages/admin/EditProfilPage';
 import AddWisataPage from '../views/pages/admin/AddWisataPage';
 import EditWisataPage from '../views/pages/admin/EditWisataPage';
-
+import HotelPage from '../views/pages/admin/HotelPage';
+import AddHotelPage from '../views/pages/admin/AddHotelPage';
+import EditHotelPage from '../views/pages/admin/EditHotelPage';
 // view sementara untuk mencoba backend review
 import CobaReviewPage from '../views/pages/admin/COBA_REVIEW';
+import CobaReviewHotelPage from '../views/pages/admin/COBA_REVIEW_HOTEL';
 const routes = {
   // USER
   '/': HomePage,
@@ -28,10 +31,20 @@ const routes = {
   '/register': RegistrasiPage,
   '/dashboard': DashboardPage,
   '/profil': ProfilPage,
+
+  // WISATA
   '/wisata': WisataPage,
   '/editprofil': EditProfilPage,
   '/addwisata': AddWisataPage,
   '/editwisata/:id': EditWisataPage,
-  '/cobareview/:id': CobaReviewPage
+
+  // REVIEW WISATA
+  '/cobareview/:id': CobaReviewPage,
+
+  // HOTEL
+  '/hotel': HotelPage,
+  '/addhotel': AddHotelPage,
+  '/edithotel/:id': EditHotelPage,
+  '/cobareviewhotel/:id': CobaReviewHotelPage
 };
 export default routes;
