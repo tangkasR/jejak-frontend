@@ -10,7 +10,7 @@ class Navbar extends HTMLElement {
     render() {
         this.innerHTML = `
     <nav class="navbar navbar-expand-lg fixed-top" style="background-color: #3F4E4F;" >
-        <div class="container-fluid">
+        <div class="container">
             <a class="logo" href="#"><img style="width:100px" src="./images/Logonavbar.png"/></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"

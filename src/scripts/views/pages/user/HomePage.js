@@ -226,7 +226,6 @@ const HomePage = {
       </div>
     </div>
   </div>
-  
     `;
   },
   async afterRender() {
