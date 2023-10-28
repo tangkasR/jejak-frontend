@@ -1,5 +1,5 @@
 const HomePage = {
-  async render() {
+  async render () {
     return `
     <div class="hero">
     <div class="hero_inner">
@@ -85,6 +85,26 @@ const HomePage = {
           <p>Pantai mantap</p>
         </div>
       </div>
+    </div>
+  </div>
+  <h2 class="w-100 text-center mt-5" style="color: #2C3639">Kategori Wisata</h2>
+  <div class="row align-items-center justify-content-center w-100 ">
+    <div class="col-12 col-sm-3 d-flex justify-content-center align-items-center">
+      <div class="card kategori_card">
+        <img src="./icons/Alam.png"/>
+          <h5>Alam</h5>
+      </div>
+    </div>
+    <div class="col-12 col-sm-3 d-flex justify-content-center align-items-center">
+      <div class="card kategori_card ">
+        <img src="./icons/Pagoda.png"/>
+          <h5>Budaya</h5>
+      </div>
+    </div>
+    <div class="col-12 col-sm-3 d-flex justify-content-center align-items-center">
+      <div class="card kategori_card">
+        <img src="./icons/Penginapan.png"/>
+          <h5>Penginapan</h5>
     </div>
   </div>
   <h2 class="w-100 text-center mt-5" style="color: #2C3639">Top Penginapan</h2>
@@ -228,7 +248,7 @@ const HomePage = {
   </div>
     `;
   },
-  async afterRender() {
+  async afterRender () {
     console.log('hola');
   }
 };
