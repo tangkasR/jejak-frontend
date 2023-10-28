@@ -1,0 +1,99 @@
+.hero {
+  display: flex;
+  align-items: center;
+  min-height: 600px;
+  width: 100%;
+  text-align: center;
+  background-position: center;
+  background-color: black;
+  background-size: cover;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url("../public/images/pantai.jpeg");
+}
+
+.hero_inner {
+  margin: 0 auto;
+  max-width: 800px;
+}
+
+.hero_title {
+  color: #dcd7c9;
+  font-weight: 800;
+  font-size: 40px;
+}
+
+.hero_tagline {
+  color: #dcd7c9;
+  margin-top: 16px;
+  font-size: 22px;
+  font-weight: 500;
+}
+
+.span_title,
+.span_tagline {
+  color: #a27b5c;
+}
+
+.card {
+  width: 200px;
+}
+
+.content-card {
+  cursor: pointer;
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.5);
+  top: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+}
+.item-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+.content-card:hover {
+  opacity: 100%;
+}
+.content-card:hover {
+  display: block;
+}
+.content-card h5 {
+  color: #a27b5c;
+  margin-bottom: 0;
+  margin-left: 5px;
+}
+.content-card p {
+  color: #dcd7c9;
+  margin-left: 5px;
+}
+.card img {
+  height: 280px;
+  object-fit: cover;
+}
+
+.kategori_card {
+  height: 150px;
+  width: 150px;
+  background-color: #3f4e4f;
+  border-radius: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.kategori_card img {
+  width: 50px;
+  height: 50px;
+  margin-top: 10px;
+  object-fit: contain;
+}
+
+.kategori_card h5 {
+  color: #a27b5c;
+  margin-top: 15px;
+  margin-bottom: 0;
+}

@@ -2,7 +2,7 @@ import { async } from 'regenerator-runtime';
 import AdminSource from '../../../data/admin-source';
 
 const LoginPage = {
-  async render () {
+  async render() {
     return `
     <div class="mt-4 d-flex flex-column align-items-center justify-content-center w-100" style="height: 60vh;">
       <div class="mt-3 card shadow p-4" style="width: 50%;">
@@ -25,7 +25,11 @@ const LoginPage = {
     </div>
     `;
   },
-  async afterRender () {
+  async afterRender() {
+    // hapus footer
+    const footer = document.querySelector('footer-element')
+    footer.style.display = "none"
+
     const navbar = document.querySelector('navbar-element');
     navbar.style.display = 'block';
 
