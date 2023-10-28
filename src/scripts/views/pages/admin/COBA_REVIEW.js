@@ -1,48 +1,51 @@
-import WisataSource from '../../../data/wisata-source';
-import ReviewSource from '../../../data/review-source';
-import HotelSource from '../../../data/hotel-source';
-import { async } from 'regenerator-runtime';
-import UrlParser from '../../../routes/url-parser';
+import WisataSource from "../../../data/wisata-source";
+import ReviewSource from "../../../data/review-source";
+import HotelSource from "../../../data/hotel-source";
+import { async } from "regenerator-runtime";
+import UrlParser from "../../../routes/url-parser";
 
 const CobaReviewPage = {
-  async render () {
+  async render() {
     return `
-    <navbar-admin></navbar-admin>
-    <div class="container-fluid">
-      <div class="row">
-        <sidebar-element></sidebar-element>
-        <div class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
-            <div id="container-cobareview" class="py-4">
-            </div>
+      <navbar-admin></navbar-admin>
+      <div class="container-fluid">
+        <div class="row">
+          <sidebar-element></sidebar-element>
+          <div class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+            <div id="container-cobareview" class="py-4"></div>
+          </div>
         </div>
       </div>
-    </div>
     `;
   },
-  async afterRender () {
+  async afterRender() {
     // get id
     const url = UrlParser.parseActiveUrlWithoutCombiner();
 
     // menonaktifkan navbar user
-    const navbar = document.querySelector('navbar-element');
-    navbar.style.display = 'none';
+    const navbar = document.querySelector("navbar-element");
+    navbar.style.display = "none";
+    
+    // hapus footer
+    const footer = document.querySelector("footer-element");
+    footer.style.display = "none";
 
     // eksekusi logout
-    document.getElementById('btnLogout').addEventListener('click', async () => {
-      localStorage.removeItem('id');
-      window.location.replace('#/login');
+    document.getElementById("btnLogout").addEventListener("click", async () => {
+      localStorage.removeItem("id");
+      window.location.replace("#/login");
     });
 
     //   active side bar
-    const navLink = document.getElementById('dashboard-link');
-    navLink.classList.add('active');
+    const navLink = document.getElementById("dashboard-link");
+    navLink.classList.add("active");
 
     // get data wisata
     const response = await WisataSource.getWisataById(url.id);
     const data = response.data;
 
     // render page
-    const container = document.getElementById('container-cobareview');
+    const container = document.getElementById("container-cobareview");
     container.innerHTML = `
     <div class="row align-items-center justify-content-center">
         <div class="col-6">
@@ -80,7 +83,7 @@ const CobaReviewPage = {
     </div>
     `;
     // render rating value
-    const ratingContainer = document.getElementById('rating-item');
+    const ratingContainer = document.getElementById("rating-item");
     if (data.rating === null) {
       ratingContainer.innerHTML += 0;
     } else {
@@ -93,8 +96,8 @@ const CobaReviewPage = {
     console.log(dataReview);
 
     // render card review
-    const containerReview = document.querySelector('#review-container');
-    dataReview.forEach(data => {
+    const containerReview = document.querySelector("#review-container");
+    dataReview.forEach((data) => {
       containerReview.innerHTML += `
         <div class="card shadow px-4 py-2 text-center">
             <h5 class="mb-3">${data.name}</h5>
@@ -106,8 +109,8 @@ const CobaReviewPage = {
     });
 
     // eksekusi tambah review
-    const form = document.querySelector('.addReview');
-    form.addEventListener('submit', async event => {
+    const form = document.querySelector(".addReview");
+    form.addEventListener("submit", async (event) => {
       event.preventDefault();
       const formData = new FormData(form);
       const newReview = Object.fromEntries(formData);
@@ -121,8 +124,8 @@ const CobaReviewPage = {
     const hotels = await HotelSource.getHotelByWisataId(url.id);
     const dataHotel = hotels.data;
     console.log(dataHotel);
-    const hotelContainer = document.getElementById('conatinerHotel');
-    dataHotel.forEach(data => {
+    const hotelContainer = document.getElementById("conatinerHotel");
+    dataHotel.forEach((data) => {
       hotelContainer.innerHTML += `
         <div class="card shadow px-4 py-3 text-center">
             <img src="${data.url}" style="width:100%; height:100px; object-fit-:cover">

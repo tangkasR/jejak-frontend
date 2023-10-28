@@ -1,59 +1,63 @@
-import WisataSource from '../../../data/wisata-source';
-import { async } from 'regenerator-runtime';
+import WisataSource from "../../../data/wisata-source";
+import { async } from "regenerator-runtime";
 
 const WisataPage = {
-  async render () {
+  async render() {
     return `
-    <navbar-admin></navbar-admin>
-    <div class="container-fluid">
-      <div class="row">
-        <sidebar-element></sidebar-element>
-        <div class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
-          <div class="d-flex align-items-center justify-content-between">
-            <h1 class="my-3" style="font-size:35px; font-weight:500;">Data Wisata</h1>
-            <a href="#/addwisata" class="btn btn-success">Tambah</a>
+      <navbar-admin></navbar-admin>
+      <div class="container-fluid">
+        <div class="row">
+          <sidebar-element></sidebar-element>
+          <div class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+            <div class="d-flex align-items-center justify-content-between">
+              <h1 class="my-3" style="font-size:35px; font-weight:500;">
+                Data Wisata
+              </h1>
+              <a href="#/addwisata" class="btn btn-success">Tambah</a>
+            </div>
+            <table
+              class="table table-hover text-center"
+              style="font-size: 15px"
+            >
+              <thead class="table-dark">
+                <tr>
+                  <th scope="col">Id</th>
+                  <th scope="col">Nama</th>
+                  <th scope="col">Kategori</th>
+                  <th scope="col">Lokasi</th>
+                  <th scope="col">Deskripsi</th>
+                  <th scope="col">Rating</th>
+                  <th scope="col">Image</th>
+                  <th scope="col"></th>
+                </tr>
+              </thead>
+              <tbody class="item-container"></tbody>
+            </table>
           </div>
-          <table class="table table-hover text-center" style="font-size: 15px">
-            <thead class="table-dark">
-            <tr>
-              <th scope="col">Id</th>
-              <th scope="col">Nama</th>
-              <th scope="col">Kategori</th>
-              <th scope="col">Lokasi</th>
-              <th scope="col">Deskripsi</th>
-              <th scope="col">Rating</th>
-              <th scope="col">Image</th>
-              <th scope="col"></th>
-            </tr>
-            </thead>
-            <tbody class="item-container">
-            </tbody>
-          </table>
         </div>
       </div>
-    </div>
     `;
   },
-  async afterRender () {
+  async afterRender() {
     // menonaktifkan navbar user
-    const navbar = document.querySelector('navbar-element');
-    navbar.style.display = 'none';
+    const navbar = document.querySelector("navbar-element");
+    navbar.style.display = "none";
 
     // eksekusi logout
-    document.getElementById('btnLogout').addEventListener('click', async () => {
-      localStorage.removeItem('id');
-      window.location.replace('#/login');
+    document.getElementById("btnLogout").addEventListener("click", async () => {
+      localStorage.removeItem("id");
+      window.location.replace("#/login");
     });
 
     //   active side bar
-    const navLink = document.getElementById('wisata-link');
-    navLink.classList.add('active');
+    const navLink = document.getElementById("wisata-link");
+    navLink.classList.add("active");
 
     // get data wisata
     const response = await WisataSource.getWisata();
     const datas = response.data;
-    const itemContainer = document.querySelector('.item-container');
-    datas.forEach(data => {
+    const itemContainer = document.querySelector(".item-container");
+    datas.forEach((data) => {
       itemContainer.innerHTML += `
         <tr>
           <th scope="row">${data.id}</th>

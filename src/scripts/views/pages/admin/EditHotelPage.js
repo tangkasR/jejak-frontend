@@ -1,65 +1,100 @@
-import HotelSource from '../../../data/hotel-source';
-import WisataSource from '../../../data/wisata-source';
-import { async } from 'regenerator-runtime';
-import UrlParser from '../../../routes/url-parser';
+import HotelSource from "../../../data/hotel-source";
+import WisataSource from "../../../data/wisata-source";
+import { async } from "regenerator-runtime";
+import UrlParser from "../../../routes/url-parser";
 
 const EditHotelPage = {
-  async render () {
+  async render() {
     return `
-    <navbar-admin></navbar-admin>
-    <div class="container-fluid">
-      <div class="row">
-        <sidebar-element></sidebar-element>
-        <div class="col-md-9 ms-sm-auto col-lg-10 px-md-4 d-flex align-items-center justify-content-center">
-        <div class="my-4 card shadow p-4" style="width: 70%;">
-            <h3 class="text-center">Ubah Hotel</h3>
-            <form class="editHotelForm">
-                <div id="item-edit">
-                </div>
+      <navbar-admin></navbar-admin>
+      <div class="container-fluid">
+        <div class="row">
+          <sidebar-element></sidebar-element>
+          <div
+            class="col-md-9 ms-sm-auto col-lg-10 px-md-4 d-flex align-items-center justify-content-center"
+          >
+            <div class="my-4 card shadow p-4" style="width: 70%;">
+              <h3 class="text-center">Ubah Hotel</h3>
+              <form class="editHotelForm">
+                <div id="item-edit"></div>
                 <div class="form-floating mb-3">
-                <textarea class="form-control" placeholder="Deskripsi wisata" id="inputDeskripsi" style="height: 100px" name="deskripsi"></textarea>
-                <label for="inputDeskripsi">Deskripsi</label>
+                  <textarea
+                    class="form-control"
+                    placeholder="Deskripsi wisata"
+                    id="inputDeskripsi"
+                    style="height: 100px"
+                    name="deskripsi"
+                  ></textarea>
+                  <label for="inputDeskripsi">Deskripsi</label>
                 </div>
                 <div class="mb-3">
-                    <label for="formFile" class="form-label">Masukan foto utama</label>
-                    <input class="form-control" type="file" id="formFile" name="file">
+                  <label for="formFile" class="form-label"
+                    >Masukan foto utama</label
+                  >
+                  <input
+                    class="form-control"
+                    type="file"
+                    id="formFile"
+                    name="file"
+                  />
                 </div>
                 <div class="mb-3">
-                    <label for="inputWisata" class="form-label">Wisata terdekat</label>
-                    <select class="form-select" id="inputWisata" name="wisatumId">
-                    </select>
+                  <label for="inputWisata" class="form-label"
+                    >Wisata terdekat</label
+                  >
+                  <select
+                    class="form-select"
+                    id="inputWisata"
+                    name="wisatumId"
+                  ></select>
                 </div>
-                <button type="submit" class="btn btn-primary px-4 mt-3" style="width:120px;">Simpan</button>
-            </form>
-            <button id="btnDel" class="btn btn-danger px-4 my-3" style="width:120px;">Hapus</button>
-        </div>
+                <button
+                  type="submit"
+                  class="btn btn-primary px-4 mt-3"
+                  style="width:120px;"
+                >
+                  Simpan
+                </button>
+              </form>
+              <button
+                id="btnDel"
+                class="btn btn-danger px-4 my-3"
+                style="width:120px;"
+              >
+                Hapus
+              </button>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
     `;
   },
-  async afterRender () {
-    const form = document.querySelector('.editHotelForm');
+  async afterRender() {
+    const form = document.querySelector(".editHotelForm");
     // get id
     const url = UrlParser.parseActiveUrlWithoutCombiner();
     // menonaktifkan navbar user
-    const navbar = document.querySelector('navbar-element');
-    navbar.style.display = 'none';
+    const navbar = document.querySelector("navbar-element");
+    navbar.style.display = "none";
+
+    // hapus footer
+    const footer = document.querySelector("footer-element");
+    footer.style.display = "none";
 
     // eksekusi logout
-    document.getElementById('btnLogout').addEventListener('click', async () => {
-      localStorage.removeItem('id');
-      window.location.replace('#/login');
+    document.getElementById("btnLogout").addEventListener("click", async () => {
+      localStorage.removeItem("id");
+      window.location.replace("#/login");
     });
 
     //   active side bar
-    const navLink = document.getElementById('hotel-link');
-    navLink.classList.add('active');
+    const navLink = document.getElementById("hotel-link");
+    navLink.classList.add("active");
 
     // render value data
     const response = await HotelSource.getHotelById(url.id);
     const data = response.data;
-    const containerDataItem = document.getElementById('item-edit');
+    const containerDataItem = document.getElementById("item-edit");
     containerDataItem.innerHTML = `
     <div class="mb-3">
         <label for="inputNama" class="form-label">Nama</label>
@@ -73,28 +108,28 @@ const EditHotelPage = {
     const datasWisata = await WisataSource.getWisata();
     const dataWisata = datasWisata.data;
     console.log(dataWisata);
-    const selectContainer = document.getElementById('inputWisata');
-    dataWisata.forEach(data => {
+    const selectContainer = document.getElementById("inputWisata");
+    dataWisata.forEach((data) => {
       selectContainer.innerHTML += `
         <option value="${data.id}">${data.nama}</option>
         `;
     });
 
     // eksekusi tambah wisata
-    form.addEventListener('submit', async event => {
+    form.addEventListener("submit", async (event) => {
       event.preventDefault();
       const formData = new FormData(form);
       const data = Object.fromEntries(formData);
       console.log(data);
       const response = await HotelSource.editHotel(url.id, data);
       console.log(response);
-      window.location.replace('#/hotel');
+      window.location.replace("#/hotel");
     });
 
     // eksekusi delete wisata
-    document.getElementById('btnDel').addEventListener('click', async () => {
+    document.getElementById("btnDel").addEventListener("click", async () => {
       await HotelSource.deleteHotel(url.id);
-      window.location.replace('#/hotel');
+      window.location.replace("#/hotel");
     });
   }
 };
