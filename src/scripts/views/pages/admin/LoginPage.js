@@ -58,14 +58,20 @@ const LoginPage = {
 
       try {
         const response = await AdminSource.login(data);
-        console.log(response);
-        const id = response.data.id;
-        const myObj = {
-          id: id
-        };
-        const myObj_string = JSON.stringify(myObj);
-        localStorage.setItem("id", myObj_string);
-        window.location.replace("#/dashboard");
+        if (response.length !== 0) {
+          if (response.data) {
+            const id = response.data.id;
+            const myObj = {
+              id: id
+            };
+            const myObj_string = JSON.stringify(myObj);
+            localStorage.setItem("id", myObj_string);
+            window.location.replace("#/dashboard");
+            return;
+          }
+          console.log(response.response.data.msg);
+          alert(response.response.data.msg);
+        }
       } catch (error) {
         console.log(error);
       }

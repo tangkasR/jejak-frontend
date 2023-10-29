@@ -107,7 +107,6 @@ const EditHotelPage = {
     `;
     const datasWisata = await WisataSource.getWisata();
     const dataWisata = datasWisata.data;
-    console.log(dataWisata);
     const selectContainer = document.getElementById("inputWisata");
     dataWisata.forEach((data) => {
       selectContainer.innerHTML += `
@@ -120,10 +119,14 @@ const EditHotelPage = {
       event.preventDefault();
       const formData = new FormData(form);
       const data = Object.fromEntries(formData);
-      console.log(data);
       const response = await HotelSource.editHotel(url.id, data);
-      console.log(response);
-      window.location.replace("#/hotel");
+      if (response.length !== 0) {
+        if (response.data) {
+          window.location.replace("#/hotel");
+          return;
+        }
+        alert(response.response.data.msg);
+      }
     });
 
     // eksekusi delete wisata

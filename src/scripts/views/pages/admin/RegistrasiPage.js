@@ -103,7 +103,7 @@ const RegistrasiPage = {
     // hapus footer
     const footer = document.querySelector("footer-element");
     footer.style.display = "none";
-    
+
     const form = document.querySelector(".registrasiform");
     form.addEventListener("submit", async (event) => {
       event.preventDefault();
@@ -112,7 +112,13 @@ const RegistrasiPage = {
 
       try {
         const response = await AdminSource.registrasi(data);
-        window.location.replace("#/login");
+        if (response.length !== 0) {
+          if (response.data) {
+            window.location.replace("#/login");
+            return;
+          }
+          alert(response.response.data.msg);
+        }
       } catch (error) {
         console.log(error);
       }

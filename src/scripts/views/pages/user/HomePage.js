@@ -25,7 +25,7 @@ const HomePage = {
         <div
           class="container-fluid d-flex align-items-center justify-content-center flex-wrap gap-3"
         >
-          <div class="card">
+          <div class="card cardItem">
             <img src="./images/pantai.jpeg" />
             <div class="content-card">
               <div class="item-card">
@@ -34,7 +34,7 @@ const HomePage = {
               </div>
             </div>
           </div>
-          <div class="card">
+          <div class="card cardItem">
             <img src="./images/pantai.jpeg" />
             <div class="content-card">
               <div class="item-card">
@@ -43,7 +43,7 @@ const HomePage = {
               </div>
             </div>
           </div>
-          <div class="card">
+          <div class="card cardItem">
             <img src="./images/pantai.jpeg" />
             <div class="content-card">
               <div class="item-card">
@@ -52,7 +52,7 @@ const HomePage = {
               </div>
             </div>
           </div>
-          <div class="card">
+          <div class="card cardItem">
             <img src="./images/pantai.jpeg" />
             <div class="content-card">
               <div class="item-card">
@@ -61,7 +61,7 @@ const HomePage = {
               </div>
             </div>
           </div>
-          <div class="card">
+          <div class="card cardItem">
             <img src="./images/pantai.jpeg" />
             <div class="content-card">
               <div class="item-card">
@@ -70,7 +70,7 @@ const HomePage = {
               </div>
             </div>
           </div>
-          <div class="card">
+          <div class="card cardItem">
             <img src="./images/pantai.jpeg" />
             <div class="content-card">
               <div class="item-card">
@@ -79,7 +79,7 @@ const HomePage = {
               </div>
             </div>
           </div>
-          <div class="card">
+          <div class="card cardItem">
             <img src="./images/pantai.jpeg" />
             <div class="content-card">
               <div class="item-card">
@@ -88,7 +88,7 @@ const HomePage = {
               </div>
             </div>
           </div>
-          <div class="card">
+          <div class="card cardItem">
             <img src="./images/pantai.jpeg" />
             <div class="content-card">
               <div class="item-card">
@@ -252,7 +252,7 @@ const HomePage = {
         <div
           class="container-fluid d-flex align-items-center justify-content-center flex-wrap gap-3"
         >
-          <div class="card">
+          <div class="card cardItem">
             <img src="./images/pantai.jpeg" />
             <div class="content-card">
               <div class="item-card">
@@ -261,7 +261,7 @@ const HomePage = {
               </div>
             </div>
           </div>
-          <div class="card">
+          <div class="card cardItem">
             <img src="./images/pantai.jpeg" />
             <div class="content-card">
               <div class="item-card">
@@ -270,7 +270,7 @@ const HomePage = {
               </div>
             </div>
           </div>
-          <div class="card">
+          <div class="card cardItem">
             <img src="./images/pantai.jpeg" />
             <div class="content-card">
               <div class="item-card">
@@ -279,7 +279,7 @@ const HomePage = {
               </div>
             </div>
           </div>
-          <div class="card">
+          <div class="card cardItem">
             <img src="./images/pantai.jpeg" />
             <div class="content-card">
               <div class="item-card">
@@ -288,7 +288,7 @@ const HomePage = {
               </div>
             </div>
           </div>
-          <div class="card">
+          <div class="card cardItem">
             <img src="./images/pantai.jpeg" />
             <div class="content-card">
               <div class="item-card">
@@ -297,7 +297,7 @@ const HomePage = {
               </div>
             </div>
           </div>
-          <div class="card">
+          <div class="card cardItem">
             <img src="./images/pantai.jpeg" />
             <div class="content-card">
               <div class="item-card">
@@ -306,7 +306,7 @@ const HomePage = {
               </div>
             </div>
           </div>
-          <div class="card">
+          <div class="card cardItem">
             <img src="./images/pantai.jpeg" />
             <div class="content-card">
               <div class="item-card">
@@ -315,7 +315,7 @@ const HomePage = {
               </div>
             </div>
           </div>
-          <div class="card">
+          <div class="card cardItem">
             <img src="./images/pantai.jpeg" />
             <div class="content-card">
               <div class="item-card">

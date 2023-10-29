@@ -25,7 +25,7 @@ const CobaReviewPage = {
     // menonaktifkan navbar user
     const navbar = document.querySelector("navbar-element");
     navbar.style.display = "none";
-    
+
     // hapus footer
     const footer = document.querySelector("footer-element");
     footer.style.display = "none";
@@ -116,8 +116,13 @@ const CobaReviewPage = {
       const newReview = Object.fromEntries(formData);
       console.log(newReview);
       const response = await ReviewSource.addReview(url.id, newReview);
-      console.log(response);
-      location.reload();
+      if (response.length !== 0) {
+        if (response.data) {
+          location.reload();
+          return;
+        }
+        alert(response.response.data.msg);
+      }
     });
 
     // render hotel terdekat dari wisata

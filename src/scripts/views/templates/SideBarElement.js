@@ -39,6 +39,12 @@ class SideBarAdmin extends HTMLElement {
               </a>
             </li>
             <li class="nav-item">
+              <a class="nav-link" id="gallery-link" href="#/galleryadmin">
+                <span data-feather="file"></span>
+                Gallery
+              </a>
+            </li>
+            <li class="nav-item">
               <a class="nav-link" id="profil-link" href="#/profil">
                 <span data-feather="shopping-cart"></span>
                 Profil

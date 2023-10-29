@@ -1,9 +1,9 @@
 const MapPage = {
-  async render () {
+  async render() {
     return `
           <h1>Ini peta page</h1>
           `;
   },
-  async afterRender () {}
+  async afterRender() {}
 };
 export default MapPage;

@@ -78,7 +78,7 @@ const AddHotelPage = {
     // menonaktifkan navbar user
     const navbar = document.querySelector("navbar-element");
     navbar.style.display = "none";
-    
+
     // hapus footer
     const footer = document.querySelector("footer-element");
     footer.style.display = "none";
@@ -112,7 +112,13 @@ const AddHotelPage = {
       const data = Object.fromEntries(formData);
       console.log(data);
       const response = await HotelSource.addHotel(data);
-      window.location.replace("#/hotel");
+      if (response.length !== 0) {
+        if (response.data) {
+          window.location.replace("#/hotel");
+          return;
+        }
+        alert(response.response.data.msg);
+      }
     });
   }
 };

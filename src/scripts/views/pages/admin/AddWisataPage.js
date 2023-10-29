@@ -97,8 +97,19 @@ const AddWisataPage = {
       event.preventDefault();
       const formData = new FormData(form);
       const data = Object.fromEntries(formData);
-      const response = await WisataSource.addWisata(data);
-      window.location.replace("#/wisata");
+      try {
+        const response = await WisataSource.addWisata(data);
+        if (response.length !== 0) {
+          console.log(response);
+          if (response.data) {
+            window.location.replace("#/wisata");
+            return;
+          }
+          alert(response.response.data.msg);
+        }
+      } catch (error) {
+        console.log(error);
+      }
     });
   }
 };

@@ -35,7 +35,7 @@ class HotelSource {
       });
       return response;
     } catch (error) {
-      console.log(error);
+      return error;
     }
   }
   static async editHotel (id, data) {
@@ -47,7 +47,7 @@ class HotelSource {
       });
       return response;
     } catch (error) {
-      console.log(error);
+      return error;
     }
   }
   static async deleteHotel (id) {

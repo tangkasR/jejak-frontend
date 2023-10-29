@@ -112,8 +112,13 @@ const CobaReviewHotelPage = {
       const newReview = Object.fromEntries(formData);
       console.log(newReview);
       const response = await ReviewSource.addReviewHotel(url.id, newReview);
-      console.log(response);
-      location.reload();
+      if (response.length !== 0) {
+        if (response.data) {
+          location.reload();
+          return;
+        }
+        alert(response.response.data.msg);
+      }
     });
   }
 };

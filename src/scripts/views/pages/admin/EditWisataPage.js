@@ -83,7 +83,13 @@ const EditWisataPage = {
       const formData = new FormData(form);
       const data = Object.fromEntries(formData);
       const response = await WisataSource.editWisata(url.id, data);
-      window.location.replace("#/wisata");
+      if (response.length !== 0) {
+        if (response.data) {
+          window.location.replace("#/wisata");
+          return;
+        }
+        alert(response.response.data.msg);
+      }
     });
 
     // eksekusi delete wisata

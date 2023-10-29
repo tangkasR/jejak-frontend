@@ -43,6 +43,10 @@ const WisataPage = {
     const navbar = document.querySelector("navbar-element");
     navbar.style.display = "none";
 
+    // hapus footer
+    const footer = document.querySelector("footer-element");
+    footer.style.display = "none";
+
     // eksekusi logout
     document.getElementById("btnLogout").addEventListener("click", async () => {
       localStorage.removeItem("id");

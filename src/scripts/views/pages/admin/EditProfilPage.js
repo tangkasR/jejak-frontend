@@ -16,7 +16,7 @@ const EditProfilPage = {
               <form class="editForm"></form>
               <button
                 class="mt-2 btn btn-dark px-4"
-                style="width:20%;"
+                style="width:150px; max-width:100%"
                 id="btnDelete"
               >
                 Hapus Akun
@@ -73,7 +73,7 @@ const EditProfilPage = {
          <label for="formFile" class="form-label">Masukan foto profil</label>
          <input class="form-control" type="file" id="formFile" name="file">
      </div>
-    <button type="submit" class="btn btn-primary px-4" style="width:20%">Simpan</button>
+    <button type="submit" class="btn btn-primary px-4" style="width:150px; max-width:100%">Simpan</button>
         
      `;
 
@@ -84,8 +84,13 @@ const EditProfilPage = {
       const data = Object.fromEntries(formData);
       try {
         const response = await AdminSource.editData(id.id, data);
-        console.log(response);
-        window.location.replace("#/profil");
+        if (response.length !== 0) {
+          if (response.data) {
+            window.location.replace("#/profil");
+            return;
+          }
+          alert(response.response.data.msg);
+        }
       } catch (error) {
         console.log(error);
       }
