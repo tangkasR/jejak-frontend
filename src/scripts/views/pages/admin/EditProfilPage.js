@@ -12,7 +12,7 @@ const EditProfilPage = {
           <div
             class="col-md-9 ms-sm-auto col-lg-10 px-md-4 d-flex flex-column align-items-center justify-content-center"
           >
-            <div class="my-4 card shadow p-4" style="width: 50%;">
+            <div class="my-4 card shadow p-4" style="min-width: 50%;">
               <h3 class="text-center">Edit Profil</h3>
               <form class="editForm"></form>
               <button

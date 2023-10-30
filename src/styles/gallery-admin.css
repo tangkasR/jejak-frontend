@@ -13,3 +13,7 @@
     bottom: 0;
     z-index: 100;
 }
+
+#nama-wisata h5:hover{
+    color: brown !important;;
+}

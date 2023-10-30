@@ -3,11 +3,14 @@ import WisataSource from "../../../data/wisata-source";
 const MapPage = {
   async render() {
     return `
-      <h1>Ini peta page</h1>
-      <div id="map" style="height: 100vh;"></div>
+      <div id="map" style="height:100vh;"></div>
     `;
   },
   async afterRender() {
+    //   nonaktif side bar
+    const navLink = document.querySelector(".link-home");
+    navLink.classList.remove("active");
+
     // Mengaktifkan footer
     const footer = document.querySelector("footer-element");
     footer.style.display = "block";
@@ -16,6 +19,7 @@ const MapPage = {
     const wisata = await WisataSource.getWisata();
     const dataWisata = wisata.data;
     console.log(dataWisata);
+
     // fitur map
     let map = L.map("map").setView([-7.797068, 110.370529], 12);
     L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
@@ -37,7 +41,6 @@ const MapPage = {
           </div>`
         );
     });
-    L.Control.geocoder().addTo(map);
   }
 };
 export default MapPage;

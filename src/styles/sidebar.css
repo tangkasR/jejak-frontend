@@ -1,0 +1,21 @@
+.linkSidebar{
+    color: white !important;
+    font-size: 16px;
+}
+.linkSidebar:hover{
+   background-color: white;
+   color: black !important;
+}
+
+.linkSidebar.active{
+    color: black !important;
+    background-color: white;
+}
+.linkSidebar.active:hover{
+    background-color: white;
+    color: black !important;
+ }
+#btnLogout:hover{
+    color: black !important;
+    background-color: white;
+}

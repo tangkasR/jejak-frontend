@@ -10,9 +10,10 @@ class NavbarAdmin extends HTMLElement {
   render() {
     this.innerHTML = `
       <div
-        class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap py-1 pe-4 shadow"
+        class="navbar navbar-dark sticky-top flex-md-nowrap py-3 pe-4 shadow"
+        style="background-color:#3F4E4F;"
       >
-        <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3" href=""
+        <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3" href="#/dashboard" style="background-color:#3F4E4F;box-shadow:none"
           >JElajah jogJAKarta</a
         >
 

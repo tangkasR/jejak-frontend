@@ -12,7 +12,7 @@ const GalleryPage = {
           <div class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
             <div
               id="card-container"
-              class="p-5 d-flex flex-wrap align-items-center justify-content-center gap-2"
+              class="p-5 d-flex flex-wrap align-items-center justify-content-center gap-4"
             ></div>
           </div>
         </div>
@@ -53,10 +53,10 @@ const GalleryPage = {
       itemContainer.innerHTML += `
       <div class="card shadow p-3" style="min-width:300px; height:100%">
         <img src="${data.url}" style="width: 100%; height: 200px; object-fit:cover">
-        <a href="#/gallerywisataadmin/${data.id}" style="text-decoration: none"><h5 class="text-dark mt-3 mb-3">${data.nama}</h5></a>
-        <p>${data.kategori}</p>
-        <p>${data.lokasi}</p>
-        <p>${data.deskripsi}</p>
+        <a href="#/gallerywisataadmin/${data.id}" id="nama-wisata" style="text-decoration: none"><h5 class="text-dark mt-3 mb-3">Nama Wisata: ${data.nama}</h5></a>
+        <p>Kategori Wisata: ${data.kategori}</p>
+        <p>Lokasi Wisata: ${data.lokasi}</p>
+        <p>Deskripsi Wisata: ${data.deskripsi}</p>
       </div>
       `;
     });

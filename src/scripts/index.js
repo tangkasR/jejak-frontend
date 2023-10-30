@@ -3,6 +3,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle";
 import "../styles/dashboard.css";
 import "../styles/navbar.css";
+import "../styles/sidebar.css";
 import "../scripts/views/pages/user/HomePage";
 import "../styles/home.css";
 import "../styles/gallery-admin.css";

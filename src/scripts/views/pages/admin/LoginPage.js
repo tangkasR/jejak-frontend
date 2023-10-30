@@ -9,7 +9,7 @@ const LoginPage = {
         class="mt-4 d-flex flex-column align-items-center justify-content-center w-100"
         style="height: 60vh;"
       >
-        <div class="mt-3 card shadow p-4" style="width: 50%;">
+        <div class="mt-3 card shadow p-4" style="min-width: 50%;">
           <h3 class="text-center">Login</h3>
           <form class="loginform">
             <div class="mb-3">
@@ -30,9 +30,9 @@ const LoginPage = {
                 name="password"
               />
             </div>
-            <div class="d-flex align-items-center justify-content-between">
+            <div class="gap-3 d-flex flex-wrap align-items-center justify-content-between">
               <button type="submit" class="btn btn-primary px-4">Login</button>
-              <p class="mt-4">
+              <p class="">
                 Anda belum mempunyai akun?
                 <a href="#/register"> klik disini </a>
               </p>

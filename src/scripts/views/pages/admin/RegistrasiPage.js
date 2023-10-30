@@ -7,9 +7,9 @@ const RegistrasiPage = {
     return `
       <div
         class=" d-flex flex-column align-items-center justify-content-center w-100 mb-5"
-        style="min-height: 60vh; margin-top:80px"
+        style="min-height: 60vh; margin-top:115px"
       >
-        <div class="mt-3 card shadow p-4" style="width: 50%;">
+        <div class="mt-3 card shadow p-4" style="min-width: 50%;">
           <h3 class="text-center">Registrasi</h3>
           <form class="registrasiform">
             <div class="mb-3">
@@ -87,11 +87,11 @@ const RegistrasiPage = {
                 name="file"
               />
             </div>
-            <div class="d-flex align-items-center justify-content-between">
+            <div class="d-flex flex-wrap gap-3 align-items-center justify-content-between">
               <button type="submit" class="btn btn-primary px-4">
                 Registrasi
               </button>
-              <p class="mt-4">
+              <p class="">
                 Anda sudah mempunyai akun? <a href="#/login"> klik disini </a>
               </p>
             </div>

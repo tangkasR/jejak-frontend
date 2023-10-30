@@ -68,9 +68,10 @@ const DeleteGalleryPage = {
         imageHeight: 300,
         imageAlt: "Custom image",
         showCancelButton: true,
-        confirmButtonText: "Yes, delete it!",
-        cancelButtonText: "No, cancel!",
-        reverseButtons: true
+        confirmButtonText: "Ya, Hapus!",
+        cancelButtonText: "Batal",
+        reverseButtons: true,
+        allowOutsideClick: false
       })
       .then(async (result) => {
         if (result.isConfirmed) {

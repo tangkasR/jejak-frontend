@@ -12,7 +12,7 @@ const AddWisataPage = {
           <div
             class="col-md-9 ms-sm-auto col-lg-10 px-md-4 d-flex align-items-center justify-content-center"
           >
-            <div class="mt-4 card shadow p-4" style="width: 70%;">
+            <div class="mt-4 card shadow p-4" style="min-width: 70%;">
               <h3 class="text-center">Tambah Wisata</h3>
               <form class="addWisataForm">
                 <div class="mb-3">
