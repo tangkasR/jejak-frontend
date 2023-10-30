@@ -1,6 +1,7 @@
 import HotelSource from "../../../data/hotel-source";
 import WisataSource from "../../../data/wisata-source";
 import { async } from "regenerator-runtime";
+import Swal from "sweetalert2";
 
 const HotelPage = {
   async render() {
@@ -50,6 +51,13 @@ const HotelPage = {
 
     // eksekusi logout
     document.getElementById("btnLogout").addEventListener("click", async () => {
+      Swal.fire({
+        position: "top-end",
+        icon: "success",
+        title: "Berhasil Logout!",
+        showConfirmButton: false,
+        timer: 1500
+      });
       localStorage.removeItem("id");
       window.location.replace("#/login");
     });

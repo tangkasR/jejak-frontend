@@ -1,5 +1,6 @@
 import { async } from "regenerator-runtime";
 import AdminSource from "../../../data/admin-source";
+import Swal from "sweetalert2";
 
 const EditProfilPage = {
   async render() {
@@ -15,7 +16,7 @@ const EditProfilPage = {
               <h3 class="text-center">Edit Profil</h3>
               <form class="editForm"></form>
               <button
-                class="mt-2 btn btn-dark px-4"
+                class="mt-2 btn btn-danger px-4"
                 style="width:150px; max-width:100%"
                 id="btnDelete"
               >
@@ -31,6 +32,19 @@ const EditProfilPage = {
     // menonaktifkan navbar user
     const navbar = document.querySelector("navbar-element");
     navbar.style.display = "none";
+
+    // eksekusi logout
+    document.getElementById("btnLogout").addEventListener("click", async () => {
+      Swal.fire({
+        position: "top-end",
+        icon: "success",
+        title: "Berhasil Logout!",
+        showConfirmButton: false,
+        timer: 1500
+      });
+      localStorage.removeItem("id");
+      window.location.replace("#/login");
+    });
 
     // hapus footer
     const footer = document.querySelector("footer-element");
@@ -86,10 +100,22 @@ const EditProfilPage = {
         const response = await AdminSource.editData(id.id, data);
         if (response.length !== 0) {
           if (response.data) {
+            Swal.fire({
+              position: "top-end",
+              icon: "success",
+              title: "Berhasil  Mengubah Profil!",
+              showConfirmButton: false,
+              timer: 1500
+            });
             window.location.replace("#/profil");
             return;
           }
-          alert(response.response.data.msg);
+          Swal.fire({
+            icon: "error",
+            title: `${response.response.data.msg}!`,
+            text: `Tolong ulangi!`,
+            showConfirmButton: false
+          });
         }
       } catch (error) {
         console.log(error);
@@ -98,8 +124,22 @@ const EditProfilPage = {
 
     // eksekusi delete akun
     document.getElementById("btnDelete").addEventListener("click", async () => {
-      const delData = await AdminSource.deleteData(id.id);
-      window.location.replace("#/login");
+      Swal.fire({
+        title: "Apakah anda yakin?",
+        text: `Data ${data.data.name} akan dihapus!"`,
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Ya, Hapus!",
+        cancelButtonText: "Batal"
+      }).then(async (result) => {
+        if (result.isConfirmed) {
+          Swal.fire("Terhapus!", "Data berhasil dihapus.", "success");
+          const delData = await AdminSource.deleteData(id.id);
+          window.location.replace("#/login");
+        }
+      });
     });
   }
 };

@@ -1,5 +1,6 @@
 import WisataSource from "../../../data/wisata-source";
 import { async } from "regenerator-runtime";
+import Swal from "sweetalert2";
 
 const AddWisataPage = {
   async render() {
@@ -87,6 +88,13 @@ const AddWisataPage = {
 
     // eksekusi logout
     document.getElementById("btnLogout").addEventListener("click", async () => {
+      Swal.fire({
+        position: "top-end",
+        icon: "success",
+        title: "Berhasil Logout!",
+        showConfirmButton: false,
+        timer: 1500
+      });
       localStorage.removeItem("id");
       window.location.replace("#/login");
     });
@@ -144,10 +152,22 @@ const AddWisataPage = {
         if (response.length !== 0) {
           console.log(response);
           if (response.data) {
+            Swal.fire({
+              position: "top-end",
+              icon: "success",
+              title: "Berhasil Menambah Wisata!",
+              showConfirmButton: false,
+              timer: 1500
+            });
             window.location.replace("#/wisata");
             return;
           }
-          alert(response.response.data.msg);
+          Swal.fire({
+            icon: "error",
+            title: `${response.response.data.msg}!`,
+            text: `Tolong ulangi!`,
+            showConfirmButton: false
+          });
         }
       } catch (error) {
         console.log(error);

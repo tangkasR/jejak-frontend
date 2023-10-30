@@ -1,5 +1,6 @@
 import { async } from "regenerator-runtime";
 import AdminSource from "../../../data/admin-source";
+import Swal from "sweetalert2";
 
 const LoginPage = {
   async render() {
@@ -64,13 +65,25 @@ const LoginPage = {
             const myObj = {
               id: id
             };
+            Swal.fire({
+              position: "top-end",
+              icon: "success",
+              title: "Berhasil Login!",
+              showConfirmButton: false,
+              timer: 1500
+            });
+
             const myObj_string = JSON.stringify(myObj);
             localStorage.setItem("id", myObj_string);
             window.location.replace("#/dashboard");
             return;
           }
-          console.log(response.response.data.msg);
-          alert(response.response.data.msg);
+          Swal.fire({
+            icon: "error",
+            title: `${response.response.data.msg}!`,
+            text: `Tolong ulangi!`,
+            showConfirmButton: false
+          });
         }
       } catch (error) {
         console.log(error);

@@ -10,6 +10,7 @@ import "./views/templates/NavbarElement.js";
 import "./views/templates/NavbarAdminElement.js";
 import "./views/templates/SideBarElement.js";
 import "./views/templates/Footer.js";
+
 import App from "./views/app";
 
 const app = new App({

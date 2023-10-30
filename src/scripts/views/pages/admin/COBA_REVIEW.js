@@ -3,6 +3,7 @@ import ReviewSource from "../../../data/review-source";
 import HotelSource from "../../../data/hotel-source";
 import { async } from "regenerator-runtime";
 import UrlParser from "../../../routes/url-parser";
+import Swal from "sweetalert2";
 
 const CobaReviewPage = {
   async render() {
@@ -32,6 +33,13 @@ const CobaReviewPage = {
 
     // eksekusi logout
     document.getElementById("btnLogout").addEventListener("click", async () => {
+      Swal.fire({
+        position: "top-end",
+        icon: "success",
+        title: "Berhasil Logout!",
+        showConfirmButton: false,
+        timer: 1500
+      });
       localStorage.removeItem("id");
       window.location.replace("#/login");
     });
@@ -121,7 +129,12 @@ const CobaReviewPage = {
           location.reload();
           return;
         }
-        alert(response.response.data.msg);
+        Swal.fire({
+          icon: "error",
+          title: `${response.response.data.msg}!`,
+          text: `Tolong ulangi!`,
+          showConfirmButton: false
+        });
       }
     });
 

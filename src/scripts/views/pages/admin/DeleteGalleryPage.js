@@ -4,6 +4,7 @@ import HotelSource from "../../../data/hotel-source";
 import GallerySource from "../../../data/gallery-source";
 import { async } from "regenerator-runtime";
 import UrlParser from "../../../routes/url-parser";
+import Swal from "sweetalert2";
 
 const DeleteGalleryPage = {
   async render() {
@@ -12,20 +13,9 @@ const DeleteGalleryPage = {
       <div class="container-fluid">
         <div class="row">
           <sidebar-element></sidebar-element>
-          <div class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
-            <div
-              card
-              class="d-flex align-items-center justify-content-center text-white text-center"
-              style="min-height:80vh; width:100%; z-index:100;"
-            >
-              <div
-                id="container-item-foto"
-                class=""
-              ></div>
-            </div>
-          </div>
-          <div id="overlay" style="z-index:-1"></div>
+          <div class="col-md-9 ms-sm-auto col-lg-10 px-md-4"></div>
         </div>
+        <div id="overlay"></div>
       </div>
     `;
   },
@@ -43,6 +33,13 @@ const DeleteGalleryPage = {
 
     // eksekusi logout
     document.getElementById("btnLogout").addEventListener("click", async () => {
+      Swal.fire({
+        position: "top-end",
+        icon: "success",
+        title: "Berhasil Logout!",
+        showConfirmButton: false,
+        timer: 1500
+      });
       localStorage.removeItem("id");
       window.location.replace("#/login");
     });
@@ -51,27 +48,51 @@ const DeleteGalleryPage = {
     const navLink = document.getElementById("gallery-link");
     navLink.classList.add("active");
 
-    // get data foto
-    const containerItem = document.getElementById("container-item-foto");
+    // eksekusi delete
     const foto = await GallerySource.getGalleryById(url.id);
     const data = foto.data;
-    console.log(data);
-    containerItem.innerHTML += `
-      <img src="${data.url}" alt="" style="border-radius:10px" class="shadow"/>
-      <h5 class="my-3">Apakah anda ingin menghapus gambar ini?</h5>
-      <div class="d-flex align-items-center justify-content-center gap-3">
-        <button id="ya" class="text-white" style="outline:none; border:none; background:none">Ya</button>
-        <button id="tidak" class="text-white" style="outline:none; border:none; background:none">Tidak</button>
-      </div>
-    `;
-
-    // eksekusi delete
-    document.getElementById("tidak").addEventListener("click", () => {
-      window.location.replace(`#/gallerywisataadmin/${data.wisatumId}`);
+    const swalWithBootstrapButtons = Swal.mixin({
+      customClass: {
+        confirmButton: "mx-2 btn btn-success",
+        cancelButton: "mx-2 btn btn-danger"
+      },
+      buttonsStyling: false
     });
 
-    document.getElementById("ya").addEventListener("click", async () => {
-      await GallerySource.deleteGallery(url.id);
+    swalWithBootstrapButtons
+      .fire({
+        title: `Apakah anda yakin?`,
+        text: "Foto akan dihapus!",
+        imageUrl: `${data.url}`,
+        imageWidth: 400,
+        imageHeight: 300,
+        imageAlt: "Custom image",
+        showCancelButton: true,
+        confirmButtonText: "Yes, delete it!",
+        cancelButtonText: "No, cancel!",
+        reverseButtons: true
+      })
+      .then(async (result) => {
+        if (result.isConfirmed) {
+          swalWithBootstrapButtons.fire(
+            "Deleted!",
+            "Foto berhasil dihapus!",
+            "success"
+          );
+          await GallerySource.deleteGallery(url.id);
+          window.location.replace(`#/gallerywisataadmin/${data.wisatumId}`);
+        } else if (result.dismiss === Swal.DismissReason.cancel) {
+          swalWithBootstrapButtons.fire(
+            "Cancelled",
+            "Foto tidak dihapus!",
+            "error"
+          );
+          window.location.replace(`#/gallerywisataadmin/${data.wisatumId}`);
+        }
+      });
+
+    const overlay = document.getElementById("overlay");
+    overlay.addEventListener("click", () => {
       window.location.replace(`#/gallerywisataadmin/${data.wisatumId}`);
     });
   }

@@ -1,5 +1,6 @@
 import { async } from "regenerator-runtime";
 import AdminSource from "../../../data/admin-source";
+import Swal from "sweetalert2";
 
 const RegistrasiPage = {
   async render() {
@@ -114,10 +115,22 @@ const RegistrasiPage = {
         const response = await AdminSource.registrasi(data);
         if (response.length !== 0) {
           if (response.data) {
+            Swal.fire({
+              position: "top-end",
+              icon: "success",
+              title: "Berhasil Registrasi!",
+              showConfirmButton: false,
+              timer: 1500
+            });
             window.location.replace("#/login");
             return;
           }
-          alert(response.response.data.msg);
+          Swal.fire({
+            icon: "error",
+            title: `${response.response.data.msg}!`,
+            text: `Tolong ulangi!`,
+            showConfirmButton: false
+          });
         }
       } catch (error) {
         console.log(error);

@@ -1,5 +1,6 @@
 import WisataSource from "../../../data/wisata-source";
 import { async } from "regenerator-runtime";
+import Swal from "sweetalert2";
 
 const GalleryPage = {
   async render() {
@@ -29,6 +30,13 @@ const GalleryPage = {
 
     // eksekusi logout
     document.getElementById("btnLogout").addEventListener("click", async () => {
+      Swal.fire({
+        position: "top-end",
+        icon: "success",
+        title: "Berhasil Logout!",
+        showConfirmButton: false,
+        timer: 1500
+      });
       localStorage.removeItem("id");
       window.location.replace("#/login");
     });
@@ -43,8 +51,8 @@ const GalleryPage = {
     const datas = response.data;
     datas.forEach((data) => {
       itemContainer.innerHTML += `
-      <div class="card shadow p-3" style="max-width:200px; height:100%">
-        <img src="${data.url}" style="max-width: 200px; min-height: 200px; object-fit:cover">
+      <div class="card shadow p-3" style="min-width:300px; height:100%">
+        <img src="${data.url}" style="width: 100%; height: 200px; object-fit:cover">
         <a href="#/gallerywisataadmin/${data.id}" style="text-decoration: none"><h5 class="text-dark mt-3 mb-3">${data.nama}</h5></a>
         <p>${data.kategori}</p>
         <p>${data.lokasi}</p>

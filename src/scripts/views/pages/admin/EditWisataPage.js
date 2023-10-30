@@ -1,6 +1,7 @@
 import WisataSource from "../../../data/wisata-source";
 import { async } from "regenerator-runtime";
 import UrlParser from "../../../routes/url-parser";
+import Swal from "sweetalert2";
 
 const EditWisataPage = {
   async render() {
@@ -42,6 +43,13 @@ const EditWisataPage = {
 
     // eksekusi logout
     document.getElementById("btnLogout").addEventListener("click", async () => {
+      Swal.fire({
+        position: "top-end",
+        icon: "success",
+        title: "Berhasil Logout!",
+        showConfirmButton: false,
+        timer: 1500
+      });
       localStorage.removeItem("id");
       window.location.replace("#/login");
     });
@@ -157,17 +165,44 @@ const EditWisataPage = {
       const response = await WisataSource.editWisata(url.id, data);
       if (response.length !== 0) {
         if (response.data) {
+          Swal.fire({
+            position: "top-end",
+            icon: "success",
+            title: "Berhasil Mengubah Wisata!",
+            showConfirmButton: false,
+            timer: 1500
+          });
           window.location.replace("#/wisata");
           return;
         }
-        alert(response.response.data.msg);
+        Swal.fire({
+          icon: "error",
+          title: `${response.response.data.msg}!`,
+          text: `Tolong ulangi!`,
+          showConfirmButton: false
+        });
       }
     });
 
     // eksekusi delete wisata
+
     document.getElementById("btnDel").addEventListener("click", async () => {
-      await WisataSource.deleteWisata(url.id);
-      window.location.replace("#/wisata");
+      Swal.fire({
+        title: "Apakah anda yakin?",
+        text: `Data ${data.nama} akan dihapus!"`,
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Ya, Hapus!",
+        cancelButtonText: "Batal"
+      }).then(async (result) => {
+        if (result.isConfirmed) {
+          Swal.fire("Terhapus!", "Data berhasil dihapus.", "success");
+          await WisataSource.deleteWisata(url.id);
+          window.location.replace("#/wisata");
+        }
+      });
     });
   }
 };

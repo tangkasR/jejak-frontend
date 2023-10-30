@@ -4,6 +4,7 @@ import HotelSource from "../../../data/hotel-source";
 import GallerySource from "../../../data/gallery-source";
 import { async } from "regenerator-runtime";
 import UrlParser from "../../../routes/url-parser";
+import Swal from "sweetalert2";
 
 const GalleryAddDelPage = {
   async render() {
@@ -63,6 +64,13 @@ const GalleryAddDelPage = {
 
     // eksekusi logout
     document.getElementById("btnLogout").addEventListener("click", async () => {
+      Swal.fire({
+        position: "top-end",
+        icon: "success",
+        title: "Berhasil Logout!",
+        showConfirmButton: false,
+        timer: 1500
+      });
       localStorage.removeItem("id");
       window.location.replace("#/login");
     });
@@ -112,10 +120,22 @@ const GalleryAddDelPage = {
       console.log(gallery);
       if (gallery.length !== 0) {
         if (gallery.data) {
+          Swal.fire({
+            position: "top-end",
+            icon: "success",
+            title: "Berhasil Menambah Foto!",
+            showConfirmButton: false,
+            timer: 1500
+          });
           window.location.reload();
           return;
         }
-        alert(gallery.response.data.msg);
+        Swal.fire({
+          icon: "error",
+          title: `${gallery.response.data.msg}!`,
+          text: `Tolong ulangi!`,
+          showConfirmButton: false
+        });
       }
     });
   }

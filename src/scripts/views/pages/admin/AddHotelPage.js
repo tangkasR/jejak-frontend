@@ -1,5 +1,6 @@
 import HotelSource from "../../../data/hotel-source";
 import WisataSource from "../../../data/wisata-source";
+import Swal from "sweetalert2";
 import { async } from "regenerator-runtime";
 
 const AddHotelPage = {
@@ -85,6 +86,13 @@ const AddHotelPage = {
 
     // eksekusi logout
     document.getElementById("btnLogout").addEventListener("click", async () => {
+      Swal.fire({
+        position: "top-end",
+        icon: "success",
+        title: "Berhasil Logout!",
+        showConfirmButton: false,
+        timer: 1500
+      });
       localStorage.removeItem("id");
       window.location.replace("#/login");
     });
@@ -114,10 +122,22 @@ const AddHotelPage = {
       const response = await HotelSource.addHotel(data);
       if (response.length !== 0) {
         if (response.data) {
+          Swal.fire({
+            position: "top-end",
+            icon: "success",
+            title: "Berhasil Menambah Hotel!",
+            showConfirmButton: false,
+            timer: 1500
+          });
           window.location.replace("#/hotel");
           return;
         }
-        alert(response.response.data.msg);
+        Swal.fire({
+          icon: "error",
+          title: `${response.response.data.msg}!`,
+          text: `Tolong ulangi!`,
+          showConfirmButton: false
+        });
       }
     });
   }

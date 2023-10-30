@@ -2,6 +2,7 @@ import HotelSource from "../../../data/hotel-source";
 import WisataSource from "../../../data/wisata-source";
 import { async } from "regenerator-runtime";
 import UrlParser from "../../../routes/url-parser";
+import Swal from "sweetalert2";
 
 const EditHotelPage = {
   async render() {
@@ -83,6 +84,13 @@ const EditHotelPage = {
 
     // eksekusi logout
     document.getElementById("btnLogout").addEventListener("click", async () => {
+      Swal.fire({
+        position: "top-end",
+        icon: "success",
+        title: "Berhasil Logout!",
+        showConfirmButton: false,
+        timer: 1500
+      });
       localStorage.removeItem("id");
       window.location.replace("#/login");
     });
@@ -122,17 +130,43 @@ const EditHotelPage = {
       const response = await HotelSource.editHotel(url.id, data);
       if (response.length !== 0) {
         if (response.data) {
+          Swal.fire({
+            position: "top-end",
+            icon: "success",
+            title: "Berhasil Mengubah Hotel!",
+            showConfirmButton: false,
+            timer: 1500
+          });
           window.location.replace("#/hotel");
           return;
         }
-        alert(response.response.data.msg);
+        Swal.fire({
+          icon: "error",
+          title: `${response.response.data.msg}!`,
+          text: `Tolong ulangi!`,
+          showConfirmButton: false
+        });
       }
     });
 
     // eksekusi delete wisata
     document.getElementById("btnDel").addEventListener("click", async () => {
-      await HotelSource.deleteHotel(url.id);
-      window.location.replace("#/hotel");
+      Swal.fire({
+        title: "Apakah anda yakin?",
+        text: `Data ${data.nama} akan dihapus!"`,
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Ya, Hapus!",
+        cancelButtonText: "Batal"
+      }).then(async (result) => {
+        if (result.isConfirmed) {
+          Swal.fire("Terhapus!", "Data berhasil dihapus.", "success");
+          await HotelSource.deleteHotel(url.id);
+          window.location.replace("#/hotel");
+        }
+      });
     });
   }
 };

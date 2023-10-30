@@ -1,4 +1,5 @@
 import AdminSource from "../../../data/admin-source";
+import Swal from "sweetalert2";
 
 const ProfilPage = {
   async render() {
@@ -35,6 +36,13 @@ const ProfilPage = {
 
     // eksekusi logout
     document.getElementById("btnLogout").addEventListener("click", async () => {
+      Swal.fire({
+        position: "top-end",
+        icon: "success",
+        title: "Berhasil Logout!",
+        showConfirmButton: false,
+        timer: 1500
+      });
       localStorage.removeItem("id");
       window.location.replace("#/login");
     });
