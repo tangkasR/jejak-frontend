@@ -4,7 +4,7 @@ const MapPage = {
   async render() {
     return `
       <h1>Ini peta page</h1>
-      <div id="map" style="height: 80vh;"></div>
+      <div id="map" style="height: 100vh;"></div>
     `;
   },
   async afterRender() {
@@ -25,12 +25,19 @@ const MapPage = {
     }).addTo(map);
     dataWisata.forEach((data) => {
       let marker = L.marker([data.latitude, data.longitude], {
+        title: `tes123`,
         alt: `${data.nama}`
       })
         .addTo(map)
-        .bindPopup(`<b>Wisata ${data.nama}</b><br>${data.deskripsi}`);
-      L.Control.geocoder().addTo(map);
+        .bindPopup(
+          `<div class="text-center">
+            <h5>Wisata ${data.nama}</h5>
+            <img src="${data.url}" style="width:200px;"/>
+            <p>${data.deskripsi}</p>
+          </div>`
+        );
     });
+    L.Control.geocoder().addTo(map);
   }
 };
 export default MapPage;
