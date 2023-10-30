@@ -329,7 +329,8 @@ const HomePage = {
     `;
   },
   async afterRender() {
-    console.log("hola");
+    const footer = document.querySelector("footer-element");
+    footer.style.display = "block";
   }
 };
 export default HomePage;

@@ -62,6 +62,10 @@ const AddWisataPage = {
                     name="file"
                   />
                 </div>
+                <div class="mb-3" id="map" style="height: 60vh;">
+                </div>
+                <div id="latLong" class="row align-items-center justify-content-center">
+                </div>
                 <button type="submit" class="btn btn-primary px-4 my-3">
                   Simpan
                 </button>
@@ -90,6 +94,44 @@ const AddWisataPage = {
     //   active side bar
     const navLink = document.getElementById("wisata-link");
     navLink.classList.add("active");
+
+    // fitur map
+    var map = L.map("map").setView([-7.797068, 110.370529], 12);
+    L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
+      maxZoom: 19,
+      attribution:
+        '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+    }).addTo(map);
+    L.Control.geocoder().addTo(map);
+
+    map.on("click", (e) => {
+      console.log(`latitude: ${e.latlng.lat}, longitude: ${e.latlng.lng}`);
+
+      // get lat dan lng dari map
+      const containerMap = document.getElementById("latLong");
+      containerMap.innerHTML = `
+      <div class="mb-3 col-6">
+        <label for="inputLatitude" class="form-label">Latitude</label>
+        <input
+          type="text"
+          class="form-control"
+          id="inputLatitude"
+          name="latitude"
+          value="${e.latlng.lat}"
+        />
+      </div>
+      <div class="mb-3 col-6">
+        <label for="inputLongitude" class="form-label">Longitude</label>
+        <input
+          type="text"
+          class="form-control"
+          id="inputLongitude"
+          name="longitude"
+          value="${e.latlng.lng}"
+        />
+      </div>
+    `;
+    });
 
     // eksekusi tambah wisata
     const form = document.querySelector(".addWisataForm");

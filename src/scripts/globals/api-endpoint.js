@@ -39,6 +39,7 @@ const API_ENDPOINT = {
     `${CONFIG.BASE_URL}/getgallerybywisataid/${id}`,
   ADD_GALLERY: (id) => `${CONFIG.BASE_URL}/creategallery/${id}`,
   DELETE_GALLERY: (id) => `${CONFIG.BASE_URL}/deletegallery/${id}`
+
 };
 
 export default API_ENDPOINT;

@@ -54,28 +54,100 @@ const EditWisataPage = {
     const response = await WisataSource.getWisataById(url.id);
     const data = response.data;
     form.innerHTML = `
-        <div class="mb-3">
-            <label for="inputNama" class="form-label">Nama</label>
-            <input type="text" class="form-control" id="inputNama" value='${data.nama}' name="nama">
-        </div>
-        <div class="mb-3">
-            <label for="inputKategori" class="form-label">Kategori</label>
-            <input type="text" class="form-control" id="inputKategori" value='${data.kategori}' name="kategori">
-        </div>
-        <div class="mb-3">
-            <label for="inputLokasi" class="form-label">Lokasi</label>
-            <input type="text" class="form-control" id="inputLokasi" value='${data.lokasi}' name="lokasi">
-        </div>
-        <div class="form-floating mb-3">
-            <textarea class="form-control" placeholder="Deskripsi wisata" id="inputDeskripsi" style="height: 100px" value='${data.lokasi}'  name="deskripsi"></textarea>
-            <label for="inputDeskripsi">Deskripsi wisata</label>
-        </div>
-        <div class="mb-3">
-            <label for="formFile" class="form-label">Masukan foto utama</label>
-            <input class="form-control" type="file" id="formFile" name="file">
-        </div>
-        <button type="submit" class="btn btn-primary px-4 mt-3" style="width:120px;">Simpan</button>
+      <div class="mb-3">
+        <label for="inputNama" class="form-label">Nama</label>
+        <input
+          type="text"
+          class="form-control"
+          id="inputNama"
+          value="${data.nama}"
+          name="nama"
+        />
+      </div>
+      <div class="mb-3">
+        <label for="inputKategori" class="form-label">Kategori</label>
+        <input
+          type="text"
+          class="form-control"
+          id="inputKategori"
+          value="${data.kategori}"
+          name="kategori"
+        />
+      </div>
+      <div class="mb-3">
+        <label for="inputLokasi" class="form-label">Lokasi</label>
+        <input
+          type="text"
+          class="form-control"
+          id="inputLokasi"
+          value="${data.lokasi}"
+          name="lokasi"
+        />
+      </div>
+      <div class="form-floating mb-3">
+        <textarea
+          class="form-control"
+          placeholder="Deskripsi wisata"
+          id="inputDeskripsi"
+          style="height: 100px"
+          value="${data.lokasi}"
+          name="deskripsi"
+        ></textarea>
+        <label for="inputDeskripsi">Deskripsi wisata</label>
+      </div>
+      <div class="mb-3">
+        <label for="formFile" class="form-label">Masukan foto utama</label>
+        <input class="form-control" type="file" id="formFile" name="file" />
+      </div>
+      <div class="mb-3" id="map" style="height: 60vh;"></div>
+      <div
+        id="latLong"
+        class="row align-items-center justify-content-center"
+      ></div>
+      <button
+        type="submit"
+        class="btn btn-primary px-4 mt-3"
+        style="width:120px;"
+      >
+        Simpan
+      </button>
     `;
+    // fitur map
+    var map = L.map("map").setView([-7.797068, 110.370529], 12);
+    L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
+      maxZoom: 19,
+      attribution:
+        '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+    }).addTo(map);
+    L.Control.geocoder().addTo(map);
+    map.on("click", (e) => {
+      console.log(`latitude: ${e.latlng.lat}, longitude: ${e.latlng.lng}`);
+
+      // get lat dan lng dari map
+      const containerMap = document.getElementById("latLong");
+      containerMap.innerHTML = `
+      <div class="mb-3 col-6">
+        <label for="inputLatitude" class="form-label">Latitude</label>
+        <input
+          type="text"
+          class="form-control"
+          id="inputLatitude"
+          name="latitude"
+          value="${e.latlng.lat}"
+        />
+      </div>
+      <div class="mb-3 col-6">
+        <label for="inputLongitude" class="form-label">Longitude</label>
+        <input
+          type="text"
+          class="form-control"
+          id="inputLongitude"
+          name="longitude"
+          value="${e.latlng.lng}"
+        />
+      </div>
+    `;
+    });
 
     // eksekusi tambah wisata
     form.addEventListener("submit", async (event) => {
