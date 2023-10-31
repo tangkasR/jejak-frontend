@@ -6,38 +6,58 @@ const LoginPage = {
   async render() {
     return `
       <div
-        class="mt-4 d-flex flex-column align-items-center justify-content-center w-100"
-        style="height: 60vh;"
+        class="d-flex align-items-center justify-content-center w-100"
+        style="min-height:100vh;"
       >
-        <div class="mt-3 card shadow p-4" style="min-width: 50%;">
-          <h3 class="text-center">Login</h3>
-          <form class="loginform">
-            <div class="mb-3">
-              <label for="inputEmail" class="form-label">Email</label>
-              <input
-                type="email"
-                class="form-control"
-                id="inputEmail"
-                name="email"
-              />
+        <div class="card shadow" style="min-width:60%">
+          <div
+            class="m-0 row align-items-center justify-content-center"
+          >
+            <div
+              class="col-12 col-sm-6 d-flex flex-column align-items-center justify-content-center rounded"
+              style="min-height:600px; max-height:100%"
+              id="sideContentLogin"
+            >
+              <div id="textAsideLogin" class="text-center text-light">
+                <h1>Jelajah Jogjakarta</h1>
+                <p>Jelajahi Jogja, Pesona setiap sudut</p>
+              </div>
             </div>
-            <div class="mb-3">
-              <label for="inputPassword" class="form-label">Password</label>
-              <input
-                type="password"
-                class="form-control"
-                id="inputPassword"
-                name="password"
-              />
+            <div class="col-12 col-sm-6 p-5">
+              <h3 class="text-center">Login</h3>
+              <form class="loginform">
+                <div class="mb-3">
+                  <label for="inputEmail" class="form-label">Email</label>
+                  <input
+                    type="email"
+                    class="form-control"
+                    id="inputEmail"
+                    name="email"
+                  />
+                </div>
+                <div class="mb-3">
+                  <label for="inputPassword" class="form-label">Password</label>
+                  <input
+                    type="password"
+                    class="form-control"
+                    id="inputPassword"
+                    name="password"
+                  />
+                </div>
+                <div
+                  class="gap-3 d-flex flex-wrap align-items-center justify-content-between"
+                >
+                  <button type="submit" class="w-100 mt-3 btn btn-primary px-4">
+                    Login
+                  </button>
+                  <p class="">
+                    Anda belum mempunyai akun?
+                    <a href="#/register"> klik disini </a>
+                  </p>
+                </div>
+              </form>
             </div>
-            <div class="gap-3 d-flex flex-wrap align-items-center justify-content-between">
-              <button type="submit" class="btn btn-primary px-4">Login</button>
-              <p class="">
-                Anda belum mempunyai akun?
-                <a href="#/register"> klik disini </a>
-              </p>
-            </div>
-          </form>
+          </div>
         </div>
       </div>
     `;
