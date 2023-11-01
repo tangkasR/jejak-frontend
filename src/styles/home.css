@@ -72,13 +72,13 @@ body {
 .hero_title {
   color: #dcd7c9;
   font-weight: 800;
-  font-size: 60px;
+  font-size: 40px;
 }
 
 .hero_tagline {
   color: #dcd7c9;
   margin-top: 16px;
-  font-size: 18px;
+  font-size: 15px;
   font-weight: 600;
 }
 
@@ -90,9 +90,8 @@ body {
 /* End Jumbotron */
 
 /* Destination */
-
-.cardItem {
-  width: 100%;
+.card img {
+  object-fit: cover;
 }
 
 .content-card {
@@ -104,67 +103,6 @@ body {
   height: 100%;
   opacity: 0;
 }
-.primary img {
-  width: 100%;
-  height: 305px;
-}
-.primary-two img {
-  width: 100%;
-  height: 308px;
-}
-.card img {
-  width: 100%;
-  object-fit: cover;
-  min-height: 150px;
-}
-@media only screen and (min-width: 576px) {
-  .primary img {
-    min-height: 309px;
-  }
-  .primary-two img {
-    width: 100%;
-    min-height: 310px;
-  }
-  .cardItem {
-    width: 100%;
-  }
-}
-@media only screen and (min-width: 768px) {
-  .primary img {
-    min-height: 391px;
-  }
-  .primary-two img {
-    width: 100%;
-    min-height: 400px;
-  }
-}
-@media only screen and (min-width: 991px) {
-  .primary img {
-    min-height: 528px;
-  }
-  .primary-two img {
-    width: 100%;
-    min-height: 538px;
-  }
-}
-@media only screen and (min-width: 1200px) {
-  .primary img {
-    min-height: 628px;
-  }
-  .primary-two img {
-    width: 100%;
-    min-height: 638px;
-  }
-}
-@media only screen and (min-width: 1400px) {
-  .primary img {
-    min-height: 400px;
-  }
-  .primary-two img {
-    width: 100%;
-    min-height: 400px;
-  }
-}
 
 .item-card {
   display: flex;
@@ -174,46 +112,19 @@ body {
   width: 100%;
   height: 100%;
 }
-
-.card_items :hover {
-  transform: scale(1.1);
-  z-index: 100;
+.card_items:hover {
   transition: transform 0.5s;
   cursor: pointer;
 }
-
-.item-card p:hover,
-.item-card h5:hover {
-  transform: scale(1);
-}
-
 .content-card:hover {
   opacity: 100%;
-  transform: scale(1);
-}
-
-.content-card:hover {
   display: block;
   padding: 30px;
   text-wrap: wrap;
   text-align: center;
 }
-
-.content-card h5 {
-  font-size: 16px;
-  font-weight: 600;
-  color: #a27b5c;
-  margin-bottom: 0;
-  margin-left: 5px;
-}
-
-.content-card p {
-  color: #dcd7c9;
-  font-size: 14px;
-  margin-left: 5px;
-}
-.card img {
-  object-fit: cover;
+.destination-container{
+  padding: 0 20px;
 }
 
 /* End Destination */
@@ -251,9 +162,8 @@ body {
 }
 
 .kategori_card img {
-  width: 50px;
-  height: 50px;
-  margin-top: 10px;
+  max-width: 50px;
+  max-height: 50px;
   object-fit: contain;
 }
 
@@ -300,8 +210,13 @@ body {
 .swiper-slide img {
   display: block;
   width: 100%;
-  height: 50vh;
   object-fit: cover;
+}
+.item-top-penginapan img{
+  height: 75vh;
+}
+.item-wisata-lainnya img{
+  height: 40vh;
 }
 
 .startpage {
@@ -327,3 +242,105 @@ body {
 .btn-start:hover i {
   color: var(--txt-primary) !important;
 }
+
+/* responsive */
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 400px) {
+  .content-card h5 {
+    font-size: 10px;
+    font-weight: 600;
+    color: #a27b5c;
+    margin-bottom: 0;
+  }
+
+  .content-card p {
+    color: #dcd7c9;
+    font-size: 8px;
+  }
+  
+}
+@media only screen and (min-width: 400px) {
+  .content-card h5 {
+    font-size: 12px;
+    font-weight: 600;
+    color: #a27b5c;
+    margin-bottom: 0;
+  }
+
+  .content-card p {
+    color: #dcd7c9;
+    font-size: 10px;
+  }
+  
+}
+@media only screen and (min-width: 520px) {
+  .content-card h5 {
+    font-size: 16px;
+    font-weight: 600;
+    color: #a27b5c;
+    margin-bottom: 0;
+  }
+
+  .content-card p {
+    color: #dcd7c9;
+    font-size: 14px;
+  }
+}
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+  .hero_title {
+    font-size: 60px;
+  }
+  
+  .hero_tagline {
+    font-size: 18px;
+  }
+
+  .content-card h5 {
+    font-size: 12px;
+  }
+  
+  .content-card p {
+    font-size: 8px;
+  }
+
+  .card_items:hover {
+    transform: scale(1.05);
+    z-index: 100;
+  }
+
+  .item-card p:hover,
+  .item-card h5:hover {
+    transform: scale(1);
+  }
+
+  .content-card:hover {
+    transform: scale(1);
+  }
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+  .content-card h5 {
+    font-size: 14px;
+  }
+  
+  .content-card p {
+    font-size: 12px;
+  }
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+  .content-card h5 {
+    font-size: 16px;
+  }
+  
+  .content-card p {
+    font-size: 14px;
+  }
+  .destination-container{
+    padding: 0;
+  }
+}
+/* end responsive */

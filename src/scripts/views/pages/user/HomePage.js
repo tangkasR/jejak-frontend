@@ -13,7 +13,7 @@ const HomePage = {
           </p>
         </div>
       </div>
-      <div class="container py-5">
+      <div class="container-xl py-5">
         <h2 class="w-100 mt-5 title">Destinasi Populer</h2>
         <hr class="hr" />
         <p class="subtitle">
@@ -21,10 +21,10 @@ const HomePage = {
           <br />
           dan terbaik di kalangan wisatawan dari luar ataupun dalam negeri.
         </p>
-        <div class="w-100 row align-items-center justify-content-center ps-3">
-          <div class="col-6 p-0">
-            <div class="card_items primary">
-              <div class="card cardItem">
+        <div class="row align-items-center justify-content-center destination-container">
+          <div class="col-md-6 mb-3 mb-md-0">
+            <div class="card_items">
+              <div class="card card-wrapper">
                 <img src="./images/pantai.jpeg" />
                 <div class="content-card">
                   <div class="item-card">
@@ -35,28 +35,56 @@ const HomePage = {
               </div>
             </div>
           </div>
-          <div class="col-6 p-0">
-            <div class="col-12 p-0">
-              <div class="card_items ps-2 mb-2">
-                <div class="card cardItem">
-                  <img src="./images/pantai.jpeg" />
-                  <div class="content-card">
-                    <div class="item-card">
-                      <h5>Pantai Watulangit</h5>
-                      <p>Pantai mantap</p>
+          <div class="col-12 col-md-6">
+            <div class="row align-items-center justify-content-center">
+              <div class="col-6 col-md-6 py-2">
+                <div class="card_items">
+                  <div class="card">
+                    <img src="./images/pantai.jpeg" />
+                    <div class="content-card">
+                      <div class="item-card">
+                        <h5>Pantai Watulangit</h5>
+                        <p>Pantai mantap</p>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
-            </div>
-            <div class="col-12 p-0">
-              <div class="card_items ps-2">
-                <div class="card cardItem">
-                  <img src="./images/pantai.jpeg" />
-                  <div class="content-card">
-                    <div class="item-card">
-                      <h5>Pantai Watulangit</h5>
-                      <p>Pantai mantap</p>
+              <div class="col-6 col-md-6 py-2">
+                <div class="card_items">
+                  <div class="card">
+                    <img src="./images/pantai.jpeg" />
+                    <div class="content-card">
+                      <div class="item-card">
+                        <h5>Pantai Watulangit</h5>
+                        <p>Pantai mantap</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-6 col-md-6 py-2">
+                <div class="card_items">
+                  <div class="card">
+                    <img src="./images/pantai.jpeg" />
+                    <div class="content-card">
+                      <div class="item-card">
+                        <h5>Pantai Watulangit</h5>
+                        <p>Pantai mantap</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-6 col-md-6 py-2">
+                <div class="card_items">
+                  <div class="card">
+                    <img src="./images/pantai.jpeg" />
+                    <div class="content-card">
+                      <div class="item-card">
+                        <h5>Pantai Watulangit</h5>
+                        <p>Pantai mantap</p>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -64,49 +92,7 @@ const HomePage = {
             </div>
           </div>
         </div>
-        <div class="w-100 row ps-3 align-items-center justify-content-center">
-          <div class="col-6 p-0">
-            <div class="col-12 p-0">
-              <div class="card_items mb-2 mt-2">
-                <div class="card cardItem">
-                  <img src="./images/pantai.jpeg" />
-                  <div class="content-card">
-                    <div class="item-card">
-                      <h5>Pantai Watulangit</h5>
-                      <p>Pantai mantap</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-12 p-0">
-              <div class="card_items">
-                <div class="card cardItem">
-                  <img src="./images/pantai.jpeg" />
-                  <div class="content-card">
-                    <div class="item-card">
-                      <h5>Pantai Watulangit</h5>
-                      <p>Pantai mantap</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-6 py-1 p-0">
-            <div class="card_items primary-two ms-2 mt-2">
-              <div class="card cardItem">
-                <img src="./images/pantai.jpeg" />
-                <div class="content-card">
-                  <div class="item-card">
-                    <h5>Pantai Watulangit</h5>
-                    <p>Pantai mantap</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+
       </div>
       <div class="container-fluid category">
         <h2 class="w-100  title">Kategori Wisata</h2>
@@ -144,10 +130,18 @@ const HomePage = {
         </p>
         <div class="swiper mySwiper">
           <div class="swiper-wrapper">
-            <div class="swiper-slide"><img src="./images/pantai.jpeg" /></div>
-            <div class="swiper-slide"><img src="./images/pantai.jpeg" /></div>
-            <div class="swiper-slide"><img src="./images/pantai.jpeg" /></div>
-            <div class="swiper-slide"><img src="./images/pantai.jpeg" /></div>
+            <div class="swiper-slide item-top-penginapan">
+              <img src="./images/penginapan_1.jpg" />
+            </div>
+            <div class="swiper-slide item-top-penginapan">
+              <img src="./images/penginapan_1.jpg" />
+            </div>
+            <div class="swiper-slide item-top-penginapan">
+              <img src="./images/penginapan_1.jpg" />
+            </div>
+            <div class="swiper-slide item-top-penginapan">
+              <img src="./images/penginapan_1.jpg" />
+            </div>
           </div>
           <div class="swiper-pagination"></div>
         </div>
@@ -204,15 +198,88 @@ const HomePage = {
           <br />
           dan terbaik di kalangan wisatawan dari luar ataupun dalam negeri.
         </p>
-        <div class="container-fluid  justify-content-center">
+        <div class="container-fluid justify-content-center">
           <div class="swiper mySwipers">
             <div class="swiper-wrapper">
-              <div class="swiper-slide"><img src="./images/pantai.jpeg" /></div>
-              <div class="swiper-slide"><img src="./images/pantai.jpeg" /></div>
-              <div class="swiper-slide"><img src="./images/pantai.jpeg" /></div>
-              <div class="swiper-slide"><img src="./images/pantai.jpeg" /></div>
-              <div class="swiper-slide"><img src="./images/pantai.jpeg" /></div>
-              <div class="swiper-slide"><img src="./images/pantai.jpeg" /></div>
+              <div class="swiper-slide item-wisata-lainnya">
+                <div class="card_items">
+                  <div class="card">
+                    <img src="./images/pantai.jpeg" />
+                    <div class="content-card">
+                      <div class="item-card">
+                        <h5>Pantai Watulangit</h5>
+                        <p>Pantai mantap</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="swiper-slide item-wisata-lainnya">
+                <div class="card_items">
+                  <div class="card">
+                    <img src="./images/pantai.jpeg" />
+                    <div class="content-card">
+                      <div class="item-card">
+                        <h5>Pantai Watulangit</h5>
+                        <p>Pantai mantap</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="swiper-slide item-wisata-lainnya">
+                <div class="card_items">
+                  <div class="card">
+                    <img src="./images/pantai.jpeg" />
+                    <div class="content-card">
+                      <div class="item-card">
+                        <h5>Pantai Watulangit</h5>
+                        <p>Pantai mantap</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="swiper-slide item-wisata-lainnya">
+                <div class="card_items">
+                  <div class="card">
+                    <img src="./images/pantai.jpeg" />
+                    <div class="content-card">
+                      <div class="item-card">
+                        <h5>Pantai Watulangit</h5>
+                        <p>Pantai mantap</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="swiper-slide item-wisata-lainnya">
+                <div class="card_items">
+                  <div class="card">
+                    <img src="./images/pantai.jpeg" />
+                    <div class="content-card">
+                      <div class="item-card">
+                        <h5>Pantai Watulangit</h5>
+                        <p>Pantai mantap</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="swiper-slide item-wisata-lainnya">
+                <div class="card_items">
+                  <div class="card">
+                    <img src="./images/pantai.jpeg" />
+                    <div class="content-card">
+                      <div class="item-card">
+                        <h5>Pantai Watulangit</h5>
+                        <p>Pantai mantap</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
             </div>
             <div class="swiper-button-next"></div>
             <div class="swiper-button-prev"></div>
@@ -239,12 +306,12 @@ const HomePage = {
       spaceBetween: 30,
       autoplay: {
         delay: 2500,
-        disableOnInteraction: false,
+        disableOnInteraction: false
       },
       pagination: {
         el: ".swiper-pagination",
-        clickable: true,
-      },
+        clickable: true
+      }
     });
 
     var swipers = new Swiper(".mySwipers", {
@@ -252,30 +319,30 @@ const HomePage = {
       spaceBetween: 30,
       navigation: {
         nextEl: ".swiper-button-next",
-        prevEl: ".swiper-button-prev",
+        prevEl: ".swiper-button-prev"
       },
       breakpoints: {
         // when window width is >= 320px
         320: {
           slidesPerView: 1,
-          spaceBetween: 20,
+          spaceBetween: 20
         },
         // when window width is >= 480px
         480: {
           slidesPerView: 2,
-          spaceBetween: 30,
+          spaceBetween: 30
         },
         // when window width is >= 640px
         768: {
           slidesPerView: 3,
-          spaceBetween: 20,
+          spaceBetween: 20
         },
         992: {
           slidesPerView: 4,
-          spaceBetween: 40,
-        },
-      },
+          spaceBetween: 40
+        }
+      }
     });
-  },
+  }
 };
 export default HomePage;
