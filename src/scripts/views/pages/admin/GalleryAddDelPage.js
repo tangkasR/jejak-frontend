@@ -65,7 +65,7 @@ const GalleryAddDelPage = {
     // eksekusi logout
     document.getElementById("btnLogout").addEventListener("click", async () => {
       Swal.fire({
-        position: "top-end",
+        position: "center",
         icon: "success",
         title: "Berhasil Logout!",
         showConfirmButton: false,
@@ -121,7 +121,7 @@ const GalleryAddDelPage = {
       if (gallery.length !== 0) {
         if (gallery.data) {
           Swal.fire({
-            position: "top-end",
+            position: "center",
             icon: "success",
             title: "Berhasil Menambah Foto!",
             showConfirmButton: false,

@@ -226,7 +226,7 @@ body {
 .btn-start {
   background-color: var(--txt-secondary) !important;
   box-shadow: none;
-
+  border: none;
   font-weight: 600;
 }
 

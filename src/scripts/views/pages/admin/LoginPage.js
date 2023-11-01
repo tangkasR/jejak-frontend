@@ -7,14 +7,14 @@ const LoginPage = {
     return `
       <div
         class="d-flex align-items-center justify-content-center w-100"
-        style="min-height:100vh;"
+        style="min-height:100vh; margin:90px 0"
       >
         <div class="card shadow" style="min-width:60%">
           <div
             class="m-0 row align-items-center justify-content-center"
           >
             <div
-              class="login-page col-12 col-sm-6 d-flex flex-column align-items-center justify-content-center rounded"
+              class="col-12 col-sm-6 d-flex flex-column align-items-center justify-content-center rounded"
               style="min-height:600px; max-height:100%"
               id="sideContentLogin"
             >
@@ -86,7 +86,7 @@ const LoginPage = {
               id: id
             };
             Swal.fire({
-              position: "top-end ",
+              position: "center",
               icon: "success",
               title: "Berhasil Login!",
               showConfirmButton: false,

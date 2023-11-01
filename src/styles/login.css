@@ -1,5 +1,5 @@
-.login-page {
-  background-image: url("../public/images/img-login.jpg");
+#sideContentLogin {
+  background-image: url("../public/images/login-img.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -10,6 +10,7 @@
 }
 #textAsideLogin h1 {
   font-size: 40px;
+  font-weight: 600;
 }
 #textAsideLogin p {
   font-size: 15px;

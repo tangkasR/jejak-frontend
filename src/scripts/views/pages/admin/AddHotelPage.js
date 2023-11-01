@@ -123,7 +123,7 @@ const AddHotelPage = {
       if (response.length !== 0) {
         if (response.data) {
           Swal.fire({
-            position: "top-end",
+            position: "center",
             icon: "success",
             title: "Berhasil Menambah Hotel!",
             showConfirmButton: false,

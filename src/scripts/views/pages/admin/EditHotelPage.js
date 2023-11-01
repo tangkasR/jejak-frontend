@@ -85,7 +85,7 @@ const EditHotelPage = {
     // eksekusi logout
     document.getElementById("btnLogout").addEventListener("click", async () => {
       Swal.fire({
-        position: "top-end",
+        position: "center",
         icon: "success",
         title: "Berhasil Logout!",
         showConfirmButton: false,
@@ -131,7 +131,7 @@ const EditHotelPage = {
       if (response.length !== 0) {
         if (response.data) {
           Swal.fire({
-            position: "top-end",
+            position: "center",
             icon: "success",
             title: "Berhasil Mengubah Hotel!",
             showConfirmButton: false,

@@ -12,7 +12,7 @@ const DashboardPage = {
           <div class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
             <div
               id="card-container"
-              class="p-5 d-flex flex-wrap align-items-center justify-content-center gap-2"
+              class="p-5 d-flex flex-wrap align-items-center justify-content-center gap-2 text-center"
             ></div>
           </div>
         </div>
@@ -31,7 +31,7 @@ const DashboardPage = {
     // eksekusi logout
     document.getElementById("btnLogout").addEventListener("click", async () => {
       Swal.fire({
-        position: "top-end",
+        position: "center",
         icon: "success",
         title: "Berhasil Logout!",
         showConfirmButton: false,

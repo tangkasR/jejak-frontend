@@ -8,22 +8,43 @@ const HomePage = {
           </h1>
           <p tabindex="0" class="hero_tagline">
             Jelajahi Jogja,<span class="span_tagline">
-              Pesona Setiap Sudut</span
-            >
+              Pesona Setiap Sudut</span>
           </p>
         </div>
       </div>
       <div class="container-xl py-5">
-        <h2 class="w-100 mt-5 title">Destinasi Populer</h2>
-        <hr class="hr" />
-        <p class="subtitle">
+        <h2 class="w-100 mt-5 title"
+          data-aos="fade-up"
+          data-aos-delay="50"
+          data-aos-duration="1000"
+          data-aos-easing="ease-in-out"
+        >
+        Destinasi Populer
+        </h2>
+        <hr class="hr" 
+          data-aos="fade-up"
+          data-aos-delay="50"
+          data-aos-duration="1000"
+          data-aos-easing="ease-in-out"
+        />
+        <p class="subtitle"
+          data-aos="fade-up"
+          data-aos-delay="50"
+          data-aos-duration="1000"
+          data-aos-easing="ease-in-out"
+        >
           Tempat Wisata Populer di daerah Yogyakarta yang menjadi pilihan utama
           <br />
           dan terbaik di kalangan wisatawan dari luar ataupun dalam negeri.
         </p>
         <div class="row align-items-center justify-content-center destination-container">
           <div class="col-md-6 mb-3 mb-md-0">
-            <div class="card_items">
+            <div class="card_items"
+              data-aos="fade-right"
+              data-aos-delay="50"
+              data-aos-duration="1000"
+              data-aos-easing="ease-in-out"
+            >
               <div class="card card-wrapper">
                 <img src="./images/pantai.jpeg" />
                 <div class="content-card">
@@ -38,7 +59,12 @@ const HomePage = {
           <div class="col-12 col-md-6">
             <div class="row align-items-center justify-content-center">
               <div class="col-6 col-md-6 py-2">
-                <div class="card_items">
+                <div class="card_items"
+                  data-aos="fade-left"
+                  data-aos-delay="50"
+                  data-aos-duration="1000"
+                  data-aos-easing="ease-in-out"
+                >
                   <div class="card">
                     <img src="./images/pantai.jpeg" />
                     <div class="content-card">
@@ -51,7 +77,12 @@ const HomePage = {
                 </div>
               </div>
               <div class="col-6 col-md-6 py-2">
-                <div class="card_items">
+                <div class="card_items"
+                  data-aos="fade-left"
+                  data-aos-delay="50"
+                  data-aos-duration="2000"
+                  data-aos-easing="ease-in-out"
+                >
                   <div class="card">
                     <img src="./images/pantai.jpeg" />
                     <div class="content-card">
@@ -64,7 +95,12 @@ const HomePage = {
                 </div>
               </div>
               <div class="col-6 col-md-6 py-2">
-                <div class="card_items">
+                <div class="card_items"
+                  data-aos="fade-left"
+                  data-aos-delay="50"
+                  data-aos-duration="1000"
+                  data-aos-easing="ease-in-out"
+                >
                   <div class="card">
                     <img src="./images/pantai.jpeg" />
                     <div class="content-card">
@@ -77,7 +113,12 @@ const HomePage = {
                 </div>
               </div>
               <div class="col-6 col-md-6 py-2">
-                <div class="card_items">
+                <div class="card_items"
+                  data-aos="fade-left"
+                  data-aos-delay="50"
+                  data-aos-duration="2000"
+                  data-aos-easing="ease-in-out"
+                >
                   <div class="card">
                     <img src="./images/pantai.jpeg" />
                     <div class="content-card">
@@ -95,24 +136,51 @@ const HomePage = {
 
       </div>
       <div class="container-fluid category">
-        <h2 class="w-100  title">Kategori Wisata</h2>
-        <hr class="hr" />
+        <h2 class="w-100 title"
+          data-aos="fade-up"
+          data-aos-delay="50"
+          data-aos-duration="2000"
+          data-aos-easing="ease-in-out"
+        >
+        Kategori Wisata
+        </h2>
+        <hr class="hr"
+          data-aos="fade-up"
+          data-aos-delay="50"
+          data-aos-duration="2000"
+          data-aos-easing="ease-in-out"
+        />
         <div
           class="d-flex align-items-center justify-content-center gap-5 w-100 mt-5 flex-wrap"
         >
-          <div class="kategori_items">
+          <div class="kategori_items"
+            data-aos="fade-up-right"
+            data-aos-delay="50"
+            data-aos-duration="2000"
+            data-aos-easing="ease-in-out"
+          >
             <div class="card kategori_card">
               <img src="./icons/Alam.png" />
               <h5>Alam</h5>
             </div>
           </div>
-          <div class="kategori_items">
+          <div class="kategori_items"
+            data-aos="fade-up"
+            data-aos-delay="50"
+            data-aos-duration="2000"
+            data-aos-easing="ease-in-out"
+          >
             <div class="card kategori_card ">
               <img src="./icons/Pagoda.png" />
               <h5>Budaya</h5>
             </div>
           </div>
-          <div class="kategori_items">
+          <div class="kategori_items"
+            data-aos="fade-up-left"
+            data-aos-delay="50"
+            data-aos-duration="2000"
+            data-aos-easing="ease-in-out"
+          >
             <div class="card kategori_card">
               <img src="./icons/Penginapan.png" />
               <h5>Penginapan</h5>
@@ -121,14 +189,36 @@ const HomePage = {
         </div>
       </div>
       <div class="container">
-        <h2 class="w-100 mt-5 title">Top Penginapan</h2>
-        <hr class="hr" />
-        <p class="subtitle">
+        <h2 class="w-100 mt-5 title"
+          data-aos="fade-up"
+          data-aos-delay="50"
+          data-aos-duration="2000"
+          data-aos-easing="ease-in-out"
+        >
+        Top Penginapan
+        </h2>
+        <hr class="hr"
+          data-aos="fade-up"
+          data-aos-delay="50"
+          data-aos-duration="2000"
+          data-aos-easing="ease-in-out"
+        />
+        <p class="subtitle"
+          data-aos="fade-up"
+          data-aos-delay="50"
+          data-aos-duration="2000"
+          data-aos-easing="ease-in-out"
+        >
           Tempat Penginapan Populer di daerah Yogyakarta yang menjadi pilihan
           utama <br />dan terbaik di kalangan wisatawan dari luar ataupun dalam
           negeri.
         </p>
-        <div class="swiper mySwiper">
+        <div class="swiper mySwiper"
+          data-aos="fade-up"
+          data-aos-delay="50"
+          data-aos-duration="2000"
+          data-aos-easing="ease-in-out"
+        >
           <div class="swiper-wrapper">
             <div class="swiper-slide item-top-penginapan">
               <img src="./images/penginapan_1.jpg" />
@@ -153,7 +243,12 @@ const HomePage = {
           <div
             class="col-md-3 d-flex justify-content-center align-items-center"
           >
-            <div class="text-center">
+            <div class="text-center"
+              data-aos="zoom-out-right"
+              data-aos-delay="50"
+              data-aos-duration="2000"
+              data-aos-easing="ease-in-out"
+            >
               <img src="./icons/Location.png" />
               <h5 style="color: #3F4E4F" class="service-title">Strategis</h5>
               <p style="color: #2C3639" class="service-subtitle">
@@ -165,7 +260,12 @@ const HomePage = {
           <div
             class=" col-md-3 d-flex justify-content-center align-items-center"
           >
-            <div class="text-center">
+            <div class="text-center"
+              data-aos="zoom-in-up"
+              data-aos-delay="50"
+              data-aos-duration="2000"
+              data-aos-easing="ease-in-out"
+            >
               <img src="./icons/Dollar.png" />
               <h5 style="color: #3F4E4F" class="service-title">Terjangkau</h5>
               <p style="color: #2C3639" class="service-subtitle">
@@ -177,7 +277,12 @@ const HomePage = {
           <div
             class="col-md-3 d-flex justify-content-center align-items-center"
           >
-            <div class="text-center">
+            <div class="text-center"
+              data-aos="zoom-out-left"
+              data-aos-delay="50"
+              data-aos-duration="2000"
+              data-aos-easing="ease-in-out"
+            >
               <img src="./icons/Access.png" />
               <h5 style="color: #3F4E4F" class="service-title">
                 Mudah diakses
@@ -191,14 +296,36 @@ const HomePage = {
         </div>
       </div>
       <div class="container">
-        <h2 class="w-100 mt-5 title">Wisata Lainnya</h2>
-        <hr class="hr" />
-        <p class="subtitle">
+        <h2 class="w-100 mt-5 title"
+          data-aos="fade-up"
+          data-aos-delay="50"
+          data-aos-duration="2000"
+          data-aos-easing="ease-in-out"
+        >
+        Wisata Lainnya
+        </h2>
+        <hr class="hr"
+          data-aos="fade-up"
+          data-aos-delay="50"
+          data-aos-duration="2000"
+          data-aos-easing="ease-in-out"
+        />
+        <p class="subtitle"
+          data-aos="fade-up"
+          data-aos-delay="50"
+          data-aos-duration="2000"
+          data-aos-easing="ease-in-out"
+        >
           Tempat Wisata Populer di daerah Yogyakarta yang menjadi pilihan utama
           <br />
           dan terbaik di kalangan wisatawan dari luar ataupun dalam negeri.
         </p>
-        <div class="container-fluid justify-content-center">
+        <div class="container-fluid justify-content-center"
+          data-aos="fade-up"
+          data-aos-delay="50"
+          data-aos-duration="2000"
+          data-aos-easing="ease-in-out"
+        >
           <div class="swiper mySwipers">
             <div class="swiper-wrapper">
               <div class="swiper-slide item-wisata-lainnya">

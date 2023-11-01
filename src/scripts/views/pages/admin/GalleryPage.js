@@ -31,7 +31,7 @@ const GalleryPage = {
     // eksekusi logout
     document.getElementById("btnLogout").addEventListener("click", async () => {
       Swal.fire({
-        position: "top-end",
+        position: "center",
         icon: "success",
         title: "Berhasil Logout!",
         showConfirmButton: false,
@@ -51,7 +51,7 @@ const GalleryPage = {
     const datas = response.data;
     datas.forEach((data) => {
       itemContainer.innerHTML += `
-      <div class="card shadow p-3" style="min-width:300px; height:100%">
+      <div class="text-center card shadow p-3" style="min-width:300px; height:100%">
         <img src="${data.url}" style="width: 100%; height: 200px; object-fit:cover">
         <a href="#/gallerywisataadmin/${data.id}" id="nama-wisata" style="text-decoration: none"><h5 class="text-dark mt-3 mb-3">Nama Wisata: ${data.nama}</h5></a>
         <p>Kategori Wisata: ${data.kategori}</p>

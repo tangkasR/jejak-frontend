@@ -15,6 +15,10 @@ import "./views/templates/Footer.js";
 
 import App from "./views/app";
 
+import AOS from "aos";
+import "aos/dist/aos.css";
+AOS.init();
+
 const app = new App({
   content: document.querySelector("#main-content")
 });

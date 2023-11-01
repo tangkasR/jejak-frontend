@@ -7,7 +7,7 @@ const RegistrasiPage = {
     return `
       <div
         class="d-flex align-items-center justify-content-center w-100"
-        style="min-height:100vh;"
+        style="min-height:100vh; margin:140px 0"
       >
         <div class="card shadow" style="min-width:70%">
           <div class="m-0 row align-items-center justify-content-center">
@@ -141,7 +141,7 @@ const RegistrasiPage = {
         if (response.length !== 0) {
           if (response.data) {
             Swal.fire({
-              position: "top-end",
+              position: "center",
               icon: "success",
               title: "Berhasil Registrasi!",
               showConfirmButton: false,
