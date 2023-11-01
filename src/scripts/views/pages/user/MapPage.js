@@ -25,12 +25,12 @@ const MapPage = {
     L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
       maxZoom: 19,
       attribution:
-        '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+        '&copy; <a href="">JelajahJogja</a>'
     }).addTo(map);
     dataWisata.forEach((data) => {
       let marker = L.marker([data.latitude, data.longitude], {
-        title: `tes123`,
-        alt: `${data.nama}`
+        title: `${data.nama}`,
+        alt: `Nama wisata`
       })
         .addTo(map)
         .bindPopup(

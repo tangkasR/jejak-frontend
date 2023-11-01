@@ -1,14 +1,67 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap");
+
+* {
+  /* font-family: 'Poppins', sans-serif; */
+  /* font-family: 'Inter', sans-serif; */
+  font-family: "Montserrat", sans-serif;
+}
+
+/* Utilities */
+:root {
+  --bg-third: #dcd7c9;
+  --bg-secondary: #3f4e4f;
+  --bg-primary: #f1ede2;
+  --txt-primary: #ffff;
+  --txt-secondary: #dcd7c9;
+  --txt-third: #a27b5c;
+}
+
+body {
+  background-color: var(--bg-primary);
+}
+
+.title {
+  font-size: 40px;
+  font-weight: 800;
+  color: var(--bg-secondary);
+  text-align: center;
+}
+
+.subtitle {
+  font-weight: 600;
+  font-size: 15px;
+  margin-bottom: 30px;
+  line-height: 30px;
+  text-align: center;
+}
+
+.hr {
+  width: 100px;
+  color: var(--txt-third);
+  border: 3px solid var(--txt-third) !important;
+  margin: 20px auto;
+}
+
+/*  */
+
+/* End Navbar */
+
+/* Jumbotron (Hero) */
+
 .hero {
   display: flex;
   align-items: center;
-  min-height: 600px;
+  min-height: 650px;
   width: 100%;
+  margin-top: 90px;
   text-align: center;
   background-position: center;
   background-color: black;
   background-size: cover;
-  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-    url("../public/images/pantai.jpeg");
+  background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
+    url("../public/images/beach.png");
 }
 
 .hero_inner {
@@ -19,14 +72,14 @@
 .hero_title {
   color: #dcd7c9;
   font-weight: 800;
-  font-size: 40px;
+  font-size: 60px;
 }
 
 .hero_tagline {
   color: #dcd7c9;
   margin-top: 16px;
-  font-size: 22px;
-  font-weight: 500;
+  font-size: 18px;
+  font-weight: 600;
 }
 
 .span_title,
@@ -34,8 +87,12 @@
   color: #a27b5c;
 }
 
+/* End Jumbotron */
+
+/* Destination */
+
 .cardItem {
-  width: 200px;
+  width: 100%;
 }
 
 .content-card {
@@ -47,6 +104,68 @@
   height: 100%;
   opacity: 0;
 }
+.primary img {
+  width: 100%;
+  height: 305px;
+}
+.primary-two img {
+  width: 100%;
+  height: 308px;
+}
+.card img {
+  width: 100%;
+  object-fit: cover;
+  min-height: 150px;
+}
+@media only screen and (min-width: 576px) {
+  .primary img {
+    min-height: 309px;
+  }
+  .primary-two img {
+    width: 100%;
+    min-height: 310px;
+  }
+  .cardItem {
+    width: 100%;
+  }
+}
+@media only screen and (min-width: 768px) {
+  .primary img {
+    min-height: 391px;
+  }
+  .primary-two img {
+    width: 100%;
+    min-height: 400px;
+  }
+}
+@media only screen and (min-width: 991px) {
+  .primary img {
+    min-height: 528px;
+  }
+  .primary-two img {
+    width: 100%;
+    min-height: 538px;
+  }
+}
+@media only screen and (min-width: 1200px) {
+  .primary img {
+    min-height: 628px;
+  }
+  .primary-two img {
+    width: 100%;
+    min-height: 638px;
+  }
+}
+@media only screen and (min-width: 1400px) {
+  .primary img {
+    min-height: 400px;
+  }
+  .primary-two img {
+    width: 100%;
+    min-height: 400px;
+  }
+}
+
 .item-card {
   display: flex;
   flex-direction: column;
@@ -55,34 +174,80 @@
   width: 100%;
   height: 100%;
 }
+
+.card_items :hover {
+  transform: scale(1.1);
+  z-index: 100;
+  transition: transform 0.5s;
+  cursor: pointer;
+}
+
+.item-card p:hover,
+.item-card h5:hover {
+  transform: scale(1);
+}
+
 .content-card:hover {
   opacity: 100%;
+  transform: scale(1);
 }
+
 .content-card:hover {
   display: block;
+  padding: 30px;
+  text-wrap: wrap;
+  text-align: center;
 }
+
 .content-card h5 {
+  font-size: 16px;
+  font-weight: 600;
   color: #a27b5c;
   margin-bottom: 0;
   margin-left: 5px;
 }
+
 .content-card p {
   color: #dcd7c9;
+  font-size: 14px;
   margin-left: 5px;
 }
 .card img {
-  height: 280px;
   object-fit: cover;
 }
 
+/* End Destination */
+
+/* Category */
+
+.category {
+  background-color: var(--bg-third);
+  padding: 80px 0;
+}
+
+.category .title {
+  color: var(--txt-third) !important;
+}
+
 .kategori_card {
-  height: 150px;
-  width: 150px;
-  background-color: #3f4e4f;
+  min-height: 150px;
+  min-width: 150px;
+  background-color: var(--bg-secondary);
   border-radius: 30px;
   display: flex;
   align-items: center;
   justify-content: center;
+  transition: transform 0.2s;
+}
+
+.kategori_items :hover {
+  transform: scale(1.2);
+  cursor: pointer;
+}
+
+.kategori_card img:hover,
+.kategori_card h5:hover {
+  transform: scale(1);
 }
 
 .kategori_card img {
@@ -93,7 +258,72 @@
 }
 
 .kategori_card h5 {
-  color: #a27b5c;
+  color: var(--txt-third);
   margin-top: 15px;
   margin-bottom: 0;
+  font-weight: 600;
+}
+
+/* Service */
+
+.service {
+  background-color: var(--bg-third);
+}
+
+.service-title {
+  font-size: 22px;
+  font-weight: 600;
+  margin: 20px 0;
+}
+
+.service-subtitle {
+  line-height: 30px;
+  font-weight: 400;
+}
+
+/* Swiper */
+
+.swiper {
+  width: 100%;
+  height: 100%;
+}
+
+.swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  background: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.swiper-slide img {
+  display: block;
+  width: 100%;
+  height: 50vh;
+  object-fit: cover;
+}
+
+.startpage {
+  background-color: #2c3639;
+}
+
+.btn-start {
+  background-color: var(--txt-secondary) !important;
+  box-shadow: none;
+
+  font-weight: 600;
+}
+
+.btn-start:hover {
+  background-color: #a27b5c !important;
+  border: none;
+}
+
+.btn-start i {
+  color: #000 !important;
+}
+
+.btn-start:hover i {
+  color: var(--txt-primary) !important;
 }

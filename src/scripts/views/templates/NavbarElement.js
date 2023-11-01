@@ -15,10 +15,10 @@ class Navbar extends HTMLElement {
       >
         <div class="container">
           <a class="logo" href="#"
-            ><img style="width:100px" src="./images/Logonavbar.png"
+            ><img style="width:140px;" src="./images/Logonavbar.png"
           /></a>
           <button
-            class="navbar-toggler"
+            class="navbar-toggler border-0 shadow-none"
             type="button"
             data-bs-toggle="collapse"
             data-bs-target="#navbarSupportedContent"
@@ -26,12 +26,14 @@ class Navbar extends HTMLElement {
             aria-expanded="false"
             aria-label="Toggle navigation"
           >
-            <span class="navbar-toggler-icon"></span>
+            <span>
+              <i class="bx bx-menu-alt-right bx-md text-white"></i>
+            </span>
           </button>
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+            <ul class="navbar-nav ms-auto mt-3 mt-lg-0 mb-2 mb-lg-0">
               <li class="nav-item">
-                <a class="nav-link link-home" href="/">Home</a>
+                <a class="nav-link link-home" href="#/home">Home</a>
               </li>
               <li class="nav-item dropdown">
                 <a

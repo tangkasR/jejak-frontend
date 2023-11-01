@@ -1,16 +1,16 @@
-#sideContentLogin{
-    background-image: url('../public/images/img-login.jpg');
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
+.login-page {
+  background-image: url("../public/images/img-login.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
 }
-#textAsideLogin{
-    padding: 40px;
-    background-color: rgba(0, 0, 0, 0.7);
+#textAsideLogin {
+  padding: 40px;
+  background-color: rgba(0, 0, 0, 0.7);
 }
-#textAsideLogin h1{
-    font-size: 40px;
+#textAsideLogin h1 {
+  font-size: 40px;
 }
-#textAsideLogin p{
-    font-size: 15px;
+#textAsideLogin p {
+  font-size: 15px;
 }

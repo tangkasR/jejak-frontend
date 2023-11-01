@@ -22,10 +22,12 @@ import CobaReviewHotelPage from "../views/pages/admin/COBA_REVIEW_HOTEL";
 import GalleryPageAdmin from "../views/pages/admin/GalleryPage";
 import GalleryAddDelPage from "../views/pages/admin/GalleryAddDelPage";
 import DeleteGalleryPage from "../views/pages/admin/DeleteGalleryPage";
+import StarterPage from "../views/pages/user/StarterPage";
 
 const routes = {
   // USER
-  "/": HomePage,
+  "/home": HomePage,
+  "/": StarterPage,
   "/gallery": GalleryPage,
   "/contact": ContactPage,
   "/map": MapPage,

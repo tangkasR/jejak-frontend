@@ -14,7 +14,7 @@ const LoginPage = {
             class="m-0 row align-items-center justify-content-center"
           >
             <div
-              class="col-12 col-sm-6 d-flex flex-column align-items-center justify-content-center rounded"
+              class="login-page col-12 col-sm-6 d-flex flex-column align-items-center justify-content-center rounded"
               style="min-height:600px; max-height:100%"
               id="sideContentLogin"
             >
@@ -86,7 +86,7 @@ const LoginPage = {
               id: id
             };
             Swal.fire({
-              position: "top-end",
+              position: "top-end ",
               icon: "success",
               title: "Berhasil Login!",
               showConfirmButton: false,
