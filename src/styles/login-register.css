@@ -1,0 +1,44 @@
+#sideContentLogin {
+  background-image: url("../public/images/login-img.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+#textAsideLogin {
+  padding: 40px;
+  background-color: rgba(0, 0, 0, 0.7);
+}
+#textAsideLogin h1 {
+  font-size: 40px;
+  font-weight: 800;
+}
+#textAsideLogin p {
+  font-size: 18px;
+}
+.title-logres{
+  font-weight: 600;
+}
+.btn-logres{
+  background-color: #a27b5c;
+  color: white;
+  font-size: 16px;
+  font-weight: 500;
+  border: none;
+  padding: 11px 0;
+}
+.btn-logres:hover{
+  background-color: #3f4e4f;
+  border: none;
+}
+#content-logres{
+  background-color: #dcd7c9;
+}
+#content-logres input, #content-logres select{
+  background-color: #f3f0ea;
+}
+#content-logres input:focus, #content-logres select:focus{
+  background-color: #fff;
+}
+.anchor-logres a{
+  color: #a27b5c;
+}

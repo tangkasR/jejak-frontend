@@ -12,12 +12,8 @@ const ProfilPage = {
             <div
               class="my-5 w-100 d-flex align-items-center justify-content-center"
             >
-              <div
-                class="card shadow  text-left p-5"
-                style="width:50%"
-                id="card-container"
-              >
-                <h2 class="mb-5 text-center">Profil Admin</h2>
+              <div class="card shadow" style="min-width:90%;" id="container-profil">
+                
               </div>
             </div>
           </div>
@@ -53,18 +49,37 @@ const ProfilPage = {
 
     // menampilkan data
     const id = JSON.parse(localStorage.id);
-    const container = document.getElementById("card-container");
-    const data = await AdminSource.getData(id.id);
-    console.log(data);
-    container.innerHTML += `
-        <div class="d-flex w-100 align-items-center justify-content-center">
-          <img class="mb-3" src="${data.data.url}" alt="" style="width:300px; height:300px; border-radius:50%; object-fit: cover;"></img>
+    const container = document.getElementById("container-profil");
+    const profil = await AdminSource.getData(id.id);
+    const dataProfil = profil.data;
+    container.innerHTML = `
+      <div class="row align-items-center justify-content-center">
+        <div class="col-6 col-sm-4 pe-0">
+          <div class="left">
+            <div class="img-profil">
+              <img src="${dataProfil.url}" alt="" />
+            </div>
+          </div>
         </div>
-        <h4 class="mb-3">Nama: ${data.data.name}</h4>
-        <h5 class="mb-3">Email: ${data.data.email}</h5>
-        <h5 class="mb-3">Role: ${data.data.role}</h5>
-        <h5 class="mb-3">Jenis Kelamin: ${data.data.jenis_kelamin}</h5>
-        <a href="#/editprofil" class="btn btn-info text-white fw-bold">Edit</a>
+        <div class="col-6 col-sm-8 ps-0">
+          <div class="row right-container">
+            <div class="col-md-3"></div>
+            <div class="col-md-9">
+              <div class="right">
+                <h1>Nama: ${dataProfil.name}</h1>
+                <p>Email: ${dataProfil.email}</p>
+                <p>Jenis Kelamin: ${dataProfil.jenis_kelamin}</p>
+                <div class="btn-edit-profil">
+                  <a href="#/editprofil" class="btn" style="text-decoration:none; color:black; font-size:14px;">Ubah</a>
+                </div>
+                <div class="role-admin">
+                  <h5>Admin</h5>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     `;
   }
 };

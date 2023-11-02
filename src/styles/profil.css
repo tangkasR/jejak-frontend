@@ -1,0 +1,133 @@
+:root {
+  --bg-third: #dcd7c9;
+  --bg-secondary: #3f4e4f;
+  --bg-primary: #f1ede2;
+  --txt-primary: #ffff;
+  --txt-secondary: #dcd7c9;
+  --txt-third: #a27b5c;
+}
+.nav-profil ul {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  list-style: none;
+  gap: 1.5rem;
+}
+.nav-profil ul a {
+  text-decoration: none;
+  color: black;
+  font-weight: 500;
+  cursor: pointer;
+}
+.nav-profil ul a:hover {
+  color: #a27b5c;
+}
+.right-container {
+  background-color: var(--txt-secondary);
+}
+.right {
+  text-align: center;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 455px;
+}
+.right h1 {
+  font-size: 30px;
+  font-weight: 600;
+}
+.right p {
+  font-size: 18px;
+  margin-bottom: 0;
+  margin-top: 10px;
+}
+
+.left {
+  background-color: var(--txt-third);
+  width: 100%;
+  min-height: 455px;
+}
+.img-profil img {
+  width: 300px;
+  height: 340px;
+  border-radius: 5px;
+}
+.img-profil {
+  position: absolute;
+  left: 30px;
+  top: 40px;
+}
+.role-admin {
+  position: absolute;
+  background-color: var(--bg-secondary);
+  border-radius: 0 5px;
+  color: white;
+  padding: 16px 20px;
+  top: 0;
+  right: -10px;
+}
+.role-admin h5 {
+  font-size: 16px;
+  font-weight: 600;
+  margin: 0;
+}
+.btn-edit-profil {
+  position: absolute;
+  top: 380px;
+  right: 20px;
+}
+.btn-edit-profil a {
+  padding: 10px 30px;
+  font-size: 20px;
+  font-weight: 600;
+  background-color: #6d5039;
+  color: #fff !important;
+}
+.btn-edit-profil a:hover {
+  background-color: #a27b5c;
+}
+@media only screen and (max-width: 994px) {
+  .img-profil {
+    position: unset;
+    left: 0;
+    top: 0;
+  }
+  .img-profil img {
+    width: 100%;
+    min-height: 455px;
+    height: 100%;
+    object-fit: cover;
+  }
+  .nav-profil {
+    padding: 10px;
+  }
+  .right {
+    background-color: var(--txt-secondary);
+    text-align: center;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+}
+@media only screen and (min-width: 1182px) {
+  .img-profil img {
+    width: 400px;
+    height: 340px;
+  }
+}
+@media only screen and (min-width: 1320px) {
+  .img-profil img {
+    width: 450px;
+    height: 340px;
+  }
+}
+@media only screen and (min-width: 1496px) {
+  .img-profil img {
+    width: 500px;
+    height: 340px;
+  }
+}

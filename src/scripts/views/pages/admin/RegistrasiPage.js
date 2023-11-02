@@ -7,13 +7,13 @@ const RegistrasiPage = {
     return `
       <div
         class="d-flex align-items-center justify-content-center w-100"
-        style="min-height:100vh; margin:140px 0"
+        style="min-height:600px; margin:140px 0"
       >
-        <div class="card shadow" style="min-width:70%">
+        <div class="card shadow" style="min-width:70%" id="content-logres">
           <div class="m-0 row align-items-center justify-content-center">
             <div
               class="col-12 col-md-6 d-flex flex-column align-items-center justify-content-center rounded"
-              style="min-height:700px; max-height:100%"
+              style="min-height:620px; max-height:100%"
               id="sideContentLogin"
             >
               <div id="textAsideLogin" class="text-center text-light">
@@ -22,7 +22,7 @@ const RegistrasiPage = {
               </div>
             </div>
             <div class="col-12 col-md-6 p-5">
-              <h3 class="text-center mb-3">Registrasi</h3>
+              <h3 class="text-center mb-3 title-logres">Registrasi</h3>
               <form class="registrasiform">
                 <div class="row">
                   <div class="col-6 mb-3">
@@ -32,6 +32,7 @@ const RegistrasiPage = {
                       class="form-control"
                       id="inputName"
                       name="name"
+                      placeholder="Nama lengkap"
                     />
                   </div>
                   <div class="col-6 mb-3">
@@ -110,10 +111,10 @@ const RegistrasiPage = {
                 <div
                   class="d-flex flex-wrap gap-3 align-items-center justify-content-between"
                 >
-                  <button type="submit" class="w-100 mt-3 btn btn-primary px-4">
+                  <button type="submit" class="btn-logres w-100 mt-3 btn btn-primary">
                     Registrasi
                   </button>
-                  <p class="">
+                  <p class="anchor-logres">
                     Anda sudah mempunyai akun?
                     <a href="#/login"> klik disini </a>
                   </p>

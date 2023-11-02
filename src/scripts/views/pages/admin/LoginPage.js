@@ -7,15 +7,15 @@ const LoginPage = {
     return `
       <div
         class="d-flex align-items-center justify-content-center w-100"
-        style="min-height:100vh; margin:90px 0"
+        style="min-height:600px; margin:90px 0"
       >
-        <div class="card shadow" style="min-width:60%">
+        <div class="card shadow" style="min-width:70%" id="content-logres">
           <div
             class="m-0 row align-items-center justify-content-center"
           >
             <div
               class="col-12 col-sm-6 d-flex flex-column align-items-center justify-content-center rounded"
-              style="min-height:600px; max-height:100%"
+              style="min-height:500px; max-height:100%"
               id="sideContentLogin"
             >
               <div id="textAsideLogin" class="text-center text-light">
@@ -23,8 +23,8 @@ const LoginPage = {
                 <p>Jelajahi Jogja, Pesona setiap sudut</p>
               </div>
             </div>
-            <div class="col-12 col-sm-6 p-5">
-              <h3 class="text-center">Login</h3>
+            <div class="col-12 col-sm-6 p-5" >
+              <h3 class="text-center title-logres">Login</h3>
               <form class="loginform">
                 <div class="mb-3">
                   <label for="inputEmail" class="form-label">Email</label>
@@ -33,6 +33,7 @@ const LoginPage = {
                     class="form-control"
                     id="inputEmail"
                     name="email"
+                    placeholder="example@gmail.com"
                   />
                 </div>
                 <div class="mb-3">
@@ -42,15 +43,16 @@ const LoginPage = {
                     class="form-control"
                     id="inputPassword"
                     name="password"
+                    placeholder="******"
                   />
                 </div>
                 <div
                   class="gap-3 d-flex flex-wrap align-items-center justify-content-between"
                 >
-                  <button type="submit" class="w-100 mt-3 btn btn-primary px-4">
+                  <button type="submit" class="btn-logres w-100 mt-3 btn btn-primary">
                     Login
                   </button>
-                  <p class="">
+                  <p class="anchor-logres">
                     Anda belum mempunyai akun?
                     <a href="#/register"> klik disini </a>
                   </p>
