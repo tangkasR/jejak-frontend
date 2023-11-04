@@ -3,6 +3,7 @@ import CONFIG from "./config";
 const API_ENDPOINT = {
   // akun admin api
   ADMIN_LOGIN: `${CONFIG.BASE_URL}/login`,
+  ADMIN_LOGOUT: (id) => `${CONFIG.BASE_URL}/logout/${id}`,
   ADMIN_REGIS: `${CONFIG.BASE_URL}/registrasi`,
   ADMIN_GETDATA: (id) => `${CONFIG.BASE_URL}/getadmin/${id}`,
   ADMIN_EDITDATA: (id) => `${CONFIG.BASE_URL}/editadmin/${id}`,
@@ -39,7 +40,6 @@ const API_ENDPOINT = {
     `${CONFIG.BASE_URL}/getgallerybywisataid/${id}`,
   ADD_GALLERY: (id) => `${CONFIG.BASE_URL}/creategallery/${id}`,
   DELETE_GALLERY: (id) => `${CONFIG.BASE_URL}/deletegallery/${id}`
-
 };
 
 export default API_ENDPOINT;

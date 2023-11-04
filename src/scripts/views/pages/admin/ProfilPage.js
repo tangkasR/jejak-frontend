@@ -86,15 +86,18 @@ const ProfilPage = {
 
     // eksekusi logout
     document.getElementById("btnLogout").addEventListener("click", async () => {
-      Swal.fire({
-        position: "center",
-        icon: "success",
-        title: "Berhasil Logout!",
-        showConfirmButton: false,
-        timer: 1500
-      });
-      localStorage.removeItem("id");
-      window.location.replace("#/login");
+      const logout = await AdminSource.logout(id.id);
+      if (logout.length !== 0) {
+        Swal.fire({
+          position: "center",
+          icon: "success",
+          title: "Berhasil Logout!",
+          showConfirmButton: false,
+          timer: 1500
+        });
+        localStorage.removeItem("id");
+        window.location.replace("#/login");
+      }
     });
   }
 };

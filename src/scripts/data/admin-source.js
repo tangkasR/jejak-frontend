@@ -26,9 +26,9 @@ class AdminSource {
       return error;
     }
   }
-  static async logout() {
+  static async logout(id) {
     try {
-      const response = await axios.delete(API_ENDPOINT.ADMIN_LOGOUT);
+      const response = await axios.delete(API_ENDPOINT.ADMIN_LOGOUT(id));
       return response;
     } catch (error) {
       return error;
@@ -51,7 +51,7 @@ class AdminSource {
       });
       return response;
     } catch (error) {
-       return error;
+      return error;
     }
   }
   static async deleteData(id) {
