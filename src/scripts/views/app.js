@@ -28,6 +28,25 @@ class App {
         const page = routes[url];
         this._content.innerHTML = await page.render();
         await page.afterRender();
+        // menonaktifkan navbar user
+        const navbar = document.querySelector("navbar-element");
+        navbar.style.display = "none";
+
+        // hapus footer
+        const footer = document.querySelector("footer-element");
+        footer.style.display = "none";
+
+        // akses side bar
+        const btnSidebar = document.querySelector(".btn-sidebar");
+        const sidebar = document.querySelector(".sidebar");
+        btnSidebar.addEventListener("click", () => {
+          sidebar.classList.add("active");
+        });
+        document
+          .getElementById("content_container")
+          .addEventListener("click", () => {
+            sidebar.classList.remove("active");
+          });
       } else {
         Swal.fire({
           imageUrl: `./icons/icon-bingung.png`,
@@ -63,6 +82,9 @@ class App {
       if (page !== undefined) {
         this._content.innerHTML = await page.render();
         await page.afterRender();
+        // mengaktifkan navbar
+        const navbar = document.querySelector("navbar-element");
+        navbar.style.display = "block";
         return;
       }
       this._content.innerHTML += `

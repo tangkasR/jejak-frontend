@@ -127,9 +127,6 @@ const RegistrasiPage = {
     `;
   },
   async afterRender() {
-    // hapus footer
-    const footer = document.querySelector("footer-element");
-    footer.style.display = "none";
 
     const form = document.querySelector(".registrasiform");
     form.addEventListener("submit", async (event) => {

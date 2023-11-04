@@ -33,7 +33,7 @@ class Navbar extends HTMLElement {
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav ms-auto mt-3 mt-lg-0 mb-2 mb-lg-0">
               <li class="nav-item">
-                <a class="nav-link link-home" href="#/home">Home</a>
+                <a class="nav-link link-navbar-user" href="#/home" id="link-home">Home</a>
               </li>
               <li class="nav-item dropdown">
                 <a
@@ -52,13 +52,13 @@ class Navbar extends HTMLElement {
                 </ul>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#/map">Peta</a>
+                <a class="nav-link link-navbar-user" id="link-map" href="#/map">Peta</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#/gallery">Galeri</a>
+                <a class="nav-link link-navbar-user" id="link-gallery" href="#/gallery">Galeri</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#/contact">Kontak</a>
+                <a class="nav-link link-navbar-user" id="link-contact" href="#/contact">Kontak</a>
               </li>
               <li class="nav-item">
                 <a class="ms-3 btn btn-primary" href="#/login">Login Admin</a>

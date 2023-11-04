@@ -5,13 +5,10 @@ const ContactPage = {
           `;
   },
   async afterRender() {
-    // mengaktifkan footer
-    const footer = document.querySelector("footer-element");
-    footer.style.display = "block";
-
-    //   nonaktif side bar
-    const navLink = document.querySelector(".link-home");
-    navLink.classList.remove("active");
+    // mengaktifkan link home
+    const link = document.getElementById("link-contact");
+    link.classList.toggle("active");
+    link.setAttribute("aria-current", "page");
   }
 };
 export default ContactPage;

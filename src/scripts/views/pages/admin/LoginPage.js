@@ -65,14 +65,6 @@ const LoginPage = {
     `;
   },
   async afterRender() {
-    // hapus footer
-    const footer = document.querySelector("footer-element");
-    footer.style.display = "none";
-
-    // mengaktifkan navbar
-    const navbar = document.querySelector("navbar-element");
-    navbar.style.display = "block";
-
     const form = document.querySelector(".loginform");
     form.addEventListener("submit", async (event) => {
       event.preventDefault();

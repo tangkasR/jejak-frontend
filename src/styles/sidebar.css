@@ -13,10 +13,6 @@
   color: black;
   background-color: white;
 }
-.linkSidebar.active:hover {
-  background-color: white;
-  color: black;
-}
 
 /*
    * Sidebar

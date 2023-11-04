@@ -22,14 +22,6 @@ const DeleteGalleryPage = {
     // get id
     const url = UrlParser.parseActiveUrlWithoutCombiner();
 
-    // menonaktifkan navbar user
-    const navbar = document.querySelector("navbar-element");
-    navbar.style.display = "none";
-
-    // hapus footer
-    const footer = document.querySelector("footer-element");
-    footer.style.display = "none";
-
     // active side bar
     const navLink = document.getElementById("gallery-link");
     navLink.classList.add("active");

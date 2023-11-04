@@ -11,7 +11,7 @@ const DashboardPage = {
           <div class="col-md-9 ms-sm-auto col-lg-10 p-0 px-md-4">
             <navbar-admin-element></navbar-admin-element>
             <div
-              id="card-container"
+              id="content_container"
               class="mt-md-3 p-5 d-flex flex-wrap align-items-center justify-content-center gap-2 text-center"
             ></div>
           </div>
@@ -20,30 +20,12 @@ const DashboardPage = {
     `;
   },
   async afterRender() {
-    // menonaktifkan navbar user
-    const navbar = document.querySelector("navbar-element");
-    navbar.style.display = "none";
-
-    // hapus footer
-    const footer = document.querySelector("footer-element");
-    footer.style.display = "none";
-
     //   active side bar
     const navLink = document.getElementById("dashboard-link");
     navLink.classList.add("active");
 
-    // akses side bar
-    const btnSidebar = document.querySelector(".btn-sidebar");
-    const sidebar = document.querySelector(".sidebar");
-    btnSidebar.addEventListener("click", () => {
-      sidebar.classList.add("active");
-    });
-    document.getElementById("card-container").addEventListener("click", () => {
-      sidebar.classList.remove("active");
-    });
-
     // render item wisata
-    const itemContainer = document.getElementById("card-container");
+    const itemContainer = document.getElementById("content_container");
     const response = await WisataSource.getWisata();
     const datas = response.data;
     datas.forEach((data) => {

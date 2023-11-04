@@ -38,29 +38,10 @@ const EditWisataPage = {
     const form = document.querySelector(".editWisataForm");
     // get id
     const url = UrlParser.parseActiveUrlWithoutCombiner();
-    // menonaktifkan navbar user
-    const navbar = document.querySelector("navbar-element");
-    navbar.style.display = "none";
-
-    // hapus footer
-    const footer = document.querySelector("footer-element");
-    footer.style.display = "none";
 
     //   active side bar
     const navLink = document.getElementById("wisata-link");
     navLink.classList.add("active");
-
-    // akses side bar
-    const btnSidebar = document.querySelector(".btn-sidebar");
-    const sidebar = document.querySelector(".sidebar");
-    btnSidebar.addEventListener("click", () => {
-      sidebar.classList.add("active");
-    });
-    document
-      .getElementById("content_container")
-      .addEventListener("click", () => {
-        sidebar.classList.remove("active");
-      });
 
     // render value data
     const response = await WisataSource.getWisataById(url.id);

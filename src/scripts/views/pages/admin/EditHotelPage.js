@@ -77,9 +77,6 @@ const EditHotelPage = {
     const form = document.querySelector(".editHotelForm");
     // get id
     const url = UrlParser.parseActiveUrlWithoutCombiner();
-    // menonaktifkan navbar user
-    const navbar = document.querySelector("navbar-element");
-    navbar.style.display = "none";
 
     // hapus footer
     const footer = document.querySelector("footer-element");
@@ -88,18 +85,6 @@ const EditHotelPage = {
     //   active side bar
     const navLink = document.getElementById("hotel-link");
     navLink.classList.add("active");
-
-    // akses side bar
-    const btnSidebar = document.querySelector(".btn-sidebar");
-    const sidebar = document.querySelector(".sidebar");
-    btnSidebar.addEventListener("click", () => {
-      sidebar.classList.add("active");
-    });
-    document
-      .getElementById("content_container")
-      .addEventListener("click", () => {
-        sidebar.classList.remove("active");
-      });
 
     // render value data
     const response = await HotelSource.getHotelById(url.id);

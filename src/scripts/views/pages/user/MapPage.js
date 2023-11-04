@@ -7,14 +7,6 @@ const MapPage = {
     `;
   },
   async afterRender() {
-    //   nonaktif side bar
-    const navLink = document.querySelector(".link-home");
-    navLink.classList.remove("active");
-
-    // Mengaktifkan footer
-    const footer = document.querySelector("footer-element");
-    footer.style.display = "block";
-
     // get data wisata
     const wisata = await WisataSource.getWisata();
     const dataWisata = wisata.data;
