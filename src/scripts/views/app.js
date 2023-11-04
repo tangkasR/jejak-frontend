@@ -30,8 +30,10 @@ class App {
         await page.afterRender();
       } else {
         Swal.fire({
-          icon: "error",
-          title: `ANDA BELUM LOGIN!`,
+          imageUrl: `./icons/icon-bingung.png`,
+          imageWidth: 200,
+          imageAlt: "Custom image",
+          title: `<h5 style="font-weight:800;color:red;font-size:30px">ANDA BELUM LOGIN!</h5>`,
           text: `Login terlebih dahulu!`,
           showConfirmButton: false
         });
@@ -61,13 +63,15 @@ class App {
       if (page !== undefined) {
         this._content.innerHTML = await page.render();
         await page.afterRender();
+        return;
       }
       this._content.innerHTML += `
         <div
-          class="d-flex align-items-center justify-content-center"
+          class="d-flex align-items-center flex-column justify-content-center"
           style="height:100vh;"
         >
           <h1 style="font-size:40px; font-weight:800">404</h1>
+          <p style="font-size:20px; font-weight:600">Not Found</p>
         </div>
       `;
     }
