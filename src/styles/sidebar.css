@@ -1,21 +1,100 @@
-.linkSidebar{
-    color: white !important;
-    font-size: 16px;
+.linkSidebar {
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
+  text-align: left;
 }
-.linkSidebar:hover{
-   background-color: white;
-   color: black !important;
+.linkSidebar:hover {
+  background-color: white;
+  color: black;
 }
 
-.linkSidebar.active{
-    color: black !important;
-    background-color: white;
+.linkSidebar.active {
+  color: black;
+  background-color: white;
 }
-.linkSidebar.active:hover{
-    background-color: white;
-    color: black !important;
- }
-#btnLogout:hover{
-    color: black !important;
-    background-color: white;
+.linkSidebar.active:hover {
+  background-color: white;
+  color: black;
+}
+
+/*
+   * Sidebar
+   */
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  /* rtl:raw:
+    right: 0;
+    */
+  bottom: 0;
+  /* rtl:remove */
+  left: 0;
+  z-index: 100; /* Behind the navbar */
+  box-shadow: inset -1px 0 0 rgba(0, 0, 0, 0.1);
+}
+
+.sidebar-sticky {
+  position: relative;
+  top: 0;
+  height: calc(100vh - 48px);
+  padding-top: 0.5rem;
+  overflow-x: hidden;
+  overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
+}
+
+.sidebar_img img {
+  width: 150px;
+}
+
+.title_items_sidebar {
+  font-weight: 700;
+  font-size: 35px;
+}
+navbar-admin-element {
+  background-color: #3f4e4f;
+  display: none;
+}
+.navbar_admin_img img {
+  width: 130px;
+}
+.navbar_admin_item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.btn-sidebar {
+  background: none;
+  border: none;
+}
+.navbar_admin_item i {
+  font-size: 35px;
+  color: white;
+}
+@media (max-width: 767.98px) {
+  .sidebar {
+    position: fixed;
+    top: 5rem;
+    min-width: 250px;
+    translate: -260px;
+    transition-duration: 1s;
+  }
+  .sidebar.active {
+    translate: 0;
+  }
+  .sidebar img {
+    display: none;
+  }
+  navbar-admin-element {
+    display: block;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  #container-right {
+    width: 100%;
+    padding: 0;
+  }
 }

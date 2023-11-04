@@ -1,19 +1,41 @@
-#delFotoGallery{
-    position: absolute;
-    bottom: 10px;
-    left: 10px;
+#delFotoGallery {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
 }
 
-#overlay{
-    position: absolute;
-    opacity: 1;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    z-index: 100;
+#overlay {
+  position: absolute;
+  opacity: 1;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 100;
 }
 
-#nama-wisata h5:hover{
-    color: brown !important;;
+.card-body {
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.7);
+  width: 100%;
+  height: 100%;
+  top: 0;
+  display: none;
+}
+.card-body h5,
+.card-body p {
+  color: white;
+}
+.card-body h5 {
+  font-weight: 700;
+  font-size: 20px;
+}
+.card-body p {
+  font-weight: 500;
+  font-size: 16px;
+}
+#nama-wisata:hover .card-body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

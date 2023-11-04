@@ -9,7 +9,6 @@ import Swal from "sweetalert2";
 const DeleteGalleryPage = {
   async render() {
     return `
-      <navbar-admin></navbar-admin>
       <div class="container-fluid">
         <div class="row">
           <sidebar-element></sidebar-element>
@@ -30,19 +29,6 @@ const DeleteGalleryPage = {
     // hapus footer
     const footer = document.querySelector("footer-element");
     footer.style.display = "none";
-
-    // eksekusi logout
-    document.getElementById("btnLogout").addEventListener("click", async () => {
-      Swal.fire({
-        position: "center",
-        icon: "success",
-        title: "Berhasil Logout!",
-        showConfirmButton: false,
-        timer: 1500
-      });
-      localStorage.removeItem("id");
-      window.location.replace("#/login");
-    });
 
     // active side bar
     const navLink = document.getElementById("gallery-link");

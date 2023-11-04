@@ -10,21 +10,17 @@ class NavbarAdmin extends HTMLElement {
   render() {
     this.innerHTML = `
       <div
-        class="navbar navbar-dark sticky-top flex-md-nowrap py-3 pe-4 shadow"
-        style="background-color:#3F4E4F;"
+        class="navbar-admin p-3 d-flex align-items-center justify-content-start" style="z-index:100"
       >
-        <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3" href="#/dashboard" style="background-color:#3F4E4F;box-shadow:none"
-          >JElajah jogJAKarta</a
-        >
-
-        <div class="navbar-nav">
-          <div class="nav-item text-nowrap">
-            <button id="btnLogout" class="px-3 btn text-light">Logout</button>
+        <div class="navbar_admin_item">
+          <div class="navbar_admin_img">
+            <img src="./images/Logonavbar.png" />
           </div>
+          <button class="btn-sidebar"><i class='bx bxs-chevrons-right'></i></button>
         </div>
       </div>
     `;
   }
 }
 
-customElements.define("navbar-admin", NavbarAdmin);
+customElements.define("navbar-admin-element", NavbarAdmin);

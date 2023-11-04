@@ -5,19 +5,20 @@ import Swal from "sweetalert2";
 const WisataPage = {
   async render() {
     return `
-      <navbar-admin></navbar-admin>
       <div class="container-fluid">
         <div class="row">
           <sidebar-element></sidebar-element>
-          <div class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
-            <div class="d-flex align-items-center justify-content-between">
-              <h1 class="my-3" style="font-size:35px; font-weight:500;">
-                Data Wisata
-              </h1>
+          <div
+            class="col-md-9 ms-sm-auto col-lg-10 px-md-4"
+            id="container-right"
+          >
+            <navbar-admin-element></navbar-admin-element>
+            <div class="mt-md-3 d-flex align-items-center justify-content-between px-5" id="content_container">
+              <h1 class="title_items_sidebar my-3">Data Wisata</h1>
               <a href="#/addwisata" class="btn btn-success">Tambah</a>
             </div>
             <table
-              class="table table-hover text-center"
+              class="table table-hover text-center px-5"
               style="font-size: 15px"
             >
               <thead class="table-dark">
@@ -48,22 +49,21 @@ const WisataPage = {
     const footer = document.querySelector("footer-element");
     footer.style.display = "none";
 
-    // eksekusi logout
-    document.getElementById("btnLogout").addEventListener("click", async () => {
-      Swal.fire({
-        position: "center",
-        icon: "success",
-        title: "Berhasil Logout!",
-        showConfirmButton: false,
-        timer: 1500
-      });
-      localStorage.removeItem("id");
-      window.location.replace("#/login");
-    });
-
     //   active side bar
     const navLink = document.getElementById("wisata-link");
     navLink.classList.add("active");
+
+    // akses side bar
+    const btnSidebar = document.querySelector(".btn-sidebar");
+    const sidebar = document.querySelector(".sidebar");
+    btnSidebar.addEventListener("click", () => {
+      sidebar.classList.add("active");
+    });
+    document
+      .getElementById("content_container")
+      .addEventListener("click", () => {
+        sidebar.classList.remove("active");
+      });
 
     // get data wisata
     const response = await WisataSource.getWisata();

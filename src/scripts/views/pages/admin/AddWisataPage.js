@@ -5,72 +5,78 @@ import Swal from "sweetalert2";
 const AddWisataPage = {
   async render() {
     return `
-      <navbar-admin></navbar-admin>
       <div class="container-fluid">
         <div class="row">
           <sidebar-element></sidebar-element>
-          <div
-            class="col-md-9 ms-sm-auto col-lg-10 px-md-4 d-flex align-items-center justify-content-center"
-          >
-            <div class="mt-4 card shadow p-4" style="min-width: 70%;">
-              <h3 class="text-center">Tambah Wisata</h3>
-              <form class="addWisataForm">
-                <div class="mb-3">
-                  <label for="inputNama" class="form-label">Nama</label>
-                  <input
-                    type="text"
-                    class="form-control"
-                    id="inputNama"
-                    name="nama"
-                  />
-                </div>
-                <div class="mb-3">
-                  <label for="inputKategori" class="form-label">Kategori</label>
-                  <input
-                    type="text"
-                    class="form-control"
-                    id="inputKategori"
-                    name="kategori"
-                  />
-                </div>
-                <div class="mb-3">
-                  <label for="inputLokasi" class="form-label">Lokasi</label>
-                  <input
-                    type="text"
-                    class="form-control"
-                    id="inputLokasi"
-                    name="lokasi"
-                  />
-                </div>
-                <div class="form-floating mb-3">
-                  <textarea
-                    class="form-control"
-                    placeholder="Deskripsi wisata"
-                    id="inputDeskripsi"
-                    style="height: 100px"
-                    name="deskripsi"
-                  ></textarea>
-                  <label for="inputDeskripsi">Deskripsi</label>
-                </div>
-                <div class="mb-3">
-                  <label for="formFile" class="form-label"
-                    >Masukan foto utama</label
-                  >
-                  <input
-                    class="form-control"
-                    type="file"
-                    id="formFile"
-                    name="file"
-                  />
-                </div>
-                <div class="mb-3" id="map" style="height: 60vh;">
-                </div>
-                <div id="latLong" class="row align-items-center justify-content-center">
-                </div>
-                <button type="submit" class="btn btn-primary px-4 my-3">
-                  Simpan
-                </button>
-              </form>
+          <div class="col-md-9 ms-sm-auto col-lg-10 p-0 px-md-4">
+            <navbar-admin-element></navbar-admin-element>
+            <div
+              class="mt-md-3 mb-5 d-flex align-items-center justify-content-center"
+              id="content_container"
+            >
+              <div class="mt-4 card shadow p-4" style="min-width: 70%;">
+                <h3 class="text-center title_items_sidebar">Tambah Wisata</h3>
+                <form class="addWisataForm">
+                  <div class="mb-3">
+                    <label for="inputNama" class="form-label">Nama</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="inputNama"
+                      name="nama"
+                    />
+                  </div>
+                  <div class="mb-3">
+                    <label for="inputKategori" class="form-label"
+                      >Kategori</label
+                    >
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="inputKategori"
+                      name="kategori"
+                    />
+                  </div>
+                  <div class="mb-3">
+                    <label for="inputLokasi" class="form-label">Lokasi</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="inputLokasi"
+                      name="lokasi"
+                    />
+                  </div>
+                  <div class="form-floating mb-3">
+                    <textarea
+                      class="form-control"
+                      placeholder="Deskripsi wisata"
+                      id="inputDeskripsi"
+                      style="height: 100px"
+                      name="deskripsi"
+                    ></textarea>
+                    <label for="inputDeskripsi">Deskripsi</label>
+                  </div>
+                  <div class="mb-3">
+                    <label for="formFile" class="form-label"
+                      >Masukan foto utama</label
+                    >
+                    <input
+                      class="form-control"
+                      type="file"
+                      id="formFile"
+                      name="file"
+                    />
+                  </div>
+                  <div class="mb-3" id="map" style="height: 60vh; z-index:0"></div>
+                  <div
+                    id="latLong"
+                    class="row align-items-center justify-content-center"
+                  ></div>
+                  <button type="submit" class="btn btn-primary px-4 my-3">
+                    Simpan
+                  </button>
+                </form>
+              </div>
             </div>
           </div>
         </div>
@@ -86,22 +92,21 @@ const AddWisataPage = {
     const footer = document.querySelector("footer-element");
     footer.style.display = "none";
 
-    // eksekusi logout
-    document.getElementById("btnLogout").addEventListener("click", async () => {
-      Swal.fire({
-        position: "center",
-        icon: "success",
-        title: "Berhasil Logout!",
-        showConfirmButton: false,
-        timer: 1500
-      });
-      localStorage.removeItem("id");
-      window.location.replace("#/login");
-    });
-
     //   active side bar
     const navLink = document.getElementById("wisata-link");
     navLink.classList.add("active");
+
+    // akses side bar
+    const btnSidebar = document.querySelector(".btn-sidebar");
+    const sidebar = document.querySelector(".sidebar");
+    btnSidebar.addEventListener("click", () => {
+      sidebar.classList.add("active");
+    });
+    document
+      .getElementById("content_container")
+      .addEventListener("click", () => {
+        sidebar.classList.remove("active");
+      });
 
     // fitur map
     var map = L.map("map").setView([-7.797068, 110.370529], 12);

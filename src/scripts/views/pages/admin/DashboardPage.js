@@ -5,14 +5,14 @@ import Swal from "sweetalert2";
 const DashboardPage = {
   async render() {
     return `
-      <navbar-admin></navbar-admin>
       <div class="container-fluid">
         <div class="row">
           <sidebar-element></sidebar-element>
-          <div class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+          <div class="col-md-9 ms-sm-auto col-lg-10 p-0 px-md-4">
+            <navbar-admin-element></navbar-admin-element>
             <div
               id="card-container"
-              class="p-5 d-flex flex-wrap align-items-center justify-content-center gap-2 text-center"
+              class="mt-md-3 p-5 d-flex flex-wrap align-items-center justify-content-center gap-2 text-center"
             ></div>
           </div>
         </div>
@@ -28,22 +28,19 @@ const DashboardPage = {
     const footer = document.querySelector("footer-element");
     footer.style.display = "none";
 
-    // eksekusi logout
-    document.getElementById("btnLogout").addEventListener("click", async () => {
-      Swal.fire({
-        position: "center",
-        icon: "success",
-        title: "Berhasil Logout!",
-        showConfirmButton: false,
-        timer: 1500
-      });
-      localStorage.removeItem("id");
-      window.location.replace("#/login");
-    });
-
     //   active side bar
     const navLink = document.getElementById("dashboard-link");
     navLink.classList.add("active");
+
+    // akses side bar
+    const btnSidebar = document.querySelector(".btn-sidebar");
+    const sidebar = document.querySelector(".sidebar");
+    btnSidebar.addEventListener("click", () => {
+      sidebar.classList.add("active");
+    });
+    document.getElementById("card-container").addEventListener("click", () => {
+      sidebar.classList.remove("active");
+    });
 
     // render item wisata
     const itemContainer = document.getElementById("card-container");

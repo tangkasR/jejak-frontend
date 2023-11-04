@@ -9,12 +9,12 @@ import Swal from "sweetalert2";
 const GalleryAddDelPage = {
   async render() {
     return `
-      <navbar-admin></navbar-admin>
       <div class="container-fluid">
         <div class="row">
           <sidebar-element></sidebar-element>
-          <div class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
-            <div class="w-100 d-flex align-items-center justify-content-center">
+          <div class="col-md-9 ms-sm-auto col-lg-10 px-md-4 p-0">
+            <navbar-admin-element></navbar-admin-element>
+            <div id="content_container" class="mt-md-3 px-5 w-100 d-flex align-items-center justify-content-center">
               <div
                 class="p-4 card  shadow mt-4"
                 style="width:100%; max-width:800px"
@@ -43,7 +43,7 @@ const GalleryAddDelPage = {
             </div>
             <div
               id="container-gallery"
-              class="mt-3 d-flex align-items-center justify-content-center flex-wrap gap-3"
+              class="mt-4 d-flex align-items-center justify-content-center flex-wrap gap-3"
             ></div>
           </div>
         </div>
@@ -62,22 +62,21 @@ const GalleryAddDelPage = {
     const footer = document.querySelector("footer-element");
     footer.style.display = "none";
 
-    // eksekusi logout
-    document.getElementById("btnLogout").addEventListener("click", async () => {
-      Swal.fire({
-        position: "center",
-        icon: "success",
-        title: "Berhasil Logout!",
-        showConfirmButton: false,
-        timer: 1500
-      });
-      localStorage.removeItem("id");
-      window.location.replace("#/login");
-    });
-
     // active side bar
     const navLink = document.getElementById("gallery-link");
     navLink.classList.add("active");
+
+    // akses side bar
+    const btnSidebar = document.querySelector(".btn-sidebar");
+    const sidebar = document.querySelector(".sidebar");
+    btnSidebar.addEventListener("click", () => {
+      sidebar.classList.add("active");
+    });
+    document
+      .getElementById("content_container")
+      .addEventListener("click", () => {
+        sidebar.classList.remove("active");
+      });
 
     // get data wisata
     const response = await WisataSource.getWisataById(url.id);
@@ -86,7 +85,7 @@ const GalleryAddDelPage = {
 
     // render page
     const titleContainer = document.getElementById("content-title");
-    titleContainer.innerHTML += `<h1 style="font-size:30px">Gallery Wisata ${data.nama}</h1>`;
+    titleContainer.innerHTML += `<h1 class='title_items_sidebar'>Gallery Wisata ${data.nama}</h1>`;
 
     // render card gallery
     const gallery = await GallerySource.getGalleryByWisataId(url.id);
@@ -97,6 +96,7 @@ const GalleryAddDelPage = {
       container.innerHTML += `
         <div class="card shadow" style="width:fit-content; height:fit-content">
           <img
+            class="shadow"
             src="${data.url}"
             alt="foto gallery"
             style="width:200px; height:200px; object-fit:cover"

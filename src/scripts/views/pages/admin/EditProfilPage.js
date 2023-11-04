@@ -5,23 +5,26 @@ import Swal from "sweetalert2";
 const EditProfilPage = {
   async render() {
     return `
-      <navbar-admin></navbar-admin>
       <div class="container-fluid">
         <div class="row">
           <sidebar-element></sidebar-element>
-          <div
-            class="col-md-9 ms-sm-auto col-lg-10 px-md-4 d-flex flex-column align-items-center justify-content-center"
-          >
-            <div class="my-4 card shadow p-4" style="min-width: 50%;">
-              <h3 class="text-center">Edit Profil</h3>
-              <form class="editForm"></form>
-              <button
-                class="mt-2 btn btn-danger px-4"
-                style="width:150px; max-width:100%"
-                id="btnDelete"
-              >
-                Hapus Akun
-              </button>
+          <div class="col-md-9 ms-sm-auto col-lg-10 px-md-4 p-0">
+            <navbar-admin-element></navbar-admin-element>
+            <div
+              class="mt-md-3 d-flex align-items-center justify-content-center"
+              id="content_container"
+            >
+              <div class="my-4 card shadow p-4" style="min-width: 70%;">
+                <h3 class="title_items_sidebar text-center">Edit Profil</h3>
+                <form class="editForm"></form>
+                <button
+                  class="mt-2 btn btn-danger px-4"
+                  style="width:150px; max-width:100%"
+                  id="btnDelete"
+                >
+                  Hapus Akun
+                </button>
+              </div>
             </div>
           </div>
         </div>
@@ -33,19 +36,6 @@ const EditProfilPage = {
     const navbar = document.querySelector("navbar-element");
     navbar.style.display = "none";
 
-    // eksekusi logout
-    document.getElementById("btnLogout").addEventListener("click", async () => {
-      Swal.fire({
-        position: "center",
-        icon: "success",
-        title: "Berhasil Logout!",
-        showConfirmButton: false,
-        timer: 1500
-      });
-      localStorage.removeItem("id");
-      window.location.replace("#/login");
-    });
-
     // hapus footer
     const footer = document.querySelector("footer-element");
     footer.style.display = "none";
@@ -53,43 +43,114 @@ const EditProfilPage = {
     const id = JSON.parse(localStorage.id);
     const form = document.querySelector(".editForm");
 
+    //   active side bar
+    const navLink = document.getElementById("profil-link");
+    navLink.classList.add("active");
+
+    // akses side bar
+    const btnSidebar = document.querySelector(".btn-sidebar");
+    const sidebar = document.querySelector(".sidebar");
+    btnSidebar.addEventListener("click", () => {
+      sidebar.classList.add("active");
+    });
+    document
+      .getElementById("content_container")
+      .addEventListener("click", () => {
+        sidebar.classList.remove("active");
+      });
+
     // render data dengan value
-    const data = await AdminSource.getData(id.id);
+    const profil = await AdminSource.getData(id.id);
+    const dataProfil = profil.data;
     form.innerHTML = `
-     <div class="mb-3">
-         <label for="inputName" class="form-label">Nama</label>
-         <input type="text" class="form-control" id="inputName" name="name" value="${data.data.name}">
-     </div>
-     <div class="mb-3">
-         <label for="inputJenisKelamin" class="form-label">Jenis Kelamin</label>
-         <select class="form-select" id="inputJenisKelamin" name="jenis_kelamin">
-             <option value="laki-laki">Laki-Laki</option>
-             <option value="perempuan">Perempuan</option>
-         </select>
-     </div>
-     <div class="mb-3">
-         <label for="inputRole" class="form-label">Role</label>
-         <input type="text" class="form-control" id="inputRole" value="admin" disabled>
-     </div>
-     <div class="mb-3">
-         <label for="inputEmail" class="form-label">Email</label>
-         <input type="email" class="form-control" id="inputEmail" placeholder="example@gmail.com" name="email" value="${data.data.email}">
-     </div>
-     <div class="mb-3">
-         <label for="inputPassword" class="form-label">Password</label>
-         <input type="password" class="form-control" id="inputPassword" placeholder="****" name="password">
-     </div>
-     <div class="mb-3">
-         <label for="inputConfirmPassword" class="form-label">Konfirmasi Password</label>
-         <input type="password" class="form-control" id="inputConfirmPassword" placeholder="****" name="confirmPassword">
-     </div>
-     <div class="mb-3">
-         <label for="formFile" class="form-label">Masukan foto profil</label>
-         <input class="form-control" type="file" id="formFile" name="file">
-     </div>
-    <button type="submit" class="btn btn-primary px-4" style="width:150px; max-width:100%">Simpan</button>
-        
-     `;
+      <div class="row">
+        <div class="col-6 mb-3">
+          <label for="inputName" class="form-label">Nama</label>
+          <input
+            type="text"
+            class="form-control"
+            id="inputName"
+            name="name"
+            placeholder="Nama lengkap"
+            value="${dataProfil.name}"
+          />
+        </div>
+        <div class="col-6 mb-3">
+          <label for="inputJenisKelamin" class="form-label"
+            >Jenis Kelamin</label
+          >
+          <select
+            class="form-select"
+            id="inputJenisKelamin"
+            name="jenis_kelamin"
+          >
+            <option value="laki-laki">Laki-Laki</option>
+            <option value="perempuan">Perempuan</option>
+          </select>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-6 mb-3">
+          <label for="inputEmail" class="form-label">Email</label>
+          <input
+            type="email"
+            class="form-control"
+            id="inputEmail"
+            placeholder="example@gmail.com"
+            name="email"
+            value="${dataProfil.email}"
+          />
+        </div>
+        <div class="col-6 mb-3">
+          <label for="inputRole" class="form-label">Role</label>
+          <input
+            type="text"
+            class="form-control"
+            id="inputRole"
+            value="admin"
+            disabled
+          />
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-6 mb-3">
+          <label for="inputPassword" class="form-label">Password</label>
+          <input
+            type="password"
+            class="form-control"
+            id="inputPassword"
+            placeholder="****"
+            name="password"
+          />
+        </div>
+        <div class="col-6 mb-3">
+          <label for="inputConfirmPassword" class="form-label"
+            >Konfirmasi Password</label
+          >
+          <input
+            type="password"
+            class="form-control"
+            id="inputConfirmPassword"
+            placeholder="****"
+            name="confirmPassword"
+          />
+        </div>
+      </div>
+      <div class="mb-3">
+        <label for="formFile" class="form-label">Masukan foto profil</label>
+        <input class="form-control" type="file" id="formFile" name="file" />
+      </div>
+      <div
+        class="d-flex flex-wrap gap-3 align-items-center justify-content-between"
+      >
+        <button type="submit" class="btn-logres w-100 mt-3 btn btn-primary">
+          Simpan
+        </button>
+        <p class="anchor-logres p-0 m-0">
+          Anda ingin menghapus akun akun?
+        </p>
+      </div>
+    `;
 
     // eksekusi edit profil
     form.addEventListener("submit", async (event) => {
@@ -126,7 +187,7 @@ const EditProfilPage = {
     document.getElementById("btnDelete").addEventListener("click", async () => {
       Swal.fire({
         title: "Apakah anda yakin?",
-        text: `Data ${data.data.name} akan dihapus!"`,
+        text: `Data ${dataProfil.name} akan dihapus!"`,
         icon: "warning",
         showCancelButton: true,
         confirmButtonColor: "#3085d6",

@@ -6,23 +6,28 @@ import Swal from "sweetalert2";
 const EditWisataPage = {
   async render() {
     return `
-      <navbar-admin></navbar-admin>
       <div class="container-fluid">
         <div class="row">
           <sidebar-element></sidebar-element>
           <div
-            class="col-md-9 ms-sm-auto col-lg-10 px-md-4 d-flex align-items-center justify-content-center"
+            class="col-md-9 ms-sm-auto col-lg-10 px-md-4 p-0"
           >
-            <div class="my-4 card shadow p-4" style="min-width: 70%;">
-              <h3 class="text-center">Ubah Wisata</h3>
-              <form class="editWisataForm"></form>
-              <button
-                id="btnDel"
-                class="btn btn-danger px-4 my-3"
-                style="width:120px;"
-              >
-                Hapus
-              </button>
+            <navbar-admin-element></navbar-admin-element>
+            <div
+              class="mt-md-3 d-flex align-items-center justify-content-center"
+              id="content_container"
+            >
+              <div class="my-4 card shadow p-4" style="min-width: 70%;">
+                <h3 class="title_items_sidebar text-center">Ubah Wisata</h3>
+                <form class="editWisataForm"></form>
+                <button
+                  id="btnDel"
+                  class="btn btn-danger px-4 my-3"
+                  style="width:120px;"
+                >
+                  Hapus
+                </button>
+              </div>
             </div>
           </div>
         </div>
@@ -41,22 +46,21 @@ const EditWisataPage = {
     const footer = document.querySelector("footer-element");
     footer.style.display = "none";
 
-    // eksekusi logout
-    document.getElementById("btnLogout").addEventListener("click", async () => {
-      Swal.fire({
-        position: "center",
-        icon: "success",
-        title: "Berhasil Logout!",
-        showConfirmButton: false,
-        timer: 1500
-      });
-      localStorage.removeItem("id");
-      window.location.replace("#/login");
-    });
-
     //   active side bar
     const navLink = document.getElementById("wisata-link");
     navLink.classList.add("active");
+
+    // akses side bar
+    const btnSidebar = document.querySelector(".btn-sidebar");
+    const sidebar = document.querySelector(".sidebar");
+    btnSidebar.addEventListener("click", () => {
+      sidebar.classList.add("active");
+    });
+    document
+      .getElementById("content_container")
+      .addEventListener("click", () => {
+        sidebar.classList.remove("active");
+      });
 
     // render value data
     const response = await WisataSource.getWisataById(url.id);
@@ -107,7 +111,7 @@ const EditWisataPage = {
         <label for="formFile" class="form-label">Masukan foto utama</label>
         <input class="form-control" type="file" id="formFile" name="file" />
       </div>
-      <div class="mb-3" id="map" style="height: 60vh;"></div>
+      <div class="mb-3" id="map" style="height: 60vh;z-index:0"></div>
       <div
         id="latLong"
         class="row align-items-center justify-content-center"

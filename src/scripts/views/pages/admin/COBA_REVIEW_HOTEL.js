@@ -7,11 +7,10 @@ import Swal from "sweetalert2";
 const CobaReviewHotelPage = {
   async render() {
     return `
-      <navbar-admin></navbar-admin>
       <div class="container-fluid">
         <div class="row">
           <sidebar-element></sidebar-element>
-          <div class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+          <div class=" col-md-9 ms-sm-auto col-lg-10 px-md-4">
             <div id="container-cobareview" class="py-4"></div>
           </div>
         </div>
@@ -29,19 +28,6 @@ const CobaReviewHotelPage = {
     // hapus footer
     const footer = document.querySelector("footer-element");
     footer.style.display = "none";
-
-    // eksekusi logout
-    document.getElementById("btnLogout").addEventListener("click", async () => {
-      Swal.fire({
-        position: "center",
-        icon: "success",
-        title: "Berhasil Logout!",
-        showConfirmButton: false,
-        timer: 1500
-      });
-      localStorage.removeItem("id");
-      window.location.replace("#/login");
-    });
 
     //   active side bar
     const navLink = document.getElementById("dashboard-link");
