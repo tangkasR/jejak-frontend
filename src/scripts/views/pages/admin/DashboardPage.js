@@ -30,8 +30,8 @@ const DashboardPage = {
     const datas = response.data;
     datas.forEach((data) => {
       itemContainer.innerHTML += `
-      <div class="card shadow p-3">
-        <img src="${data.url}" style="max-width: 200px; min-height: 200px; object-fit:cover">
+      <div class="card shadow p-3" >
+        <img src="${data.url}" style="width: 200px; height:200px; object-fit:cover">
         <a href="#/cobareview/${data.id}" style="text-decoration: none"><h5 class="text-dark mt-3 mb-3">${data.nama}</h5></a>
         <p>${data.kategori}</p>
         <p>${data.lokasi}</p>

@@ -1,0 +1,72 @@
+table {
+  max-width: 100%;
+  overflow-x: scroll;
+}
+@media (max-width: 700px) {
+  th {
+    display: none;
+  }
+  .table-wraper {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  table {
+    width: 80% !important;
+    max-width: 100% !important;
+  }
+  td {
+    display: grid;
+    grid-template-columns: 35% auto;
+    padding: 1rem 2rem !important;
+    gap: 0.5rem !important;
+    border: none !important;
+  }
+  td:nth-child(2) {
+    grid-template-columns: auto;
+    font-size: 35px;
+    color: black;
+    font-weight: 700;
+    text-align: center;
+    width: 100%;
+    padding-top: 3rem !important;
+    border-radius: 20px 20px 0 0;
+  }
+  td:nth-child(8) {
+    margin-bottom: 2rem !important;
+    padding-bottom: 3rem !important;
+    border-radius: 0 0 20px 20px;
+  }
+  td:nth-child(8) .btn {
+    max-width: 100% !important;
+  }
+  td::before {
+    text-transform: capitalize;
+    font-weight: 700;
+  }
+  td:nth-child(7) img {
+    min-width: 100% !important;
+    min-height: 100px;
+    object-fit: cover;
+  }
+  td:nth-of-type(2)::before {
+    content: "Kategori: ";
+  }
+  td:nth-of-type(3)::before {
+    content: "Lokasi: ";
+  }
+  td:nth-of-type(4)::before {
+    content: "Deskripsi: ";
+  }
+  td:nth-of-type(5)::before {
+    content: "Rating: ";
+  }
+  td:nth-of-type(6)::before {
+    content: "Image: ";
+  }
+  td:nth-of-type(7)::before {
+    content: "Aksi: ";
+  }
+}

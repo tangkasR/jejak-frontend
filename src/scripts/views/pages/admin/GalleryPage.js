@@ -23,7 +23,6 @@ const GalleryPage = {
     `;
   },
   async afterRender() {
-
     //   active side bar
     const navLink = document.getElementById("gallery-link");
     navLink.classList.add("active");
@@ -36,7 +35,7 @@ const GalleryPage = {
       itemContainer.innerHTML += `
       <div class="text-center card shadow" style="min-width:300px; height:100%">
         <a href="#/gallerywisataadmin/${data.id}" id="nama-wisata" style="text-decoration: none">
-          <img src="${data.url}" style="width: 100%; height: 250px; object-fit:cover">
+          <img src="${data.url}" style="max-width: 250px; min-width:100%;height: 250px; object-fit:cover">
           <div class="card-body">
             <h5 class=mt-3 mb-3">${data.nama}</h5>
           </div>

@@ -6,6 +6,7 @@ import "../styles/navbar.css";
 import "../styles/sidebar.css";
 import "../styles/login-register.css";
 import "../styles/profil.css";
+import "../styles/table.css";
 import "../scripts/views/pages/user/HomePage";
 import "../styles/home.css";
 import "../styles/gallery-admin.css";

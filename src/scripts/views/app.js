@@ -2,6 +2,7 @@ import UrlParser from "../routes/url-parser";
 import routes from "../routes/routes";
 import { middleware } from "../middleware/middleware";
 import Swal from "sweetalert2";
+import SidebarInitiator from "../utils/sidebar-initiator";
 class App {
   constructor({ content }) {
     this._content = content;
@@ -37,16 +38,21 @@ class App {
         footer.style.display = "none";
 
         // akses side bar
-        const btnSidebar = document.querySelector(".btn-sidebar");
-        const sidebar = document.querySelector(".sidebar");
-        btnSidebar.addEventListener("click", () => {
-          sidebar.classList.add("active");
+        SidebarInitiator.init({
+          button: document.querySelector(".btn-sidebar"),
+          drawer: document.querySelector(".sidebar"),
+          content: document.getElementById("content_container")
         });
-        document
-          .getElementById("content_container")
-          .addEventListener("click", () => {
-            sidebar.classList.remove("active");
-          });
+        // const btnSidebar = document.querySelector(".btn-sidebar");
+        // const sidebar = document.querySelector(".sidebar");
+        // btnSidebar.addEventListener("click", () => {
+        //   sidebar.classList.add("active");
+        // });
+        // document
+        //   .getElementById("content_container")
+        //   .addEventListener("click", () => {
+        //     sidebar.classList.remove("active");
+        //   });
       } else {
         Swal.fire({
           imageUrl: `./icons/icon-bingung.png`,
