@@ -5,6 +5,7 @@ const GalleryPage = {
           `;
   },
   async afterRender () {
+ 
   }
 };
 export default GalleryPage;

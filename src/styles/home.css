@@ -112,10 +112,12 @@ body {
   width: 100%;
   height: 100%;
 }
+
 .card_items:hover {
   transition: transform 0.5s;
   cursor: pointer;
 }
+
 .content-card:hover {
   opacity: 100%;
   display: block;
@@ -123,7 +125,8 @@ body {
   text-wrap: wrap;
   text-align: center;
 }
-.destination-container{
+
+.destination-container {
   padding: 0 20px;
 }
 
@@ -156,8 +159,9 @@ body {
   cursor: pointer;
 }
 
-.kategori_card img:hover,
-.kategori_card h5:hover {
+.kategori_card a:hover,
+.kategori_card h5:hover,
+.kategori_card img:hover {
   transform: scale(1);
 }
 
@@ -212,10 +216,12 @@ body {
   width: 100%;
   object-fit: cover;
 }
-.item-top-penginapan img{
+
+.item-top-penginapan img {
   height: 75vh;
 }
-.item-wisata-lainnya img{
+
+.item-wisata-lainnya img {
   height: 40vh;
 }
 
@@ -243,6 +249,17 @@ body {
   color: var(--txt-primary) !important;
 }
 
+/*  Category Alam*/
+
+.alamItemCard {
+  padding: 120px 0;
+}
+
+.wisata-card {
+  background-color: #2C3639;
+  color: #DCD7C9;
+}
+
 /* responsive */
 /* Extra small devices (phones, 600px and down) */
 @media only screen and (max-width: 400px) {
@@ -257,8 +274,9 @@ body {
     color: #dcd7c9;
     font-size: 8px;
   }
-  
+
 }
+
 @media only screen and (min-width: 400px) {
   .content-card h5 {
     font-size: 12px;
@@ -271,8 +289,9 @@ body {
     color: #dcd7c9;
     font-size: 10px;
   }
-  
+
 }
+
 @media only screen and (min-width: 520px) {
   .content-card h5 {
     font-size: 16px;
@@ -286,12 +305,13 @@ body {
     font-size: 14px;
   }
 }
+
 /* Medium devices (landscape tablets, 768px and up) */
 @media only screen and (min-width: 768px) {
   .hero_title {
     font-size: 60px;
   }
-  
+
   .hero_tagline {
     font-size: 18px;
   }
@@ -299,7 +319,7 @@ body {
   .content-card h5 {
     font-size: 12px;
   }
-  
+
   .content-card p {
     font-size: 8px;
   }
@@ -324,7 +344,7 @@ body {
   .content-card h5 {
     font-size: 14px;
   }
-  
+
   .content-card p {
     font-size: 12px;
   }
@@ -335,12 +355,14 @@ body {
   .content-card h5 {
     font-size: 16px;
   }
-  
+
   .content-card p {
     font-size: 14px;
   }
-  .destination-container{
+
+  .destination-container {
     padding: 0;
   }
 }
+
 /* end responsive */

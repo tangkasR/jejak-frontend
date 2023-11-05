@@ -7,6 +7,7 @@ const MapPage = {
     `;
   },
   async afterRender() {
+    
     // get data wisata
     const wisata = await WisataSource.getWisata();
     const dataWisata = wisata.data;

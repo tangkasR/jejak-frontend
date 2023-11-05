@@ -23,6 +23,8 @@ import GalleryPageAdmin from "../views/pages/admin/GalleryPage";
 import GalleryAddDelPage from "../views/pages/admin/GalleryAddDelPage";
 import DeleteGalleryPage from "../views/pages/admin/DeleteGalleryPage";
 import StarterPage from "../views/pages/user/StarterPage";
+import wisataAlamPage from "../views/pages/user/wisataAlamPage";
+import wisataBudayaPage from "../views/pages/user/wisataBudayaPage";
 
 const routes = {
   // USER
@@ -31,6 +33,9 @@ const routes = {
   "/gallery": GalleryPage,
   "/contact": ContactPage,
   "/map": MapPage,
+  "/kategorialam": wisataAlamPage,
+  "/kategoribudaya": wisataBudayaPage,
+
 
   //   ADMIN
   "/login": LoginPage,

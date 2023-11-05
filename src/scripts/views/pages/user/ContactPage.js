@@ -5,10 +5,7 @@ const ContactPage = {
           `;
   },
   async afterRender() {
-    // mengaktifkan link home
-    const link = document.getElementById("link-contact");
-    link.classList.toggle("active");
-    link.setAttribute("aria-current", "page");
+   
   }
 };
 export default ContactPage;

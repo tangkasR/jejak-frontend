@@ -160,8 +160,10 @@ const HomePage = {
             data-aos-easing="ease-in-out"
           >
             <div class="card kategori_card">
-              <img src="./icons/Alam.png" />
+              <a href="#/kategorialam" class="nav-link d-flex justify-content-center flex-column align-items-center">
+              <img src="./icons/Alam.png"  />
               <h5>Alam</h5>
+              </a> 
             </div>
           </div>
           <div class="kategori_items"
@@ -170,9 +172,11 @@ const HomePage = {
             data-aos-duration="2000"
             data-aos-easing="ease-in-out"
           >
-            <div class="card kategori_card ">
-              <img src="./icons/Pagoda.png" />
+            <div class="card kategori_card">
+              <a href="#/kategoribudaya" class="nav-link d-flex justify-content-center flex-column align-items-center">
+              <img src="./icons/Pagoda.png"/>
               <h5>Budaya</h5>
+              </a>
             </div>
           </div>
           <div class="kategori_items"
@@ -182,8 +186,10 @@ const HomePage = {
             data-aos-easing="ease-in-out"
           >
             <div class="card kategori_card">
+              <a href="#/hotel" class="nav-link d-flex justify-content-center flex-column align-items-center">
               <img src="./icons/Penginapan.png" />
               <h5>Penginapan</h5>
+              </a>
             </div>
           </div>
         </div>
@@ -417,10 +423,7 @@ const HomePage = {
   },
 
   async afterRender() {
-    // mengaktifkan link home
-    const link = document.getElementById("link-home");
-    link.classList.add("active");
-    link.setAttribute("aria-current", "page");
+   
 
     var swiper = new Swiper(".mySwiper", {
       slidesPerView: "auto",

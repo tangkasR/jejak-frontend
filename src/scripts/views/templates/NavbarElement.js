@@ -47,8 +47,8 @@ class Navbar extends HTMLElement {
                   Kategori
                 </a>
                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <li><a class="dropdown-item" href="#">Alam</a></li>
-                  <li><a class="dropdown-item" href="#">Budaya</a></li>
+                  <li><a class="dropdown-item" id="link-alam" href="#/kategorialam">Alam</a></li>
+                  <li><a class="dropdown-item" id="link-budaya" href="#/kategoribudaya">Budaya</a></li>
                 </ul>
               </li>
               <li class="nav-item">
