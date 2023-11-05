@@ -8,7 +8,8 @@ const DashboardPage = {
       <div class="container-fluid">
         <div class="row">
           <sidebar-element></sidebar-element>
-          <div class="col-md-9 ms-sm-auto col-lg-10 p-0">
+          <div class="col-md-9 ms-sm-auto col-lg-10 p-0"
+          id="container-right">
             <navbar-admin-element></navbar-admin-element>
             <div id="container-right">
               <div

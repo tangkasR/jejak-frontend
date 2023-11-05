@@ -10,7 +10,8 @@ const HotelPage = {
       <div class="container-fluid">
         <div class="row">
           <sidebar-element></sidebar-element>
-          <div class="col-md-9 ms-sm-auto col-lg-10 p-0" id="container-right">
+          <div class="col-md-9 ms-sm-auto col-lg-10 p-0" id="container-right"
+          id="container-right">
             <navbar-admin-element></navbar-admin-element>
             <div
               class="mt-md-3 d-flex align-items-center justify-content-between px-5"
