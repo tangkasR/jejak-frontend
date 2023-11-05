@@ -25,7 +25,6 @@ class App {
       url === "/gallerywisataadmin/:id"
     ) {
       if (isLogin === true) {
-        console.log(isLogin);
         const page = routes[url];
         this._content.innerHTML = await page.render();
         await page.afterRender();

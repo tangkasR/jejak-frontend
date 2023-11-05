@@ -3,6 +3,9 @@
   padding-top: 30px !important;
   padding-bottom: 30px !important;
 }
+.table-wraper #tableDatas_wrapper table th {
+  text-align: center !important;
+}
 
 .table-wraper {
   width: 100% !important;
@@ -74,13 +77,15 @@
     text-transform: capitalize;
     font-weight: 700;
   }
-  .wisataTr td:nth-child(7) img {
+  .wisataTr img {
     min-width: 100% !important;
+    max-width: 250px !important;
     min-height: 130px !important;
     object-fit: cover;
   }
   .hotelTr img {
     min-width: 100% !important;
+    max-width: 250px !important;
     min-height: 130px !important;
     object-fit: cover;
   }

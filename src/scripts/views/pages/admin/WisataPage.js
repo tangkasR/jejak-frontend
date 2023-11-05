@@ -53,7 +53,6 @@ const WisataPage = {
     // get data wisata
     const response = await WisataSource.getWisata();
     const datas = response.data;
-    console.log(datas);
     const itemContainer = document.querySelector(".item-container");
     datas.forEach((data) => {
       itemContainer.innerHTML += `

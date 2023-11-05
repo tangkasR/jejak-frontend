@@ -1,3 +1,4 @@
+import WisataSource from "../../../data/wisata-source";
 const HomePage = {
   async render() {
     return `
@@ -38,98 +39,18 @@ const HomePage = {
           dan terbaik di kalangan wisatawan dari luar ataupun dalam negeri.
         </p>
         <div class="row align-items-center justify-content-center destination-container">
-          <div class="col-md-6 mb-3 mb-md-0">
+          <div class="col-lg-6 mb-3 mb-md-0">
             <div class="card_items"
               data-aos="fade-right"
               data-aos-delay="50"
               data-aos-duration="1000"
               data-aos-easing="ease-in-out"
+              id="container-destinasi-populer-left"
             >
-              <div class="card card-wrapper">
-                <img src="./images/pantai.jpeg" />
-                <div class="content-card">
-                  <div class="item-card">
-                    <h5>Pantai Watulangit</h5>
-                    <p>Pantai mantap</p>
-                  </div>
-                </div>
-              </div>
             </div>
           </div>
-          <div class="col-12 col-md-6">
-            <div class="row align-items-center justify-content-center">
-              <div class="col-6 col-md-6 py-2">
-                <div class="card_items"
-                  data-aos="fade-left"
-                  data-aos-delay="50"
-                  data-aos-duration="1000"
-                  data-aos-easing="ease-in-out"
-                >
-                  <div class="card">
-                    <img src="./images/pantai.jpeg" />
-                    <div class="content-card">
-                      <div class="item-card">
-                        <h5>Pantai Watulangit</h5>
-                        <p>Pantai mantap</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="col-6 col-md-6 py-2">
-                <div class="card_items"
-                  data-aos="fade-left"
-                  data-aos-delay="50"
-                  data-aos-duration="2000"
-                  data-aos-easing="ease-in-out"
-                >
-                  <div class="card">
-                    <img src="./images/pantai.jpeg" />
-                    <div class="content-card">
-                      <div class="item-card">
-                        <h5>Pantai Watulangit</h5>
-                        <p>Pantai mantap</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="col-6 col-md-6 py-2">
-                <div class="card_items"
-                  data-aos="fade-left"
-                  data-aos-delay="50"
-                  data-aos-duration="1000"
-                  data-aos-easing="ease-in-out"
-                >
-                  <div class="card">
-                    <img src="./images/pantai.jpeg" />
-                    <div class="content-card">
-                      <div class="item-card">
-                        <h5>Pantai Watulangit</h5>
-                        <p>Pantai mantap</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="col-6 col-md-6 py-2">
-                <div class="card_items"
-                  data-aos="fade-left"
-                  data-aos-delay="50"
-                  data-aos-duration="2000"
-                  data-aos-easing="ease-in-out"
-                >
-                  <div class="card">
-                    <img src="./images/pantai.jpeg" />
-                    <div class="content-card">
-                      <div class="item-card">
-                        <h5>Pantai Watulangit</h5>
-                        <p>Pantai mantap</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
+          <div class="col-lg-6">
+            <div class="row align-items-center justify-content-center" id="container-destinasi-populer-right">
             </div>
           </div>
         </div>
@@ -333,86 +254,7 @@ const HomePage = {
           data-aos-easing="ease-in-out"
         >
           <div class="swiper mySwipers">
-            <div class="swiper-wrapper">
-              <div class="swiper-slide item-wisata-lainnya">
-                <div class="card_items">
-                  <div class="card">
-                    <img src="./images/pantai.jpeg" />
-                    <div class="content-card">
-                      <div class="item-card">
-                        <h5>Pantai Watulangit</h5>
-                        <p>Pantai mantap</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="swiper-slide item-wisata-lainnya">
-                <div class="card_items">
-                  <div class="card">
-                    <img src="./images/pantai.jpeg" />
-                    <div class="content-card">
-                      <div class="item-card">
-                        <h5>Pantai Watulangit</h5>
-                        <p>Pantai mantap</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="swiper-slide item-wisata-lainnya">
-                <div class="card_items">
-                  <div class="card">
-                    <img src="./images/pantai.jpeg" />
-                    <div class="content-card">
-                      <div class="item-card">
-                        <h5>Pantai Watulangit</h5>
-                        <p>Pantai mantap</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="swiper-slide item-wisata-lainnya">
-                <div class="card_items">
-                  <div class="card">
-                    <img src="./images/pantai.jpeg" />
-                    <div class="content-card">
-                      <div class="item-card">
-                        <h5>Pantai Watulangit</h5>
-                        <p>Pantai mantap</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="swiper-slide item-wisata-lainnya">
-                <div class="card_items">
-                  <div class="card">
-                    <img src="./images/pantai.jpeg" />
-                    <div class="content-card">
-                      <div class="item-card">
-                        <h5>Pantai Watulangit</h5>
-                        <p>Pantai mantap</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="swiper-slide item-wisata-lainnya">
-                <div class="card_items">
-                  <div class="card">
-                    <img src="./images/pantai.jpeg" />
-                    <div class="content-card">
-                      <div class="item-card">
-                        <h5>Pantai Watulangit</h5>
-                        <p>Pantai mantap</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              
+            <div class="swiper-wrapper" id="wisata-lainnya">
             </div>
             <div class="swiper-button-next"></div>
             <div class="swiper-button-prev"></div>
@@ -423,8 +265,7 @@ const HomePage = {
   },
 
   async afterRender() {
-   
-
+    // swiper
     var swiper = new Swiper(".mySwiper", {
       slidesPerView: "auto",
       spaceBetween: 30,
@@ -467,6 +308,83 @@ const HomePage = {
         }
       }
     });
+    // end swiper
+
+    // get datas wisata
+    const wisata = await WisataSource.getWisata();
+    const datasWisata = wisata.data;
+    // end get datas wisata
+
+    // render page destinasi populer
+    const destinasiPopulerContainer_left = document.getElementById(
+      "container-destinasi-populer-left"
+    );
+    const destinasiPopulerContainer_right = document.getElementById(
+      "container-destinasi-populer-right"
+    );
+    let indexDatasWisata = 0;
+    datasWisata.forEach((data) => {
+      indexDatasWisata++;
+      if (indexDatasWisata === 1) {
+        const deskripsi = data.deskripsi.slice(0, 250);
+        destinasiPopulerContainer_left.innerHTML += `
+          <div class="card card-wrapper card-destination-left">
+            <img src="${data.url}" />
+            <div class="content-card">
+              <div class="item-card">
+                <h5>${data.nama}</h5>
+                <p>${deskripsi}... <a href="#/login">selengkapnya</a></p>
+              </div>
+            </div>
+          </div>
+        `;
+      }
+      if (indexDatasWisata !== 1 && indexDatasWisata <= 5) {
+        const deskripsi = data.deskripsi.slice(0, 200);
+        destinasiPopulerContainer_right.innerHTML += `
+          <div class="col-sm-6 py-2">
+            <div
+              class="card_items"
+              data-aos="fade-left"
+              data-aos-delay="50"
+              data-aos-duration="1000"
+              data-aos-easing="ease-in-out"
+            >
+              <div class="card card-destination-right">
+                <img src="${data.url}" />
+                <div class="content-card">
+                  <div class="item-card">
+                    <h5>${data.nama}</h5>
+                    <p>${deskripsi}... <a href="#/login">selengkapnya</a></p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        `;
+      }
+    });
+    // end render page destinasi populer
+    // render page wisata lainnya
+    const wisataLainnyaContainer = document.getElementById("wisata-lainnya");
+    datasWisata.forEach((data) => {
+      wisataLainnyaContainer.innerHTML += `
+        <div class="swiper-slide item-wisata-lainnya">
+          <div class="card_items">
+            <div class="card card-wisata-lainnya">
+              <img src="${data.url}" />
+              <div class="content-card">
+                <div class="item-card">
+                  <h5 style="font-weight:800; font-size:25px">${data.nama}</h5>
+                  <p><i class='bx bxs-map'></i> ${data.lokasi}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      `;
+    });
+    // end render page wisata lainnya
   }
 };
 export default HomePage;
