@@ -7,7 +7,8 @@ const ProfilPage = {
       <div class="container-fluid">
         <div class="row">
           <sidebar-element></sidebar-element>
-          <div class="col-md-9 ms-sm-auto col-lg-10 p-0">
+          <div class="col-md-9 ms-sm-auto col-lg-10 p-0"
+          id="container-right">
             <navbar-admin-element></navbar-admin-element>
             <div id="content_container" class="px-5 mt-3 d-flex align-items-center justify-content-center" style="min-height: 90vh;">
               <div

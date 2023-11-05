@@ -10,10 +10,11 @@ const EditHotelPage = {
       <div class="container-fluid">
         <div class="row">
           <sidebar-element></sidebar-element>
-          <div class="col-md-9 ms-sm-auto col-lg-10 px-md-4 p-0">
+          <div class="col-md-9 ms-sm-auto col-lg-10 p-0"
+          id="container-right">
             <navbar-admin-element></navbar-admin-element>
             <div
-              class="mt-md-3 d-flex align-items-center justify-content-center"
+              class="px-md-3 mt-md-3 d-flex align-items-center justify-content-center"
               id="content_container"
             >
               <div class="my-4 card shadow p-4" style="min-width: 70%;">

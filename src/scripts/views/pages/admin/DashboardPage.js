@@ -8,12 +8,14 @@ const DashboardPage = {
       <div class="container-fluid">
         <div class="row">
           <sidebar-element></sidebar-element>
-          <div class="col-md-9 ms-sm-auto col-lg-10 p-0 px-md-4">
+          <div class="col-md-9 ms-sm-auto col-lg-10 p-0">
             <navbar-admin-element></navbar-admin-element>
-            <div
-              id="content_container"
-              class="mt-md-3 p-5 d-flex flex-wrap align-items-center justify-content-center gap-2 text-center"
-            ></div>
+            <div id="container-right">
+              <div
+                id="content_container"
+                class="mt-md-3 p-5 d-flex flex-wrap align-items-center justify-content-center gap-2 text-center"
+              ></div>
+            </div>
           </div>
         </div>
       </div>

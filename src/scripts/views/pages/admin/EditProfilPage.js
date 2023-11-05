@@ -8,22 +8,33 @@ const EditProfilPage = {
       <div class="container-fluid">
         <div class="row">
           <sidebar-element></sidebar-element>
-          <div class="col-md-9 ms-sm-auto col-lg-10 px-md-4 p-0">
+          <div class="col-md-9 ms-sm-auto col-lg-10 p-0"
+          id="container-right">
             <navbar-admin-element></navbar-admin-element>
             <div
-              class="mt-md-3 d-flex align-items-center justify-content-center"
+              class="px-md-3 mt-md-3 d-flex align-items-center justify-content-center"
               id="content_container"
             >
               <div class="my-4 card shadow p-4" style="min-width: 70%;">
                 <h3 class="title_items_sidebar text-center">Edit Profil</h3>
                 <form class="editForm"></form>
-                <button
-                  class="mt-2 btn btn-danger px-4"
-                  style="width:150px; max-width:100%"
-                  id="btnDelete"
-                >
-                  Hapus Akun
-                </button>
+                <div class="d-flex align-items-center justify-content-between">
+                  <button
+                    class="mt-2 btn btn-danger px-4"
+                    style="width:150px; max-width:100%"
+                    id="btnDelete"
+                  >
+                    Hapus Akun
+                  </button>
+                  <a
+                    class="mt-2 btn btn-dark px-4"
+                    style="width:150px; max-width:100%"
+                    id="btnDelete"
+                    href="#/profil"
+                  >
+                    Batal
+                  </a>
+                </div>
               </div>
             </div>
           </div>

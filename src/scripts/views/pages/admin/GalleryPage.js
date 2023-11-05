@@ -8,9 +8,10 @@ const GalleryPage = {
       <div class="container-fluid">
         <div class="row">
           <sidebar-element></sidebar-element>
-          <div class="col-md-9 ms-sm-auto col-lg-10 p-0 px-md-4">
+          <div class="col-md-9 ms-sm-auto col-lg-10 p-0"
+          id="container-right">
             <navbar-admin-element></navbar-admin-element>
-            <h1 class="mt-md-5 my-3 title_items_sidebar w-100 text-center" id="content_container">
+            <h1 class="px-sm-5 px-lg-0 mt-md-5 my-3 title_items_sidebar w-100 text-center" id="content_container">
               Data Gallery
             </h1>
             <div

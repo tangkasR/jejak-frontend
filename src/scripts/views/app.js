@@ -86,11 +86,27 @@ class App {
     } else {
       const page = routes[url];
       if (page !== undefined) {
+        if (url === "/") {
+          // nonaktifkan navbar
+          const navbar = document.querySelector("navbar-element");
+          navbar.style.display = "none";
+
+          // nonaktifkan footer
+          const footer = document.querySelector("footer-element");
+          footer.style.display = "none";
+          this._content.innerHTML = await page.render();
+          await page.afterRender();
+          return;
+        }
         this._content.innerHTML = await page.render();
         await page.afterRender();
         // mengaktifkan navbar
         const navbar = document.querySelector("navbar-element");
         navbar.style.display = "block";
+
+        // mengaktifkan footer
+        const footer = document.querySelector("footer-element");
+        footer.style.display = "block";
         return;
       }
       this._content.innerHTML += `

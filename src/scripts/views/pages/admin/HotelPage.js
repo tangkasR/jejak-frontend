@@ -3,13 +3,14 @@ import WisataSource from "../../../data/wisata-source";
 import { async } from "regenerator-runtime";
 import Swal from "sweetalert2";
 
+
 const HotelPage = {
   async render() {
     return `
       <div class="container-fluid">
         <div class="row">
           <sidebar-element></sidebar-element>
-          <div class="col-md-9 ms-sm-auto col-lg-10 p-0 px-md-4">
+          <div class="col-md-9 ms-sm-auto col-lg-10 p-0" id="container-right">
             <navbar-admin-element></navbar-admin-element>
             <div
               class="mt-md-3 d-flex align-items-center justify-content-between px-5"
@@ -18,10 +19,11 @@ const HotelPage = {
               <h1 class="my-3 title_items_sidebar">Data Hotel</h1>
               <a href="#/addhotel" class="btn btn-success">Tambah</a>
             </div>
-            <div class="table-wraper">
+            <div class="table-wraper px-md-5">
               <table
                 class="table table-hover text-center"
                 style="font-size: 15px"
+                id="tableDatas"
               >
                 <thead class="table-dark">
                   <tr>
@@ -47,13 +49,12 @@ const HotelPage = {
     //   active side bar
     const navLink = document.getElementById("hotel-link");
     navLink.classList.add("active");
-
     // get data hotel
     const response = await HotelSource.getAllHotel();
     const datas = response.data;
     const itemContainer = document.querySelector(".item-container");
     datas.forEach(async (data) => {
-      const wisata = await WisataSource.getWisataById(data.wisatumId);
+      // const wisata = await WisataSource.getWisataById(data.wisatumId);
       itemContainer.innerHTML += `
         <tr>
         <th scope="row">${data.id}</th>
@@ -62,11 +63,12 @@ const HotelPage = {
         <td>${data.deskripsi}</td>
         <td><img src="${data.url}" style="width:100px; height:100px; object-fit-:cover" /></td>
         <td id="ratingHotel">${data.rating}</td>
-        <td scope="row">${wisata.data.nama}</td>
+        <td scope="row"></td>
           <td><a href="#/edithotel/${data.id}" class="btn btn-info px-4" style="font-weight:400;">Ubah</a></td>
         </tr>
       `;
     });
+
   }
 };
 export default HotelPage;

@@ -12,7 +12,8 @@ const GalleryAddDelPage = {
       <div class="container-fluid">
         <div class="row">
           <sidebar-element></sidebar-element>
-          <div class="col-md-9 ms-sm-auto col-lg-10 px-md-4 p-0">
+          <div class="col-md-9 ms-lg-auto col-lg-10 p-0 "
+          id="container-right">
             <navbar-admin-element></navbar-admin-element>
             <div id="content_container" class="mt-md-3 px-5 w-100 d-flex align-items-center justify-content-center">
               <div

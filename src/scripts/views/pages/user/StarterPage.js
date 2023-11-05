@@ -19,7 +19,7 @@ const StarterPage = {
 
     const navbar = document.querySelector("navbar-element");
     navbar.style.display = "none";
-  },
+  }
 };
 
 export default StarterPage;

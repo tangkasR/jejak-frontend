@@ -10,7 +10,8 @@ const DeleteGalleryPage = {
   async render() {
     return `
       <div class="container-fluid">
-        <div class="row">
+        <div class="row"
+        id="container-right">
           <sidebar-element></sidebar-element>
           <div class="col-md-9 ms-sm-auto col-lg-10 px-md-4"></div>
         </div>

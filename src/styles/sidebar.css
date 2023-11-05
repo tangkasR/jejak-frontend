@@ -69,7 +69,7 @@ navbar-admin-element {
   font-size: 35px;
   color: white;
 }
-@media (max-width: 767.98px) {
+@media (max-width: 993px) {
   .sidebar {
     position: fixed;
     top: 5rem;
@@ -90,7 +90,7 @@ navbar-admin-element {
     z-index: 100;
   }
   #container-right {
-    width: 100%;
+    width: 100% !important;
     padding: 0;
   }
 }

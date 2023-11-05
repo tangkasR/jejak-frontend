@@ -9,10 +9,11 @@ const AddHotelPage = {
       <div class="container-fluid">
         <div class="row">
           <sidebar-element></sidebar-element>
-          <div class="col-md-9 ms-sm-auto col-lg-10 px-md-4 p-0">
+          <div class="col-md-9 ms-sm-auto col-lg-10 p-0"
+          id="container-right">
             <navbar-admin-element></navbar-admin-element>
             <div
-              class="mt-md-3 mb-5 d-flex align-items-center justify-content-center"
+              class="px-md-3 mt-md-3 mb-5 d-flex align-items-center justify-content-center"
               id="content_container"
             >
               <div class="mt-4 card shadow p-4" style="min-width: 70%;">
@@ -79,7 +80,6 @@ const AddHotelPage = {
     `;
   },
   async afterRender() {
-
     //   active side bar
     const navLink = document.getElementById("hotel-link");
     navLink.classList.add("active");

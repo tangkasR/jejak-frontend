@@ -9,7 +9,7 @@ const WisataPage = {
         <div class="row">
           <sidebar-element></sidebar-element>
           <div
-            class="col-md-9 ms-sm-auto col-lg-10 px-md-4"
+            class="col-md-9 ms-sm-auto col-lg-10 p-0"
             id="container-right"
           >
             <navbar-admin-element></navbar-admin-element>
@@ -20,10 +20,11 @@ const WisataPage = {
               <h1 class="title_items_sidebar my-3">Data Wisata</h1>
               <a href="#/addwisata" class="btn btn-success">Tambah</a>
             </div>
-            <div class="table-wraper">
+            <div class="table-wraper px-md-5">
               <table
-                class="table table-hover text-center px-5"
+                class="table table-hover text-center"
                 style="font-size: 15px"
+                id="tableDatas"
               >
                 <thead class="table-dark">
                   <tr>
