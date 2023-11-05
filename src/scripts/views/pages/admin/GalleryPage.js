@@ -16,7 +16,7 @@ const GalleryPage = {
             </h1>
             <div
               id="card-container"
-              class="d-flex flex-wrap align-items-center justify-content-center gap-4"
+              class="px-3 d-flex flex-wrap align-items-center justify-content-center gap-4"
             ></div>
           </div>
         </div>

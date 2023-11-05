@@ -69,7 +69,7 @@ navbar-admin-element {
   font-size: 35px;
   color: white;
 }
-@media (max-width: 993px) {
+@media (max-width: 1037px) {
   .sidebar {
     position: fixed;
     top: 5rem;

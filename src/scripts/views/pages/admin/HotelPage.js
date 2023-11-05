@@ -14,7 +14,7 @@ const HotelPage = {
           id="container-right">
             <navbar-admin-element></navbar-admin-element>
             <div
-              class="mt-md-3 d-flex align-items-center justify-content-between px-5"
+              class="mt-md-5 mb-md-3 d-flex align-items-center justify-content-between px-5"
               id="content_container"
             >
               <h1 class="my-3 title_items_sidebar">Data Hotel</h1>

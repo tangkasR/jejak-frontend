@@ -38,21 +38,13 @@ class App {
         footer.style.display = "none";
 
         // akses side bar
-        SidebarInitiator.init({
-          button: document.querySelector(".btn-sidebar"),
-          drawer: document.querySelector(".sidebar"),
-          content: document.getElementById("content_container")
-        });
-        // const btnSidebar = document.querySelector(".btn-sidebar");
-        // const sidebar = document.querySelector(".sidebar");
-        // btnSidebar.addEventListener("click", () => {
-        //   sidebar.classList.add("active");
-        // });
-        // document
-        //   .getElementById("content_container")
-        //   .addEventListener("click", () => {
-        //     sidebar.classList.remove("active");
-        //   });
+        
+          SidebarInitiator.init({
+            button: document.querySelector(".btn-sidebar"),
+            drawer: document.querySelector(".sidebar"),
+            content: document.getElementById("content_container")
+          });
+       
       } else {
         Swal.fire({
           imageUrl: `./icons/icon-bingung.png`,

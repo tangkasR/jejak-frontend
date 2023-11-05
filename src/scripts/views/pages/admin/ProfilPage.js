@@ -10,7 +10,7 @@ const ProfilPage = {
           <div class="col-md-9 ms-sm-auto col-lg-10 p-0"
           id="container-right">
             <navbar-admin-element></navbar-admin-element>
-            <div id="content_container" class="px-5 mt-3 d-flex align-items-center justify-content-center" style="min-height: 90vh;">
+            <div id="content_container" class="mb-5 px-5 mt-3 d-flex align-items-center justify-content-center" style="min-height: 90vh;">
               <div
                 class="card shadow"
                 style="min-width:90%;"
@@ -23,8 +23,6 @@ const ProfilPage = {
     `;
   },
   async afterRender() {
-
-
     //   active side bar
     const navLink = document.getElementById("profil-link");
     navLink.classList.add("active");
@@ -36,14 +34,14 @@ const ProfilPage = {
     const dataProfil = profil.data;
     container.innerHTML = `
       <div class="row align-items-center justify-content-center">
-        <div class=" col-sm-4 p-0">
+        <div class=" col-sm-5 col-md-4 p-0">
           <div class="left">
             <div class="img-profil">
               <img src="${dataProfil.url}" alt="" />
             </div>
           </div>
         </div>
-        <div class=" col-sm-8 p-0">
+        <div class=" col-sm-7 col-md-8 p-0">
           <div class="row right-container">
             <div class="col-md-3 p-0"></div>
             <div class="col-md-9 p-0">
@@ -51,11 +49,18 @@ const ProfilPage = {
                 <h1>Nama: ${dataProfil.name}</h1>
                 <p>Email: ${dataProfil.email}</p>
                 <p>Jenis Kelamin: ${dataProfil.jenis_kelamin}</p>
-                <div class="btn-edit-profil">
-                  <a href="#/editprofil" class="btn" style="text-decoration:none; color:black; font-size:14px;">Ubah</a>
-                </div>
-                <div class="btn-logout">
-                  <button id="btnLogout" class="px-3 btn">Logout</button>
+                <div class="d-flex align-items-center justify-content-center gap-3 mt-3 pb-3">
+                  <div class="btn-logout">
+                    <button id="btnLogout" class="px-3 btn">Logout</button>
+                  </div>
+                  <div class="btn-edit-profil">
+                    <a
+                      href="#/editprofil"
+                      class="btn"
+                      style="text-decoration:none; color:black; font-size:14px;"
+                      >Ubah</a
+                    >
+                  </div>
                 </div>
                 <div class="role-admin">
                   <h5>Admin</h5>

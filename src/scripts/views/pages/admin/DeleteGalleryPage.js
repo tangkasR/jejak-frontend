@@ -10,12 +10,12 @@ const DeleteGalleryPage = {
   async render() {
     return `
       <div class="container-fluid">
-        <div class="row"
-        id="container-right">
+        <div class="row" id="content_container">
           <sidebar-element></sidebar-element>
-          <div class="col-md-9 ms-sm-auto col-lg-10 px-md-4"></div>
+          <div class="col-md-9 ms-sm-auto col-lg-10 p-0" id="container-right">
+            <navbar-admin-element></navbar-admin-element>
+          </div>
         </div>
-        <div id="overlay"></div>
       </div>
     `;
   },
@@ -55,7 +55,7 @@ const DeleteGalleryPage = {
       .then(async (result) => {
         if (result.isConfirmed) {
           swalWithBootstrapButtons.fire(
-            "Deleted!",
+            "Dihapus!",
             "Foto berhasil dihapus!",
             "success"
           );
@@ -63,18 +63,13 @@ const DeleteGalleryPage = {
           window.location.replace(`#/gallerywisataadmin/${data.wisatumId}`);
         } else if (result.dismiss === Swal.DismissReason.cancel) {
           swalWithBootstrapButtons.fire(
-            "Cancelled",
+            "Batal!",
             "Foto tidak dihapus!",
             "error"
           );
           window.location.replace(`#/gallerywisataadmin/${data.wisatumId}`);
         }
       });
-
-    const overlay = document.getElementById("overlay");
-    overlay.addEventListener("click", () => {
-      window.location.replace(`#/gallerywisataadmin/${data.wisatumId}`);
-    });
   }
 };
 export default DeleteGalleryPage;
