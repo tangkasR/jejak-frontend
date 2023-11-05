@@ -1,20 +1,37 @@
-table {
-  width: 92% !important;
-  max-width: 100%;
-  overflow-x: scroll;
+.table-wraper #tableDatas_wrapper table {
+  width: 100% !important;
+  padding-top: 30px !important;
+  padding-bottom: 30px !important;
 }
 
 .table-wraper {
-  width: 100%;
+  width: 100% !important;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   padding: 0 !important;
 }
-@media (max-width: 769px) {
-  th {
-    display: none;
+#tableDatas_wrapper {
+  width: 90% !important;
+}
+.odd,
+.even {
+  margin-bottom: 20px !important;
+  height: 100% !important;
+}
+.dtr-hidden {
+  display: block !important;
+}
+@media (max-width: 867px) {
+  thead tr th {
+    display: none !important;
+  }
+  tbody tr th {
+    display: none !important;
+  }
+  thead tr .sorting {
+    display: none !important;
   }
   .table-wraper {
     width: 100%;
@@ -45,39 +62,64 @@ table {
     padding-top: 3rem !important;
     border-radius: 20px 20px 0 0;
   }
-  td:nth-child(8) {
+  .wisataTr td:nth-child(8) {
     margin-bottom: 2rem !important;
     padding-bottom: 3rem !important;
     border-radius: 0 0 20px 20px;
   }
-  td:nth-child(8) .btn {
+  .wisataTr td:nth-child(8) .btn {
     max-width: 100% !important;
   }
-  td::before {
+  .wisataTr td::before {
     text-transform: capitalize;
     font-weight: 700;
   }
-  td:nth-child(7) img {
-    min-width: 200px !important;
-    min-height: 100px;
+  .wisataTr td:nth-child(7) img {
+    min-width: 100% !important;
+    min-height: 130px !important;
     object-fit: cover;
   }
-  td:nth-of-type(2)::before {
+  .hotelTr img {
+    min-width: 100% !important;
+    min-height: 130px !important;
+    object-fit: cover;
+  }
+  .hotelTr td:nth-child(7) {
+    margin-bottom: 2rem !important;
+    padding-bottom: 3rem !important;
+    border-radius: 0 0 20px 20px;
+  }
+  .wisataTr td:nth-of-type(2)::before {
     content: "Kategori: ";
   }
-  td:nth-of-type(3)::before {
+  .wisataTr td:nth-of-type(3)::before {
     content: "Lokasi: ";
   }
-  td:nth-of-type(4)::before {
+  .wisataTr td:nth-of-type(4)::before {
     content: "Deskripsi: ";
   }
-  td:nth-of-type(5)::before {
+  .wisataTr td:nth-of-type(5)::before {
     content: "Rating: ";
   }
-  td:nth-of-type(6)::before {
+  .wisataTr td:nth-of-type(6)::before {
     content: "Image: ";
   }
-  td:nth-of-type(7)::before {
+  .wisataTr td:nth-of-type(7)::before {
+    content: "Aksi: ";
+  }
+  .hotelTr td:nth-of-type(2)::before {
+    content: "Lokasi: ";
+  }
+  .hotelTr td:nth-of-type(3)::before {
+    content: "Deskripsi: ";
+  }
+  .hotelTr td:nth-of-type(4)::before {
+    content: "Image: ";
+  }
+  .hotelTr td:nth-of-type(5)::before {
+    content: "Rating: ";
+  }
+  .hotelTr td:nth-of-type(6)::before {
     content: "Aksi: ";
   }
 }

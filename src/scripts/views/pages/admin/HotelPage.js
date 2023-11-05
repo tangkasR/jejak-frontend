@@ -1,8 +1,8 @@
 import HotelSource from "../../../data/hotel-source";
-import WisataSource from "../../../data/wisata-source";
 import { async } from "regenerator-runtime";
 import Swal from "sweetalert2";
-
+import DataTable from "datatables.net-dt";
+import "datatables.net-responsive-dt";
 
 const HotelPage = {
   async render() {
@@ -33,8 +33,7 @@ const HotelPage = {
                     <th scope="col">Deskripsi</th>
                     <th scope="col">Image</th>
                     <th scope="col">Rating</th>
-                    <th scope="col">Wisata Terdekat</th>
-                    <th scope="col"></th>
+                    <th scope="col">Aksi</th>
                   </tr>
                 </thead>
                 <tbody class="item-container"></tbody>
@@ -54,21 +53,21 @@ const HotelPage = {
     const datas = response.data;
     const itemContainer = document.querySelector(".item-container");
     datas.forEach(async (data) => {
-      // const wisata = await WisataSource.getWisataById(data.wisatumId);
       itemContainer.innerHTML += `
-        <tr>
+        <tr class="hotelTr">
         <th scope="row">${data.id}</th>
         <td>${data.nama}</td>
         <td>${data.lokasi}</td>
         <td>${data.deskripsi}</td>
         <td><img src="${data.url}" style="width:100px; height:100px; object-fit-:cover" /></td>
         <td id="ratingHotel">${data.rating}</td>
-        <td scope="row"></td>
-          <td><a href="#/edithotel/${data.id}" class="btn btn-info px-4" style="font-weight:400;">Ubah</a></td>
+        <td><a href="#/edithotel/${data.id}" class="btn btn-info px-4" style="font-weight:400;">Ubah</a></td>
         </tr>
       `;
     });
-
+    let table = new DataTable("#tableDatas", {
+      responsive: true
+    });
   }
 };
 export default HotelPage;

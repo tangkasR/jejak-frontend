@@ -1,6 +1,8 @@
 import WisataSource from "../../../data/wisata-source";
 import { async } from "regenerator-runtime";
 import Swal from "sweetalert2";
+import DataTable from "datatables.net-dt";
+import "datatables.net-responsive-dt";
 
 const WisataPage = {
   async render() {
@@ -22,7 +24,7 @@ const WisataPage = {
             </div>
             <div class="table-wraper px-md-5">
               <table
-                class="table table-hover text-center"
+                class="table table-striped text-center"
                 style="font-size: 15px"
                 id="tableDatas"
               >
@@ -54,10 +56,11 @@ const WisataPage = {
     // get data wisata
     const response = await WisataSource.getWisata();
     const datas = response.data;
+    console.log(datas);
     const itemContainer = document.querySelector(".item-container");
     datas.forEach((data) => {
       itemContainer.innerHTML += `
-        <tr>
+        <tr class="wisataTr">
           <th scope="row">${data.id}</th>
           <td>${data.nama}</td>
           <td>${data.kategori}</td>
@@ -68,6 +71,10 @@ const WisataPage = {
           <td><a href="#/editwisata/${data.id}" class="btn btn-info px-4" style="font-weight:400;">Ubah</a></td>
         </tr>
       `;
+    });
+
+    let table = new DataTable("#tableDatas", {
+      responsive: true
     });
   }
 };
