@@ -99,8 +99,6 @@ const AddWisataPage = {
     L.Control.geocoder().addTo(map);
 
     map.on("click", (e) => {
-      console.log(`latitude: ${e.latlng.lat}, longitude: ${e.latlng.lng}`);
-
       // get lat dan lng dari map
       const containerMap = document.getElementById("latLong");
       containerMap.innerHTML = `
@@ -136,7 +134,6 @@ const AddWisataPage = {
       try {
         const response = await WisataSource.addWisata(data);
         if (response.length !== 0) {
-          console.log(response);
           if (response.data) {
             Swal.fire({
               position: "center",

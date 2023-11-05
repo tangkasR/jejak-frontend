@@ -54,6 +54,7 @@
   width: 300px;
   height: 550px;
   border-radius: 5px;
+  object-fit: cover;
 }
 .img-profil {
   position: absolute;

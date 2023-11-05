@@ -127,7 +127,6 @@ const CobaReviewPage = {
     // render hotel terdekat dari wisata
     const hotels = await HotelSource.getHotelByWisataId(url.id);
     const dataHotel = hotels.data;
-    console.log(dataHotel);
     const hotelContainer = document.getElementById("conatinerHotel");
     dataHotel.forEach((data) => {
       hotelContainer.innerHTML += `

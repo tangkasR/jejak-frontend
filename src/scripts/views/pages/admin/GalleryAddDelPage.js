@@ -62,7 +62,6 @@ const GalleryAddDelPage = {
     // get data wisata
     const response = await WisataSource.getWisataById(url.id);
     const data = response.data;
-    console.log(data);
 
     // render page
     const titleContainer = document.getElementById("content-title");
@@ -71,7 +70,6 @@ const GalleryAddDelPage = {
     // render card gallery
     const gallery = await GallerySource.getGalleryByWisataId(url.id);
     const dataGellery = gallery.data;
-    console.log(gallery);
     const container = document.getElementById("container-gallery");
     dataGellery.forEach((data) => {
       container.innerHTML += `
@@ -98,7 +96,6 @@ const GalleryAddDelPage = {
       const formData = new FormData(form);
       const dataObjek = Object.fromEntries(formData);
       const gallery = await GallerySource.addGallery(url.id, dataObjek);
-      console.log(gallery);
       if (gallery.length !== 0) {
         if (gallery.data) {
           Swal.fire({

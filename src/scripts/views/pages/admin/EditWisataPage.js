@@ -97,7 +97,28 @@ const EditWisataPage = {
       <div
         id="latLong"
         class="row align-items-center justify-content-center"
-      ></div>
+      >
+        <div class="mb-3 col-6">
+          <label for="inputLatitude" class="form-label">Latitude</label>
+          <input
+            type="text"
+            class="form-control"
+            id="inputLatitude"
+            name="latitude"
+            value="${data.latitude}"
+          />
+        </div>
+        <div class="mb-3 col-6">
+          <label for="inputLongitude" class="form-label">Longitude</label>
+          <input
+            type="text"
+            class="form-control"
+            id="inputLongitude"
+            name="longitude"
+            value="${data.longitude}"
+          />
+        </div>
+      </div>
       <button
         type="submit"
         class="btn btn-primary px-4 mt-3"
@@ -115,8 +136,6 @@ const EditWisataPage = {
     }).addTo(map);
     L.Control.geocoder().addTo(map);
     map.on("click", (e) => {
-      console.log(`latitude: ${e.latlng.lat}, longitude: ${e.latlng.lng}`);
-
       // get lat dan lng dari map
       const containerMap = document.getElementById("latLong");
       containerMap.innerHTML = `
