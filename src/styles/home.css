@@ -226,6 +226,14 @@ body {
   align-items: center;
 }
 
+.swiper-button-next,
+.swiper-button-prev {
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 30px !important;
+  color: var(--bg-third);
+  font-weight: 900;
+}
+
 .item-top-penginapan img {
   height: 75vh;
   width: 100%;
@@ -309,6 +317,17 @@ body {
   }
 }
 
+@media only screen and (max-width: 620px) {
+  .boxTopSaran{
+    top: 3% !important;
+    left: 12.3% !important;
+  }
+  .boxTopSaran h3{
+    font-size: 18px;
+    padding: 10px 20px !important;
+  }
+}
+
 @media only screen and (min-width: 520px) {
   .content-card h5 {
     font-size: 26px;
@@ -317,7 +336,13 @@ body {
   .content-card p {
     font-size: 16px;
   }
+
+  .boxTopSaran {
+    top: 20% !important;
+    left: 5% !important;
+  }
 }
+
 
 /* Medium devices (landscape tablets, 768px and up) */
 @media only screen and (min-width: 768px) {
