@@ -1,13 +1,13 @@
 class Navbar extends HTMLElement {
-  constructor() {
-    super();
+  constructor () {
+    super ();
   }
 
-  connectedCallback() {
-    this.render();
+  connectedCallback () {
+    this.render ();
   }
 
-  render() {
+  render () {
     this.innerHTML = `
       <nav
         class="navbar navbar-expand-lg fixed-top p-3"
@@ -71,4 +71,4 @@ class Navbar extends HTMLElement {
   }
 }
 
-customElements.define("navbar-element", Navbar);
+customElements.define ('navbar-element', Navbar);
