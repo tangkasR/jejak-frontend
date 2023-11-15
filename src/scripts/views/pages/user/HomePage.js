@@ -1,4 +1,4 @@
-import WisataSource from '../../../data/wisata-source'
+import WisataSource from "../../../data/wisata-source";
 const HomePage = {
   async render () {
     return `
@@ -13,7 +13,7 @@ const HomePage = {
           </p>
         </div>
       </div>
-      <div class="container-xl py-5">
+      <div class="container-xl py-5 overflow-hidden">
         <h2 class="w-100 mt-5 title"
           data-aos="fade-up"
           data-aos-delay="50"
@@ -146,26 +146,31 @@ const HomePage = {
           data-aos-duration="2000"
           data-aos-easing="ease-in-out"
         >
-          <div class="swiper-wrapper">
-            <div class="swiper-slide item-top-penginapan">
-              <img src="./images/penginapan_1.jpg" />
-            </div>
-            <div class="swiper-slide item-top-penginapan">
-              <img src="./images/penginapan_1.jpg" />
-            </div>
-            <div class="swiper-slide item-top-penginapan">
-              <img src="./images/penginapan_1.jpg" />
-            </div>
-            <div class="swiper-slide item-top-penginapan">
-              <img src="./images/penginapan_1.jpg" />
-            </div>
+          <div class="topPenginapanContainer swiper-wrapper">
+            
           </div>
-          <div class="swiper-pagination"></div>
+          <div class="swiper-pagination hidden"></div>
         </div>
       </div>
       <div class="container-fluid service p-3 mt-5">
+      <div class="row justify-content-center align-items-center text-center">
+        <div class="col-md-8">
+              <h2 class="w-100 mt-5 title"
+              data-aos="fade-up"
+              data-aos-delay="50"
+              data-aos-duration="2000"
+              data-aos-easing="ease-in-out">Layanan yang kami berikan</h2>
+              <hr
+                class="hr"
+                data-aos="fade-up"
+                data-aos-delay="50"
+                data-aos-duration="2000"
+                data-aos-easing="ease-in-out"
+              />
+        </div>
+      </div>
         <div
-          class="row align-items-center justify-content-center w-100 mt-5 gy-5 gy-sm-0"
+          class="row align-items-center justify-content-center  mt-5 gy-5 gy-sm-0"
         >
           <div
             class="col-md-3 d-flex justify-content-center align-items-center"
@@ -176,9 +181,11 @@ const HomePage = {
               data-aos-duration="2000"
               data-aos-easing="ease-in-out"
             >
-              <img src="./icons/Location.png" />
+            <di class="img-cover">
+              <img src="./icons/Location.png" class="icon-service" />
+            </di>
               <h5 style="color: #3F4E4F" class="service-title">Strategis</h5>
-              <p style="color: #2C3639" class="service-subtitle">
+              <p style="color: #2C3639 fw-medium" class="service-subtitle">
                 Lokasi hotel yang strategis memudahkan untuk berpergian ke
                 tempat wisata
               </p>
@@ -193,9 +200,11 @@ const HomePage = {
               data-aos-duration="2000"
               data-aos-easing="ease-in-out"
             >
-              <img src="./icons/Dollar.png" />
+            <div class="img-cover"> 
+              <img src="./icons/Dollar.png" class="icon-service" />
+            </div>
               <h5 style="color: #3F4E4F" class="service-title">Terjangkau</h5>
-              <p style="color: #2C3639" class="service-subtitle">
+              <p style="color: #2C3639" class="service-subtitle fw-medium">
                 Lokasi hotel yang strategis memudahkan untuk berpergian ke
                 tempat wisata
               </p>
@@ -210,11 +219,14 @@ const HomePage = {
               data-aos-duration="2000"
               data-aos-easing="ease-in-out"
             >
-              <img src="./icons/Access.png" />
+            <div class="img-cover"> 
+              <img src="./icons/Access.png" class="icon-service" />
+            </div>
+   
               <h5 style="color: #3F4E4F" class="service-title">
                 Mudah diakses
               </h5>
-              <p style="color: #2C3639" class="service-subtitle">
+              <p style="color: #2C3639" class="service-subtitle fw-medium">
                 Lokasi hotel yang strategis memudahkan untuk berpergian ke
                 tempat wisata
               </p>
@@ -271,43 +283,43 @@ const HomePage = {
       spaceBetween: 30,
       autoplay: {
         delay: 2500,
-        disableOnInteraction: false
+        disableOnInteraction: false,
       },
       pagination: {
-        el: '.swiper-pagination',
+        el: ".swiper-pagination",
         clickable: true
       }
-    })
+    });
 
     var swipers = new Swiper('.mySwipers', {
       slidesPerView: 'auto',
       spaceBetween: 30,
       navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev'
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev"
       },
       breakpoints: {
         // when window width is >= 320px
         320: {
           slidesPerView: 1,
-          spaceBetween: 20
+          spaceBetween: 20,
         },
         // when window width is >= 480px
         480: {
           slidesPerView: 2,
-          spaceBetween: 30
+          spaceBetween: 30,
         },
         // when window width is >= 640px
         768: {
           slidesPerView: 3,
-          spaceBetween: 20
+          spaceBetween: 20,
         },
         992: {
           slidesPerView: 4,
           spaceBetween: 40
         }
       }
-    })
+    });
     // end swiper
 
     // get datas wisata
@@ -386,5 +398,5 @@ const HomePage = {
     })
     // end render page wisata lainnya
   }
-}
-export default HomePage
+};
+export default HomePage;

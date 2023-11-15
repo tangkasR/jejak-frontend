@@ -34,16 +34,16 @@ const wisataBudayaPage = {
             if (data.kategori === "Budaya") {
                 wisataContent.innerHTML += `
                 <div class="wisata-card border-0 mb-5 rounded-bottom-5 position-relative">
-                    <img src="${data.url}" class="card-img-top" alt="${data.nama}">
+                    <img src="${data.url}" class="card-img-top" alt="${data.nama}" style="height: 400px; object-fit: cover">
                     <div class="boxTopSaran position-absolute  translate-middle-x"
                         style="background-color: #A27B5C;">
                         <h3 class="px-5 py-2 rounded fw-bold">TOP <br>Saran</h3>
                     </div>
 
-                    <div class="p-4">
+                    <div class="p-4" style ='text-align: justify;'>
                         <h2 class="card-title fw-bold">${data.nama}</h2>
+                        <p class="location-text d-flex align-items-center gap-2 mt-3"><i class='bx bxs-map bx-sm'></i></i> ${data.lokasi}</p>
                         <p class="card-text opacity-75 my-3">${data.deskripsi}</p>
-                        <p class="location-text d-flex align-items-center gap-2"><i class='bx bxs-map bx-sm'></i></i> ${data.lokasi}</p>
                     </div>
                 </div>
             `;
