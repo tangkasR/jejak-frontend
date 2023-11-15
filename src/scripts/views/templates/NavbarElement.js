@@ -60,9 +60,6 @@ class Navbar extends HTMLElement {
               <li class="nav-item">
                 <a class="nav-link link-navbar-user" id="link-contact" href="#/contact">Kontak</a>
               </li>
-              <li class="nav-item">
-                <a class="ms-3 btn btn-primary" href="#/login">Login Admin</a>
-              </li>
             </ul>
           </div>
         </div>

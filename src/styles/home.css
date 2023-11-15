@@ -209,7 +209,6 @@ body {
   justify-content: center;
   align-items: center;
   width: 100%;
-
 }
 
 .icon-service {
@@ -219,9 +218,7 @@ body {
   padding: 10px;
   object-fit: contain;
   border-radius: 20%;
-
 }
-
 
 .service-title {
   font-size: 22px;
@@ -320,6 +317,25 @@ body {
   color: #dcd7c9;
 }
 
+/* map */
+.card-map {
+  padding: 10px 0;
+  background-color: var(--bg-secondary);
+  color: var(--txt-primary);
+}
+.card-map img {
+  width: 200px;
+  height: 150px;
+  object-fit: cover;
+}
+.leaflet-popup-content-wrapper {
+  background-color: var(--bg-secondary);
+}
+.leaflet-popup {
+  background-color: transparent;
+}
+/* end map */
+
 /* responsive */
 /* Extra small devices (phones, 600px and down) */
 @media only screen and (max-width: 400px) {
@@ -379,7 +395,6 @@ body {
     left: 5% !important;
   }
 }
-
 
 /* Medium devices (landscape tablets, 768px and up) */
 @media only screen and (min-width: 768px) {

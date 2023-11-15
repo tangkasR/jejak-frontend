@@ -26,7 +26,7 @@
 .dtr-hidden {
   display: block !important;
 }
-@media (max-width: 867px) {
+@media (max-width: 987px) {
   thead tr th {
     display: none !important;
   }
