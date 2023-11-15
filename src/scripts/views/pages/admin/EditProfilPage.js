@@ -158,7 +158,7 @@ const EditProfilPage = {
           Simpan
         </button>
         <p class="anchor-logres p-0 m-0">
-          Anda ingin menghapus akun akun?
+          Anda ingin menghapus akun?
         </p>
       </div>
     `;

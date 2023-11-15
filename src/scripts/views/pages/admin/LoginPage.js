@@ -7,7 +7,7 @@ const LoginPage = {
     return `
       <div
         class="d-flex align-items-center justify-content-center w-100"
-        style="min-height:600px; margin:90px 0"
+        style="min-height:90vh; margin:90px 0"
       >
         <div class="card shadow" style="min-width:70%" id="content-logres">
           <div

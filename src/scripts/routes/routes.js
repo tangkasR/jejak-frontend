@@ -28,8 +28,8 @@ import wisataBudayaPage from "../views/pages/user/wisataBudayaPage";
 
 const routes = {
   // USER
-  "/home": HomePage,
   "/": StarterPage,
+  "/home": HomePage,
   "/gallery": GalleryPage,
   "/contact": ContactPage,
   "/map": MapPage,

@@ -3,16 +3,56 @@
 } */
 
 .card-form-container {
-    padding: 30px;
-    border-radius:  0 10px 10px 0;
+  padding: 30px;
+  border-radius: 0 10px 10px 0;
 }
-.btn-submitContact{
-    background-color: #dcd7c9;
-    color: #2c3639;
-    padding: 5px 30px;
-    border-radius: 50px;
+.btn-submitContact {
+  background-color: #dcd7c9;
+  color: #2c3639;
+  min-width: 150px;
+  min-height:50px;
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 16px;
+  border: none;
 }
-.contact-container{
-    background: rgb(44, 54, 57);
-    background: linear-gradient(90deg, rgba(44, 54, 57, 1) 0%, rgba(63, 78, 79, 1) 23%, rgba(162, 123, 92, 1) 100%);
+.btn-submitContact:hover {
+  background-color: #a8a499;
+}
+.contact-container {
+  background: rgb(44, 54, 57);
+  background: linear-gradient(
+    90deg,
+    rgba(44, 54, 57, 1) 0%,
+    rgba(63, 78, 79, 1) 23%,
+    rgba(162, 123, 92, 1) 100%
+  );
+}
+
+.loader-button {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  display: block;
+  margin: 15px auto;
+  position: relative;
+  background: #fff;
+  box-shadow: -24px 0 #fff, 24px 0 #fff;
+  box-sizing: border-box;
+  animation: shadowPulse 0.7s linear infinite;
+}
+
+@keyframes shadowPulse {
+  33% {
+    background: #fff;
+    box-shadow: -24px 0 #a27b5c, 24px 0 #fff;
+  }
+  66% {
+    background: #a27b5c;
+    box-shadow: -24px 0 #fff, 24px 0 #fff;
+  }
+  100% {
+    background: #fff;
+    box-shadow: -24px 0 #fff, 24px 0 #a27b5c;
+  }
 }
