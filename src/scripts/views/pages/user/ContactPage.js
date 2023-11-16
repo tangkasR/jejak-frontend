@@ -3,24 +3,25 @@ const ContactPage = {
   async render () {
     return `
           <section section class = "contactCard d-flex align-items-center justify-content-center" style="min-height:100vh">
-              <div class = "contact-container container rounded-5">
+              <div class = "contact-container container rounded-4">
                   <div class="row g-0" style="color: #dcd7c9;">
-                      <div class="contactTitle col-md-6 px-5 d-flex align-items-start justify-content-center flex-column";>
-                        <h1><strong>Beri Kami Tahu Kebutuhan Anda</strong></h1>
-                        <h4>Kontak kami melalui email untuk memberi tahu kami tentang kebutuhan perjalanan Anda atau untuk mendapatkan informasi lebih lanjut</h4>
+                      <div class="contactTitle mt-5 col-md-6 px-5 d-flex align-items-center justify-content-center flex-column";>
+                        <h1><medium>CONTACT US</medium></h1>
+                        <img class="Contact-Illustration" src='./icons/Contact-Illustration.svg' width="400" height="400"/>
+
                       </div>
 
                       <div class="col-md-6">
                         <div class= "card-form-container d-flex justify-content-center align-items-center flex-column">
                           <form class="form-contact w-100 px-4">
-                            <div class="mb-3">
-                              <label for="labelEmail" class="form-label">Email</label>
-                              <input type="email" class="form-control" id="inputEmail">
-                            </div>
-                            <div class="mb-3">
-                              <label for="labelNama" class="form-label">Nama</label>
-                              <input type="text" class="form-control" id="inputNama">
-                            </div>
+                          <div class="mb-3">
+                            <label for="labelNama" class="form-label">Nama</label>
+                            <input type="text" class="form-control" id="inputNama">
+                          </div>
+                          <div class="mb-3">
+                            <label for="labelEmail" class="form-label">E-mail</label>
+                            <input type="email" class="form-control" id="inputEmail">
+                          </div>
                             <div class="mb-3">
                               <label for="labelNomorHp" class="form-label">Nomor Handphone</label>
                               <input type="text" class="form-control" id="inputNomorHp">
@@ -29,7 +30,7 @@ const ContactPage = {
                               <label for="labelPesan" class="form-label">Pesan</label>
                               <textarea type="text" class="form-control" id="inputPesan"></textarea>
                             </div>
-                            <button type="submit" class="btn-submitContact"><span class="loader-button"></span><p class="m-0 submit-contact">Submit</button>
+                            <button type="submit" class="btn-submitContact"><span class="loader-button"></span><p class="m-0 submit-contact">Kirim</button>
                           </form>
                         </div>
                       </div>
@@ -47,7 +48,7 @@ const ContactPage = {
     forms.addEventListener ('submit', event => {
       loaderButton.style.display = 'block';
       submitContact.style.display = 'none';
-      event.preventDefault ();
+
       const nama = document.getElementById ('inputNama').value;
       const email = document.getElementById ('inputEmail').value;
       const nomorHp = document.getElementById ('inputNomorHp').value;
@@ -85,7 +86,7 @@ const ContactPage = {
             showConfirmButton: false,
           });
         }
-      );
+        );
     });
   },
 };
