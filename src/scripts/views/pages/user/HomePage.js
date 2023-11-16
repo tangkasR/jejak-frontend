@@ -62,7 +62,7 @@ const HomePage = {
         <h2 class="w-100 title"
           data-aos="fade-up"
           data-aos-delay="50"
-          data-aos-duration="2000"
+          data-aos-duration="1000"
           data-aos-easing="ease-in-out"
         >
         Kategori Wisata
@@ -70,7 +70,7 @@ const HomePage = {
         <hr class="hr"
           data-aos="fade-up"
           data-aos-delay="50"
-          data-aos-duration="2000"
+          data-aos-duration="1000"
           data-aos-easing="ease-in-out"
         />
         <div
@@ -79,7 +79,7 @@ const HomePage = {
           <div class="kategori_items"
             data-aos="fade-up-right"
             data-aos-delay="50"
-            data-aos-duration="2000"
+            data-aos-duration="1000"
             data-aos-easing="ease-in-out"
           >
             <div class="card kategori_card">
@@ -92,7 +92,7 @@ const HomePage = {
           <div class="kategori_items"
             data-aos="fade-up"
             data-aos-delay="50"
-            data-aos-duration="2000"
+            data-aos-duration="1000"
             data-aos-easing="ease-in-out"
           >
             <div class="card kategori_card">
@@ -105,7 +105,7 @@ const HomePage = {
           <div class="kategori_items"
             data-aos="fade-up-left"
             data-aos-delay="50"
-            data-aos-duration="2000"
+            data-aos-duration="1000"
             data-aos-easing="ease-in-out"
           >
             <div class="card kategori_card">
@@ -121,7 +121,7 @@ const HomePage = {
         <h2 class="w-100 mt-5 title"
           data-aos="fade-up"
           data-aos-delay="50"
-          data-aos-duration="2000"
+          data-aos-duration="1000"
           data-aos-easing="ease-in-out"
         >
         Top Penginapan
@@ -129,13 +129,13 @@ const HomePage = {
         <hr class="hr"
           data-aos="fade-up"
           data-aos-delay="50"
-          data-aos-duration="2000"
+          data-aos-duration="1000"
           data-aos-easing="ease-in-out"
         />
         <p class="subtitle"
           data-aos="fade-up"
           data-aos-delay="50"
-          data-aos-duration="2000"
+          data-aos-duration="1000"
           data-aos-easing="ease-in-out"
         >
           Tempat Penginapan Populer di daerah Yogyakarta yang menjadi pilihan
@@ -145,7 +145,7 @@ const HomePage = {
         <div class="swiper mySwiper"
           data-aos="fade-up"
           data-aos-delay="50"
-          data-aos-duration="2000"
+          data-aos-duration="1000"
           data-aos-easing="ease-in-out"
         >
           <div class="topPenginapanContainer swiper-wrapper">
@@ -160,13 +160,13 @@ const HomePage = {
               <h2 class="w-100 mt-5 title"
               data-aos="fade-up"
               data-aos-delay="50"
-              data-aos-duration="2000"
+              data-aos-duration="1000"
               data-aos-easing="ease-in-out">Layanan yang kami berikan</h2>
               <hr
                 class="hr"
                 data-aos="fade-up"
                 data-aos-delay="50"
-                data-aos-duration="2000"
+                data-aos-duration="1000"
                 data-aos-easing="ease-in-out"
               />
         </div>
@@ -180,7 +180,7 @@ const HomePage = {
             <div class="text-center"
               data-aos="zoom-out-right"
               data-aos-delay="50"
-              data-aos-duration="2000"
+              data-aos-duration="1000"
               data-aos-easing="ease-in-out"
             >
             <di class="img-cover">
@@ -199,7 +199,7 @@ const HomePage = {
             <div class="text-center"
               data-aos="zoom-in-up"
               data-aos-delay="50"
-              data-aos-duration="2000"
+              data-aos-duration="1000"
               data-aos-easing="ease-in-out"
             >
             <div class="img-cover"> 
@@ -218,7 +218,7 @@ const HomePage = {
             <div class="text-center"
               data-aos="zoom-out-left"
               data-aos-delay="50"
-              data-aos-duration="2000"
+              data-aos-duration="1000"
               data-aos-easing="ease-in-out"
             >
             <div class="img-cover"> 
@@ -240,7 +240,7 @@ const HomePage = {
         <h2 class="w-100 mt-5 title"
           data-aos="fade-up"
           data-aos-delay="50"
-          data-aos-duration="2000"
+          data-aos-duration="1000"
           data-aos-easing="ease-in-out"
         >
         Wisata Lainnya
@@ -248,13 +248,13 @@ const HomePage = {
         <hr class="hr"
           data-aos="fade-up"
           data-aos-delay="50"
-          data-aos-duration="2000"
+          data-aos-duration="1000"
           data-aos-easing="ease-in-out"
         />
         <p class="subtitle"
           data-aos="fade-up"
           data-aos-delay="50"
-          data-aos-duration="2000"
+          data-aos-duration="1000"
           data-aos-easing="ease-in-out"
         >
           Tempat Wisata Populer di daerah Yogyakarta yang menjadi pilihan utama
@@ -264,7 +264,7 @@ const HomePage = {
         <div class="container-fluid justify-content-center"
           data-aos="fade-up"
           data-aos-delay="50"
-          data-aos-duration="2000"
+          data-aos-duration="1000"
           data-aos-easing="ease-in-out"
         >
           <div class="swiper mySwipers">

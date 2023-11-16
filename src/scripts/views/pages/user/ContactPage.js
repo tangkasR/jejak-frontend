@@ -30,7 +30,7 @@ const ContactPage = {
                               <label for="labelPesan" class="form-label">Pesan</label>
                               <textarea type="text" class="form-control" id="inputPesan"></textarea>
                             </div>
-                            <button type="submit" class="btn-submitContact"><span class="loader-button"></span><p class="m-0 submit-contact">Kirim</button>
+                            <button type="submit" class="mt-3 btn-submitContact"><span class="loader-button"></span><p class="m-0 submit-contact">Kirim</button>
                           </form>
                         </div>
                       </div>
@@ -46,6 +46,7 @@ const ContactPage = {
     submitContact.style.display = 'block';
     const forms = document.querySelector ('.form-contact');
     forms.addEventListener ('submit', event => {
+      event.preventDefault ();
       loaderButton.style.display = 'block';
       submitContact.style.display = 'none';
 
@@ -86,7 +87,7 @@ const ContactPage = {
             showConfirmButton: false,
           });
         }
-        );
+      );
     });
   },
 };
