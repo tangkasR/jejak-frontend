@@ -3,6 +3,7 @@ import HomePage from "../views/pages/user/HomePage";
 import GalleryPage from "../views/pages/user/GalleryPage";
 import ContactPage from "../views/pages/user/ContactPage";
 import MapPage from "../views/pages/user/MapPage";
+import DetailPage from "../views/pages/user/DetailPage"; //coba
 
 // ADMIN
 import LoginPage from "../views/pages/admin/LoginPage";
@@ -35,6 +36,7 @@ const routes = {
   "/map": MapPage,
   "/kategorialam": wisataAlamPage,
   "/kategoribudaya": wisataBudayaPage,
+  "/detail/:id": DetailPage, //coba
 
 
   //   ADMIN

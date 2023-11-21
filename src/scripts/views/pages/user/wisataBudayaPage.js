@@ -41,7 +41,7 @@ const wisataBudayaPage = {
                     </div>
 
                     <div class="p-4" style ='text-align: justify;'>
-                        <h2 class="card-title fw-bold">${data.nama}</h2>
+                        <h2 class="card-title fw-bold"><a href="/#/detail/${data.id}" style: text-decoration: none;>${data.nama}</a></h2>
                         <p class="location-text d-flex align-items-center gap-2 mt-3"><i class='bx bxs-map bx-sm'></i></i> ${data.lokasi}</p>
                         <p class="card-text opacity-75 my-3">${data.deskripsi}</p>
                     </div>
