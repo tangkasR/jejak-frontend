@@ -1,0 +1,26 @@
+.gallery-card {
+    margin: 20px;
+    margin-top: 100px;
+    background-color: #2C3639;
+    color: #DCD7C9;
+    
+}
+
+.input-group {
+    border-radius: 15px;
+    overflow: hidden;
+    margin-top: 120px;
+    width: 300px;
+    height: 50px;
+}
+
+.btn {
+    padding: 15px;
+    color: #DCD7C9;
+    background-color: #2C3639;
+}
+
+.btn img {
+    filter: invert(100%);
+}
+

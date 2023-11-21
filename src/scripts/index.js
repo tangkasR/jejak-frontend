@@ -11,6 +11,7 @@ import "../styles/contact.css";
 import "../scripts/views/pages/user/HomePage";
 import "../styles/home.css";
 import "../styles/gallery-admin.css";
+import "../styles/gallery.css";
 import "./views/templates/NavbarElement.js";
 import "./views/templates/NavbarAdminElement.js";
 import "./views/templates/SideBarElement.js";
