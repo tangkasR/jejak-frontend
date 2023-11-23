@@ -15,6 +15,12 @@
   justify-content: center;
   padding: 0 !important;
 }
+
+.titleRow th{
+  color: white;
+  background-color: #2C3639 !important;
+}
+
 #tableDatas_wrapper {
   width: 90% !important;
 }
@@ -27,6 +33,16 @@
   display: flex !important;
   align-items: center;
   justify-content: space-between;
+}
+
+.btn_edit{
+  border-radius: 10px;
+  font-size: 15px;
+  padding: 12px !important;
+}
+
+.btn_edit:hover{
+  border: 2px solid #2C3639 !important;
 }
 @media (max-width: 1246px) {
   thead tr th {
