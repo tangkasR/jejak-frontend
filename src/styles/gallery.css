@@ -1,26 +1,55 @@
-.gallery-card {
-    margin: 20px;
-    margin-top: 100px;
-    background-color: #2C3639;
-    color: #DCD7C9;
-    
-}
-
-.input-group {
-    border-radius: 15px;
-    overflow: hidden;
+.gallery-title {
     margin-top: 120px;
-    width: 300px;
-    height: 50px;
+    font-size: 70px;
+    text-decoration: underline ;
+    text-underline-offset: 40px;
+    text-decoration-thickness: 4px;
+    color: #2C3639;
 }
 
-.btn {
-    padding: 15px;
-    color: #DCD7C9;
-    background-color: #2C3639;
+.btn-filter {
+    background-color: transparent;
 }
 
-.btn img {
-    filter: invert(100%);
+.btn-filter .btn {
+    color: #2C3639;
+    font-weight: 500;
+    font-size: 30px;
+    transition: font-weight 0.1s, text-decoration 0.1s;
 }
 
+.btn-filter .btn:hover {
+    font-weight: 700;
+    border: transparent;
+}
+
+.btn-filter .btn.active {
+    border: transparent;
+    text-decoration: underline;
+    text-underline-offset: 15px;
+    font-weight: 700;
+}
+
+.gallery-card-title {
+    background-color: #A27B5C;
+    width: 280px;
+    color: #ddd;
+    opacity: 0.9;
+}
+
+.gallery-card img {
+    transition: filter 0.3s ease-in-out;
+}
+
+.gallery-card:hover img{
+    filter: brightness(50%);
+  }
+
+.gallery-card:hover .gallery-card-title {
+    font-size: 25px;
+    background-color: transparent;
+    opacity: 1;
+    top: 50%;
+    transform: translate(0%, -50%);
+    transition: 0.2s;
+}
