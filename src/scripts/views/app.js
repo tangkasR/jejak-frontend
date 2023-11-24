@@ -37,13 +37,12 @@ class App {
         footer.style.display = "none";
 
         // akses side bar
-        
-          SidebarInitiator.init({
-            button: document.querySelector(".btn-sidebar"),
-            drawer: document.querySelector(".sidebar"),
-            content: document.getElementById("content_container")
-          });
-       
+
+        SidebarInitiator.init({
+          button: document.querySelector(".btn-sidebar"),
+          drawer: document.querySelector(".sidebar"),
+          content: document.getElementById("content_container")
+        });
       } else {
         Swal.fire({
           imageUrl: `./icons/icon-bingung.png`,
@@ -74,32 +73,65 @@ class App {
         this._content.innerHTML = await page.render();
         await page.afterRender();
       }
-    } else {
-      const page = routes[url];
-      if (page !== undefined) {
-        if (url === "/") {
-          // nonaktifkan navbar
-          const navbar = document.querySelector("navbar-element");
-          navbar.style.display = "none";
+    } else if (
+      url === "/" ||
+      url === "/home" ||
+      url === "/gallery" ||
+      url === "/editprofil" ||
+      url === "/contact" ||
+      url === "/map" ||
+      url === "/kategorialam" ||
+      url === "/kategoribudaya" ||
+      url === "/login" ||
+      url === "/register"
+    ) {
+      if (isLogin === false) {
+        const page = routes[url];
+        if (page !== undefined) {
+          if (url === "/") {
+            // nonaktifkan navbar
+            const navbar = document.querySelector("navbar-element");
+            navbar.style.display = "none";
 
-          // nonaktifkan footer
-          const footer = document.querySelector("footer-element");
-          footer.style.display = "none";
+            // nonaktifkan footer
+            const footer = document.querySelector("footer-element");
+            footer.style.display = "none";
+            this._content.innerHTML = await page.render();
+            await page.afterRender();
+            return;
+          }
           this._content.innerHTML = await page.render();
           await page.afterRender();
+          // mengaktifkan navbar
+          const navbar = document.querySelector("navbar-element");
+          navbar.style.display = "block";
+
+          // mengaktifkan footer
+          const footer = document.querySelector("footer-element");
+          footer.style.display = "block";
           return;
         }
+      } else {
+        if (
+          url === "/" ||
+          url === "/home" ||
+          url === "/gallery" ||
+          url === "/editprofil" ||
+          url === "/contact" ||
+          url === "/map" ||
+          url === "/kategorialam" ||
+          url === "/kategoribudaya" ||
+          url === "/login" ||
+          url === "/register"
+        ) {
+          window.location.replace("#/dashboard");
+        }
+        url = UrlParser.parseActiveUrlWithCombiner();
+        const page = routes[url];
         this._content.innerHTML = await page.render();
         await page.afterRender();
-        // mengaktifkan navbar
-        const navbar = document.querySelector("navbar-element");
-        navbar.style.display = "block";
-
-        // mengaktifkan footer
-        const footer = document.querySelector("footer-element");
-        footer.style.display = "block";
-        return;
       }
+    } else {
       this._content.innerHTML += `
         <div
           class="d-flex align-items-center flex-column justify-content-center"
