@@ -1,1 +1,80 @@
+.card-admin {
+    background-color: #2C3639;
+    color: #DCD7C9;
+    border-radius: 20px;
+}
 
+.card-admin-body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    height: 40vh;
+    padding: 20px;
+}
+
+.titleAdmin-card {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    height: 20vh;
+    padding: 20px;
+    background-color: #2C3639;
+    color: #DCD7C9;
+    border-radius: 20px;
+}
+
+.icon-AdminCard {
+    font-size: 80px;
+}
+
+.btn-masukAdmin {
+    display: inline-block;
+    padding: 10px 25px;
+    border-radius: 10rem;
+    text-transform: uppercase;
+    font-size: 1rem;
+    letter-spacing: 0.15rem;
+    transition: all 0.3s;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+.btn-masukAdmin a{
+    text-decoration: none;
+    color: #2C3639;
+}
+
+.btn-masukAdmin::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #A27B5C;
+    border-radius: 10rem;
+    z-index: -2;
+}
+
+.btn-masukAdmin::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0%;
+    height: 100%;
+    background-color: #3F4E4F;
+    transition: all 0.3s;
+    border-radius: 10rem;
+    z-index: -1;
+}
+
+.btn-masukAdmin:hover a{
+    color: #fff;
+}
+
+.btn-masukAdmin:hover:before {
+    width: 100%;
+}
