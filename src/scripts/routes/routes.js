@@ -50,12 +50,13 @@ const routes = {
   "/register": RegistrasiPage,
   "/dashboard": DashboardPage,
   "/profil": ProfilPage,
+  "/editprofil": EditProfilPage,
 
   // WISATA
   "/wisata": WisataPage,
   "/editprofil": EditProfilPage,
   "/addwisata": AddWisataPage,
- 
+  "/editwisata/:id": EditWisataPage,
 
   // REVIEW WISATA
   "/cobareview/:id": CobaReviewPage,
