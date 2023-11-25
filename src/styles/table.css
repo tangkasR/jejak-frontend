@@ -39,6 +39,8 @@
   border-radius: 10px;
   font-size: 15px;
   padding: 12px !important;
+  background-color: #2C3639;
+  color: white;
 }
 
 .btn_edit:hover{

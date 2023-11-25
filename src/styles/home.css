@@ -317,6 +317,11 @@ body {
   color: #dcd7c9;
 }
 
+.wisata-card a{
+  color: #dcd7c9;
+  text-decoration: none;
+}
+
 /* map */
 .card-map {
   padding: 10px 0;

@@ -1,9 +1,9 @@
-import WisataSource from "../../../data/wisata-source";
-import { async } from "regenerator-runtime";
-import Swal from "sweetalert2";
+import WisataSource from '../../../data/wisata-source';
+import {async} from 'regenerator-runtime';
+import Swal from 'sweetalert2';
 
 const DashboardPage = {
-  async render() {
+  async render () {
     return `
       <div class="container-fluid">
         <div class="row">
@@ -12,10 +12,7 @@ const DashboardPage = {
           id="container-right">
             <navbar-admin-element></navbar-admin-element>
             <div id="container-right">
-              <div
-                id="content_container"
-                class="mt-md-3 p-5 d-flex flex-wrap align-items-center justify-content-center gap-2 text-center"
-              ></div>
+            <div id="content_container" class=""></div>
               <section class="admin">
                 <div class="container">
                   <div class="row py-5 gy-3">
@@ -102,12 +99,10 @@ const DashboardPage = {
       </div>
     `;
   },
-  async afterRender() {
-
+  async afterRender () {
     //   active side bar
     // const navLink = document.getElementById("dashboard-link");
     // navLink.classList.add("active");
-
     // // render item wisata
     // const itemContainer = document.getElementById("content_container");
     // const response = await WisataSource.getWisata();
@@ -123,6 +118,6 @@ const DashboardPage = {
     //   </div>
     //   `;
     // });
-  }
+  },
 };
 export default DashboardPage;
