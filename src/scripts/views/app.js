@@ -83,7 +83,11 @@ class App {
       url === "/kategorialam" ||
       url === "/kategoribudaya" ||
       url === "/login" ||
-      url === "/register"
+      url === "/register" ||
+      url === "/favoritwisata" ||
+      url === "/tesdetail/:id" ||  
+      url === "/favorithotel" ||
+      url === "/tesdetailhotel/:id" 
     ) {
       if (isLogin === false) {
         const page = routes[url];
@@ -122,7 +126,11 @@ class App {
           url === "/kategorialam" ||
           url === "/kategoribudaya" ||
           url === "/login" ||
-          url === "/register"
+          url === "/register" ||
+          url === "/favoritwisata" ||
+          url === "/tesdetail/:id" ||  
+          url === "/favorithotel" ||
+          url === "/tesdetailhotel/:id" 
         ) {
           window.location.replace("#/dashboard");
         }
