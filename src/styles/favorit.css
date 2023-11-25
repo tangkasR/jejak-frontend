@@ -28,47 +28,69 @@
   font-weight: 800;
   color: #3f4e4f;
   text-align: center;
+  margin: 10px;
+}
+
+.wisata_container {
+  height: 100vh;
 }
 
 .wisata_items {
   display: flex;
   flex-wrap: wrap;
-  gap: 50px;
-  margin: 30px;
+  gap: 1rem;
+  margin: 20px;
 }
 
 .wisata_items img {
   background-size: cover;
-  height: 100%;
+  height: 220px;
 }
 
 .hotel_favorit {
-    display: flex;
-    margin-top: 100px;
-    justify-content: center;
-  }
-  
-  .hotel_title {
-    font-size: 40px;
-    font-weight: 800;
-    color: #3f4e4f;
-    text-align: center;
-  }
-  
-  .hotel_items {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 50px;
-    margin: 30px;
-  }
-  
-  .hotel_items img {
-    background-size: cover;
-    height: 100%;
-  }
+  display: flex;
+  margin-top: 100px;
+  justify-content: center;
+}
 
-  .empty_favorit{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
+.hotel_title {
+  font-size: 40px;
+  font-weight: 800;
+  color: #3f4e4f;
+  text-align: center;
+  margin: 10px;
+}
+
+.hotel_container {
+  height: 100vh;
+}
+
+.hotel_items {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin: 20px;
+}
+
+.hotel_items img {
+  background-size: cover;
+  height: 220px;
+}
+
+.empty_favorit h1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #3f4e4f;
+}
+
+.favorit_list {
+  background-color: var(--txt-third);
+}
+
+.detail_favorit {
+  margin: 20px;
+  color: var(--txt-secondary);
+  font-weight: 600;
+  font-size: 20px;
+}

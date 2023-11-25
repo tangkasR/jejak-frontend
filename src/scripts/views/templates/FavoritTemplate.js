@@ -1,24 +1,40 @@
 const createWisataTemplate = (data) => `
-    <div class="card" style="width: 18rem;">
-      <img src="${data.url}" class="card-img-top" alt="...">
+    <div class="favorit_list card" style="width: 25rem;">
+      <img src="${data.url}" class="card_favorit" alt="...">
+      <div class="detail_favorit">
+      <h5 class="favorit-title">${data.nama}</h5>
+      <p class="favorit-text">${data.lokasi}</p>
+    </div>
     </div>
     `;
 
 const createDetailWisataTemplate = (data) => `
-    <div class="card" style="width: 18rem;">
-      <img src="${data.url}" class="card-img-top" alt="...">
+    <div class="favorit_list card" style="width: 25rem;">
+      <img src="${data.url}" class="card_favorit" alt="...">
+      <div class="detail_favorit">
+      <h5 class="favorit-title">${data.nama}</h5>
+      <p class="favorit-text">${data.lokasi}</p>
+    </div>
     </div>
     `;
 
 const createHotelTemplate = (data) => `
-    <div class="card" style="width: 18rem;">
-      <img src="${data.url}" class="card-img-top" alt="...">
+    <div class="favorit_list card" style="width: 25rem;">
+      <img src="${data.url}" class="card_favorit" alt="...">
+      <div class="detail_favorit">
+      <h5 class="favorit-title">${data.nama}</h5>
+      <p class="favorit-text">${data.lokasi}</p>
+    </div>
     </div>
     `;
 
 const createDetailHotelTemplate = (data) => `
-    <div class="card" style="width: 18rem;">
-      <img src="${data.url}" class="card-img-top" alt="...">
+    <div class="favorit_list card" style="width: 25rem;">
+      <img src="${data.url}" class="card_favorit" alt="...">
+      <div class="detail_favorit">
+        <h5 class="favorit-title">${data.nama}</h5>
+        <p class="favorit-text">${data.lokasi}</p>
+      </div>
     </div>
     `;
 

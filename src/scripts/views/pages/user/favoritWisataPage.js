@@ -4,14 +4,17 @@ import { createWisataTemplate } from "../../templates/FavoritTemplate";
 const FavoritWisata = {
   async render() {
     return `
-          <div class="wisata_favorit">
-             <h2 tabindex="0" class="wisata_title" style="justify-content:center align-items:center">Wisata Favorit</h2>
-            </div>
-            <div id="wisata" class="wisata_items"></div>
-            <div class="empty_favorit">
-                <h1>Silahkan Tambahkan Favorit Terlebih Dahulu</h1>
-            </div>
-          </div>
+    <div class="wisata_favorit">
+    <h2 tabindex="0" class="wisata_title" style="justify-content:center align-items:center">Wisata Favorit</h2>
+   </div>
+   <div class="wisata_container">
+     <div id="wisata" class="wisata_items"></div>
+       <div class="empty_favorit">
+           <h1>Silahkan Tambahkan Favorit Terlebih Dahulu</h1>
+       </div>
+     </div>
+   </div>
+ </div>
         `;
   },
 
