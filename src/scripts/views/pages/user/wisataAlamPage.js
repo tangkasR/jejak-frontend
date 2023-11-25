@@ -2,8 +2,8 @@ import WisataSource from "../../../data/wisata-source";
 import HotelSource from "../../../data/hotel-source";
 
 const wisataAlamPage = {
-    async render() {
-        return `
+  async render() {
+    return `
         <section class="alamItemCard">
             <div class="container">
                 <div class="row gy-5">
@@ -23,17 +23,17 @@ const wisataAlamPage = {
             </div>
         </section>
                 `;
-    },
+  },
 
-    async afterRender() {
-        // get data wisata
-        const wisata = await WisataSource.getWisata();
-        const datasWisata = wisata.data;
-        const wisataContent = document.getElementById("wisata-content");
+  async afterRender() {
+    // get data wisata
+    const wisata = await WisataSource.getWisata();
+    const datasWisata = wisata.data;
+    const wisataContent = document.getElementById("wisata-content");
 
-        datasWisata.forEach((data) => {
-            if (data.kategori === "Alam") {
-                wisataContent.innerHTML += `
+    datasWisata.forEach((data) => {
+      if (data.kategori === "Alam") {
+        wisataContent.innerHTML += `
                 <div class="wisata-card border-0 mb-5 rounded-bottom-5 position-relative">
                     <img src="${data.url}" class="card-img-top" alt="${data.nama}" style="height: 400px; object-fit: cover">
                     <div class="boxTopSaran position-absolute  translate-middle-x"
@@ -48,30 +48,30 @@ const wisataAlamPage = {
                     </div>
                 </div>
             `;
-            }
-        });
+      }
+    });
 
-        const hotel = await HotelSource.getAllHotel();
-        const dataHotel = hotel.data;
-        const hotelContent = document.getElementById("hotel-content");
-        let indexDatasHotel = 0;
-        dataHotel.forEach((data) => {
-            indexDatasHotel++
-            if (indexDatasHotel >= 5 && indexDatasHotel <= 10) {
-                hotelContent.innerHTML += ` 
+    const hotel = await HotelSource.getAllHotel();
+    const dataHotel = hotel.data;
+    const hotelContent = document.getElementById("hotel-content");
+    let indexDatasHotel = 0;
+    dataHotel.forEach((data) => {
+      indexDatasHotel++;
+      if (indexDatasHotel >= 5 && indexDatasHotel <= 10) {
+        hotelContent.innerHTML += ` 
                 <div class="row g-0 my-3 align-items-center justify-content-center">
                     <div class="col-md-4">
                         <img src="${data.url}" class="img-fluid rounded-2" alt="${data.nama}" style="height: 100px">
                     </div>
                     <div class = "col-md-8 text-start gx-3">
-                        <h6 class="card-title">${data.nama}</h6>
+                        <h6 class="card-title"><a href="#/tesdetailhotel/${data.id}">${data.nama}</a></h6>
                         <p><i class='bx bxs-map'></i> ${data.lokasi}</p>
                     </div>
                 </div>
-                `
-            }
-        });
-    },
+                `;
+      }
+    });
+  },
 };
 
 export default wisataAlamPage;

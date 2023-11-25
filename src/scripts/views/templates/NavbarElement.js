@@ -60,6 +60,22 @@ class Navbar extends HTMLElement {
               <li class="nav-item">
                 <a class="nav-link link-navbar-user" id="link-contact" href="#/contact">Kontak</a>
               </li>
+              <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                id="navbarDropdown"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Favorit
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <li><a class="dropdown-item" id="link-favwisata" href="#/favoritwisata">Wisata</a></li>
+                <li><a class="dropdown-item" id="link-favhotel" href="#/favorithotel">Hotel</a></li>
+              </ul>
+            </li>
             </ul>
           </div>
         </div>

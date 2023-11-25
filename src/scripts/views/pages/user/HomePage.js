@@ -1,8 +1,8 @@
-import WisataSource from '../../../data/wisata-source';
-import HotelSource from '../../../data/hotel-source';
+import WisataSource from "../../../data/wisata-source";
+import HotelSource from "../../../data/hotel-source";
 
 const HomePage = {
-  async render () {
+  async render() {
     return `
       <div class="hero">
         <div class="hero_inner">
@@ -278,27 +278,27 @@ const HomePage = {
     `;
   },
 
-  async afterRender () {
+  async afterRender() {
     // swiper
-    var swiper = new Swiper ('.mySwiper', {
-      slidesPerView: 'auto',
+    var swiper = new Swiper(".mySwiper", {
+      slidesPerView: "auto",
       spaceBetween: 30,
       autoplay: {
         delay: 2500,
         disableOnInteraction: false,
       },
       pagination: {
-        el: '.swiper-pagination',
+        el: ".swiper-pagination",
         clickable: true,
       },
     });
 
-    var swipers = new Swiper ('.mySwipers', {
-      slidesPerView: 'auto',
+    var swipers = new Swiper(".mySwipers", {
+      slidesPerView: "auto",
       spaceBetween: 30,
       navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev',
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
       },
       breakpoints: {
         // when window width is >= 320px
@@ -325,36 +325,36 @@ const HomePage = {
     // end swiper
 
     // get datas wisata
-    const wisata = await WisataSource.getWisata ();
+    const wisata = await WisataSource.getWisata();
     const datasWisata = wisata.data;
     // end get datas wisata
 
     // render page destinasi populer
-    const destinasiPopulerContainer_left = document.getElementById (
-      'container-destinasi-populer-left'
+    const destinasiPopulerContainer_left = document.getElementById(
+      "container-destinasi-populer-left"
     );
-    const destinasiPopulerContainer_right = document.getElementById (
-      'container-destinasi-populer-right'
+    const destinasiPopulerContainer_right = document.getElementById(
+      "container-destinasi-populer-right"
     );
     let indexDatasWisata = 0;
-    datasWisata.forEach (data => {
+    datasWisata.forEach((data) => {
       indexDatasWisata++;
       if (indexDatasWisata === 1) {
-        const deskripsi = data.deskripsi.slice (0, 250);
+        const deskripsi = data.deskripsi.slice(0, 250);
         destinasiPopulerContainer_left.innerHTML += `
           <div class="card card-wrapper card-destination-left">
             <img src="${data.url}" />
             <div class="content-card">
               <div class="item-card">
                 <h5>${data.nama}</h5>
-                <p>${deskripsi}... <a href="#/login">selengkapnya</a></p>
+                <p>${deskripsi}... <a href="#/tesdetail/${data.id}">selengkapnya</a></p>
               </div>
             </div>
           </div>
         `;
       }
       if (indexDatasWisata !== 1 && indexDatasWisata <= 5) {
-        const deskripsi = data.deskripsi.slice (0, 200);
+        const deskripsi = data.deskripsi.slice(0, 200);
         destinasiPopulerContainer_right.innerHTML += `
           <div class="col-sm-6 py-2">
             <div
@@ -369,7 +369,7 @@ const HomePage = {
                 <div class="content-card">
                   <div class="item-card">
                     <h5>${data.nama}</h5>
-                    <p>${deskripsi}... <a href="#/login">selengkapnya</a></p>
+                    <p>${deskripsi}... <a href="#/tesdetail/${data.id}">selengkapnya</a></p>
                   </div>
                 </div>
               </div>
@@ -380,8 +380,8 @@ const HomePage = {
     });
     // end render page destinasi populer
     // render page wisata lainnya
-    const wisataLainnyaContainer = document.getElementById ('wisata-lainnya');
-    datasWisata.forEach (data => {
+    const wisataLainnyaContainer = document.getElementById("wisata-lainnya");
+    datasWisata.forEach((data) => {
       wisataLainnyaContainer.innerHTML += `
         <div class="swiper-slide item-wisata-lainnya">
           <div class="card_items">
@@ -400,15 +400,16 @@ const HomePage = {
     });
     // end render page wisata lainnya
     // top penginapan
-    const topPenginapanContainer = document.querySelector (
-      '.topPenginapanContainer'
+    const topPenginapanContainer = document.querySelector(
+      ".topPenginapanContainer"
     );
-    const dataHotel = await HotelSource.getAllHotel ();
-    console.log (dataHotel.data);
-    dataHotel.data.forEach (data => {
+    const dataHotel = await HotelSource.getAllHotel();
+    console.log(dataHotel.data);
+    dataHotel.data.forEach((data) => {
       topPenginapanContainer.innerHTML += `
         <div class="swiper-slide item-wisata-lainnya" style="background-color:#f1ede2">
           <div class="card_item">
+          <a href="#/tesdetailhotel/${data.id}">
             <div class="card card-penginapan">
               <img src="${data.url}"/>
               <div class="content-card">
@@ -418,6 +419,7 @@ const HomePage = {
                 </div>
               </div>
             </div>
+            </a>
           </div>
         </div>
       `;
