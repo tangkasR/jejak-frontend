@@ -41,7 +41,8 @@
     overflow: hidden;
     z-index: 1;
 }
-.btn-masukAdmin a{
+
+.btn-masukAdmin a {
     text-decoration: none;
     color: #2C3639;
 }
@@ -71,10 +72,24 @@
     z-index: -1;
 }
 
-.btn-masukAdmin:hover a{
+.btn-masukAdmin:hover a {
     color: #fff;
 }
 
 .btn-masukAdmin:hover:before {
     width: 100%;
+}
+
+.chart-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #2C3639;
+    border-radius: 20px;
+    height: 55vh;
+}
+
+.chartDiv {
+    width: 90%;
+    height: 90%;
 }

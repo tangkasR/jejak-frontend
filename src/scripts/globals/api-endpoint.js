@@ -17,6 +17,7 @@ const API_ENDPOINT = {
   DELETEWISATA: (id) => `${CONFIG.BASE_URL}/deletewisata/${id}`,
 
   // review wisata api
+  GET_REVIEW_ALL_WISATA: `${CONFIG.BASE_URL}/getallreview`,
   GET_REVIEW_BY_WISATA_ID: (id) =>
     `${CONFIG.BASE_URL}/getreviewbywisataid/${id}`,
   ADD_REVIEW: (id) => `${CONFIG.BASE_URL}/createreview/${id}`,
@@ -30,6 +31,7 @@ const API_ENDPOINT = {
   DELETE_HOTEL: (id) => `${CONFIG.BASE_URL}/deletehotel/${id}`,
 
   // review hotel api
+  GET_REVIEW_ALL_HOTEL: `${CONFIG.BASE_URL}/getallreviewhotel`,
   GET_REVIEW_HOTEL_BY_WISATA_ID: (id) =>
     `${CONFIG.BASE_URL}/getreviewhotelbywisataid/${id}`,
   ADD_REVIEW_HOTEL: (id) => `${CONFIG.BASE_URL}/createreviewhotel/${id}`,

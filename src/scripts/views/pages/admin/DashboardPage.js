@@ -1,4 +1,6 @@
 import WisataSource from '../../../data/wisata-source';
+import HotelSource from '../../../data/hotel-source';
+import ReviewSource from '../../../data/review-source';
 import {async} from 'regenerator-runtime';
 import Swal from 'sweetalert2';
 
@@ -29,8 +31,8 @@ const DashboardPage = {
                   </div>
                   <div class="row pb-5">
                       <div class="col-md-12">
-                          <div class="card-admin" style="height: 50vh;">
-                              <h1 class="text-center">GRAFIK</h1>
+                          <div class="chart-container">
+                              <div class="chartDiv" id="chartDiv"></div>
                           </div>
                       </div>
                   </div>
@@ -118,6 +120,67 @@ const DashboardPage = {
     //   </div>
     //   `;
     // });
+
+    // grafik
+    const dataWisata = await WisataSource.getWisata ();
+    const dataHotel = await HotelSource.getAllHotel ();
+    const dataReviewWisata = await ReviewSource.getAllReviewWisata ();
+    const dataReviewHotel = await ReviewSource.getAllReviewHotel ();
+
+    const totalDataAlam = dataWisata.data.filter (data => {
+      if (data.kategori === 'Alam') {
+        return data;
+      }
+    });
+    const totalDataBudaya = dataWisata.data.filter (data => {
+      if (data.kategori === 'Budaya') {
+        return data;
+      }
+    });
+
+    JSC.Chart ('chartDiv', {
+      type: 'horizontal column',
+      title_label: {
+        text: 'JeJak in Numbers',
+        style: {
+          fontFamily: 'Montserrat',
+          color: '#2C3639',
+          fontWeight: 900,
+          fontSize: 26,
+        },
+      },
+      legend: {
+        position: 'right top',
+        defaultEntry: {
+          style_fontFamily: 'Montserrat',
+          width: 90,
+          margin: 3,
+          checkbox: {enabled: true, size: 16},
+        },
+      },
+      series: [
+        {
+          name: 'Wisata Alam',
+          points: [{x: 'Total Data', y: totalDataAlam.length}],
+        },
+        {
+          name: 'Wisata Budaya',
+          points: [{x: 'Total Data', y: totalDataBudaya.length}],
+        },
+        {
+          name: 'Hotel',
+          points: [{x: 'Total Data', y: dataHotel.data.length}],
+        },
+        {
+          name: 'Review Wisata',
+          points: [{x: 'Total Data', y: dataReviewWisata.data.length}],
+        },
+        {
+          name: 'Review Hotel',
+          points: [{x: 'Total Data', y: dataReviewHotel.data.length}],
+        },
+      ],
+    });
   },
 };
 export default DashboardPage;
