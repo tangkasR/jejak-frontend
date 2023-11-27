@@ -16,7 +16,9 @@ const WisataPage = {
               class="mt-md-5 mb-md-3 d-flex align-items-center justify-content-between px-5"
               id="content_container"
             >
-              <h1 class="title_items_sidebar my-3">Data Wisata</h1>
+              <div class="titleAdmin-card col-md-6">
+                <h1 class="my-3">Data Wisata</h1>
+              </div>
               <a href="#/addwisata" class="btn_edit btn rounded-3 p-3">Tambah</a>
             </div>
             <div class="table-wraper px-md-5">

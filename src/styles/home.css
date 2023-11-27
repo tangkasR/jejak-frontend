@@ -212,10 +212,10 @@ body {
 }
 
 .icon-service {
-  width: 110px;
+  width: 100px;
   height: 100px;
   background-color: var(--bg-secondary);
-  padding: 10px;
+  padding: 20px;
   object-fit: contain;
   border-radius: 20%;
 }
@@ -317,7 +317,7 @@ body {
   color: #dcd7c9;
 }
 
-.wisata-card a{
+.wisata-card a {
   color: #dcd7c9;
   text-decoration: none;
 }
@@ -328,17 +328,21 @@ body {
   background-color: var(--bg-secondary);
   color: var(--txt-primary);
 }
+
 .card-map img {
   width: 200px;
   height: 150px;
   object-fit: cover;
 }
+
 .leaflet-popup-content-wrapper {
   background-color: var(--bg-secondary);
 }
+
 .leaflet-popup {
   background-color: transparent;
 }
+
 /* end map */
 
 /* responsive */

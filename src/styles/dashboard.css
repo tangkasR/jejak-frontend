@@ -14,19 +14,29 @@
     padding: 20px;
 }
 
+.card-admin-title {
+    margin: 10px 0;
+    font-weight: 600;
+}
+
 .titleAdmin-card {
     display: flex;
     justify-content: start;
     align-items: center;
-    height: 20vh;
-    padding: 20px;
+    height: 10vh;
+    padding: 50px 20px;
     background-color: #2C3639;
     color: #DCD7C9;
     border-radius: 20px;
 }
 
+.titleAdmin-card h1 {
+    font-size: 35px;
+    font-weight: 600;
+}
+
 .icon-AdminCard {
-    font-size: 80px;
+    font-size: 60px;
 }
 
 .btn-masukAdmin {

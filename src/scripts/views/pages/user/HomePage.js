@@ -347,7 +347,7 @@ const HomePage = {
             <div class="content-card">
               <div class="item-card">
                 <h5>${data.nama}</h5>
-                <p>${deskripsi}... <a href="#/tesdetail/${data.id}">selengkapnya</a></p>
+                <p>${deskripsi}... <a href="#/tesdetail/${data.id}">Baca Selengkapnya</a></p>
               </div>
             </div>
           </div>
@@ -369,7 +369,7 @@ const HomePage = {
                 <div class="content-card">
                   <div class="item-card">
                     <h5>${data.nama}</h5>
-                    <p>${deskripsi}... <a href="#/tesdetail/${data.id}">selengkapnya</a></p>
+                    <p>${deskripsi}... <a href="#/tesdetail/${data.id}">Baca Selengkapnya</a></p>
                   </div>
                 </div>
               </div>

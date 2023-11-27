@@ -1,6 +1,8 @@
 import WisataSource from '../../../data/wisata-source';
 import HotelSource from '../../../data/hotel-source';
 import ReviewSource from '../../../data/review-source';
+import AdminSource from '../../../data/admin-source';
+
 import {async} from 'regenerator-runtime';
 import Swal from 'sweetalert2';
 
@@ -24,8 +26,7 @@ const DashboardPage = {
                           </div>
                       </div>
                       <div class="col-md-4">
-                          <div class="titleAdmin-card">
-                              <h3>Hi, Prayer</h3>
+                          <div class="titleAdmin-card" id="namaAdmin">
                           </div>
                       </div>
                   </div>
@@ -88,7 +89,7 @@ const DashboardPage = {
                                   <i class='icon-AdminCard bx bx-user'></i>
                                   <h3 class="card-admin-title">Profil</h3>
                                   <p class="card-admin-text">Fitur profil adalah informasi personal admin website JeJak</p>
-                                  <button class="btn-masukAdmin btn rounded-3"><a href="#/profil"><strong>MASUK</strong></a></button>
+                                  <button class="btn-masukAdmin btn rounded-3 mt-3"><a href="#/profil"><strong>MASUK</strong></a></button>
                               </div>
                           </div>
                       </div>
@@ -102,31 +103,19 @@ const DashboardPage = {
     `;
   },
   async afterRender () {
-    //   active side bar
-    // const navLink = document.getElementById("dashboard-link");
-    // navLink.classList.add("active");
-    // // render item wisata
-    // const itemContainer = document.getElementById("content_container");
-    // const response = await WisataSource.getWisata();
-    // const datas = response.data;
-    // datas.forEach((data) => {
-    //   itemContainer.innerHTML += `
-    //   <div class="card shadow p-3" style="max-width: 400px; max-height:100%; height:800px">
-    //     <img src="${data.url}" style="width: 100%; height:200px; object-fit:cover">
-    //     <a href="#/cobareview/${data.id}" style="text-decoration: none"><h5 class="text-dark mt-3 mb-3">${data.nama}</h5></a>
-    //     <p>${data.kategori}</p>
-    //     <p>${data.lokasi}</p>
-    //     <p>${data.deskripsi}</p>
-    //   </div>
-    //   `;
-    // });
-
     // grafik
     const dataWisata = await WisataSource.getWisata ();
     const dataHotel = await HotelSource.getAllHotel ();
     const dataReviewWisata = await ReviewSource.getAllReviewWisata ();
     const dataReviewHotel = await ReviewSource.getAllReviewHotel ();
+    const id = JSON.parse (localStorage.id);
+    const profil = await AdminSource.getData (id.id);
+    const dataProfil = profil.data;
+    const namaContainer = document.getElementById ('namaAdmin');
 
+    namaContainer.innerHTML = `
+      <h4 class="fw-semibold">Hi, ${dataProfil.name}</h4>
+    `;
     const totalDataAlam = dataWisata.data.filter (data => {
       if (data.kategori === 'Alam') {
         return data;
@@ -140,13 +129,27 @@ const DashboardPage = {
 
     JSC.Chart ('chartDiv', {
       type: 'horizontal column',
+      box_fill: ['white', 0.05],
       title_label: {
         text: 'JeJak in Numbers',
         style: {
           fontFamily: 'Montserrat',
-          color: '#2C3639',
+          color: 'white',
           fontWeight: 900,
           fontSize: 26,
+        },
+      },
+
+      xAxis: {
+        label_color: 'white',
+        defaultTick: {
+          label_color: 'white',
+        },
+      },
+      yAxis: {
+        label_color: 'white',
+        defaultTick: {
+          label_color: 'white',
         },
       },
       legend: {
@@ -154,6 +157,8 @@ const DashboardPage = {
         defaultEntry: {
           style_fontFamily: 'Montserrat',
           width: 90,
+          color: 'white',
+          label_color: 'white',
           margin: 3,
           checkbox: {enabled: true, size: 16},
         },
