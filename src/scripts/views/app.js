@@ -25,6 +25,13 @@ class App {
       url === "/gallerywisataadmin/:id"
     ) {
       if (isLogin === true) {
+        // set localstorage to remove
+        window.onbeforeunload = () => {
+          return localStorage.removeItem("id");
+        };
+
+        // end set localstorage to remove
+
         const page = routes[url];
         this._content.innerHTML = await page.render();
         await page.afterRender();
