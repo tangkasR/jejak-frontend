@@ -87,7 +87,8 @@ class App {
       url === "/favoritwisata" ||
       url === "/tesdetail/:id" ||  
       url === "/favorithotel" ||
-      url === "/tesdetailhotel/:id" 
+      url === "/tesdetailhotel/:id" ||
+      url === "/detailgallery/:id"
     ) {
       if (isLogin === false) {
         const page = routes[url];
@@ -130,7 +131,8 @@ class App {
           url === "/favoritwisata" ||
           url === "/tesdetail/:id" ||  
           url === "/favorithotel" ||
-          url === "/tesdetailhotel/:id" 
+          url === "/tesdetailhotel/:id" ||
+          url === "/detailgallery/:id"
         ) {
           window.location.replace("#/dashboard");
         }

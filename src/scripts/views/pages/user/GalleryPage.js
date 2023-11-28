@@ -1,5 +1,6 @@
 import WisataSource from "../../../data/wisata-source";
 
+
 const GalleryPage = {
   async render() {
     return `
@@ -8,8 +9,8 @@ const GalleryPage = {
         <div class="row gy-5">
           <div class="col-md-12 mx-auto">
           <h1 class="gallery-title fw-bold text-center mb-5 mx-auto">Galeri</h1>
-            <p class="gallery-desc text-center mt-5">Selamat datang di halaman Galeri Jelajah Jogja!</p>
-            <p class="gallery-desc text-center mb-5">
+            <p class="gallery-desc text-center mt-5">Selamat datang di halaman Galeri Jelajah Jogja!
+            <br />
             Jelajahi keajaiban alam dan budaya di wilayah Jogja melalui galeri foto kami. Setiap gambar adalah potret indah dari tempat-tempat wisata yang menakjubkan, memperlihatkan keunikan dan kecantikan khas Jogja.
             Galeri ini tidak hanya sekadar koleksi gambar, tetapi juga sumber inspirasi untuk rencana perjalanan Anda selanjutnya. Temukan tempat-tempat yang ingin Anda kunjungi, dan biarkan diri Anda terbawa dalam pesona keberagaman dan kekayaan budaya Jogja.
             </p>
@@ -35,7 +36,7 @@ const GalleryPage = {
       galleryContent.innerHTML = "";
       data.forEach((item) => {
         galleryContent.innerHTML += `
-        <div class="gallery-card border-0 mb-5 mt-5 position-relative" style="width: 300px;">
+        <div class="gallery-card border-0 mb-5 mt-5 position-relative" style="width: 300px;"><a href="#/detailgallery/${item.id}">
           <img src="${item.url}" class="card-img-top z-index-0 rounded-2" alt="${item.nama}" style="height: 200px;">
           <p class="gallery-card-title rounded-2 mb-4 fw-bold position-absolute z-index-1 mx-auto text-center" style="bottom: 0; left: 0; right: 0;">${item.nama}</p>
           <div class="p-2" style="text-align: justify;">

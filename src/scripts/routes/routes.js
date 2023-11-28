@@ -3,6 +3,7 @@ import HomePage from "../views/pages/user/HomePage";
 import GalleryPage from "../views/pages/user/GalleryPage";
 import ContactPage from "../views/pages/user/ContactPage";
 import MapPage from "../views/pages/user/MapPage";
+import detailGalleryPage from "../views/pages/user/detailGalleryPage";
 
 // ADMIN
 import LoginPage from "../views/pages/admin/LoginPage";
@@ -44,6 +45,7 @@ const routes = {
   "/tesdetail/:id": tesDetailPage,
   "/favorithotel": favoritHotelPage,
   "/tesdetailhotel/:id": tesDetailHotel,
+  "/detailgallery/:id": detailGalleryPage,
 
   //   ADMIN
   "/login": LoginPage,
