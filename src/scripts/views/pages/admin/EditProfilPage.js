@@ -209,6 +209,7 @@ const EditProfilPage = {
         if (result.isConfirmed) {
           Swal.fire("Terhapus!", "Data berhasil dihapus.", "success");
           const delData = await AdminSource.deleteData(id.id);
+          localStorage.removeItem("id");
           window.location.replace("#/login");
         }
       });

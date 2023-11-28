@@ -85,7 +85,7 @@ class App {
       url === "/login" ||
       url === "/register" ||
       url === "/favoritwisata" ||
-      url === "/tesdetail/:id" ||  
+      url === "/tesdetail/:id" ||
       url === "/favorithotel" ||
       url === "/tesdetailhotel/:id" ||
       url === "/detailgallery/:id"
@@ -129,7 +129,7 @@ class App {
           url === "/login" ||
           url === "/register" ||
           url === "/favoritwisata" ||
-          url === "/tesdetail/:id" ||  
+          url === "/tesdetail/:id" ||
           url === "/favorithotel" ||
           url === "/tesdetailhotel/:id" ||
           url === "/detailgallery/:id"
