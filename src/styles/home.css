@@ -42,6 +42,7 @@ body {
   color: var(--txt-third);
   border: 3px solid var(--txt-third) !important;
   margin: 20px auto;
+  opacity: 100%;
 }
 
 /*  */

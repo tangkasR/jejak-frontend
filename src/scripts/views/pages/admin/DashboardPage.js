@@ -103,6 +103,10 @@ const DashboardPage = {
     `;
   },
   async afterRender () {
+    //   active side bar
+    const navLink = document.getElementById ('dashboard-link');
+    navLink.classList.add ('active');
+
     // grafik
     const dataWisata = await WisataSource.getWisata ();
     const dataHotel = await HotelSource.getAllHotel ();

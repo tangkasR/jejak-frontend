@@ -4,9 +4,21 @@ import { createHotelTemplate } from "../../templates/FavoritTemplate";
 const FavoritHotel = {
   async render() {
     return `
-    <div class="hotel_favorit">
-      <h2 tabindex="0" class="hotel_title" style="justify-content:center align-items:center">Hotel Favorit</h2>
-    </div>
+    <h2 class="w-100 title"
+          data-aos="fade-up"
+          data-aos-delay="50"
+          data-aos-duration="1000"
+          data-aos-easing="ease-in-out"
+          style="margin-top: 150px;"
+        >
+        Hotel Favorit
+        </h2>
+        <hr class="hr" 
+          data-aos="fade-up"
+          data-aos-delay="50"
+          data-aos-duration="1000"
+          data-aos-easing="ease-in-out"
+        />
       <div class="hotel_container">
         <div id="hotel" class="hotel_items"></div>
           <div class="empty_favorit">

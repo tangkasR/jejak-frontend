@@ -1,11 +1,14 @@
 const createWisataTemplate = (data) => `
 <section class="dark">
 	<div class="container py-4">
-      <article class="postcard dark blue">
+      <article class="postcard dark blue" data-aos="fade-up"
+          data-aos-delay="100"
+          data-aos-duration="1000"
+          data-aos-easing="ease-in-out">
         <a class="postcard__img_link" href="#">
           <img class="postcard__img" src="${data.url}" alt="Image Title" />
         </a>
-        <div class="postcard__text">
+        <div class="postcard__text" >
           <h1 class="postcard__title blue"><a href="#">${data.nama}</a></h1>
           <div class="postcard__subtitle small">
             <p>
@@ -15,7 +18,7 @@ const createWisataTemplate = (data) => `
           <div class="postcard__bar"></div>
           <div class="postcard__preview-txt">${data.deskripsi}</div>
           <ul class="postcard__tagbox">
-            <li class="tag__item"><i class="bx bxs-category mr-2"></i> ${data.kategori}</li>
+            <li class="tag__item d-flex align-items-center gap-1 p-2"><i class="bx bxs-purchase-tag bx-sm mr-2"></i> ${data.kategori}</li>
           </ul>
         </div>
       </article>
@@ -36,7 +39,10 @@ const createDetailWisataTemplate = (data) => `
 const createHotelTemplate = (data) => `
 <section class="dark">
 <div class="container py-4">
-    <article class="postcard dark blue">
+    <article class="postcard dark blue" data-aos="fade-up"
+          data-aos-delay="50"
+          data-aos-duration="1000"
+          data-aos-easing="ease-in-out">
       <a class="postcard__img_link" href="#">
         <img class="postcard__img" src="${data.url}" alt="Image Title" />
       </a>

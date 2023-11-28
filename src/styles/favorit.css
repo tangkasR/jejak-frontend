@@ -111,8 +111,8 @@ a:hover {
   height: 10px;
   margin: 10px 0;
   border-radius: 5px;
-  background-color: #424242;
-  transition: width 0.2s ease;
+  background-color: #3F4E4F;
+  transition: width 0.8s ease;
 }
 .postcard .postcard__text {
   padding: 1.5rem;
@@ -136,7 +136,7 @@ a:hover {
 }
 .postcard .postcard__tagbox .tag__item {
   display: inline-block;
-  background: rgba(83, 83, 83, 0.4);
+  background: #3F4E4F;
   border-radius: 3px;
   padding: 2.5px 10px;
   margin: 0 5px 5px 0;
@@ -154,12 +154,12 @@ a:hover {
   right: 0;
   bottom: 0;
   left: 0;
-  background-image: linear-gradient(-70deg, #424242, transparent 50%);
+  background-image: linear-gradient(-70deg, #2C3639, transparent 50%);
   opacity: 1;
   border-radius: 10px;
 }
 .postcard:hover .postcard__bar {
-  width: 100px;
+  width: 100%;
 }
 @media screen and (min-width: 769px) {
   .postcard {
@@ -184,7 +184,7 @@ a:hover {
     content: "";
     position: absolute;
     display: block;
-    background: #18151f;
+    background: #3F4E4F;
     top: -20%;
     height: 130%;
     width: 55px;
@@ -240,23 +240,23 @@ a:hover {
 .blue::before {
   background-image: linear-gradient(
     -30deg,
-    rgba(190, 118, 24, 0.1),
+    #2C3639,
     transparent 50%
   );
 }
 .blue:nth-child(2n)::before {
   background-image: linear-gradient(
     30deg,
-    rgba(190, 118, 24, 0.1),
+    #3F4E4F,
     transparent 50%
   );
 }
 
 @media screen and (min-width: 769px) {
   .blue::before {
-    background-image: linear-gradient(-30deg, rgba(190, 118, 24, 0.1), transparent 50%);
+    background-image: linear-gradient(-30deg, #3F4E4F, transparent 50%);
   }
   .blue:nth-child(2n)::before {
-    background-image: linear-gradient(30deg, rgba(190, 118, 24, 0.1), transparent 50%);
+    background-image: linear-gradient(30deg, #3F4E4F, transparent 50%);
   }
 }

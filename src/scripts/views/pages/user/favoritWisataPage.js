@@ -4,9 +4,21 @@ import { createWisataTemplate } from "../../templates/FavoritTemplate";
 const FavoritWisata = {
   async render() {
     return `
-    <div class="wisata_favorit">
-      <h2 tabindex="0" class="wisata_title" style="justify-content:center align-items:center">Wisata Favorit</h2>
-    </div>
+    <h2 class="w-100 title"
+          data-aos="fade-up"
+          data-aos-delay="50"
+          data-aos-duration="1000"
+          data-aos-easing="ease-in-out"
+          style="margin-top: 150px;"
+        >
+        Wisata Favorit
+        </h2>
+        <hr class="hr" 
+          data-aos="fade-up"
+          data-aos-delay="50"
+          data-aos-duration="1000"
+          data-aos-easing="ease-in-out"
+        />
       <div class="wisata_container">
         <div id="wisata" class="wisata_items"></div>
           <div class="empty_favorit">
