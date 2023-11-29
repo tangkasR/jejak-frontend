@@ -11,7 +11,7 @@ const Detail = {
         return `
         <section class="detailCard">
           <div class="container">
-              <div class="row gy-5 mt-5">
+              <div class="row gy-5">
                   <div class="col-md-12" id="posts">
                  
                   </div>
@@ -52,9 +52,18 @@ const Detail = {
         const wisata = await HotelSource.getHotelById(url.id);
         console.log(wisata);
         const detailContainer = document.querySelector('#posts');
-        detailContainer.innerHTML = createHotelTemplate(
-          wisata.data,
-        );
+        detailContainer.innerHTML += `
+        <div class="col-md-8 mx-auto">
+        <h2 class="text-center fw-bold mb-3">${wisata.data.nama}</h2>
+        <img src="${wisata.data.url}" class="card-img-top rounded-4" alt="${wisata.data.nama}">
+        <p class="location text-left d-flex gap-2 mt-3 fw-bold">
+        <i class='bx bxs-map bx-sm'></i> ${wisata.data.lokasi}</p>
+        <p class="subtitle mt-4 mx-5" style="text-align: justify;"
+          data-aos="fade-up"
+          data-aos-delay="50"
+          data-aos-duration="2000">${wisata.data.deskripsi}</p>
+      </div>
+        `;
           // swiper
     var swiper = new Swiper(".mySwiper", {
       slidesPerView: "auto",
