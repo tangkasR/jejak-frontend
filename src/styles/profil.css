@@ -6,6 +6,7 @@
   --txt-secondary: #dcd7c9;
   --txt-third: #a27b5c;
 }
+
 .nav-profil ul {
   display: flex;
   align-items: center;
@@ -13,19 +14,23 @@
   list-style: none;
   gap: 1.5rem;
 }
+
 .nav-profil ul a {
   text-decoration: none;
   color: black;
   font-weight: 500;
   cursor: pointer;
 }
+
 .nav-profil ul a:hover {
   color: #a27b5c;
 }
+
 .right-container {
   margin: 0;
   background-color: var(--txt-secondary);
 }
+
 .right {
   text-align: center;
   padding: 10px;
@@ -35,10 +40,20 @@
   justify-content: center;
   min-height: 630px;
 }
+
 .right h1 {
-  font-size: 30px;
+  font-size: 40px;
   font-weight: 600;
 }
+
+.right h2 {
+  font-size: 22px;
+}
+
+.right span {
+  font-size: 18px;
+}
+
 .right p {
   font-size: 18px;
   margin-bottom: 0;
@@ -50,17 +65,20 @@
   width: 100%;
   min-height: 630px;
 }
+
 .img-profil img {
   width: 300px;
   height: 550px;
   border-radius: 5px;
   object-fit: cover;
 }
+
 .img-profil {
   position: absolute;
   left: 30px;
   top: 40px;
 }
+
 .role-admin {
   position: absolute;
   background-color: var(--bg-secondary);
@@ -70,11 +88,13 @@
   top: 0;
   right: -10px;
 }
+
 .role-admin h5 {
   font-size: 16px;
   font-weight: 600;
   margin: 0;
 }
+
 .btn-logout .btn {
   padding: 8px 40px;
   font-size: 16px;
@@ -82,9 +102,11 @@
   background-color: black;
   color: #fff !important;
 }
+
 .btn-logout .btn:hover {
   background-color: #838485;
 }
+
 .btn-edit-profil a {
   padding: 10px 30px;
   font-size: 20px;
@@ -92,9 +114,11 @@
   background-color: #6d5039;
   color: #fff !important;
 }
+
 .btn-edit-profil a:hover {
   background-color: #a27b5c;
 }
+
 @media only screen and (max-width: 576px) {
   .right {
     min-height: fit-content;
@@ -102,6 +126,7 @@
     padding-bottom: 20px !important;
   }
 }
+
 @media only screen and (min-width: 576px) {
   .right {
     text-align: center;
@@ -113,21 +138,25 @@
     min-height: 630px;
   }
 }
+
 @media only screen and (max-width: 994px) {
   .img-profil {
     position: unset;
     left: 0;
     top: 0;
   }
+
   .img-profil img {
     width: 100%;
     height: 630px;
     max-height: 100%;
     object-fit: cover;
   }
+
   .nav-profil {
     padding: 10px;
   }
+
   .right {
     background-color: var(--txt-secondary);
     text-align: center;
@@ -138,24 +167,28 @@
     justify-content: center;
   }
 }
+
 @media only screen and (min-width: 1182px) {
   .img-profil img {
     width: 400px;
     height: 550px;
   }
 }
+
 @media only screen and (min-width: 1320px) {
   .img-profil img {
     width: 450px;
     height: 550px;
   }
 }
+
 @media only screen and (min-width: 1496px) {
   .img-profil img {
     width: 550px;
     height: 550px;
   }
 }
+
 @media only screen and (min-width: 1776px) {
   .img-profil img {
     width: 750px;

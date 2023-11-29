@@ -3,6 +3,7 @@ import HomePage from "../views/pages/user/HomePage";
 import GalleryPage from "../views/pages/user/GalleryPage";
 import ContactPage from "../views/pages/user/ContactPage";
 import MapPage from "../views/pages/user/MapPage";
+import detailGalleryPage from "../views/pages/user/detailGalleryPage";
 
 // ADMIN
 import LoginPage from "../views/pages/admin/LoginPage";
@@ -44,18 +45,20 @@ const routes = {
   "/detail/:id": DetailPage,
   "/favorithotel": favoritHotelPage,
   "/detailhotel/:id": DetailHotel,
+  "/detailgallery/:id": detailGalleryPage,
 
   //   ADMIN
   "/login": LoginPage,
   "/register": RegistrasiPage,
   "/dashboard": DashboardPage,
   "/profil": ProfilPage,
+  "/editprofil": EditProfilPage,
 
   // WISATA
   "/wisata": WisataPage,
   "/editprofil": EditProfilPage,
   "/addwisata": AddWisataPage,
- 
+  "/editwisata/:id": EditWisataPage,
 
   // REVIEW WISATA
   "/cobareview/:id": CobaReviewPage,

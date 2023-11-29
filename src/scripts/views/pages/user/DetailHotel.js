@@ -107,7 +107,7 @@ const Detail = {
             hotelContent.innerHTML += `
               <div class="swiper-slide item-wisata-lainnya">
                 <div class="card_items">
-                  <div class="card card-wisata-lainnya">
+                  <div class="card card-wisata-lainnya"><a href="#/detail/${data.id}">
                     <img src="${data.url}" />
                     <div class="content-card">
                       <div class="item-card">

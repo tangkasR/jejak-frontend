@@ -9,7 +9,12 @@ const RegistrasiPage = {
         class="d-flex align-items-center justify-content-center w-100"
         style="min-height:80vh; margin:140px 0"
       >
-        <div class="card shadow" style="min-width:70%" id="content-logres">
+        <div class="card shadow" style="min-width:70%" id="content-logres"
+        data-aos="fade-up"
+        data-aos-delay="50"
+        data-aos-duration="1000"
+        data-aos-easing="ease-in-out"
+        >
           <div class="m-0 row align-items-center justify-content-center">
             <div
               class="col-12 col-md-6 d-flex flex-column align-items-center justify-content-center rounded"

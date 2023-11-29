@@ -2,6 +2,16 @@ import API_ENDPOINT from "../globals/api-endpoint";
 import axios from "axios";
 
 class ReviewSource {
+  static async getAllReviewWisata() {
+    try {
+      const response = await axios.get(
+        API_ENDPOINT.GET_REVIEW_ALL_WISATA
+      );
+      return response;
+    } catch (error) {
+      console.log(error);
+    }
+  }
   static async getReview(id) {
     try {
       const response = await axios.get(
@@ -22,6 +32,16 @@ class ReviewSource {
       return response;
     } catch (error) {
       return error;
+    }
+  }
+  static async getAllReviewHotel() {
+    try {
+      const response = await axios.get(
+        API_ENDPOINT.GET_REVIEW_ALL_HOTEL
+      );
+      return response;
+    } catch (error) {
+      console.log(error);
     }
   }
   static async getReviewHotel(id) {

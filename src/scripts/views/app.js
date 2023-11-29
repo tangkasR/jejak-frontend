@@ -25,6 +25,13 @@ class App {
       url === "/gallerywisataadmin/:id"
     ) {
       if (isLogin === true) {
+        // set localstorage to remove
+        window.onbeforeunload = () => {
+          return localStorage.removeItem("id");
+        };
+
+        // end set localstorage to remove
+
         const page = routes[url];
         this._content.innerHTML = await page.render();
         await page.afterRender();
@@ -85,9 +92,10 @@ class App {
       url === "/login" ||
       url === "/register" ||
       url === "/favoritwisata" ||
-      url === "/detail/:id" ||  
+      url === "/detail/:id" ||
       url === "/favorithotel" ||
-      url === "/detailhotel/:id" 
+      url === "/detailhotel/:id" ||
+      url === "/detailgallery/:id"
     ) {
       if (isLogin === false) {
         const page = routes[url];
@@ -128,9 +136,10 @@ class App {
           url === "/login" ||
           url === "/register" ||
           url === "/favoritwisata" ||
-          url === "/detail/:id" ||  
+          url === "/detail/:id" ||
           url === "/favorithotel" ||
-          url === "/detailhotel/:id" 
+          url === "/detailhotel/:id" ||
+          url === "/detailgallery/:id"
         ) {
           window.location.replace("#/dashboard");
         }

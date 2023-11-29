@@ -1,11 +1,11 @@
-import HotelSource from "../../../data/hotel-source";
-import { async } from "regenerator-runtime";
-import Swal from "sweetalert2";
-import DataTable from "datatables.net-dt";
-import "datatables.net-responsive-dt";
+import HotelSource from '../../../data/hotel-source';
+import {async} from 'regenerator-runtime';
+import Swal from 'sweetalert2';
+import DataTable from 'datatables.net-dt';
+import 'datatables.net-responsive-dt';
 
 const HotelPage = {
-  async render() {
+  async render () {
     return `
       <div class="container-fluid">
         <div class="row">
@@ -16,7 +16,9 @@ const HotelPage = {
               class="mt-md-5 mb-md-3 d-flex align-items-center justify-content-between px-5"
               id="content_container"
             >
-              <h1 class="my-3 title_items_sidebar">Data Hotel</h1>
+              <div class="titleAdmin-card col-md-6 my-3">
+                <h1 class="my-3">Data Hotel</h1>
+              </div>
               <a href="#/addhotel" class="btn_edit btn">Tambah</a>
             </div>
             <div class="table-wraper px-md-5">
@@ -44,15 +46,15 @@ const HotelPage = {
       </div>
     `;
   },
-  async afterRender() {
+  async afterRender () {
     //   active side bar
-    const navLink = document.getElementById("hotel-link");
-    navLink.classList.add("active");
+    const navLink = document.getElementById ('hotel-link');
+    navLink.classList.add ('active');
     // get data hotel
-    const response = await HotelSource.getAllHotel();
+    const response = await HotelSource.getAllHotel ();
     const datas = response.data;
-    const itemContainer = document.querySelector(".item-container");
-    datas.forEach(async (data) => {
+    const itemContainer = document.querySelector ('.item-container');
+    datas.forEach (async data => {
       itemContainer.innerHTML += `
         <tr class="hotelTr">
         <th scope="row">${data.id}</th>
@@ -65,9 +67,9 @@ const HotelPage = {
         </tr>
       `;
     });
-    let table = new DataTable("#tableDatas", {
-      responsive: true
+    let table = new DataTable ('#tableDatas', {
+      responsive: true,
     });
-  }
+  },
 };
 export default HotelPage;
