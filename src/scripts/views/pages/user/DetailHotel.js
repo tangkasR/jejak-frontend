@@ -1,19 +1,17 @@
-import 'regenerator-runtime';
 import UrlParser from '../../../routes/url-parser';
 import WisataSource from '../../../data/wisata-source';
 import HotelSource from '../../../data/hotel-source';
 import LikeButtonInitiator from '../../../utils/favorit-wisata-button-initiator';
-import { createDetailWisataTemplate } from '../../templates/FavoritTemplate';
+import { createDetailWisataTemplate, createHotelTemplate, createPenginapanTemplate } from '../../templates/FavoritTemplate';
 import ReviewSource from '../../../data/review-source';
 import { data } from 'jquery';
-import { async } from 'regenerator-runtime';
 
 const Detail = {
     async render() {
         return `
         <section class="detailCard">
           <div class="container">
-              <div class="row gy-5">
+              <div class="row gy-5 mt-5">
                   <div class="col-md-12" id="posts">
                  
                   </div>
@@ -23,7 +21,7 @@ const Detail = {
           <h3 class="fw-bold mt-5"
           data-aos="fade-up"
           data-aos-delay="50"
-          data-aos-duration="2000">Penginapan Terdekat</h3>
+          data-aos-duration="2000">Wisata Lainnya :</h3>
             <div class="container-fluid mt-3 justify-content-center"
             data-aos="fade-up"
             data-aos-delay="50"
@@ -43,6 +41,7 @@ const Detail = {
         <section class="reviewCard">
           <div class="container">
             <div class="carditemreview" id="card-review">
+
           </div>
         </section>
         `;
@@ -50,10 +49,10 @@ const Detail = {
 
     async afterRender() {
         const url = UrlParser.parseActiveUrlWithoutCombiner();
-        const wisata = await WisataSource.getWisataById(url.id);
+        const wisata = await HotelSource.getHotelById(url.id);
         console.log(wisata);
         const detailContainer = document.querySelector('#posts');
-        detailContainer.innerHTML = createDetailWisataTemplate(
+        detailContainer.innerHTML = createHotelTemplate(
           wisata.data,
         );
           // swiper
@@ -101,7 +100,7 @@ const Detail = {
     });
     // end swiper
 
-        const hotel = await HotelSource.getAllHotel();
+        const hotel = await WisataSource.getWisata();
         const dataHotel = hotel.data
         const hotelContent = document.querySelector('#wisata-lainnya')
         dataHotel.forEach((data) => {
@@ -173,7 +172,7 @@ const Detail = {
       <div id="reviewCards" class="row justify-content-center mt-5"></div> 
         `;
 
-        const result = await ReviewSource.getReview(url.id)
+        const result = await ReviewSource.getReviewHotel(url.id)
         const dataresult = result.data
         const reviewresult = document.querySelector('#reviewCards')
         dataresult.forEach((data) => {
@@ -202,7 +201,7 @@ const Detail = {
           const formData = new FormData(form);
           const data = Object.fromEntries(formData);
           try{
-            const review = await ReviewSource.addReview(url.id,data)
+            const review = await ReviewSource.addReviewHotel(url.id,data)
             console.log(review)
 
             form.reset();
@@ -211,10 +210,7 @@ const Detail = {
           }
 
         });
-
-
-
-        
+    
         LikeButtonInitiator.init({
           likeButtonContainer: document.querySelector('#likeButtonContainer'),
           wisata: {

@@ -1,0 +1,74 @@
+.like {
+  width: 55px;
+  height: 55px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #3f4e4f;
+
+  position: fixed;
+  bottom: 16px;
+  right: 16px;
+  border-radius: 50%;
+  border: 0;
+
+  font-size: 18px;
+  color: white;
+  cursor: pointer;
+}
+
+.wisata_favorit {
+  display: flex;
+  margin-top: 100px;
+  justify-content: center;
+}
+
+.wisata_title {
+  font-size: 40px;
+  font-weight: 800;
+  color: #3f4e4f;
+  text-align: center;
+}
+
+.wisata_items {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 50px;
+  margin: 30px;
+}
+
+.wisata_items img {
+  background-size: cover;
+  height: 100%;
+}
+
+.hotel_favorit {
+    display: flex;
+    margin-top: 100px;
+    justify-content: center;
+  }
+  
+  .hotel_title {
+    font-size: 40px;
+    font-weight: 800;
+    color: #3f4e4f;
+    text-align: center;
+  }
+  
+  .hotel_items {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 50px;
+    margin: 30px;
+  }
+  
+  .hotel_items img {
+    background-size: cover;
+    height: 100%;
+  }
+
+  .empty_favorit{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }

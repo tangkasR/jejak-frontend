@@ -53,7 +53,7 @@ body {
 .hero {
   display: flex;
   align-items: center;
-  min-height: 650px;
+  min-height: 100vh;
   width: 100%;
   margin-top: 90px;
   text-align: center;
@@ -315,6 +315,85 @@ body {
 .wisata-card {
   background-color: #2c3639;
   color: #dcd7c9;
+}
+
+
+/* detail */
+.detailCard {
+  padding: 120px 0;
+}
+/* card review */
+
+.carditemreview {
+  background-color: #E5E5E5;
+}
+
+.rating-section {
+  text-align: center;
+}
+
+.form-label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.star-rating {
+  display: flex;
+}
+
+.reverse-star {
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+
+.star-rating input[type="radio"] {
+  display: none;
+  justify-content: space-between;
+}
+
+.star-rating label {
+  display: inline-block;
+  cursor: pointer;
+  width: 40px;
+  height: 40px;
+  font-size: 40px;
+  line-height: 40px;
+  transition: color 0.3s ease;
+}
+
+.star-rating label:before {
+  content: "★";
+}
+
+.star-rating input[type="radio"]:checked ~ label {
+  color: #fdda44;
+  transition: color 0.3s ease;
+}
+
+.btn-primary {
+  display: flex;
+  margin-left: auto;
+  background: #A27B5C;
+  justify-content: flex-end;
+}
+
+.stars{
+color: #ffc107;
+}
+
+
+#reviewCards {
+  width: inherit; 
+  max-width: 100%; 
+  margin-left: auto; 
+  margin-right: auto; 
+}
+
+
+.card-result {
+  background-color: #D6D5D5;
+
 }
 
 /* map */

@@ -7,6 +7,8 @@
   border-radius: 0 10px 10px 0;
 }
 .btn-submitContact {
+  float: right;
+  bottom: 0;
   background-color: #dcd7c9;
   color: #2c3639;
   min-width: 150px;
@@ -20,13 +22,8 @@
   background-color: #a8a499;
 }
 .contact-container {
-  background: rgb(44, 54, 57);
-  background: linear-gradient(
-    90deg,
-    rgba(44, 54, 57, 1) 0%,
-    rgba(63, 78, 79, 1) 23%,
-    rgba(162, 123, 92, 1) 100%
-  );
+  margin-top: 150px;
+  background: #3F4E4F ;
 }
 
 .loader-button {
@@ -40,6 +37,10 @@
   box-shadow: -24px 0 #fff, 24px 0 #fff;
   box-sizing: border-box;
   animation: shadowPulse 0.7s linear infinite;
+}
+
+.Contact-Illustration {
+  transform: scaleX(-1);
 }
 
 @keyframes shadowPulse {

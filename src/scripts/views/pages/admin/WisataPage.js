@@ -17,7 +17,7 @@ const WisataPage = {
               id="content_container"
             >
               <h1 class="title_items_sidebar my-3">Data Wisata</h1>
-              <a href="#/addwisata" class="btn btn-success">Tambah</a>
+              <a href="#/addwisata" class="btn_edit btn rounded-3 p-3">Tambah</a>
             </div>
             <div class="table-wraper px-md-5">
               <table
@@ -25,8 +25,8 @@ const WisataPage = {
                 style="font-size: 15px"
                 id="tableDatas"
               >
-                <thead class="table-dark">
-                  <tr>
+                <thead>
+                  <tr class="titleRow">
                     <th scope="col">Id</th>
                     <th scope="col">Nama</th>
                     <th scope="col">Kategori</th>
@@ -64,7 +64,7 @@ const WisataPage = {
           <td>${data.deskripsi}</td>
           <td>${data.rating}</td>
           <td><img src="${data.url}" style="width:100px; height:100px; object-fit-:cover" /></td>
-          <td><a href="#/editwisata/${data.id}" class="btn btn-info px-4" style="font-weight:400;">Ubah</a></td>
+          <td><a href="#/editwisata/${data.id}" class="btn_edit btn px-4" style="font-weight:400;">Ubah</a></td>
         </tr>
       `;
     });

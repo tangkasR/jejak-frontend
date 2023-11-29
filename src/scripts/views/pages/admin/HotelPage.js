@@ -17,7 +17,7 @@ const HotelPage = {
               id="content_container"
             >
               <h1 class="my-3 title_items_sidebar">Data Hotel</h1>
-              <a href="#/addhotel" class="btn btn-success">Tambah</a>
+              <a href="#/addhotel" class="btn_edit btn">Tambah</a>
             </div>
             <div class="table-wraper px-md-5">
               <table
@@ -61,7 +61,7 @@ const HotelPage = {
         <td>${data.deskripsi}</td>
         <td><img src="${data.url}" style="width:100px; height:100px; object-fit-:cover" /></td>
         <td id="ratingHotel">${data.rating}</td>
-        <td><a href="#/edithotel/${data.id}" class="btn btn-info px-4" style="font-weight:400;">Ubah</a></td>
+        <td><a href="#/edithotel/${data.id}" class="btn_edit btn px-4" style="font-weight:400;">Ubah</a></td>
         </tr>
       `;
     });

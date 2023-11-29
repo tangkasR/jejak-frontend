@@ -3,7 +3,6 @@ import HomePage from "../views/pages/user/HomePage";
 import GalleryPage from "../views/pages/user/GalleryPage";
 import ContactPage from "../views/pages/user/ContactPage";
 import MapPage from "../views/pages/user/MapPage";
-import DetailPage from "../views/pages/user/DetailPage"; //coba
 
 // ADMIN
 import LoginPage from "../views/pages/admin/LoginPage";
@@ -17,6 +16,10 @@ import EditWisataPage from "../views/pages/admin/EditWisataPage";
 import HotelPage from "../views/pages/admin/HotelPage";
 import AddHotelPage from "../views/pages/admin/AddHotelPage";
 import EditHotelPage from "../views/pages/admin/EditHotelPage";
+import favoritWisataPage from "../views/pages/user/favoritWisataPage";
+import favoritHotelPage from "../views/pages/user/favoritHotelPage";
+import DetailPage from "../views/pages/user/DetailPage";
+import DetailHotel from "../views/pages/user/DetailHotel";
 // view sementara untuk mencoba backend review
 import CobaReviewPage from "../views/pages/admin/COBA_REVIEW";
 import CobaReviewHotelPage from "../views/pages/admin/COBA_REVIEW_HOTEL";
@@ -27,6 +30,7 @@ import StarterPage from "../views/pages/user/StarterPage";
 import wisataAlamPage from "../views/pages/user/wisataAlamPage";
 import wisataBudayaPage from "../views/pages/user/wisataBudayaPage";
 
+
 const routes = {
   // USER
   "/": StarterPage,
@@ -36,8 +40,10 @@ const routes = {
   "/map": MapPage,
   "/kategorialam": wisataAlamPage,
   "/kategoribudaya": wisataBudayaPage,
-  "/detail/:id": DetailPage, //coba
-
+  "/favoritwisata": favoritWisataPage,
+  "/detail/:id": DetailPage,
+  "/favorithotel": favoritHotelPage,
+  "/detailhotel/:id": DetailHotel,
 
   //   ADMIN
   "/login": LoginPage,
@@ -49,7 +55,7 @@ const routes = {
   "/wisata": WisataPage,
   "/editprofil": EditProfilPage,
   "/addwisata": AddWisataPage,
-  "/editwisata/:id": EditWisataPage,
+ 
 
   // REVIEW WISATA
   "/cobareview/:id": CobaReviewPage,

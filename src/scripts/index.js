@@ -8,14 +8,16 @@ import "../styles/login-register.css";
 import "../styles/profil.css";
 import "../styles/table.css";
 import "../styles/contact.css";
+import "../styles/favorit.css";
 import "../scripts/views/pages/user/HomePage";
 import "../styles/home.css";
 import "../styles/gallery-admin.css";
+import "../styles/gallery.css";
 import "./views/templates/NavbarElement.js";
 import "./views/templates/NavbarAdminElement.js";
 import "./views/templates/SideBarElement.js";
 import "./views/templates/Footer.js";
-
+import "./views/templates/FavoritTemplate.js";
 import App from "./views/app";
 
 import AOS from "aos";
