@@ -1,16 +1,16 @@
-import 'regenerator-runtime';
-import UrlParser from '../../../routes/url-parser';
-import WisataSource from '../../../data/wisata-source';
-import HotelSource from '../../../data/hotel-source';
-import LikeButtonInitiator from '../../../utils/favorit-wisata-button-initiator';
-import { createDetailWisataTemplate } from '../../templates/FavoritTemplate';
-import ReviewSource from '../../../data/review-source';
-import { data } from 'jquery';
-import { async } from 'regenerator-runtime';
+import "regenerator-runtime";
+import UrlParser from "../../../routes/url-parser";
+import WisataSource from "../../../data/wisata-source";
+import HotelSource from "../../../data/hotel-source";
+import LikeButtonInitiator from "../../../utils/favorit-wisata-button-initiator";
+import { createDetailWisataTemplate } from "../../templates/FavoritTemplate";
+import ReviewSource from "../../../data/review-source";
+import { data } from "jquery";
+import { async } from "regenerator-runtime";
 
 const Detail = {
-    async render() {
-        return `
+  async render() {
+    return `
         <section class="detailCard">
           <div class="container">
               <div class="row gy-5">
@@ -46,14 +46,14 @@ const Detail = {
           </div>
         </section>
         `;
-    },
+  },
 
-    async afterRender() {
-        const url = UrlParser.parseActiveUrlWithoutCombiner();
-        const wisata = await WisataSource.getWisataById(url.id);
-        console.log(wisata);
-        const detailContainer = document.querySelector('#posts');
-        detailContainer.innerHTML += `
+  async afterRender() {
+    const url = UrlParser.parseActiveUrlWithoutCombiner();
+    const wisata = await WisataSource.getWisataById(url.id);
+    console.log(wisata);
+    const detailContainer = document.querySelector("#posts");
+    detailContainer.innerHTML += `
         <div class="col-md-8 mx-auto">
         <h2 class="text-center fw-bold mb-3">${wisata.data.nama}</h2>
         <img src="${wisata.data.url}" class="card-img-top rounded-4" alt="${wisata.data.nama}">
@@ -65,7 +65,7 @@ const Detail = {
           data-aos-duration="2000">${wisata.data.deskripsi}</p>
       </div>
       `;
-          // swiper
+    // swiper
     var swiper = new Swiper(".mySwiper", {
       slidesPerView: "auto",
       spaceBetween: 30,
@@ -110,11 +110,11 @@ const Detail = {
     });
     // end swiper
 
-        const hotel = await HotelSource.getAllHotel();
-        const dataHotel = hotel.data
-        const hotelContent = document.querySelector('#wisata-lainnya')
-        dataHotel.forEach((data) => {
-            hotelContent.innerHTML += `
+    const hotel = await HotelSource.getAllHotel();
+    const dataHotel = hotel.data;
+    const hotelContent = document.querySelector("#wisata-lainnya");
+    dataHotel.forEach((data) => {
+      hotelContent.innerHTML += `
               <div class="swiper-slide item-wisata-lainnya">
                 <div class="card_items">
                   <div class="card card-wisata-lainnya"><a href="#/detailhotel/${data.id}">
@@ -129,11 +129,10 @@ const Detail = {
                 </div>
               </div>
             `;
-          });
-                
+    });
 
-        const reviewContent = document.querySelector('#card-review')
-        reviewContent.innerHTML +=`
+    const reviewContent = document.querySelector("#card-review");
+    reviewContent.innerHTML += `
         <h3 class="fw-bold mt-5 text-center pt-3"
         data-aos="fade-up"
         data-aos-delay="50"
@@ -182,68 +181,73 @@ const Detail = {
       <div id="reviewCards" class="row justify-content-center mt-5"></div> 
         `;
 
-        const result = await ReviewSource.getReview(url.id)
-        const dataresult = result.data
-        const reviewresult = document.querySelector('#reviewCards')
-        dataresult.forEach((data) => {
-          const stars = '&#9733;'.repeat(data.rating);
-          const today = new Date();
-          const formattedDate = `${String(today.getDate()).padStart(2, '0')}-${String(today.getMonth() + 1).padStart(2, '0')}-${today.getFullYear()}`;
-        reviewresult.innerHTML +=`
-        <div class="card-result mb-5 mx-auto col-md-5">
-          <div class="mt-2">
-          <div class="card-header d-flex justify-content-between align-items-center">
-            <p class="card-name fw-bold">${data.name}<p>
-            <p class="card-date">${formattedDate}</p>
-          </div>
-          <p class="card-text stars mb-2">${stars}</p>
-          <p class="card-review">${data.review}</p>
-          </div>
-        </div>
-        `;
-        });
+    const result = await ReviewSource.getReview(url.id);
+    const dataresult = result.data;
+    const reviewresult = document.querySelector("#reviewCards");
+    dataresult.forEach((data) => {
+      const stars = "&#9733;".repeat(data.rating);
+      const today = new Date();
+      const formattedDate = `${String(today.getDate()).padStart(
+        2,
+        "0"
+      )}-${String(today.getMonth() + 1).padStart(
+        2,
+        "0"
+      )}-${today.getFullYear()}`;
+      reviewresult.innerHTML += `
+      <div class="card-result mb-5 mx-auto col-md-5" data-aos="fade-up"
+      data-aos-delay="50"
+      data-aos-duration="1000"
+      data-aos-easing="ease-in-out">
+      <div class="mt-2">
+      <div class="card-header d-flex justify-content-between align-items-center">
+        <p class="card-name fw-bold">${data.name}<p>
+        <p class="card-date">${formattedDate}</p>
+      </div>
+      <p class="card-text stars mb-2">${stars}</p>
+      <p class="card-review">${data.review}</p>
+      </div>
+    </div>
+    `;
+    });
 
-        // submit review
-        const form = document.getElementById('reviewForm');
+    // submit review
+    const form = document.getElementById("reviewForm");
 
-        form.addEventListener('submit',async(event)=>{
-          event.preventDefault();
-          const formData = new FormData(form);
-          const data = Object.fromEntries(formData);
-          try{
-            const review = await ReviewSource.addReview(url.id,data)
-            console.log(review)
+    form.addEventListener("submit", async (event) => {
+      const formData = new FormData(form);
+      const data = Object.fromEntries(formData);
+      try {
+        const review = await ReviewSource.addReview(url.id, data);
+        console.log(review);
 
-            form.reset();
-          } catch (error) {
-            console.log(error);
-          }
+        form.reset();
+      } catch (error) {
+        console.log(error);
+      }
+    });
 
-        });
+    LikeButtonInitiator.init({
+      likeButtonContainer: document.querySelector("#likeButtonContainer"),
+      wisata: {
+        id: wisata.data.id,
+        nama: wisata.data.nama,
+        kategori: wisata.data.kategori,
+        lokasi: wisata.data.lokasi,
+        deskripsi: wisata.data.deskripsi,
+        url: wisata.data.url,
+        image: wisata.data.image,
+        img_name: wisata.data.img_name,
+        latitude: wisata.data.latitude,
+        longitude: wisata.data.longitude,
+        total_rating: wisata.data.total_rating,
+        total_viewers: wisata.data.total_viewers,
+        created_at: wisata.data.created_at,
+        updated_at: wisata.data.updated_at,
+      },
+    });
 
+  },
+};
 
-
-        
-        LikeButtonInitiator.init({
-          likeButtonContainer: document.querySelector('#likeButtonContainer'),
-          wisata: {
-            id: wisata.data.id,
-            nama: wisata.data.nama,
-            kategori: wisata.data.kategori,
-            lokasi: wisata.data.lokasi,
-            deskripsi: wisata.data.deskripsi,
-            url: wisata.data.url,
-            image: wisata.data.image,
-            img_name: wisata.data.img_name,
-            latitude: wisata.data.latitude,
-            longitude: wisata.data.longitude,
-            total_rating: wisata.data.total_rating,
-            total_viewers: wisata.data.total_viewers,
-            created_at: wisata.data.created_at,
-            updated_at: wisata.data.updated_at,
-          },
-        });
-    }
-}
-    
-    export default Detail;
+export default Detail;

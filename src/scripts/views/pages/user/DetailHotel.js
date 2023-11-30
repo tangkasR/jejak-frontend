@@ -198,7 +198,10 @@ const Detail = {
         "0"
       )}-${today.getFullYear()}`;
       reviewresult.innerHTML += `
-        <div class="card-result mb-5 mx-auto col-md-5">
+        <div class="card-result mb-5 mx-auto col-md-5" data-aos="fade-up"
+        data-aos-delay="50"
+        data-aos-duration="1000"
+        data-aos-easing="ease-in-out">
           <div class="mt-2">
           <div class="card-header d-flex justify-content-between align-items-center">
             <p class="card-name fw-bold">${data.name}<p>
@@ -215,7 +218,6 @@ const Detail = {
     const form = document.getElementById("reviewForm");
 
     form.addEventListener("submit", async (event) => {
-      event.preventDefault();
       const formData = new FormData(form);
       const data = Object.fromEntries(formData);
       try {

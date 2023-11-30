@@ -390,18 +390,31 @@ color: #ffc107;
 
 
 #reviewCards {
-  width: inherit; 
+  display: flex;
+  flex-direction: row;
+  gap: 1px;
   max-width: 100%; 
-  margin-left: auto; 
-  margin-right: auto; 
+  padding: 30px 3rem ; 
+  flex-wrap: wrap;
 }
 
 
 .card-result {
-  background-color: #D6D5D5;
-
+  margin-top: 40px;
+  background-color: #3f4e4f;
+  border-radius: 15px;
+  padding: 20px;
+  width: 350px;
 }
 
+.card-result p {
+  margin-bottom: 0;
+}
+
+.card-date, .card-review{
+  font-size: 15px;
+  font-weight: 600;
+}
 /* map */
 .card-map {
   padding: 10px 0;
