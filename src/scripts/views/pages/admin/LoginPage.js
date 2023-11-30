@@ -57,7 +57,7 @@ const LoginPage = {
                 >
                   <button
                     type="submit"
-                    class="btn-logres w-100 mt-3 btn btn-primary"
+                    class="btn-logres w-100 mt-3 btn"
                   >
                     Login
                   </button>

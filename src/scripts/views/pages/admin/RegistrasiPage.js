@@ -116,7 +116,7 @@ const RegistrasiPage = {
                 <div
                   class="d-flex flex-wrap gap-3 align-items-center justify-content-between"
                 >
-                  <button type="submit" class="btn-logres w-100 mt-3 btn btn-primary">
+                  <button type="submit" class="btn-logres w-100 mt-3 btn">
                     Registrasi
                   </button>
                   <p class="anchor-logres">
