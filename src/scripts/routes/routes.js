@@ -1,6 +1,7 @@
 // USER
 import HomePage from "../views/pages/user/HomePage";
 import GalleryPage from "../views/pages/user/GalleryPage";
+import HotelLandingPage from "../views/pages/user/HotelLandingPage";
 import ContactPage from "../views/pages/user/ContactPage";
 import MapPage from "../views/pages/user/MapPage";
 import detailGalleryPage from "../views/pages/user/detailGalleryPage";
@@ -41,6 +42,7 @@ const routes = {
   "/map": MapPage,
   "/kategorialam": wisataAlamPage,
   "/kategoribudaya": wisataBudayaPage,
+  "/hotellandingpage": HotelLandingPage,
   "/favoritwisata": favoritWisataPage,
   "/detail/:id": DetailPage,
   "/favorithotel": favoritHotelPage,

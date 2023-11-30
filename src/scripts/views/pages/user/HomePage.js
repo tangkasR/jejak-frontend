@@ -109,7 +109,7 @@ const HomePage = {
             data-aos-easing="ease-in-out"
           >
             <div class="card kategori_card">
-              <a href="#/hotel" class="nav-link d-flex justify-content-center flex-column align-items-center">
+              <a href="#/hotellandingpage" class="nav-link d-flex justify-content-center flex-column align-items-center">
               <img src="./icons/Penginapan.png" />
               <h5>Penginapan</h5>
               </a>
