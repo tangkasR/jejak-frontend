@@ -11,9 +11,35 @@
   color: white;
 }
 
-.navbar .nav-item .nav-link:hover {
+/* .navbar .nav-item .nav-link:hover {
+  color: #a27b5c;
+} */
+.nav-item .link-navbar-user {
+  position: relative;
+  font-weight: 500;
   color: #a27b5c;
 }
+
+.nav-item .link-navbar-user::after {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 0;
+  left: 0;
+  height: 3px;
+  background-color: #a27b5c;
+  transition: 0.5s ease-in-out;
+}
+
+.nav-item .link-navbar-user:hover::after {
+  width: 100%;
+  color: #a27b5c;
+}
+
 .navbar .link-navbar-user.active {
+  color: #a27b5c;
+}
+.navbar .link-navbar-user.active::after {
+  width: 100%;
   color: #a27b5c;
 }

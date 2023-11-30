@@ -425,6 +425,18 @@ const HomePage = {
       `;
     });
     // end top penginapan
+
+    //active navbar
+    const navLink = document.querySelectorAll(".nav-link");
+    navLink.forEach((link) => {
+      link.addEventListener("click", function () {
+        navLink.forEach((link) => {
+          link.classList.remove("active");
+        });
+        this.classList.add("active");
+      });
+    });
+    //end active navbar
   },
 };
 export default HomePage;
