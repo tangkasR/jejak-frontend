@@ -5,11 +5,11 @@ const createWisataTemplate = (data) => `
           data-aos-delay="100"
           data-aos-duration="1000"
           data-aos-easing="ease-in-out">
-        <a class="postcard__img_link" href="#">
+        <a class="postcard__img_link" href="#/detail/${data.id}">
           <img class="postcard__img" src="${data.url}" alt="Image Title" />
         </a>
         <div class="postcard__text" >
-          <h1 class="postcard__title blue"><a href="#">${data.nama}</a></h1>
+          <h1 class="postcard__title blue"><a href="#/detail/${data.id}">${data.nama}</a></h1>
           <div class="postcard__subtitle small">
             <p>
               <i class="bx bxs-map mr-2"></i> ${data.lokasi}
@@ -47,11 +47,11 @@ const createHotelTemplate = (data) => `
           data-aos-delay="50"
           data-aos-duration="1000"
           data-aos-easing="ease-in-out">
-      <a class="postcard__img_link" href="#">
+      <a class="postcard__img_link" href="#/detailhotel/${data.id}">
         <img class="postcard__img" src="${data.url}" alt="Image Title" />
       </a>
       <div class="postcard__text">
-        <h1 class="postcard__title blue"><a href="#">${data.nama}</a></h1>
+        <h1 class="postcard__title blue"><a href="#/detailhotel/${data.id}">${data.nama}</a></h1>
         <div class="postcard__subtitle small">
           <p>
             <i class="bx bxs-map mr-2"></i> ${data.lokasi}
