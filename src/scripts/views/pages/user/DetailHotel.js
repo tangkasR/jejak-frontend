@@ -1,14 +1,18 @@
-import UrlParser from '../../../routes/url-parser';
-import WisataSource from '../../../data/wisata-source';
-import HotelSource from '../../../data/hotel-source';
-import LikeButtonInitiator from '../../../utils/favorit-wisata-button-initiator';
-import { createDetailWisataTemplate, createHotelTemplate, createPenginapanTemplate } from '../../templates/FavoritTemplate';
-import ReviewSource from '../../../data/review-source';
-import { data } from 'jquery';
+import UrlParser from "../../../routes/url-parser";
+import WisataSource from "../../../data/wisata-source";
+import HotelSource from "../../../data/hotel-source";
+import LikeButtonInitiator from "../../../utils/favorit-hotel-button-initiator";
+import {
+  createDetailWisataTemplate,
+  createHotelTemplate,
+  createPenginapanTemplate,
+} from "../../templates/FavoritTemplate";
+import ReviewSource from "../../../data/review-source";
+import { data } from "jquery";
 
 const Detail = {
-    async render() {
-        return `
+  async render() {
+    return `
         <section class="detailCard">
           <div class="container">
               <div class="row gy-5">
@@ -45,26 +49,26 @@ const Detail = {
           </div>
         </section>
         `;
-    },
+  },
 
-    async afterRender() {
-        const url = UrlParser.parseActiveUrlWithoutCombiner();
-        const wisata = await HotelSource.getHotelById(url.id);
-        console.log(wisata);
-        const detailContainer = document.querySelector('#posts');
-        detailContainer.innerHTML += `
+  async afterRender() {
+    const url = UrlParser.parseActiveUrlWithoutCombiner();
+    const hotel = await HotelSource.getHotelById(url.id);
+    console.log(hotel);
+    const detailContainer = document.querySelector("#posts");
+    detailContainer.innerHTML += `
         <div class="col-md-8 mx-auto">
-        <h2 class="text-center fw-bold mb-3">${wisata.data.nama}</h2>
-        <img src="${wisata.data.url}" class="card-img-top rounded-4" alt="${wisata.data.nama}">
+        <h2 class="text-center fw-bold mb-3">${hotel.data.nama}</h2>
+        <img src="${hotel.data.url}" class="card-img-top rounded-4" alt="${hotel.data.nama}">
         <p class="location text-left d-flex gap-2 mt-3 fw-bold">
-        <i class='bx bxs-map bx-sm'></i> ${wisata.data.lokasi}</p>
+        <i class='bx bxs-map bx-sm'></i> ${hotel.data.lokasi}</p>
         <p class="subtitle mt-4 mx-5" style="text-align: justify;"
           data-aos="fade-up"
           data-aos-delay="50"
-          data-aos-duration="2000">${wisata.data.deskripsi}</p>
+          data-aos-duration="2000">${hotel.data.deskripsi}</p>
       </div>
         `;
-          // swiper
+    // swiper
     var swiper = new Swiper(".mySwiper", {
       slidesPerView: "auto",
       spaceBetween: 30,
@@ -109,11 +113,11 @@ const Detail = {
     });
     // end swiper
 
-        const hotel = await WisataSource.getWisata();
-        const dataHotel = hotel.data
-        const hotelContent = document.querySelector('#wisata-lainnya')
-        dataHotel.forEach((data) => {
-            hotelContent.innerHTML += `
+    const wisata = await WisataSource.getWisata();
+    const dataWisata = wisata.data;
+    const wisataContent = document.querySelector("#wisata-lainnya");
+    dataWisata.forEach((data) => {
+      wisataContent.innerHTML += `
               <div class="swiper-slide item-wisata-lainnya">
                 <div class="card_items">
                   <div class="card card-wisata-lainnya"><a href="#/detail/${data.id}">
@@ -128,11 +132,10 @@ const Detail = {
                 </div>
               </div>
             `;
-          });
-                
+    });
 
-        const reviewContent = document.querySelector('#card-review')
-        reviewContent.innerHTML +=`
+    const reviewContent = document.querySelector("#card-review");
+    reviewContent.innerHTML += `
         <h3 class="fw-bold mt-5 text-center pt-3"
         data-aos="fade-up"
         data-aos-delay="50"
@@ -181,14 +184,20 @@ const Detail = {
       <div id="reviewCards" class="row justify-content-center mt-5"></div> 
         `;
 
-        const result = await ReviewSource.getReviewHotel(url.id)
-        const dataresult = result.data
-        const reviewresult = document.querySelector('#reviewCards')
-        dataresult.forEach((data) => {
-          const stars = '&#9733;'.repeat(data.rating);
-          const today = new Date();
-          const formattedDate = `${String(today.getDate()).padStart(2, '0')}-${String(today.getMonth() + 1).padStart(2, '0')}-${today.getFullYear()}`;
-        reviewresult.innerHTML +=`
+    const result = await ReviewSource.getReviewHotel(url.id);
+    const dataresult = result.data;
+    const reviewresult = document.querySelector("#reviewCards");
+    dataresult.forEach((data) => {
+      const stars = "&#9733;".repeat(data.rating);
+      const today = new Date();
+      const formattedDate = `${String(today.getDate()).padStart(
+        2,
+        "0"
+      )}-${String(today.getMonth() + 1).padStart(
+        2,
+        "0"
+      )}-${today.getFullYear()}`;
+      reviewresult.innerHTML += `
         <div class="card-result mb-5 mx-auto col-md-5">
           <div class="mt-2">
           <div class="card-header d-flex justify-content-between align-items-center">
@@ -200,46 +209,44 @@ const Detail = {
           </div>
         </div>
         `;
-        });
+    });
 
-        // submit review
-        const form = document.getElementById('reviewForm');
+    // submit review
+    const form = document.getElementById("reviewForm");
 
-        form.addEventListener('submit',async(event)=>{
-          event.preventDefault();
-          const formData = new FormData(form);
-          const data = Object.fromEntries(formData);
-          try{
-            const review = await ReviewSource.addReviewHotel(url.id,data)
-            console.log(review)
+    form.addEventListener("submit", async (event) => {
+      event.preventDefault();
+      const formData = new FormData(form);
+      const data = Object.fromEntries(formData);
+      try {
+        const review = await ReviewSource.addReviewHotel(url.id, data);
+        console.log(review);
 
-            form.reset();
-          } catch (error) {
-            console.log(error);
-          }
+        form.reset();
+      } catch (error) {
+        console.log(error);
+      }
+    });
 
-        });
-    
-        LikeButtonInitiator.init({
-          likeButtonContainer: document.querySelector('#likeButtonContainer'),
-          wisata: {
-            id: wisata.data.id,
-            nama: wisata.data.nama,
-            kategori: wisata.data.kategori,
-            lokasi: wisata.data.lokasi,
-            deskripsi: wisata.data.deskripsi,
-            url: wisata.data.url,
-            image: wisata.data.image,
-            img_name: wisata.data.img_name,
-            latitude: wisata.data.latitude,
-            longitude: wisata.data.longitude,
-            total_rating: wisata.data.total_rating,
-            total_viewers: wisata.data.total_viewers,
-            created_at: wisata.data.created_at,
-            updated_at: wisata.data.updated_at,
-          },
-        });
-    }
-}
-    
-    export default Detail;
+    LikeButtonInitiator.init({
+      likeButtonContainer: document.querySelector("#likeButtonContainer"),
+      hotel: {
+        id: hotel.data.id,
+        nama: hotel.data.nama,
+        lokasi: hotel.data.lokasi,
+        deskripsi: hotel.data.deskripsi,
+        url: hotel.data.url,
+        image: hotel.data.image,
+        img_name: hotel.data.img_name,
+        total_rating: hotel.data.total_rating,
+        total_viewers: hotel.data.total_viewers,
+        rating: hotel.data.rating,
+        created_at: hotel.data.created_at,
+        updated_at: hotel.data.updated_at,
+        wisatumId: hotel.data.wisatumId,
+      },
+    });
+  },
+};
+
+export default Detail;

@@ -21,7 +21,10 @@ const FavoritWisata = {
         />
       <div class="wisata_container">
         <div id="wisata" class="wisata_items"></div>
-          <div class="empty_favorit">
+          <div class="empty_favorit"  data-aos="fade-up"
+          data-aos-delay="50"
+          data-aos-duration="2000"
+          data-aos-easing="ease-in-out">
             <h1>Silahkan Tambahkan Favorit Terlebih Dahulu</h1>
           </div>
         </div>
