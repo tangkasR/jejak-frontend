@@ -61,6 +61,7 @@ const DeleteGalleryPage = {
           );
           await GallerySource.deleteGallery(url.id);
           window.location.replace(`#/gallerywisataadmin/${data.wisatumId}`);
+          return;
         } else if (result.dismiss === Swal.DismissReason.cancel) {
           swalWithBootstrapButtons.fire(
             "Batal!",
@@ -68,6 +69,7 @@ const DeleteGalleryPage = {
             "error"
           );
           window.location.replace(`#/gallerywisataadmin/${data.wisatumId}`);
+          return;
         }
       });
   }

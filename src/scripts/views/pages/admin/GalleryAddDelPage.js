@@ -92,7 +92,6 @@ const GalleryAddDelPage = {
     // Eksekusi add foto
     const form = document.querySelector(".addFotoForm");
     form.addEventListener("submit", async (event) => {
-      event.preventDefault();
       const formData = new FormData(form);
       const dataObjek = Object.fromEntries(formData);
       const gallery = await GallerySource.addGallery(url.id, dataObjek);
@@ -105,7 +104,7 @@ const GalleryAddDelPage = {
             showConfirmButton: false,
             timer: 1500
           });
-          window.location.reload();
+          window.location.replace("#/galleryadmin");
           return;
         }
         Swal.fire({

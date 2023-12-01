@@ -17,11 +17,6 @@ export const checkUrl = (url, isLogin) => {
   ) {
     if (isLogin === true) {
       // set localstorage to remove
-      window.onbeforeunload = () => {
-        return localStorage.removeItem("id");
-      };
-      // end set localstorage to remove
-
       // menonaktifkan navbar user
       const navbar = document.querySelector("navbar-element");
       navbar.style.display = "none";
