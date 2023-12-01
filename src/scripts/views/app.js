@@ -16,7 +16,7 @@ class App {
     const page = routes[urlTo];
     this._content.innerHTML = await page.render();
     await page.afterRender();
-    if (urlTo === "/dashboard") {
+    if (isLogin === true) {
       // akses side bar
       SidebarInitiator.init({
         button: document.querySelector(".btn-sidebar"),
