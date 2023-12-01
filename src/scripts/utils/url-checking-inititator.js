@@ -88,5 +88,5 @@ export const checkUrl = (url, isLogin) => {
       return url;
     }
   }
-  return (url = "");
+  return (url = "notfound");
 };

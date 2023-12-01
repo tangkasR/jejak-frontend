@@ -31,9 +31,12 @@ import DeleteGalleryPage from "../views/pages/admin/DeleteGalleryPage";
 import StarterPage from "../views/pages/user/StarterPage";
 import wisataAlamPage from "../views/pages/user/wisataAlamPage";
 import wisataBudayaPage from "../views/pages/user/wisataBudayaPage";
-
+import NotFoundPage from "../views/pages/user/NotFoundPage";
 
 const routes = {
+  // 404
+  "notfound": NotFoundPage,
+
   // USER
   "/": StarterPage,
   "/home": HomePage,

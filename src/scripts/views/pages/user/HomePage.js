@@ -285,12 +285,12 @@ const HomePage = {
       spaceBetween: 30,
       autoplay: {
         delay: 2500,
-        disableOnInteraction: false,
+        disableOnInteraction: false
       },
       pagination: {
         el: ".swiper-pagination",
-        clickable: true,
-      },
+        clickable: true
+      }
     });
 
     var swipers = new Swiper(".mySwipers", {
@@ -298,29 +298,29 @@ const HomePage = {
       spaceBetween: 30,
       navigation: {
         nextEl: ".swiper-button-next",
-        prevEl: ".swiper-button-prev",
+        prevEl: ".swiper-button-prev"
       },
       breakpoints: {
         // when window width is >= 320px
         320: {
           slidesPerView: 1,
-          spaceBetween: 20,
+          spaceBetween: 20
         },
         // when window width is >= 480px
         480: {
           slidesPerView: 2,
-          spaceBetween: 30,
+          spaceBetween: 30
         },
         // when window width is >= 640px
         768: {
           slidesPerView: 3,
-          spaceBetween: 20,
+          spaceBetween: 20
         },
         992: {
           slidesPerView: 4,
-          spaceBetween: 40,
-        },
-      },
+          spaceBetween: 40
+        }
+      }
     });
     // end swiper
 
@@ -404,7 +404,6 @@ const HomePage = {
       ".topPenginapanContainer"
     );
     const dataHotel = await HotelSource.getAllHotel();
-    console.log(dataHotel.data);
     dataHotel.data.forEach((data) => {
       topPenginapanContainer.innerHTML += `
         <div class="swiper-slide item-wisata-lainnya" style="background-color:#f1ede2">
@@ -437,6 +436,6 @@ const HomePage = {
       });
     });
     //end active navbar
-  },
+  }
 };
 export default HomePage;
