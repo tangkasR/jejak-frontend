@@ -48,6 +48,11 @@ const Detail = {
 
           </div>
         </section>
+        <section class="resultCard">
+        <div class="container">
+          <div id="reviewCards" class="justify-content-left mt-5"></div>
+        </div>
+      </section>
         `;
   },
 
@@ -57,7 +62,7 @@ const Detail = {
     console.log(hotel);
     const detailContainer = document.querySelector("#posts");
     detailContainer.innerHTML += `
-        <div class="col-md-8 mx-auto">
+        <div class="col-md-10 mx-auto">
         <h2 class="text-center fw-bold mb-3">${hotel.data.nama}</h2>
         <img src="${hotel.data.url}" class="card-img-top rounded-4" alt="${hotel.data.nama}">
         <p class="location text-left d-flex gap-2 mt-3 fw-bold">
@@ -167,7 +172,7 @@ const Detail = {
         data-aos-delay="50"
         data-aos-duration="1000"
         data-aos-easing="ease-in-out">
-          <div class="reverse-star"
+          <div class="reverse-star mb-3"
           data-aos="fade-up"
           data-aos-delay="50"
           data-aos-duration="1000"
@@ -178,10 +183,9 @@ const Detail = {
           <input type="radio" id="star2" name="rating" value="2" /><label for="star2"></label>
           <input type="radio" id="star1" name="rating" value="1" /><label for="star1"></label>
           </div>
-          <button id="inputsubmit" type="submit" class="btn btn-primary float-end">Submit</button>
+          <button id="inputsubmit" type="submit" class="btn btn-primary float-end mb-3">Kirim</button>
         </div>
-      </form>
-      <div id="reviewCards" class="row justify-content-center mt-5"></div> 
+      </form> 
         `;
 
     const result = await ReviewSource.getReviewHotel(url.id);
@@ -198,19 +202,18 @@ const Detail = {
         "0"
       )}-${today.getFullYear()}`;
       reviewresult.innerHTML += `
-        <div class="card-result mb-5 mx-auto col-md-5" data-aos="fade-up"
-        data-aos-delay="50"
-        data-aos-duration="1000"
-        data-aos-easing="ease-in-out">
-          <div class="mt-2">
-          <div class="card-header d-flex justify-content-between align-items-center">
-            <p class="card-name fw-bold">${data.name}<p>
-            <p class="card-date">${formattedDate}</p>
-          </div>
-          <p class="card-text stars mb-2">${stars}</p>
-          <p class="card-review">${data.review}</p>
-          </div>
+      <div class="cardResult mb-3" stlye="width: 500px;">
+        <div class="mt-3">
+          <h5 class="card-name fw-bold">${data.name}</h5>
         </div>
+        <div class="card-rating-date">
+          <span class="star-result stars">${stars}</span>
+          <span class="card-date">${formattedDate}</span>
+        </div>
+        <div class="mt-3">
+          <p class="card-review text-break">${data.review}</p>
+        </div>
+      </div>
         `;
     });
 
