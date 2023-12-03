@@ -11,45 +11,46 @@ import { async } from "regenerator-runtime";
 const Detail = {
   async render() {
     return `
-        <section class="detailCard">
-          <div class="container">
-              <div class="row gy-5">
-                  <div class="col-md-12" id="posts">
-                 
-                  </div>
+    <div class="container-like "></div>
+    <div id="likeButtonContainer"></div>
+    <section class="detailCard">
+      <div class="container">
+          <div class="row gy-5">
+              <div class="col-md-12" id="posts">
               </div>
           </div>
-          <div class="container">
-          <h3 class="fw-bold mt-5"
-          data-aos="fade-up"
-          data-aos-delay="50"
-          data-aos-duration="2000">Penginapan Terdekat</h3>
-            <div class="container-fluid mt-3 justify-content-center"
-            data-aos="fade-up"
-            data-aos-delay="50"
-            data-aos-duration="1000"
-            data-aos-easing="ease-in-out">
-              <div class="swiper mySwipers">
-                <div class="swiper-wrapper" id="wisata-lainnya">
+      </div>
+      <div class="container">
+      <h3 class="fw-bold mt-5"
+      data-aos="fade-up"
+      data-aos-delay="50"
+      data-aos-duration="2000">Penginapan Terdekat</h3>
+        <div class="container-fluid mt-3 justify-content-center"
+        data-aos="fade-up"
+        data-aos-delay="50"
+        data-aos-duration="1000"
+        data-aos-easing="ease-in-out">
+          <div class="swiper mySwipers">
+            <div class="swiper-wrapper" id="wisata-lainnya">
 
-                </div>
-                <div class="swiper-button-next"></div>
-                <div class="swiper-button-prev"></div>
-              </div>
             </div>
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
           </div>
-          <div id="likeButtonContainer"></div>
-        </section>
-        <section class="reviewCard">
-          <div class="container">
-            <div class="carditemreview" id="card-review">
-          </div>
-        </section>
-        <section class="resultCard">
-          <div class="container">
-            <div id="reviewCards" class="row justify-content-center mt-5"></div>
-          </div>
-        </section>
+        </div>
+      </div>
+      
+    </section>
+    <section class="reviewCard">
+      <div class="container">
+        <div class="carditemreview" id="card-review">
+      </div>
+    </section>
+    <section class="resultCard">
+      <div class="container">
+        <div id="reviewCards" class="row justify-content-center mt-5"></div>
+      </div>
+    </section>
         `;
   },
 
@@ -250,7 +251,13 @@ const Detail = {
         updated_at: wisata.data.updated_at,
       },
     });
-
+    document
+      .querySelector(".detailCard")
+      .addEventListener("click", async (event) => {
+        console.log("oyyy");
+        const likeContainer = document.querySelector(".container-like");
+        likeContainer.innerHTML = "";
+      });
   },
 };
 

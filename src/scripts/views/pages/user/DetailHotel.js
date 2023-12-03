@@ -13,6 +13,8 @@ import { data } from "jquery";
 const Detail = {
   async render() {
     return `
+    <div class="container-like "></div>
+    <div id="likeButtonContainer"></div>
         <section class="detailCard">
           <div class="container">
               <div class="row gy-5">
@@ -40,7 +42,7 @@ const Detail = {
               </div>
             </div>
           </div>
-          <div id="likeButtonContainer"></div>
+       
         </section>
         <section class="reviewCard">
           <div class="container">
@@ -250,6 +252,13 @@ const Detail = {
         updated_at: hotel.data.updated_at,
         wisatumId: hotel.data.wisatumId,
       },
+    });
+    document
+    .querySelector(".detailCard")
+    .addEventListener("click", async (event) => {
+      console.log("oyyy");
+      const likeContainer = document.querySelector(".container-like");
+      likeContainer.innerHTML = "";
     });
   },
 };

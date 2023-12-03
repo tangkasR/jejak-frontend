@@ -32,6 +32,20 @@ const LikeButtonInitiatorHotel = {
 
     const likeButton = document.querySelector('#likeButton');
     likeButton.addEventListener('click', async () => {
+      const likeContainer = document.querySelector(".container-like");
+      likeContainer.innerHTML = `
+        <div
+          class="like_card card"
+          data-aos="fade-up"
+          data-aos-delay="50"
+          data-aos-duration="1000"
+          data-aos-easing="ease-in-out"
+        >
+          <h5 class="col-10">Hotel berhasil ditambahkan ke favorit.</h5>
+          <p>Silahkan melihat daftar hotel favorit Anda di halaman favorit.</p>
+          <a href="#/favorithotel" class="btn_fav"> Menuju halaman favorit </a>
+        </div>
+      `;
       await HotelFavoritIdb.putHotel(this._hotel);
       this._renderButton();
     });
