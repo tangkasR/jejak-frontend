@@ -399,22 +399,25 @@ color: #ffc107;
 }
 
 
-.card-result {
-  margin-top: 40px;
-  background-color: #3f4e4f;
-  border-radius: 15px;
-  padding: 20px;
-  width: 350px;
-}
-
-.card-result p {
-  margin-bottom: 0;
-}
-
 .card-date, .card-review{
   font-size: 15px;
   font-weight: 600;
 }
+
+.card-rating-date {
+  display: grid;
+  align-items: center;
+  grid-column-gap: 10px;
+  grid-template-columns: repeat(2,max-content);
+}
+
+.cardResult {
+  padding: 20px;
+  /* background-color: #D6D5D5; */
+  border-radius: 15px;
+  
+}
+
 /* map */
 .card-map {
   padding: 10px 0;
