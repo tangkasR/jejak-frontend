@@ -1,6 +1,8 @@
 import "regenerator-runtime";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle";
+import "leaflet.markercluster/dist/leaflet.markercluster.js";
+import "leaflet.markercluster/dist/leaflet.markercluster-src.js";
 import "../styles/dashboard.css";
 import "../styles/navbar.css";
 import "../styles/sidebar.css";
@@ -9,6 +11,7 @@ import "../styles/profil.css";
 import "../styles/table.css";
 import "../styles/contact.css";
 import "../styles/favorit.css";
+import "../styles/map.css";
 import "../scripts/views/pages/user/HomePage";
 import "../styles/home.css";
 import "../styles/gallery-admin.css";
