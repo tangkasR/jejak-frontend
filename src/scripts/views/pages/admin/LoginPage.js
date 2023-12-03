@@ -79,15 +79,10 @@ const LoginPage = {
       event.preventDefault();
       const formData = new FormData(form);
       const data = Object.fromEntries(formData);
-
       try {
         const response = await AdminSource.login(data);
         if (response.length !== 0) {
           if (response.data) {
-            const id = response.data.id;
-            const myObj = {
-              id: id
-            };
             Swal.fire({
               position: "center",
               icon: "success",
@@ -95,9 +90,6 @@ const LoginPage = {
               showConfirmButton: false,
               timer: 1500
             });
-
-            const myObj_string = JSON.stringify(myObj);
-            localStorage.setItem("id", myObj_string);
             window.location.replace("#/dashboard");
             return;
           }

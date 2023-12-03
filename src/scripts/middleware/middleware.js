@@ -1,12 +1,8 @@
 import { async } from "regenerator-runtime";
 import AdminSource from "../data/admin-source";
 export const middleware = async () => {
-  if (!localStorage.id) {
-    return false;
-  }
-  const id = JSON.parse(localStorage.id);
-  const isLogin = await AdminSource.getData(id.id);
-  if (isLogin.token !== null) {
+  const isLogin = await AdminSource.getData();
+  if (isLogin.data !== "") {
     return true;
   }
   return false;

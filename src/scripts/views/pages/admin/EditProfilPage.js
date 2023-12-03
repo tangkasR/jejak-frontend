@@ -51,7 +51,6 @@ const EditProfilPage = {
     const footer = document.querySelector("footer-element");
     footer.style.display = "none";
 
-    const id = JSON.parse(localStorage.id);
     const form = document.querySelector(".editForm");
 
     //   active side bar
@@ -71,7 +70,7 @@ const EditProfilPage = {
       });
 
     // render data dengan value
-    const profil = await AdminSource.getData(id.id);
+    const profil = await AdminSource.getData();
     const dataProfil = profil.data;
     form.innerHTML = `
       <div class="row">
@@ -154,7 +153,7 @@ const EditProfilPage = {
       <div
         class="d-flex flex-wrap gap-3 align-items-center justify-content-between"
       >
-        <button type="submit" class="btn-logres w-100 mt-3 btn btn-primary">
+        <button type="submit" class="btn-logres w-100 mt-3 btn ">
           Simpan
         </button>
         <p class="anchor-logres p-0 m-0">
@@ -169,7 +168,7 @@ const EditProfilPage = {
       const formData = new FormData(form);
       const data = Object.fromEntries(formData);
       try {
-        const response = await AdminSource.editData(id.id, data);
+        const response = await AdminSource.editData(data);
         if (response.length !== 0) {
           if (response.data) {
             Swal.fire({
@@ -208,7 +207,7 @@ const EditProfilPage = {
       }).then(async (result) => {
         if (result.isConfirmed) {
           Swal.fire("Terhapus!", "Data berhasil dihapus.", "success");
-          const delData = await AdminSource.deleteData(id.id);
+          const delData = await AdminSource.deleteData();
           localStorage.removeItem("id");
           window.location.replace("#/login");
         }

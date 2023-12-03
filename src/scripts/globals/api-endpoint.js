@@ -3,12 +3,12 @@ import CONFIG from "./config";
 const API_ENDPOINT = {
   // akun admin api
   ADMIN_LOGIN: `${CONFIG.BASE_URL}/login`,
-  ADMIN_LOGOUT: (id) => `${CONFIG.BASE_URL}/logout/${id}`,
+  ADMIN_LOGOUT: `${CONFIG.BASE_URL}/logout`,
   ADMIN_REGIS: `${CONFIG.BASE_URL}/registrasi`,
-  ADMIN_GETDATA: (id) => `${CONFIG.BASE_URL}/getadmin/${id}`,
-  ADMIN_EDITDATA: (id) => `${CONFIG.BASE_URL}/editadmin/${id}`,
-  ADMIN_DELETEDATA: (id) => `${CONFIG.BASE_URL}/deleteadmin/${id}`,
-
+  ADMIN_GETDATA: `${CONFIG.BASE_URL}/getadmin`,
+  ADMIN_EDITDATA: `${CONFIG.BASE_URL}/editadmin`,
+  ADMIN_DELETEDATA: `${CONFIG.BASE_URL}/deleteadmin`,
+  ADMIN_REFRESH_TOKEN: `${CONFIG.BASE_URL}/token`,
   // wisata api
   GETWISATA: `${CONFIG.BASE_URL}/getwisata`,
   GETWISATABYID: (id) => `${CONFIG.BASE_URL}/getwisatabyid/${id}`,

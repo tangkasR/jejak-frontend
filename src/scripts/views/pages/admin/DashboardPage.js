@@ -112,8 +112,8 @@ const DashboardPage = {
     const dataHotel = await HotelSource.getAllHotel ();
     const dataReviewWisata = await ReviewSource.getAllReviewWisata ();
     const dataReviewHotel = await ReviewSource.getAllReviewHotel ();
-    const id = JSON.parse (localStorage.id);
-    const profil = await AdminSource.getData (id.id);
+   
+    const profil = await AdminSource.getData ();
     const dataProfil = profil.data;
     const namaContainer = document.getElementById ('namaAdmin');
 

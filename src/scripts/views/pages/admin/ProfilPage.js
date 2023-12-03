@@ -1,8 +1,8 @@
-import AdminSource from '../../../data/admin-source';
-import Swal from 'sweetalert2';
+import AdminSource from "../../../data/admin-source";
+import Swal from "sweetalert2";
 
 const ProfilPage = {
-  async render () {
+  async render() {
     return `
       <div class="container-fluid">
         <div class="row">
@@ -22,15 +22,15 @@ const ProfilPage = {
       </div>
     `;
   },
-  async afterRender () {
+  async afterRender() {
     //   active side bar
-    const navLink = document.getElementById ('profil-link');
-    navLink.classList.add ('active');
+    const navLink = document.getElementById("profil-link");
+    navLink.classList.add("active");
 
     // menampilkan data
-    const id = JSON.parse (localStorage.id);
-    const container = document.getElementById ('container-profil');
-    const profil = await AdminSource.getData (id.id);
+    const container = document.getElementById("container-profil");
+    const profil = await AdminSource.getData();
+    console.log(profil);
     const dataProfil = profil.data;
     container.innerHTML = `
       <div class="row align-items-center justify-content-center">
@@ -75,22 +75,20 @@ const ProfilPage = {
     `;
 
     // eksekusi logout
-    document
-      .getElementById ('btnLogout')
-      .addEventListener ('click', async () => {
-        const logout = await AdminSource.logout (id.id);
-        if (logout.length !== 0) {
-          Swal.fire ({
-            position: 'center',
-            icon: 'success',
-            title: 'Berhasil Logout!',
-            showConfirmButton: false,
-            timer: 1500,
-          });
-          localStorage.removeItem ('id');
-          window.location.replace ('#/login');
-        }
-      });
-  },
+    document.getElementById("btnLogout").addEventListener("click", async () => {
+      const logout = await AdminSource.logout();
+      if (logout.length !== 0) {
+        Swal.fire({
+          position: "center",
+          icon: "success",
+          title: "Berhasil Logout!",
+          showConfirmButton: false,
+          timer: 1500
+        });
+        localStorage.removeItem("id");
+        window.location.replace("#/login");
+      }
+    });
+  }
 };
 export default ProfilPage;
