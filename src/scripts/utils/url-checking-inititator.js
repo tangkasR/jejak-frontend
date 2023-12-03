@@ -16,15 +16,6 @@ export const checkUrl = (url, isLogin) => {
     url === "/gallerywisataadmin/:id"
   ) {
     if (isLogin === true) {
-      // set localstorage to remove
-      // menonaktifkan navbar user
-      const navbar = document.querySelector("navbar-element");
-      navbar.style.display = "none";
-
-      // hapus footer
-      const footer = document.querySelector("footer-element");
-      footer.style.display = "none";
-
       return url;
     } else {
       Swal.fire({

@@ -11,12 +11,21 @@ class App {
   async renderPage() {
     let url = UrlParser.parseActiveUrlWithCombiner();
     const isLogin = await middleware();
-    const urlTo = checkUrl(url, isLogin);
+    let urlTo = checkUrl(url, isLogin);
 
     const page = routes[urlTo];
     this._content.innerHTML = await page.render();
     await page.afterRender();
-    if (isLogin === true) {
+
+    if (isLogin === true && urlTo !== "notfound") {
+      // menonaktifkan navbar user
+      const navbar = document.querySelector("navbar-element");
+      navbar.style.display = "none";
+
+      // hapus footer
+      const footer = document.querySelector("footer-element");
+      footer.style.display = "none";
+
       // akses side bar
       SidebarInitiator.init({
         button: document.querySelector(".btn-sidebar"),
