@@ -44,21 +44,21 @@ const MapPage = {
             <div class="col-lg-4 col-sm-6 img_wrapper_1">
               <div class="img_content_wrapper">
                 <div class="caption_image"><p>Gambar 1</p></div>
-                <img src="./images/titikawal_map.jpg" alt"">
+                <img src="./images/titikawal_map.png" alt"">
               </div>
               <div class="img_content_wrapper">
                 <div class="caption_image"><p>Gambar 3</p></div>
-                <img src="./images/destinasi_map.jpg" alt"">
+                <img src="./images/scroll_map.png" alt"">
               </div>
             </div>
             <div class="col-lg-4 col-sm-6">
               <div class="img_content_wrapper">
                 <div class="caption_image"><p>Gambar 2</p></div>
-                <img src="./images/titiktujuan_map.jpg" alt"">
+                <img src="./images/titiktujuan_map.png" alt"">
               </div>
               <div class="img_content_wrapper">
                 <div class="caption_image"><p>Gambar 4</p></div>
-                <img src="./images/informasiDestinasi_map.jpg" alt"">
+                <img src="./images/detail_map.png" alt"">
               </div>
             </div>
           </div>

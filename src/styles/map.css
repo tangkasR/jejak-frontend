@@ -166,9 +166,14 @@
     height: 280vh !important;
   }
 }
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 380px) {
   .overlay {
-    height: 250vh;
+    height: 330vh;
+  }
+}
+@media only screen and (min-width: 381px) {
+  .overlay {
+    height: 300vh;
   }
 }
 
@@ -177,20 +182,27 @@
   .img_wrapper_1 {
     margin: 0;
   }
+  .overlay {
+    height: 160vh;
+  }
 }
 @media only screen and (min-width: 600px) {
   .overlay {
-    height: 160vh;
+    height: 180vh;
   }
 }
 
 /* Medium devices (landscape tablets, 768px and up) */
 @media only screen and (min-width: 769px) {
   .overlay {
-    height: 170vh;
+    height: 180vh;
   }
 }
-
+@media only screen and (min-width: 920px) {
+  .overlay {
+    height: 190vh;
+  }
+}
 /* Large devices (laptops/desktops, 992px and up) */
 @media only screen and (min-width: 992px) {
   .overlay {
