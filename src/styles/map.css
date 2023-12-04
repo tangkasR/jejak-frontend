@@ -2,8 +2,54 @@
   width: 100px;
   height: 100px;
   border-radius: 50%;
-  background-color: rgba(0, 0, 0, 0.3);
+  background-color: #3f4e4f83;
 }
 .leaflet-right {
   display: none !important;
 }
+
+/* map */
+.card-map {
+  padding: 10px 0;
+  background-color: var(--bg-secondary);
+  color: var(--txt-primary);
+}
+
+.card-map img {
+  width: 200px;
+  height: 150px;
+  object-fit: cover;
+}
+.card-map p {
+  line-height: 25px;
+  text-transform: capitalize;
+}
+.card-map h5,
+.card-map a {
+  margin-top: 20px;
+  margin-bottom: 25px !important;
+  color: var(--txt-primary);
+  line-height: 35px;
+  font-size: 22px;
+  text-transform: capitalize;
+}
+.card-map a:hover {
+  color: #a27b5c;
+}
+.leaflet-popup > a,
+.leaflet-popup > a > span {
+  font-size: 40px !important;
+  margin-top: 10px !important;
+  margin-right: 15px !important;
+  color: white !important;
+}
+
+.leaflet-popup-content-wrapper {
+  background-color: var(--bg-secondary);
+}
+
+.leaflet-popup {
+  background-color: transparent;
+}
+
+/* end map */

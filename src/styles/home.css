@@ -418,28 +418,7 @@ color: #ffc107;
   
 }
 
-/* map */
-.card-map {
-  padding: 10px 0;
-  background-color: var(--bg-secondary);
-  color: var(--txt-primary);
-}
 
-.card-map img {
-  width: 200px;
-  height: 150px;
-  object-fit: cover;
-}
-
-.leaflet-popup-content-wrapper {
-  background-color: var(--bg-secondary);
-}
-
-.leaflet-popup {
-  background-color: transparent;
-}
-
-/* end map */
 
 /* responsive */
 /* Extra small devices (phones, 600px and down) */

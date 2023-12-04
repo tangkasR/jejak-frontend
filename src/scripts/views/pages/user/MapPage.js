@@ -62,10 +62,10 @@ const MapPage = {
       }
 
       if (arrayTitik[1] !== undefined) {
-        latitude_1 = arrayTitik[1].lat + 0.08;
-        latitude_2 = arrayTitik[1].lat - 0.08;
-        longitude_1 = arrayTitik[1].lng + 0.08;
-        longitude_2 = arrayTitik[1].lng - 0.08;
+        latitude_1 = arrayTitik[1].lat + 0.05;
+        latitude_2 = arrayTitik[1].lat - 0.05;
+        longitude_1 = arrayTitik[1].lng + 0.05;
+        longitude_2 = arrayTitik[1].lng - 0.05;
 
         dataWisata.forEach((data) => {
           if (
@@ -79,7 +79,8 @@ const MapPage = {
               longitude: data.longitude,
               nama: data.nama,
               url: data.url,
-              lokasi: data.lokasi
+              lokasi: data.lokasi,
+              id:data.id
             });
           }
         });
@@ -91,7 +92,7 @@ const MapPage = {
               alt: `Nama wisata`
             }).bindPopup(
               `<div class="text-center card-map h-100">
-                  <h5 class="mb-3" style="font-weight:800">Wisata ${data.nama}</h5>
+                  <h5 class="mb-3" style="font-weight:800"><a href="#/detail/${data.id}">Wisata ${data.nama}</a></h5>
                   <img src="${data.url}"/>
                   <p><i class='bx bxs-map'></i> ${data.lokasi}</p>
                 </div>`
