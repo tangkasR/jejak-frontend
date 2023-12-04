@@ -57,7 +57,34 @@ const MapPage = {
 
       if (arrayTitik.length <= 2) {
         routing = L.Routing.control({
-          waypoints: [L.latLng(arrayTitik[0]), L.latLng(arrayTitik[1])]
+          waypoints: [L.latLng(arrayTitik[0]), L.latLng(arrayTitik[1])],
+          routeWhileDragging: true,
+          lineOptions: {
+            styles: [{ color: "#3f4e4f", opacity: 1, weight: 5 }]
+          },
+          createMarker: function (i = number, waypoint = any, n = number) {
+            const marker = L.marker(waypoint.latLng, {
+              draggable: false,
+              bounceOnAdd: false,
+              bounceOnAddOptions: {
+                duration: 1000,
+                height: 800,
+                function() {
+                  bindPopup(myPopup).openOn(map);
+                }
+              },
+              icon: L.icon({
+                iconUrl: "./icons/wayang.png",
+                iconSize: [100, 100],
+                iconAnchor: [50, 94],
+                popupAnchor: [-3, -76],
+                // shadowUrl: "./icons/wayang.png",
+                shadowSize: [68, 95],
+                shadowAnchor: [22, 94]
+              })
+            });
+            return marker;
+          }
         }).addTo(map);
       }
 
@@ -80,7 +107,7 @@ const MapPage = {
               nama: data.nama,
               url: data.url,
               lokasi: data.lokasi,
-              id:data.id
+              id: data.id
             });
           }
         });
