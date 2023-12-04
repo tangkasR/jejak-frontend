@@ -16,9 +16,9 @@ const MapPage = {
             <div class="col-lg-4 mb-4 mb-lg-0">
               <h4>Panduan Fitur Lacak</h4>
               <p>1. Tentukan titik lokasi awal Anda dengan menggunakan fitur search pada pojok kanan atas (Gambar 1).</p>
-              <p>2. Klik Map sesuai titik lokasi awal yang diinginkan. (Gambar 1).</p>
+              <p>2. Klik Map sesuai titik lokasi awal yang diinginkan (Gambar 1).</p>
               <p>3. Tentukan titik lokasi tujuan Anda dengan menggunakan fitur search pada pojok kanan atas (Gambar 2).</p>
-              <p>4. Klik Map sesuai titik lokasi tujuan yang diinginkan. (Gambar 2).</p>
+              <p>4. Klik Map sesuai titik lokasi tujuan yang diinginkan (Gambar 2).</p>
               <p>5. Rute jalan akan muncul (Gambar 2).</p>
               <p>
                 6. Scroll zoom untuk menampilkan destinasi terdekat dari rute
