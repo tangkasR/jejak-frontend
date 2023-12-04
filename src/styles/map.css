@@ -184,7 +184,7 @@
 /* Extra small devices (phones, 600px and down) */
 @media only screen and (max-width: 300px) {
   .overlay {
-    height: 280vh !important;
+    height: 370vh !important;
   }
 }
 @media only screen and (max-width: 380px) {
@@ -221,16 +221,26 @@
 }
 @media only screen and (min-width: 920px) {
   .overlay {
-    height: 190vh;
+    height: 200vh;
   }
 }
 /* Large devices (laptops/desktops, 992px and up) */
 @media only screen and (min-width: 992px) {
   .overlay {
-    height: 140vh;
+    height: 200vh;
   }
 }
-@media only screen and (min-width: 1200) {
+@media only screen and (min-width: 1200px) {
+  .overlay {
+    height: 150vh;
+  }
+}
+@media only screen and (min-width: 1600px) {
+  .overlay {
+    height: 120vh;
+  }
+}
+@media only screen and (min-width: 1700px) {
   .overlay {
     height: 100vh;
   }

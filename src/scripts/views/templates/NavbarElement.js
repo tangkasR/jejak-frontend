@@ -1,17 +1,17 @@
 class Navbar extends HTMLElement {
-  constructor () {
-    super ();
+  constructor() {
+    super();
   }
 
-  connectedCallback () {
-    this.render ();
+  connectedCallback() {
+    this.render();
   }
 
-  render () {
+  render() {
     this.innerHTML = `
       <nav
         class="navbar navbar-expand-lg fixed-top p-3"
-        style="background-color: #3F4E4F;"
+        style="background-color: #3F4E4F; z-index:5000"
       >
         <div class="container">
           <a class="logo" href="#"
@@ -84,4 +84,4 @@ class Navbar extends HTMLElement {
   }
 }
 
-customElements.define ('navbar-element', Navbar);
+customElements.define("navbar-element", Navbar);
