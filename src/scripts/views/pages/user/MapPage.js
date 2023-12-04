@@ -16,7 +16,7 @@ const MapPage = {
               <h4>Panduan Fitur Lacak</h4>
               <p>1. Tentukan titik lokasi awal Anda (Gambar 1)</p>
               <p>2. Tentukan titik lokasi tujuan Anda (Gambar 2)</p>
-              <p>3. Rute jalan akan muncul (Gambar 3)</p>
+              <p>3. Rute jalan akan muncul (Gambar 2)</p>
               <p>
                 4. Scroll zoom untuk menampilkan destinasi terdekat dari rute
                 jalan (Gambar 3)
