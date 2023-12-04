@@ -5,8 +5,9 @@ const MapPage = {
     return `
       <div class="overlay"></div>
       <div class="guide_map">
-        <button class="btn-lacak">Panduan fitur lacak</button>
-        <button class="btn-destinasi">Semua Destinasi</button>
+        <button class="btn-lacak">Panduan Fitur Lacak</button>
+        <button class="btn-destinasi">Tampilkan Semua Destinasi</button>
+        <button class="btn-reset">Reset Map</button>
       </div>
 
       <div class="panduanLacakContainer">
@@ -220,6 +221,9 @@ const MapPage = {
       const overlay = document.querySelector(".overlay");
       overlay.style.display = "block";
     });
+    document.querySelector(".btn-reset").addEventListener("click", () => {
+      location.reload();
+    });
 
     if (document.querySelector(".btn_fav")) {
       document.querySelector(".btn_fav").addEventListener("click", () => {
@@ -227,8 +231,6 @@ const MapPage = {
         panduanLacak.style.display = "none";
         const overlay = document.querySelector(".overlay");
         overlay.style.display = "none";
-
-        location.reload();
       });
     }
   }

@@ -58,36 +58,37 @@
   background-color: transparent;
 }
 
-.btn-destinasi {
+.guide_map button {
   position: absolute;
-  top: 120px;
   right: 20px;
   z-index: 500;
-  padding: 10px 30px;
+  padding: 10px 0;
   border-radius: 10px;
-  width: 250px;
-  transition: all 0.3s ease;
+  width: 260px;
+  border: 2px solid #3f4e4f;
+  color: #3f4e4f;
+  font-weight: 600;
+  background-color: rgba(255, 255, 255, 0.719);
 }
-
-.btn-destinasi:hover {
-  background-color: #3f4e4f;
-  color: white;
+.btn-destinasi {
+  top: 120px;
 }
 
 .btn-lacak {
-  position: absolute;
   top: 185px;
-  right: 20px;
-  z-index: 500;
-  padding: 10px 30px;
-  border-radius: 10px;
-  width: 250px;
-  transition: all 0.3s ease;
 }
 
+.btn-reset {
+  top: 250px;
+}
+
+.btn-destinasi:hover,
+.btn-reset:hover,
 .btn-lacak:hover {
   background-color: #3f4e4f;
   color: white;
+  outline: none;
+  transition: all 0.3s ease;
 }
 
 .panduanLacakContainer {
