@@ -52,7 +52,7 @@ const Detail = {
         </section>
         <section class="resultCard">
         <div class="container">
-          <div id="reviewCards" class="justify-content-left mt-5"></div>
+          <div id="reviewCards" class="row justify-content-center mt-5"></div>
         </div>
       </section>
         `;
@@ -65,7 +65,11 @@ const Detail = {
     const detailContainer = document.querySelector("#posts");
     detailContainer.innerHTML += `
         <div class="col-md-10 mx-auto">
-        <h2 class="text-center fw-bold mb-3">${hotel.data.nama}</h2>
+        <h1 class="text-center fw-bold mb-3">${hotel.data.nama}</h1>
+        <hr class="hr aos-init aos-animate"
+        data-aos="fade-up" data-aos-delay="50" 
+        data-aos-duration="1000" 
+        data-aos-easing="ease-in-out">
         <img src="${hotel.data.url}" class="card-img-top rounded-4" alt="${hotel.data.nama}">
         <p class="location text-left d-flex gap-2 mt-3 fw-bold">
         <i class='bx bxs-map bx-sm'></i> ${hotel.data.lokasi}</p>
@@ -204,7 +208,11 @@ const Detail = {
         "0"
       )}-${today.getFullYear()}`;
       reviewresult.innerHTML += `
-      <div class="cardResult mb-3" stlye="width: 500px;">
+      <div class="cardResult mb-3" stlye="width: 500px;"
+      data-aos="fade-up"
+      data-aos-delay="50"
+      data-aos-duration="1000"
+      data-aos-easing="ease-in-out">
         <div class="mt-3">
           <h5 class="card-name fw-bold">${data.name}</h5>
         </div>
