@@ -29,9 +29,7 @@ const LikeButtonInitiator = {
 
   _renderLike() {
     this._likeButtonContainer.innerHTML = createLikeButtonTemplate();
-
     const likeButton = document.querySelector("#likeButton");
-
     likeButton.addEventListener("click", async () => {
       const likeContainer = document.querySelector(".container-like");
       likeContainer.innerHTML = `

@@ -254,7 +254,6 @@ const Detail = {
     document
       .querySelector(".detailCard")
       .addEventListener("click", async (event) => {
-        console.log("oyyy");
         const likeContainer = document.querySelector(".container-like");
         likeContainer.innerHTML = "";
       });
