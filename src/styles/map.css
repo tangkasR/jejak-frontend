@@ -6,30 +6,33 @@
   border: 3px solid #3f4e4f;
 }
 
-.leaflet-right {
+#userMap .leaflet-routing-container {
   display: none !important;
+}
+#userMap {
+  margin-top: 90px !important;
 }
 
 /* map */
-.card-map {
+#userMap .card-map {
   padding: 10px 0;
   background-color: var(--bg-secondary);
   color: var(--txt-primary);
 }
 
-.card-map img {
+#userMap .card-map img {
   width: 200px;
   height: 150px;
   object-fit: cover;
 }
 
-.card-map p {
+#userMap .card-map p {
   line-height: 25px;
   text-transform: capitalize;
 }
 
-.card-map h5,
-.card-map a {
+#userMap .card-map h5,
+#userMap .card-map a {
   margin-top: 20px;
   margin-bottom: 25px !important;
   color: var(--txt-primary);
@@ -38,7 +41,7 @@
   text-transform: capitalize;
 }
 
-.card-map a:hover {
+#userMap .card-map a:hover {
   color: #a27b5c;
 }
 
@@ -50,11 +53,14 @@
   color: white !important;
 }
 
-.leaflet-popup-content-wrapper {
+#userMap .leaflet-popup-content-wrapper {
   background-color: var(--bg-secondary);
 }
+#userMap .leaflet-popup-content-wrapper span {
+  color: var(--txt-primary) !important;
+}
 
-.leaflet-popup {
+#userMap .leaflet-popup {
   background-color: transparent;
 }
 
@@ -71,22 +77,36 @@
   background-color: rgba(255, 255, 255, 0.719);
 }
 .btn-destinasi {
-  top: 120px;
+  top: 170px;
 }
 
 .btn-lacak {
-  top: 185px;
+  top: 230px;
 }
 
 .btn-reset {
-  top: 250px;
+  top: 290px;
 }
-
+#userMap .leaflet-control-geocoder {
+  margin-top: 20px !important;
+  border: 2px solid #3f4e4f;
+  color: #3f4e4f;
+  padding: 5px 20px;
+  margin-right: 20px !important;
+  border-radius: 10px;
+  z-index: 500;
+}
+#userMap .leaflet-control-geocoder input {
+  font-weight: 600 !important;
+}
 .btn-destinasi:hover,
 .btn-reset:hover,
-.btn-lacak:hover {
+.btn-lacak:hover,
+#userMap .leaflet-control-geocoder:hover,
+#userMap .leaflet-control-geocoder:hover button,
+#userMap .leaflet-control-geocoder:hover input {
   background-color: #3f4e4f;
-  color: white;
+  color: white !important;
   outline: none;
   transition: all 0.3s ease;
 }
@@ -96,7 +116,7 @@
   width: 100%;
   position: absolute;
   top: 120px;
-  z-index: 700;
+  z-index: 1500;
   padding: 0 30px;
 }
 .panduanLacak {
@@ -141,7 +161,7 @@
   position: absolute;
   width: 100%;
   background-color: rgba(0, 0, 0, 0.8);
-  z-index: 600;
+  z-index: 1400;
 }
 .img_wrapper_1 {
   margin-bottom: 20px;

@@ -15,58 +15,60 @@ const MapPage = {
           <div class="row">
             <div class="col-lg-4 mb-4 mb-lg-0">
               <h4>Panduan Fitur Lacak</h4>
-              <p>1. Tentukan titik lokasi awal Anda (Gambar 1)</p>
-              <p>2. Tentukan titik lokasi tujuan Anda (Gambar 2)</p>
-              <p>3. Rute jalan akan muncul (Gambar 2)</p>
+              <p>1. Tentukan titik lokasi awal Anda dengan menggunakan fitur search pada pojok kanan atas (Gambar 1).</p>
+              <p>2. Klik Map sesuai titik lokasi awal yang diinginkan. (Gambar 1).</p>
+              <p>3. Tentukan titik lokasi tujuan Anda dengan menggunakan fitur search pada pojok kanan atas (Gambar 2).</p>
+              <p>4. Klik Map sesuai titik lokasi tujuan yang diinginkan. (Gambar 2).</p>
+              <p>5. Rute jalan akan muncul (Gambar 2).</p>
               <p>
-                4. Scroll zoom untuk menampilkan destinasi terdekat dari rute
-                jalan (Gambar 3)
+                6. Scroll zoom untuk menampilkan destinasi terdekat dari rute
+                jalan (Gambar 3).
               </p>
               <p>
-                5. Klik Marker untuk menampilkan informasi tentang destinasi
-                wisata (Gambar 4)
+                7. Klik Marker untuk menampilkan informasi tentang destinasi
+                wisata (Gambar 4).
               </p>
               <hr />
               <p>
                 - Destinasi yang tertampil akan menyesuaikan dengan range kurang
-                lebih 10km dari titik lokasi tujuan
+                lebih 10km dari titik lokasi tujuan.
               </p>
-              <p>- Titik tujuan lokasi bisa diubah</p>
+              <p>- Titik tujuan lokasi bisa diubah.</p>
               <p>
                 - Titik awal lokasi tidak bisa diubah untuk mengubah titik awal
-                silahkan refresh website
+                silahkan klik tombol "reset map".
               </p>
               <p>
-                - Untuk memunculkan semua destinasi klik tombol "semua
-                destinasi"
+                - Untuk memunculkan semua destinasi klik tombol "tampilkan semua
+                destinasi".
               </p>
               <button class="btn_fav">Saya Mengerti</button>
             </div>
             <div class="col-lg-4 col-sm-6 img_wrapper_1">
               <div class="img_content_wrapper">
                 <div class="caption_image"><p>Gambar 1</p></div>
-                <img src="./images/titikawal_map.png" alt"">
+                <img src="./images/titik_awal_map.png" alt"">
               </div>
               <div class="img_content_wrapper">
                 <div class="caption_image"><p>Gambar 3</p></div>
-                <img src="./images/scroll_map.png" alt"">
+                <img src="./images/scroll_lokasi_map.png" alt"">
               </div>
             </div>
             <div class="col-lg-4 col-sm-6">
               <div class="img_content_wrapper">
                 <div class="caption_image"><p>Gambar 2</p></div>
-                <img src="./images/titiktujuan_map.png" alt"">
+                <img src="./images/titik_tujuan_map.png" alt"">
               </div>
               <div class="img_content_wrapper">
                 <div class="caption_image"><p>Gambar 4</p></div>
-                <img src="./images/detail_map.png" alt"">
+                <img src="./images/detail_wisata_map.png" alt"">
               </div>
             </div>
           </div>
         </div>
       </div>
 
-      <div id="map" class="vh-100" style="margin-bottom: -50px;"></div>
+      <div class="vh-100" style="margin-bottom: -50px;" id="userMap"></div>
     `;
   },
   async afterRender() {
@@ -79,7 +81,7 @@ const MapPage = {
     const dataWisata = wisata.data;
 
     // fitur map
-    let map = L.map("map").setView([-7.797068, 110.370529], 12);
+    let map = L.map("userMap").setView([-7.797068, 110.370529], 12);
     // L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
     //   maxZoom: 19,
     //   attribution: '&copy; <a href="">JelajahJogja</a>'
@@ -87,6 +89,7 @@ const MapPage = {
     L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
       attribution: '&copy; <a href="">JelajahJogja</a>'
     }).addTo(map);
+    L.Control.geocoder().addTo(map);
 
     let arrayTitik = [];
     let area = [];
@@ -125,7 +128,7 @@ const MapPage = {
       if (arrayTitik.length <= 2) {
         routing = L.Routing.control({
           waypoints: [L.latLng(arrayTitik[0]), L.latLng(arrayTitik[1])],
-          routeWhileDragging: true,
+          routeWhileDragging: false,
           lineOptions: {
             styles: [{ color: "#3f4e4f", opacity: 1, weight: 5 }]
           },
@@ -145,7 +148,6 @@ const MapPage = {
                 iconSize: [100, 100],
                 iconAnchor: [50, 94],
                 popupAnchor: [-3, -76],
-                // shadowUrl: "./icons/wayang.png",
                 shadowSize: [68, 95],
                 shadowAnchor: [22, 94]
               })
