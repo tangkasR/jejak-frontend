@@ -4,6 +4,9 @@ const MapPage = {
   async render() {
     return `
       <div class="overlay"></div>
+      <div class="arrow">
+        <i class='bx bx-chevrons-right' id="arrow_icon" ></i>
+      </div>
       <div class="guide_map">
         <button class="btn-lacak">Panduan Fitur Lacak</button>
         <button class="btn-destinasi">Tampilkan Semua Destinasi</button>
@@ -68,7 +71,7 @@ const MapPage = {
         </div>
       </div>
 
-      <div class="vh-100" style="margin-bottom: -50px;" id="userMap"></div>
+      <div style="margin-bottom: -50px; min-height:100vh" id="userMap"></div>
     `;
   },
   async afterRender() {
@@ -233,6 +236,13 @@ const MapPage = {
         panduanLacak.style.display = "none";
         const overlay = document.querySelector(".overlay");
         overlay.style.display = "none";
+      });
+    }
+
+    if (document.getElementById("arrow_icon")) {
+      document.getElementById("arrow_icon").addEventListener("click", () => {
+        const sidebar = document.querySelector(".guide_map");
+        sidebar.classList.toggle("active");
       });
     }
   }
