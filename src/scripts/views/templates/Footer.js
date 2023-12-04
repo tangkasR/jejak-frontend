@@ -22,9 +22,7 @@ class Footer extends HTMLElement {
             <div
               class="mt-4 d-flex align-items-center justify-content-center gap-4"
             >
-              <img src="./icons/Facebook.png" style="width:33px" />
-              <img src="./icons/WhatsApp.png" style="width:33px" />
-              <img src="./icons/YouTube.png" style="width:33px" />
+              
             </div>
             <div>
               <p class="text-center" style="font-size:15px; color:#DCD7C9">

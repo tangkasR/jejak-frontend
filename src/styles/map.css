@@ -5,6 +5,7 @@
   background-color: #3f4e4f83;
   border: 3px solid #3f4e4f;
 }
+
 .leaflet-right {
   display: none !important;
 }
@@ -21,10 +22,12 @@
   height: 150px;
   object-fit: cover;
 }
+
 .card-map p {
   line-height: 25px;
   text-transform: capitalize;
 }
+
 .card-map h5,
 .card-map a {
   margin-top: 20px;
@@ -34,11 +37,13 @@
   font-size: 22px;
   text-transform: capitalize;
 }
+
 .card-map a:hover {
   color: #a27b5c;
 }
-.leaflet-popup > a,
-.leaflet-popup > a > span {
+
+.leaflet-popup>a,
+.leaflet-popup>a>span {
   font-size: 40px !important;
   margin-top: 10px !important;
   margin-right: 15px !important;
@@ -47,11 +52,76 @@
 
 .leaflet-popup-content-wrapper {
   background-color: var(--bg-secondary);
- 
+
 }
 
 .leaflet-popup {
   background-color: transparent;
+}
+
+.btn-destinasi {
+  position: absolute;
+  top: 120px;
+  right: 20px;
+  z-index: 500;
+  padding: 10px 30px;
+  border-radius: 10px;
+  width: 250px;
+  transition: all 0.3s ease;
+}
+
+.btn-destinasi:hover {
+  background-color: #3f4e4f;
+  color: white;
+}
+
+.btn-lacak {
+  position: absolute;
+  top: 185px;
+  right: 20px;
+  z-index: 500;
+  padding: 10px 30px;
+  border-radius: 10px;
+  width: 250px;
+  transition: all 0.3s ease;
+}
+
+.btn-lacak:hover {
+  background-color: #3f4e4f;
+  color: white;
+}
+
+.panduanLacak {
+  display: none;
+  width: 80%;
+  background-color: #3f4e4f;
+  color: white;
+  position: absolute;
+  top: 110px;
+  left: 20px;
+  z-index: 500;
+  padding: 30px;
+}
+
+.panduanLacak img {
+  margin-bottom: 20px;
+  width: 100%;
+  height: 47%;
+  object-fit: fill;
+}
+
+.panduanLacak img:last-child {
+  margin: 0 !important;
+}
+
+.panduanLacak h4 {
+  text-align: center;
+  font-weight: 700;
+}
+
+.panduanLacak hr {
+  border: 3px solid white;
+  opacity: 100%;
 }
 
 /* end map */
