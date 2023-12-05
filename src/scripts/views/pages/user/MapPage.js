@@ -102,6 +102,22 @@ const MapPage = {
     let titikAkhir = "";
     let titikTemp;
 
+    const iconWayang = L.icon({
+      iconUrl: "./icons/wayang.png",
+      iconSize: [100, 100],
+      iconAnchor: [50, 94]
+    });
+    const iconBecak = L.icon({
+      iconUrl: "./icons/becak_1.png",
+      iconSize: [55, 55],
+      iconAnchor: [25, 50]
+    });
+    const iconWisata = L.icon({
+      iconUrl: "./icons/icon_wisata_2.png",
+      iconSize: [42, 50],
+      iconAnchor: [20, 50]
+    });
+
     let markers = L.markerClusterGroup({
       iconCreateFunction: function (cluster) {
         var markers = cluster.getAllChildMarkers();
@@ -125,28 +141,30 @@ const MapPage = {
           styles: [{ color: "#3f4e4f", opacity: 1, weight: 5 }]
         },
         createMarker: function (i = number, waypoint = any, n = number) {
-          marker = L.marker(waypoint.latLng, {
-            draggable: true,
-            bounceOnAdd: true,
-            bounceOnAddOptions: {
-              duration: 1000,
-              height: 800,
-              function() {
-                bindPopup(myPopup).openOn(map);
-              }
-            },
-            icon: L.icon({
-              iconUrl: "./icons/wayang.png",
-              iconSize: [100, 100],
-              iconAnchor: [50, 94],
-              popupAnchor: [-3, -76],
-              shadowSize: [68, 95],
-              shadowAnchor: [22, 94]
-            })
-          });
+          if (waypoint.latLng === titik_awal) {
+            marker = L.marker(waypoint.latLng, {
+              draggable: false,
+              icon: iconWayang
+            });
+          } else {
+            marker = L.marker(waypoint.latLng, {
+              draggable: false,
+              icon: iconBecak
+            });
+          }
           return marker;
         }
       }).addTo(map);
+
+      if (titik_akhir !== null) {
+        routing.on("routesfound", function (e) {
+          e.routes[0].coordinates.forEach(function (coord, index) {
+            setTimeout(() => {
+              marker.setLatLng([coord.lat, coord.lng]);
+            }, 10 * index);
+          });
+        });
+      }
     };
 
     const dataWisataPopUp = (data) => {
@@ -179,6 +197,7 @@ const MapPage = {
         titikAkhir = titikTemp;
         routing.spliceWaypoints(0, 2);
         markers.clearLayers();
+        map.removeLayer(marker);
         makeRouting(titikAwal, titikAkhir);
       }
 
@@ -208,11 +227,12 @@ const MapPage = {
 
         if (area.length !== 0) {
           area.forEach((data) => {
-            marker = L.marker([data.latitude, data.longitude], {
+            let markerWisata = L.marker([data.latitude, data.longitude], {
               title: `${data.nama}`,
-              alt: `Nama wisata`
+              alt: `Nama wisata`,
+              icon: iconWisata
             }).bindPopup(dataWisataPopUp(data));
-            markers.addLayer(marker);
+            markers.addLayer(markerWisata);
           });
           area = [];
           map.addLayer(markers);
@@ -225,15 +245,7 @@ const MapPage = {
         let pointer = L.marker([data.latitude, data.longitude], {
           title: `${data.nama}`,
           alt: `Nama wisata`,
-          draggable: false,
-          bounceOnAdd: true,
-          bounceOnAddOptions: {
-            duration: 100000,
-            height: 10000,
-            function() {
-              bindPopup(dataWisataPopUp(data)).openOn(map);
-            }
-          }
+          icon: iconWisata
         }).addTo(map);
       });
     });
