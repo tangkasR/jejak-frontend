@@ -51,12 +51,15 @@ export const checkUrl = (url, isLogin) => {
       return (url = "/dashboard");
     } else {
       //nonactive navbar
-      if (url == "/login" || url == "/register") {
-        const navLink = document.querySelectorAll(".nav-link");
-        navLink.forEach((link) => {
-          link.classList.remove("active");
-        });
-      }
+      const navLinkAll = document.querySelectorAll(".link-navbar-user");
+      navLinkAll.forEach((link) => {
+        link.classList.remove("active");
+      });
+      const dropdownAll = document.querySelectorAll(".dropdown-item");
+      dropdownAll.forEach((link) => {
+        link.classList.remove("active");
+      });
+
       //end nonactive navbar
 
       // mengaktifkan navbar
@@ -66,6 +69,18 @@ export const checkUrl = (url, isLogin) => {
       // mengaktifkan footer
       const footer = document.querySelector("footer-element");
       footer.style.display = "block";
+
+      //active navbar
+      const navLink = document.querySelectorAll(".nav-link");
+      navLink.forEach((link) => {
+        link.addEventListener("click", function () {
+          navLink.forEach((link) => {
+            link.classList.remove("active");
+          });
+          this.classList.add("active");
+        });
+      });
+      //end active navbar
 
       if (url === "/") {
         // nonaktifkan navbar

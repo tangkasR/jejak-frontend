@@ -33,6 +33,11 @@ const FavoritWisata = {
   },
 
   async afterRender() {
+    // navbar active
+    const favWisataLink = document.getElementById("link-favwisata");
+    favWisataLink.classList.add("active");
+    // end navbar active
+
     const wisatas = await WisataFavoritIdb.getAllWisata();
     const empty = document.querySelector(".empty_favorit");
     empty.style.display = "block";
@@ -43,7 +48,7 @@ const FavoritWisata = {
         wisataContainer.innerHTML += createWisataTemplate(data);
       });
     }
-  },
+  }
 };
 
 export default FavoritWisata;

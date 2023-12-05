@@ -1,6 +1,6 @@
-import Swal from 'sweetalert2';
+import Swal from "sweetalert2";
 const ContactPage = {
-  async render () {
+  async render() {
     return `
           <section section class = "contactCard d-flex align-items-center justify-content-center" style="min-height:100vh">
               <div class = "contact-container container rounded-4">
@@ -39,56 +39,61 @@ const ContactPage = {
           </section>
           `;
   },
-  async afterRender () {
-    const loaderButton = document.querySelector ('.loader-button');
-    const submitContact = document.querySelector ('.submit-contact');
-    loaderButton.style.display = 'none';
-    submitContact.style.display = 'block';
-    const forms = document.querySelector ('.form-contact');
-    forms.addEventListener ('submit', event => {
-      event.preventDefault ();
-      loaderButton.style.display = 'block';
-      submitContact.style.display = 'none';
+  async afterRender() {
+    // active navbar
+    const contactLink = document.getElementById("link-contact");
+    contactLink.classList.add("active");
+    // end active navbar
 
-      const nama = document.getElementById ('inputNama').value;
-      const email = document.getElementById ('inputEmail').value;
-      const nomorHp = document.getElementById ('inputNomorHp').value;
-      const msg = document.getElementById ('inputPesan').value;
+    const loaderButton = document.querySelector(".loader-button");
+    const submitContact = document.querySelector(".submit-contact");
+    loaderButton.style.display = "none";
+    submitContact.style.display = "block";
+    const forms = document.querySelector(".form-contact");
+    forms.addEventListener("submit", (event) => {
+      event.preventDefault();
+      loaderButton.style.display = "block";
+      submitContact.style.display = "none";
+
+      const nama = document.getElementById("inputNama").value;
+      const email = document.getElementById("inputEmail").value;
+      const nomorHp = document.getElementById("inputNomorHp").value;
+      const msg = document.getElementById("inputPesan").value;
 
       var datas = {
         from_name: nama,
         from_email: email,
         from_nohp: nomorHp,
-        message: msg,
+        message: msg
       };
-      console.log (datas);
+      console.log(datas);
 
-      emailjs.send ('service_rccxvbo', 'template_5vde6ur', datas).then (
+      emailjs.send("service_rccxvbo", "template_5vde6ur", datas).then(
         function (response) {
           if (response.length !== 0) {
-            loaderButton.style.display = 'none';
-            submitContact.style.display = 'block';
-            Swal.fire ({
-              position: 'center',
-              icon: 'success',
-              title: 'Pesan Terkirim!',
+            loaderButton.style.display = "none";
+            submitContact.style.display = "block";
+            Swal.fire({
+              position: "center",
+              icon: "success",
+              title: "Pesan Terkirim!",
               showConfirmButton: false,
-              timer: 1500,
+              timer: 1500
             });
           }
         },
         function (err) {
-          loaderButton.style.display = 'none';
-          submitContact.style.display = 'block';
-          Swal.fire ({
-            icon: 'error',
+          loaderButton.style.display = "none";
+          submitContact.style.display = "block";
+          Swal.fire({
+            icon: "error",
             title: `Pesan Tidak Terkirim!`,
             text: `Tolong ulangi!`,
-            showConfirmButton: false,
+            showConfirmButton: false
           });
         }
       );
     });
-  },
+  }
 };
 export default ContactPage;

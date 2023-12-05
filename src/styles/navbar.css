@@ -39,6 +39,15 @@
 .navbar .link-navbar-user.active {
   color: #a27b5c;
 }
+.navbar .dropdown-item.active,
+.navbar .dropdown-item:hover {
+  background-color: #a27b5c !important;
+  color: white;
+}
+.navbar .dropdown-item {
+  background-color: white !important;
+  color: #a27b5c;
+}
 .navbar .link-navbar-user.active::after {
   width: 100%;
   color: #a27b5c;

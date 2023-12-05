@@ -26,6 +26,11 @@ const wisataAlamPage = {
   },
 
   async afterRender() {
+    // navbar active
+    const alamlink = document.getElementById("link-alam");
+    alamlink.classList.add("active");
+    // end navbar active
+
     // get data wisata
     const wisata = await WisataSource.getWisata();
     const datasWisata = wisata.data;
@@ -71,7 +76,7 @@ const wisataAlamPage = {
                 `;
       }
     });
-  },
+  }
 };
 
 export default wisataAlamPage;

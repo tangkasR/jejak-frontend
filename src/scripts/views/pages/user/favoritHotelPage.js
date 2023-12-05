@@ -33,6 +33,11 @@ const FavoritHotel = {
   },
 
   async afterRender() {
+    // navbar active
+    const favHotelLink = document.getElementById("link-favhotel");
+    favHotelLink.classList.add("active");
+    // end navbar active
+
     const hotels = await HotelFavoritIdb.getAllHotel();
     const empty = document.querySelector(".empty_favorit");
     empty.style.display = "block";
@@ -43,7 +48,7 @@ const FavoritHotel = {
         hotelContainer.innerHTML += createHotelTemplate(data);
       });
     }
-  },
+  }
 };
 
 export default FavoritHotel;

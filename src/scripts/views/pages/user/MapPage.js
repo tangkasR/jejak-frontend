@@ -79,6 +79,11 @@ const MapPage = {
     const footer = document.querySelector("footer-element");
     footer.style.display = "none";
 
+    // active navbar
+    const mapLink = document.getElementById("link-map");
+    mapLink.classList.add("active");
+    // end active navbar
+
     // get datas wisata
     const wisata = await WisataSource.getWisata();
     const dataWisata = wisata.data;
@@ -87,6 +92,7 @@ const MapPage = {
     let map = L.map("userMap").setView([-7.797068, 110.370529], 12);
 
     L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+      maxZoom: 19,
       attribution: '&copy; <a href="">JelajahJogja</a>'
     }).addTo(map);
     L.Control.geocoder().addTo(map);
@@ -114,8 +120,8 @@ const MapPage = {
     });
     const iconWisata = L.icon({
       iconUrl: "./icons/icon_wisata_2.png",
-      iconSize: [42, 50],
-      iconAnchor: [20, 50]
+      iconSize: [50, 50],
+      iconAnchor: [25, 2]
     });
 
     let markers = L.markerClusterGroup({
@@ -161,7 +167,7 @@ const MapPage = {
           e.routes[0].coordinates.forEach(function (coord, index) {
             setTimeout(() => {
               marker.setLatLng([coord.lat, coord.lng]);
-            }, 10 * index);
+            }, 5 * index);
           });
         });
       }
@@ -246,7 +252,9 @@ const MapPage = {
           title: `${data.nama}`,
           alt: `Nama wisata`,
           icon: iconWisata
-        }).addTo(map);
+        })
+          .addTo(map)
+          .bindPopup(dataWisataPopUp(data));
       });
     });
 

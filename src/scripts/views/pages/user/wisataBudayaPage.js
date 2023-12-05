@@ -24,6 +24,11 @@ const wisataBudayaPage = {
   },
 
   async afterRender() {
+    // navbar active
+    const budayaLink = document.getElementById("link-budaya");
+    budayaLink.classList.add("active");
+    // end navbar active
+
     // get data wisata
     const wisata = await WisataSource.getWisata();
     const datasWisata = wisata.data;
@@ -69,7 +74,7 @@ const wisataBudayaPage = {
                 `;
       }
     });
-  },
+  }
 };
 
 export default wisataBudayaPage;

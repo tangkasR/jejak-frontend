@@ -28,6 +28,11 @@ const GalleryPage = {
   },
 
   async afterRender() {
+     // active navbar
+     const galleryLink = document.getElementById("link-gallery");
+     galleryLink.classList.add("active");
+     // end active navbar
+
     const gallery = await WisataSource.getWisata();
     let datasGallery = gallery.data;
     const galleryContent = document.getElementById("gallery-content");
