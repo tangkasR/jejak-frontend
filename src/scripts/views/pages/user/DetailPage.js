@@ -202,7 +202,7 @@ const Detail = {
       const today = new Date ();
       const formattedDate = `${String (today.getDate ()).padStart (2, '0')}-${String (today.getMonth () + 1).padStart (2, '0')}-${today.getFullYear ()}`;
       reviewresult.innerHTML += `
-      <div class="row align-items-center">
+      <div class="row align-items-center gy-4">
         <div class="col-md-4">
           <div>
             <img src="https://images.unsplash.com/photo-1695653422715-991ec3a0db7a?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" width="300px" height="300px" class="rounded-circle"/>
