@@ -14,7 +14,7 @@
   --bg-secondary: #3f4e4f;
   --bg-primary: #f1ede2;
   --txt-primary: #ffff;
-  --txt-secondary: #302e29;
+  --txt-secondary: #dcd7c9;
   --txt-third: #a27b5c;
 }
 
@@ -392,7 +392,10 @@ body {
 }
 
 .stars{
-color: #ffc107;
+  color: #ffc107;
+  width: 20px;
+  height: 20px;
+  font-size: 30px;
 }
 
 

@@ -1,15 +1,16 @@
-import "regenerator-runtime";
-import UrlParser from "../../../routes/url-parser";
-import WisataSource from "../../../data/wisata-source";
-import HotelSource from "../../../data/hotel-source";
-import LikeButtonInitiator from "../../../utils/favorit-wisata-button-initiator";
-import { createDetailWisataTemplate } from "../../templates/FavoritTemplate";
-import ReviewSource from "../../../data/review-source";
-import { data } from "jquery";
-import { async } from "regenerator-runtime";
+import 'regenerator-runtime';
+import UrlParser from '../../../routes/url-parser';
+import WisataSource from '../../../data/wisata-source';
+import HotelSource from '../../../data/hotel-source';
+import LikeButtonInitiator
+  from '../../../utils/favorit-wisata-button-initiator';
+import {createDetailWisataTemplate} from '../../templates/FavoritTemplate';
+import ReviewSource from '../../../data/review-source';
+import {data} from 'jquery';
+import {async} from 'regenerator-runtime';
 
 const Detail = {
-  async render() {
+  async render () {
     return `
     <div class="container-like "></div>
     <div id="likeButtonContainer"></div>
@@ -21,7 +22,7 @@ const Detail = {
           </div>
       </div>
       <div class="container">
-      <h3 class="fw-bold mt-5"
+      <h3 class="fw-bold mt-5 mb-4"
       data-aos="fade-up"
       data-aos-delay="50"
       data-aos-duration="2000">Penginapan Terdekat</h3>
@@ -43,22 +44,22 @@ const Detail = {
     </section>
     <section class="reviewCard">
       <div class="container">
-        <div class="carditemreview" id="card-review">
+        <div class="carditemreview p-2 rounded-3" id="card-review">
       </div>
     </section>
     <section class="resultCard">
       <div class="container">
-        <div id="reviewCards" class="row justify-content-center mt-5"></div>
+        <div id="reviewCards" class="row justify-content-center mt-5 rounded-3"></div>
       </div>
     </section>
         `;
   },
 
-  async afterRender() {
-    const url = UrlParser.parseActiveUrlWithoutCombiner();
-    const wisata = await WisataSource.getWisataById(url.id);
-    console.log(wisata);
-    const detailContainer = document.querySelector("#posts");
+  async afterRender () {
+    const url = UrlParser.parseActiveUrlWithoutCombiner ();
+    const wisata = await WisataSource.getWisataById (url.id);
+    console.log (wisata);
+    const detailContainer = document.querySelector ('#posts');
     detailContainer.innerHTML += `
         <div class="col-md-10 mx-auto">
         <h1 class="text-center fw-bold mb-3">${wisata.data.nama}</h1>
@@ -76,25 +77,25 @@ const Detail = {
       </div>
       `;
     // swiper
-    var swiper = new Swiper(".mySwiper", {
-      slidesPerView: "auto",
+    var swiper = new Swiper ('.mySwiper', {
+      slidesPerView: 'auto',
       spaceBetween: 30,
       autoplay: {
         delay: 2500,
         disableOnInteraction: false,
       },
       pagination: {
-        el: ".swiper-pagination",
+        el: '.swiper-pagination',
         clickable: true,
       },
     });
 
-    var swipers = new Swiper(".mySwipers", {
-      slidesPerView: "auto",
+    var swipers = new Swiper ('.mySwipers', {
+      slidesPerView: 'auto',
       spaceBetween: 30,
       navigation: {
-        nextEl: ".swiper-button-next",
-        prevEl: ".swiper-button-prev",
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
       },
       breakpoints: {
         // when window width is >= 320px
@@ -120,10 +121,10 @@ const Detail = {
     });
     // end swiper
 
-    const hotel = await HotelSource.getHotelByWisataId(url.id);
+    const hotel = await HotelSource.getHotelByWisataId (url.id);
     const dataHotel = hotel.data;
-    const hotelContent = document.querySelector("#wisata-lainnya");
-    dataHotel.forEach((data) => {
+    const hotelContent = document.querySelector ('#wisata-lainnya');
+    dataHotel.forEach (data => {
       hotelContent.innerHTML += `
               <div class="swiper-slide item-wisata-lainnya">
                 <div class="card_items">
@@ -141,13 +142,13 @@ const Detail = {
             `;
     });
 
-    const reviewContent = document.querySelector("#card-review");
+    const reviewContent = document.querySelector ('#card-review');
     reviewContent.innerHTML += `
-        <h3 class="fw-bold mt-5 text-center pt-3"
+        <h3 class="fw-bold mt-4 text-center "
         data-aos="fade-up"
         data-aos-delay="50"
         data-aos-duration="2000">Review</h3>
-        <form id="reviewForm" class="mx-5">
+        <form id="reviewForm" class="mx-5 mt-3">
         <div class="fw-bold mb-3"
         data-aos="fade-up"
         data-aos-delay="50"
@@ -185,63 +186,62 @@ const Detail = {
           <input type="radio" id="star2" name="rating" value="2" /><label for="star2"></label>
           <input type="radio" id="star1" name="rating" value="1" /><label for="star1"></label>
           </div>
-          <button id="inputsubmit" type="submit" class="btn btn-primary mb-3 float-end">Kirim</button>
+          <div class="d-flex justify-content-end w-100">
+            <button id="inputsubmit" type="submit" class="btn btn-review">Kirim</button>
+          </div>
         </div>
       </form>
       
         `;
 
-    const result = await ReviewSource.getReview(url.id);
+    const result = await ReviewSource.getReview (url.id);
     const dataresult = result.data;
-    const reviewresult = document.querySelector("#reviewCards");
-    dataresult.forEach((data) => {
-      const stars = "&#9733;".repeat(data.rating);
-      const today = new Date();
-      const formattedDate = `${String(today.getDate()).padStart(
-        2,
-        "0"
-      )}-${String(today.getMonth() + 1).padStart(
-        2,
-        "0"
-      )}-${today.getFullYear()}`;
+    const reviewresult = document.querySelector ('#reviewCards');
+    dataresult.forEach (data => {
+      const stars = '&#9733;'.repeat (data.rating);
+      const today = new Date ();
+      const formattedDate = `${String (today.getDate ()).padStart (2, '0')}-${String (today.getMonth () + 1).padStart (2, '0')}-${today.getFullYear ()}`;
       reviewresult.innerHTML += `
-      <div class="cardResult mb-3" stlye="width: 500px;"
-      data-aos="fade-up"
-      data-aos-delay="50"
-      data-aos-duration="1000"
-      data-aos-easing="ease-in-out">
-        <div class="mt-3">
-          <h5 class="card-name fw-bold">${data.name}</h5>
+      <div class="row align-items-center">
+        <div class="col-md-4">
+          <div>
+            <img src="https://images.unsplash.com/photo-1695653422715-991ec3a0db7a?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" width="300px" height="300px" class="rounded-circle"/>
+          </div>
         </div>
-        <div class="card-rating-date">
-          <span class="star-result stars">${stars}</span>
-          <span class="card-date">${formattedDate}</span>
-        </div>
-        <div class="mt-3">
-          <p class="card-review text-break">${data.review}</p>
+        <div class="col-md-8">
+              <div class="mt-3 content-review">
+              <div class="d-flex justify-content-between">
+                <h5 class="card-name fw-bold mb-0">${data.name}</h5>
+                <p class="py-2 mb-0 fw-semibold">${formattedDate}</p>
+              </div>
+              <div class="star-container">
+              <span class="star-result stars">${stars}</span>
+              </div>
+                <p class="card-review text-break fw-semibold mt-2">${data.review}</p>
+              </div>
         </div>
       </div>
     `;
     });
 
     // submit review
-    const form = document.getElementById("reviewForm");
+    const form = document.getElementById ('reviewForm');
 
-    form.addEventListener("submit", async (event) => {
-      const formData = new FormData(form);
-      const data = Object.fromEntries(formData);
+    form.addEventListener ('submit', async event => {
+      const formData = new FormData (form);
+      const data = Object.fromEntries (formData);
       try {
-        const review = await ReviewSource.addReview(url.id, data);
-        console.log(review);
+        const review = await ReviewSource.addReview (url.id, data);
+        console.log (review);
 
-        form.reset();
+        form.reset ();
       } catch (error) {
-        console.log(error);
+        console.log (error);
       }
     });
 
-    LikeButtonInitiator.init({
-      likeButtonContainer: document.querySelector("#likeButtonContainer"),
+    LikeButtonInitiator.init ({
+      likeButtonContainer: document.querySelector ('#likeButtonContainer'),
       wisata: {
         id: wisata.data.id,
         nama: wisata.data.nama,
@@ -260,10 +260,10 @@ const Detail = {
       },
     });
     document
-      .querySelector(".detailCard")
-      .addEventListener("click", async (event) => {
-        const likeContainer = document.querySelector(".container-like");
-        likeContainer.innerHTML = "";
+      .querySelector ('.detailCard')
+      .addEventListener ('click', async event => {
+        const likeContainer = document.querySelector ('.container-like');
+        likeContainer.innerHTML = '';
       });
   },
 };
