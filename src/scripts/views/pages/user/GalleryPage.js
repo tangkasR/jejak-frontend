@@ -8,18 +8,42 @@ const GalleryPage = {
       <div class="container">
         <div class="row gy-5">
           <div class="col-md-12 mx-auto">
-          <h1 class="gallery-title fw-bold text-center mb-5 mx-auto">Galeri</h1>
-            <p class="gallery-desc text-center mt-5">Selamat datang di halaman Galeri Jelajah Jogja!
+          <h2 class="w-100 gallery-title"
+              data-aos="fade-up"
+              data-aos-delay="50"
+              data-aos-duration="500"
+              data-aos-easing="ease-in-out">Galeri</h2>
+              <hr
+                class="hr"
+                data-aos="fade-up"
+                data-aos-delay="50"
+                data-aos-duration="500"
+                data-aos-easing="ease-in-out"
+              />
+            <p class="gallery-desc text-center mt-5"
+              data-aos="fade-up"
+              data-aos-delay="50"
+              data-aos-duration="500"
+              data-aos-easing="ease-in-out"
+              >Selamat datang di halaman Galeri Jelajah Jogja!
             <br />
             Jelajahi keajaiban alam dan budaya di wilayah Jogja melalui galeri foto kami. Setiap gambar adalah potret indah dari tempat-tempat wisata yang menakjubkan, memperlihatkan keunikan dan kecantikan khas Jogja.
             Galeri ini tidak hanya sekadar koleksi gambar, tetapi juga sumber inspirasi untuk rencana perjalanan Anda selanjutnya. Temukan tempat-tempat yang ingin Anda kunjungi, dan biarkan diri Anda terbawa dalam pesona keberagaman dan kekayaan budaya Jogja.
             </p>
-            <div class="btn-filter d-flex mt-5 mb-5 justify-content-center mx-auto" style="width: 400px;">
+            <div class="btn-filter d-flex mt-5 mb-5 justify-content-center mx-auto" style="width: 400px;"
+              data-aos="fade-right"
+              data-aos-delay="50"
+              data-aos-duration="1000"
+              data-aos-easing="ease-in-out">
               <button type="button" class="btn active" data-category="all">All</button>
               <button type="button" class="btn" data-category="alam">Alam</button>
               <button type="button" class="btn" data-category="budaya">Budaya</button>
             </div>
-            <div id="gallery-content" class="d-flex flex-wrap justify-content-between"></div>
+            <div id="gallery-content" class="d-flex flex-wrap justify-content-between"
+              data-aos="fade-right"
+              data-aos-delay="50"
+              data-aos-duration="1000"
+              data-aos-easing="ease-in-out"></div>
           </div>
         </div>
       </div>

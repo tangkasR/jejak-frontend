@@ -10,11 +10,10 @@ const detailGalleryPage = {
       <div class="container">
         <div class="row gy-5">
           <div id="wisata-content" class="d-flex flex-wrap justify-content-between"></div>
-          <h2 class="fw-bold text-center mb-5 mx-auto"
+          <h2 class="text-center mb-5 mx-auto"
           data-aos="fade-down"
           data-aos-delay="50"
-          data-aos-duration="1000"
-          style="color: #2C3639;">Gambar dan Foto Wisata</h2>
+          data-aos-duration="1000">Gambar dan Foto Wisata</h2>
           <div id="detail-gallery-content" class="d-flex flex-wrap justify-content-between"></div>
         </div>
       </div>
@@ -29,20 +28,23 @@ const detailGalleryPage = {
     const wisataContent = document.querySelector('#wisata-content');
     wisataContent.innerHTML += `
     <div class="main-detail-gallery">
-      <h1 class="detail-gallery-title text-center fw-bold" 
+      <h1 class="detail-gallery-title text-center fw-bold mt-2" 
       data-aos="fade-down"
       data-aos-delay="50"
       data-aos-duration="2000"
-      style="color: #2C3639;">${wisata.data.nama}</h1>
-      <hr data-aos="fade-right"
+      style="color: #3f4e4f;">${wisata.data.nama}</h1>
+      <hr
+      class="hr"
+      data-aos="fade-up"
       data-aos-delay="50"
-      data-aos-duration="2000"
-      style="color: #2C3639;">
+      data-aos-duration="500"
+      data-aos-easing="ease-in-out"
+      />
       <p class="subtitle mt-5"
       data-aos="fade-left"
       data-aos-delay="50"
       data-aos-duration="1000"
-      style="color: #2C3639;">${wisata.data.deskripsi}</p>
+      style="color: #3f4e4f;">${wisata.data.deskripsi}</p>
       <div class="image-container" style="overflow: hidden;">
         <img src="${wisata.data.url}" class="card-img-top rounded-4 mb-5" 
         data-aos="fade-right"
