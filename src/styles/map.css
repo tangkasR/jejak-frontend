@@ -168,24 +168,28 @@
 /* peanduan */
 .petunjuk_container {
   position: fixed;
-  top: 120px;
+  top: 110px;
   z-index: 2000;
-  left: 20px;
+  left: 60px;
+  width: 40%;
 }
 .panduan_item {
-  padding: 20px;
-  width: 70%;
+  padding: 20px 40px;
   background-color: #3f4e4f;
-  text-align: center;
+  text-align: left;
   border-radius: 10px;
   color: white;
+  text-wrap: wrap;
 }
 .panduan_item h1 {
   font-size: 25px;
   font-weight: 600;
+  margin-bottom: 10px;
 }
-.panduan_item p{
+.panduan_item p {
   font-size: 16px;
+  line-height: 30px;
+  margin-bottom: 0;
 }
 /* end peanduan */
 
@@ -215,27 +219,25 @@
   .arrow {
     display: block;
     position: absolute;
-    z-index: 500;
     top: 170px;
-    left: 20px;
-    background-color: rgba(0, 0, 0, 0.8);
-    border-radius: 50%;
-    padding: 5px;
-    padding-right: 0;
+    left: 10px;
     z-index: 1000;
   }
   .arrow i {
-    font-size: 50px;
-    color: white;
+    background-color: rgba(255, 255, 255, 0.719);
+    border-radius: 50%;
+    font-size: 40px;
+    color: black;
+    border: 2px solid black;
   }
   .guide_map.active {
-    left: 20px;
+    left: 10px;
   }
   .guide_map {
     display: flex;
     transition: all 1s;
     position: absolute;
-    top: 240px;
+    top: 220px;
     z-index: 500;
     left: -600px;
     width: fit-content;
@@ -289,5 +291,10 @@
 
   .btn-reset {
     top: 120px !important;
+  }
+}
+@media only screen and (max-width: 912px) {
+  .petunjuk_container {
+    display: none !important;
   }
 }

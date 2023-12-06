@@ -195,67 +195,6 @@ const MapPage = {
     };
     // end make pop up wisata
 
-    map.on("click", function (e) {
-      if (titikAwal !== "" && titikAkhir === "") {
-        titikAkhir = e.latlng;
-        titikTemp = titikAkhir;
-        map.removeLayer(marker);
-        makeRouting(titikAwal, titikAkhir);
-      }
-
-      if (titikAwal === "") {
-        titikAwal = e.latlng;
-        makeRouting(titikAwal, null);
-      }
-
-      titikTemp = e.latlng;
-      if (titikAkhir !== titikTemp && titikAkhir !== "") {
-        titikAkhir = titikTemp;
-        routing.spliceWaypoints(0, 2);
-        markers.clearLayers();
-        map.removeLayer(marker);
-        makeRouting(titikAwal, titikAkhir);
-      }
-
-      if (titikAkhir !== "") {
-        latitude_1 = titikAkhir.lat + 0.05;
-        latitude_2 = titikAkhir.lat - 0.05;
-        longitude_1 = titikAkhir.lng + 0.05;
-        longitude_2 = titikAkhir.lng - 0.05;
-
-        dataWisata.forEach((data) => {
-          if (
-            data.latitude >= latitude_2 &&
-            data.latitude <= latitude_1 &&
-            data.longitude >= longitude_2 &&
-            data.longitude <= longitude_1
-          ) {
-            area.push({
-              latitude: data.latitude,
-              longitude: data.longitude,
-              nama: data.nama,
-              url: data.url,
-              lokasi: data.lokasi,
-              id: data.id
-            });
-          }
-        });
-
-        if (area.length !== 0) {
-          area.forEach((data) => {
-            let markerWisata = L.marker([data.latitude, data.longitude], {
-              title: `${data.nama}`,
-              alt: `Nama wisata`,
-              icon: iconWisata
-            }).bindPopup(dataWisataPopUp(data));
-            markers.addLayer(markerWisata);
-          });
-          area = [];
-          map.addLayer(markers);
-        }
-      }
-    });
-
     // open all wisatas
     document.querySelector(".btn-destinasi").addEventListener("click", () => {
       dataWisata.forEach((data) => {
@@ -301,27 +240,120 @@ const MapPage = {
     }
     // end arrow sidebar map
 
-    // message
-    const message = (title, body) => {
-      const messageContainer = document.querySelector(".message_container");
-      messageContainer.innerHTML = `
-      <div class="message_item">
-        <h1>${title}</h1>
-        <p>${body}!</p>
+    // panduan
+    let panduanContainer = document.querySelector(".petunjuk_container");
+    panduanContainer.innerHTML = `
+      <div class="panduan_item">
+        <h1>Tentukan Lokasi Awal !</h1>
+        <p>Silahkan tentukan lokasi awal menggunakan fitur search pojok kanan atas.</p>
       </div>
       `;
-    };
-    // end message
 
-    // panduan 1
-    const panduanContainer = document.querySelector(".petunjuk_container");
-    panduanContainer.innerHTML = `
-    <div class="panduan_item">
-      <h1>Tentukan Lokasi Awal !</h1>
-      <p>Silahkan tentukan lokasi awal menggunakan fitur search pojok kanan atas.</p>
-    </div>
-    `;
-    // end panduan 1
+    document
+      .querySelector(".leaflet-control-geocoder-form")
+      .addEventListener("change", () => {
+        if (titikAwal === "") {
+          panduanContainer.innerHTML = `
+              <div class="panduan_item">
+                <h1>Pilih Titik Lokasi Awal !</h1>
+                <p>
+                  Silahkan tekan titik lokasi awal di map.
+                </p>
+              </div>
+            `;
+        } else {
+          panduanContainer.innerHTML = `
+              <div class="panduan_item">
+                <h1>Pilih Titik Lokasi Yogyakarta !</h1>
+                <p>
+                  Silahkan tekan titik lokasi yogyakarta di map.
+                </p>
+              </div>
+            `;
+        }
+      });
+
+    // map onclick
+    map.on("click", function (e) {
+      if (titikAwal !== "" && titikAkhir === "") {
+        titikAkhir = e.latlng;
+        titikTemp = titikAkhir;
+        map.removeLayer(marker);
+        makeRouting(titikAwal, titikAkhir);
+        panduanContainer.innerHTML = `
+          <div class="panduan_item">
+            <h1>Berhasil Menentukan Titik Tujuan !</h1>
+            <p>Jika terdapat lingkaran hitam, perbesar layar map untuk melihat titik lokasi wisata.</p>
+            <p>Silahkan ganti lokasi tujuan jika tidak terdapat wisata di sekitarnya.</p>
+          </div>
+        `;
+      }
+
+      if (titikAwal === "") {
+        titikAwal = e.latlng;
+        makeRouting(titikAwal, null);
+        panduanContainer.innerHTML = `
+          <div class="panduan_item">
+            <h1>Berhasil Menentukan Titik Awal !</h1>
+            <p>Silahkan tentukan lokasi Yogyakarta menggunakan fitur search pojok kanan atas.</p>
+          </div>
+        `;
+      }
+
+      titikTemp = e.latlng;
+      if (titikAkhir !== titikTemp && titikAkhir !== "") {
+        titikAkhir = titikTemp;
+        routing.spliceWaypoints(0, 2);
+        markers.clearLayers();
+        map.removeLayer(marker);
+        makeRouting(titikAwal, titikAkhir);
+        panduanContainer.innerHTML = `
+          <div class="panduan_item">
+            <h1>Selamat Menikmati Fitur Tracking !</h1>
+            <p>Happy Enjoy Kawan!!!</p>
+          </div>
+        `;
+      }
+
+      if (titikAkhir !== "") {
+        latitude_1 = titikAkhir.lat + 0.05;
+        latitude_2 = titikAkhir.lat - 0.05;
+        longitude_1 = titikAkhir.lng + 0.05;
+        longitude_2 = titikAkhir.lng - 0.05;
+
+        dataWisata.forEach((data) => {
+          if (
+            data.latitude >= latitude_2 &&
+            data.latitude <= latitude_1 &&
+            data.longitude >= longitude_2 &&
+            data.longitude <= longitude_1
+          ) {
+            area.push({
+              latitude: data.latitude,
+              longitude: data.longitude,
+              nama: data.nama,
+              url: data.url,
+              lokasi: data.lokasi,
+              id: data.id
+            });
+          }
+        });
+
+        if (area.length !== 0) {
+          area.forEach((data) => {
+            let markerWisata = L.marker([data.latitude, data.longitude], {
+              title: `${data.nama}`,
+              alt: `Nama wisata`,
+              icon: iconWisata
+            }).bindPopup(dataWisataPopUp(data));
+            markers.addLayer(markerWisata);
+          });
+          area = [];
+          map.addLayer(markers);
+        }
+      }
+    });
+    // end map onclick
   }
 };
 export default MapPage;
