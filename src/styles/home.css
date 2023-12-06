@@ -159,9 +159,6 @@ body {
   padding: 80px 0;
 }
 
-.category .title {
-  color: var(--txt-third) !important;
-}
 
 .kategori_card {
   min-height: 150px;
