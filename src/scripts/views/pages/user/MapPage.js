@@ -3,7 +3,6 @@ import WisataSource from "../../../data/wisata-source";
 const MapPage = {
   async render() {
     return `
-      <div class="overlay"></div>
       <div class="arrow">
         <i class='bx bx-chevrons-right' id="arrow_icon" ></i>
       </div>
@@ -71,6 +70,10 @@ const MapPage = {
         </div>
       </div>
 
+      <div class="message_container">
+      </div>
+      <div class="petunjuk_container">
+      </div>
       <div style="margin-bottom: -50px; min-height:100vh" id="userMap"></div>
     `;
   },
@@ -88,7 +91,7 @@ const MapPage = {
     const wisata = await WisataSource.getWisata();
     const dataWisata = wisata.data;
 
-    // fitur map
+    // init map
     let map = L.map("userMap").setView([-7.797068, 110.370529], 12);
 
     L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
@@ -123,7 +126,9 @@ const MapPage = {
       iconSize: [50, 50],
       iconAnchor: [25, 2]
     });
+    // end init map
 
+    // make marker cluster grup
     let markers = L.markerClusterGroup({
       iconCreateFunction: function (cluster) {
         var markers = cluster.getAllChildMarkers();
@@ -138,7 +143,9 @@ const MapPage = {
       showCoverageOnHover: true,
       zoomToBoundsOnClick: false
     });
+    // end make marker cluster grup
 
+    // make marker routing
     const makeRouting = (titik_awal, titik_akhir) => {
       routing = L.Routing.control({
         waypoints: [L.latLng(titik_awal), L.latLng(titik_akhir)],
@@ -172,7 +179,9 @@ const MapPage = {
         });
       }
     };
+    // end make marker routing
 
+    // make pop up wisata
     const dataWisataPopUp = (data) => {
       return `
         <div class="text-center card-map h-100">
@@ -184,6 +193,7 @@ const MapPage = {
         </div>
       `;
     };
+    // end make pop up wisata
 
     map.on("click", function (e) {
       if (titikAwal !== "" && titikAkhir === "") {
@@ -246,6 +256,7 @@ const MapPage = {
       }
     });
 
+    // open all wisatas
     document.querySelector(".btn-destinasi").addEventListener("click", () => {
       dataWisata.forEach((data) => {
         let pointer = L.marker([data.latitude, data.longitude], {
@@ -257,32 +268,60 @@ const MapPage = {
           .bindPopup(dataWisataPopUp(data));
       });
     });
+    // end open all wisatas
 
+    // open panduan
     document.querySelector(".btn-lacak").addEventListener("click", () => {
       const panduanLacak = document.querySelector(".panduanLacakContainer");
       panduanLacak.style.display = "block";
-      const overlay = document.querySelector(".overlay");
-      overlay.style.display = "block";
     });
-    document.querySelector(".btn-reset").addEventListener("click", () => {
-      location.reload();
-    });
+    // end open panduan
 
+    // close panduan
     if (document.querySelector(".btn_fav")) {
       document.querySelector(".btn_fav").addEventListener("click", () => {
         const panduanLacak = document.querySelector(".panduanLacakContainer");
         panduanLacak.style.display = "none";
-        const overlay = document.querySelector(".overlay");
-        overlay.style.display = "none";
       });
     }
+    // end close panduan
 
+    // reset map
+    document.querySelector(".btn-reset").addEventListener("click", () => {
+      location.reload();
+    });
+    // end reset map
+
+    // arrow sidebar map
     if (document.getElementById("arrow_icon")) {
       document.getElementById("arrow_icon").addEventListener("click", () => {
         const sidebar = document.querySelector(".guide_map");
         sidebar.classList.toggle("active");
       });
     }
+    // end arrow sidebar map
+
+    // message
+    const message = (title, body) => {
+      const messageContainer = document.querySelector(".message_container");
+      messageContainer.innerHTML = `
+      <div class="message_item">
+        <h1>${title}</h1>
+        <p>${body}!</p>
+      </div>
+      `;
+    };
+    // end message
+
+    // panduan 1
+    const panduanContainer = document.querySelector(".petunjuk_container");
+    panduanContainer.innerHTML = `
+    <div class="panduan_item">
+      <h1>Tentukan Lokasi Awal!</h1>
+      <p>Silahkan tentukan lokasi awal menggunakan fitur search dibawah.</p>
+    </div>
+    `;
+    // end panduan 1
   }
 };
 export default MapPage;

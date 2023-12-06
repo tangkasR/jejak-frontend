@@ -159,10 +159,6 @@ body {
   padding: 80px 0;
 }
 
-.category .title {
-  color: var(--txt-third) !important;
-}
-
 .kategori_card {
   min-height: 150px;
   min-width: 150px;
@@ -323,10 +319,9 @@ body {
   text-decoration: none;
 }
 
-.card-title:hover{
+.card-title:hover {
   opacity: 0.5;
 }
-
 
 /* detail */
 .detailCard {
@@ -335,7 +330,7 @@ body {
 /* card review */
 
 .carditemreview {
-  background-color: #E5E5E5;
+  background-color: #e5e5e5;
 }
 
 .rating-section {
@@ -355,8 +350,6 @@ body {
   display: flex;
   flex-direction: row-reverse;
 }
-
-
 
 .star-rating input[type="radio"] {
   display: none;
@@ -387,29 +380,28 @@ body {
 .btn-primary {
   display: flex;
   margin-left: auto;
-  background: #A27B5C;
+  background: #a27b5c;
   justify-content: flex-end;
 }
 
-.stars{
+.stars {
   color: #ffc107;
   width: 20px;
   height: 20px;
   font-size: 30px;
 }
 
-
 #reviewCards {
   display: flex;
   flex-direction: row;
   gap: 1px;
-  max-width: 100%; 
-  padding: 30px 3rem ; 
+  max-width: 100%;
+  padding: 30px 3rem;
   flex-wrap: wrap;
 }
 
-
-.card-date, .card-review{
+.card-date,
+.card-review {
   font-size: 15px;
   font-weight: 600;
 }
@@ -418,20 +410,18 @@ body {
   display: grid;
   align-items: center;
   grid-column-gap: 10px;
-  grid-template-columns: repeat(2,max-content);
+  grid-template-columns: repeat(2, max-content);
 }
 
 .cardResult {
   padding: 20px;
-  background-color: #D6D5D5;
-  border-radius: 15px; 
+  background-color: #d6d5d5;
+  border-radius: 15px;
 }
 
-#reviewCards{
-  background-color:#E5E5E5
+#reviewCards {
+  background-color: #e5e5e5;
 }
-
-
 
 /* responsive */
 /* Extra small devices (phones, 600px and down) */

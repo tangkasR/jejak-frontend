@@ -11,7 +11,7 @@
 }
 #userMap {
   margin-top: 90px !important;
-  overflow-x: scroll !important;
+  overflow-x: hidden;
 }
 
 /* map */
@@ -93,9 +93,10 @@
   display: none;
   width: 100%;
   position: absolute;
-  top: 120px;
-  z-index: 1500;
-  padding: 0 30px;
+  top: 90px;
+  z-index: 2500;
+  padding: 40px 30px;
+  background-color: rgba(0, 0, 0, 0.8);
 }
 .panduanLacak {
   width: 100%;
@@ -134,13 +135,6 @@
   margin: 30px 0;
 }
 
-.overlay {
-  display: none;
-  position: absolute;
-  width: 100%;
-  background-color: rgba(0, 0, 0, 0.8);
-  z-index: 1400;
-}
 .img_wrapper_1 {
   margin-bottom: 20px;
 }
@@ -157,32 +151,62 @@
   font-weight: 500;
   margin: 0;
 }
-/* end map */
 
-/* Extra small devices (phones, 600px and down) */
-@media only screen and (max-width: 300px) {
-  .overlay {
-    height: 370vh !important;
-  }
+/* message */
+.message_container {
+  position: fixed;
+  top: 110px;
+  left: 20px;
+  z-index: 2000;
 }
-@media only screen and (max-width: 380px) {
-  .overlay {
-    height: 330vh;
-  }
+.message_item {
+  background-color: #3f4e4f;
+  padding: 10px 40px;
+  border-radius: 10px;
+  color: #ffffff;
+  text-transform: capitalize;
 }
-@media only screen and (min-width: 381px) {
-  .overlay {
-    height: 300vh;
-  }
+.message_item h1 {
+  font-size: 25px;
+  font-weight: 600;
+  margin-top: 8px;
 }
+.message_item p {
+  margin-bottom: 8px;
+  font-weight: 500;
+}
+/* end message */
+
+/* peanduan */
+.petunjuk_container {
+  position: fixed;
+  top: 90px;
+  z-index: 2000;
+  width: 100%;
+  min-height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.panduan_item {
+  padding: 20px;
+  padding-bottom: 100px;
+  width: 70%;
+  background-color: #3f4e4f;
+  text-align: center;
+  border-radius: 10px;
+  color: white;
+}
+.panduan_item h1{
+  font-size: 30px;
+  font-weight: 600;
+}
+/* end peanduan */
 
 /* Small devices (portrait tablets and large phones, 600px and up) */
 @media only screen and (min-width: 576px) {
   .img_wrapper_1 {
     margin: 0;
-  }
-  .overlay {
-    height: 160vh;
   }
 }
 @media only screen and (max-width: 600px) {
@@ -231,9 +255,6 @@
   .arrow {
     display: none;
   }
-  .overlay {
-    height: 180vh;
-  }
   .guide_map {
     opacity: 1;
     position: absolute;
@@ -266,38 +287,5 @@
 
   .btn-reset {
     top: 120px !important;
-  }
-}
-
-/* Medium devices (landscape tablets, 768px and up) */
-@media only screen and (min-width: 769px) {
-  .overlay {
-    height: 180vh;
-  }
-}
-@media only screen and (min-width: 920px) {
-  .overlay {
-    height: 200vh;
-  }
-}
-/* Large devices (laptops/desktops, 992px and up) */
-@media only screen and (min-width: 992px) {
-  .overlay {
-    height: 200vh;
-  }
-}
-@media only screen and (min-width: 1200px) {
-  .overlay {
-    height: 150vh;
-  }
-}
-@media only screen and (min-width: 1600px) {
-  .overlay {
-    height: 120vh;
-  }
-}
-@media only screen and (min-width: 1700px) {
-  .overlay {
-    height: 100vh;
   }
 }
