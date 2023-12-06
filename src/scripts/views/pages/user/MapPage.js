@@ -317,8 +317,8 @@ const MapPage = {
     const panduanContainer = document.querySelector(".petunjuk_container");
     panduanContainer.innerHTML = `
     <div class="panduan_item">
-      <h1>Tentukan Lokasi Awal!</h1>
-      <p>Silahkan tentukan lokasi awal menggunakan fitur search dibawah.</p>
+      <h1>Tentukan Lokasi Awal !</h1>
+      <p>Silahkan tentukan lokasi awal menggunakan fitur search pojok kanan atas.</p>
     </div>
     `;
     // end panduan 1
