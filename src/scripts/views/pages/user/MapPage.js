@@ -243,33 +243,50 @@ const MapPage = {
     // panduan
     let panduanContainer = document.querySelector(".petunjuk_container");
     panduanContainer.innerHTML = `
-      <div class="panduan_item">
+      <div
+        class="panduan_item"
+        data-aos="fade-down"
+        data-aos-delay="50"
+        data-aos-duration="1500"
+        data-aos-easing="ease-in-out"
+      >
         <h1>Tentukan Lokasi Awal !</h1>
-        <p>Silahkan tentukan lokasi awal menggunakan fitur search pojok kanan atas.</p>
+        <p>
+          Silahkan tentukan lokasi awal menggunakan fitur search pojok kanan
+          atas.
+        </p>
       </div>
-      `;
+    `;
 
     document
       .querySelector(".leaflet-control-geocoder-form")
       .addEventListener("change", () => {
         if (titikAwal === "") {
           panduanContainer.innerHTML = `
-              <div class="panduan_item">
-                <h1>Pilih Titik Lokasi Awal !</h1>
-                <p>
-                  Silahkan tekan titik lokasi awal di map.
-                </p>
-              </div>
-            `;
+            <div
+              class="panduan_item"
+              data-aos="fade-down"
+              data-aos-delay="50"
+              data-aos-duration="1500"
+              data-aos-easing="ease-in-out"
+            >
+              <h1>Pilih Titik Lokasi Awal !</h1>
+              <p>Silahkan tekan titik lokasi awal di map.</p>
+            </div>
+          `;
         } else {
           panduanContainer.innerHTML = `
-              <div class="panduan_item">
-                <h1>Pilih Titik Lokasi Yogyakarta !</h1>
-                <p>
-                  Silahkan tekan titik lokasi yogyakarta di map.
-                </p>
-              </div>
-            `;
+            <div
+              class="panduan_item"
+              data-aos="fade-down"
+              data-aos-delay="50"
+              data-aos-duration="1500"
+              data-aos-easing="ease-in-out"
+            >
+              <h1>Pilih Titik Lokasi Yogyakarta !</h1>
+              <p>Silahkan tekan titik lokasi yogyakarta di map.</p>
+            </div>
+          `;
         }
       });
 
@@ -281,10 +298,22 @@ const MapPage = {
         map.removeLayer(marker);
         makeRouting(titikAwal, titikAkhir);
         panduanContainer.innerHTML = `
-          <div class="panduan_item">
+          <div
+            class="panduan_item"
+            data-aos="fade-down"
+            data-aos-delay="50"
+            data-aos-duration="1500"
+            data-aos-easing="ease-in-out"
+          >
             <h1>Berhasil Menentukan Titik Tujuan !</h1>
-            <p>Jika terdapat lingkaran hitam, perbesar layar map untuk melihat titik lokasi wisata.</p>
-            <p>Silahkan ganti lokasi tujuan jika tidak terdapat wisata di sekitarnya.</p>
+            <p>
+              Jika terdapat lingkaran hitam, perbesar layar map untuk melihat
+              titik lokasi wisata.
+            </p>
+            <p>
+              Silahkan ganti lokasi tujuan jika tidak terdapat wisata di
+              sekitarnya.
+            </p>
           </div>
         `;
       }
@@ -293,9 +322,18 @@ const MapPage = {
         titikAwal = e.latlng;
         makeRouting(titikAwal, null);
         panduanContainer.innerHTML = `
-          <div class="panduan_item">
+          <div
+            class="panduan_item"
+            data-aos="fade-down"
+            data-aos-delay="50"
+            data-aos-duration="1500"
+            data-aos-easing="ease-in-out"
+          >
             <h1>Berhasil Menentukan Titik Awal !</h1>
-            <p>Silahkan tentukan lokasi Yogyakarta menggunakan fitur search pojok kanan atas.</p>
+            <p>
+              Silahkan tentukan lokasi Yogyakarta menggunakan fitur search pojok
+              kanan atas.
+            </p>
           </div>
         `;
       }
@@ -308,7 +346,13 @@ const MapPage = {
         map.removeLayer(marker);
         makeRouting(titikAwal, titikAkhir);
         panduanContainer.innerHTML = `
-          <div class="panduan_item">
+          <div
+            class="panduan_item"
+            data-aos="fade-down"
+            data-aos-delay="50"
+            data-aos-duration="1500"
+            data-aos-easing="ease-in-out"
+          >
             <h1>Selamat Menikmati Fitur Tracking !</h1>
             <p>Happy Enjoy Kawan!!!</p>
           </div>
