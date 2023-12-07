@@ -33,7 +33,7 @@ class Navbar extends HTMLElement {
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav ms-auto mt-3 mt-lg-0 mb-2 mb-lg-0">
               <li class="nav-item">
-                <a class="nav-link link-navbar-user" href="#/home" id="link-home">Home</a>
+                <a class="nav-link link-navbar-user" href="#/home" id="link-home">Beranda</a>
               </li>
               <li class="nav-item dropdown">
                 <a
@@ -44,7 +44,7 @@ class Navbar extends HTMLElement {
                   data-bs-toggle="dropdown"
                   aria-expanded="false"
                 >
-                  Kategori
+                  Wisata
                 </a>
                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                   <li><a class="dropdown-item " id="link-alam" href="#/kategorialam">Alam</a></li>

@@ -8,6 +8,7 @@ import {createDetailWisataTemplate} from '../../templates/FavoritTemplate';
 import ReviewSource from '../../../data/review-source';
 import {data} from 'jquery';
 import {async} from 'regenerator-runtime';
+import moment from 'moment'
 
 const Detail = {
   async render () {
@@ -199,9 +200,9 @@ const Detail = {
     const reviewresult = document.querySelector ('#reviewCards');
     dataresult.forEach (data => {
       const stars = '&#9733;'.repeat (data.rating);
-      const today = new Date ();
-      const formattedDate = `${String (today.getDate ()).padStart (2, '0')}-${String (today.getMonth () + 1).padStart (2, '0')}-${today.getFullYear ()}`;
-
+      const date = data.createdAt;
+      const dataDate = moment(date).format('MM/DD/YYYY')
+     
       let imageUrl = '';
       // Kondisi untuk menentukan gambar berdasarkan rating
       if (data.rating == 5) {
@@ -235,7 +236,7 @@ const Detail = {
             <div class="mt-3 content-review">
               <div class="d-flex justify-content-between">
                 <h5 class="card-name fw-bold mb-0">${data.name}</h5>
-                <p class="py-2 mb-0 fw-semibold">${formattedDate}</p>
+                <p class="py-2 mb-0 fw-semibold">${dataDate}</p>
               </div>
               <div class="star-container">
                 <span class="star-result stars">${stars}</span>

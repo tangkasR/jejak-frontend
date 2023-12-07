@@ -10,7 +10,7 @@ const detailGalleryPage = {
       <div class="container">
         <div class="row gy-5">
           <div id="wisata-content" class="d-flex flex-wrap justify-content-between"></div>
-          <h2 class="text-center mb-5 mx-auto"
+          <h2 class="text-center fw-bold mx-auto"
           data-aos="fade-down"
           data-aos-delay="50"
           data-aos-duration="1000">Gambar dan Foto Wisata</h2>
