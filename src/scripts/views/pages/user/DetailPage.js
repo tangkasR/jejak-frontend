@@ -49,7 +49,7 @@ const Detail = {
     </section>
     <section class="resultCard">
       <div class="container">
-        <div id="reviewCards" class="row justify-content-center mt-5 rounded-3"></div>
+        <div id="reviewCards" class="row gap-4 justify-content-center"></div>
       </div>
     </section>
         `;
@@ -212,30 +212,40 @@ const Detail = {
         imageUrl = './images/bintang-3-emoji.png';
       } else if (data.rating == 2) {
         imageUrl = './images/bintang-2-emoji.png';
-      }else {
+      } else {
         imageUrl = './images/bintang-1-emoji.png';
       }
 
       reviewresult.innerHTML += `
-      <div class="row align-items-center gy-4">
-        <div class="col-md-4">
-          <div>
-            <img src="${imageUrl}" width="300px" height="300px" class="rounded-circle"/>
+      <div class="col-12 rounded-3 item_review_wrapper "
+        data-aos="fade-left"
+        data-aos-delay="50"
+        data-aos-duration="1000"
+        data-aos-easing="ease-in-out"
+      >
+        <div class="row align-items-center justify-content-center">
+          <div class="col-md-2 d-flex align-items-center justify-content-center">
+            <div>
+              <img
+                src="${imageUrl}"
+              />
+            </div>
           </div>
-        </div>
-        <div class="col-md-8">
-              <div class="mt-3 content-review">
+          <div class="col-md-10 pe-5 py-2">
+            <div class="mt-3 content-review">
               <div class="d-flex justify-content-between">
                 <h5 class="card-name fw-bold mb-0">${data.name}</h5>
                 <p class="py-2 mb-0 fw-semibold">${formattedDate}</p>
               </div>
               <div class="star-container">
-              <span class="star-result stars">${stars}</span>
+                <span class="star-result stars">${stars}</span>
               </div>
-                <p class="card-review text-break fw-semibold mt-2">${data.review}</p>
-              </div>
-        </div>
+              <p class="card-review text-break fw-semibold mt-2">${data.review}</p>
+            </div>
+          </div>
+        </div>;
       </div>
+      
     `;
     });
 

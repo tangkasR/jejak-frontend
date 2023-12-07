@@ -327,6 +327,7 @@ body {
 .detailCard {
   padding: 120px 0;
 }
+
 /* card review */
 
 .carditemreview {
@@ -371,8 +372,8 @@ body {
 }
 
 .reverse-star label:hover,
-.reverse-star input[type="radio"]:hover ~ label,
-.reverse-star input[type="radio"]:checked ~ label {
+.reverse-star input[type="radio"]:hover~label,
+.reverse-star input[type="radio"]:checked~label {
   color: #fdda44;
   transition: color 0.3s ease;
 }
@@ -391,13 +392,24 @@ body {
   font-size: 30px;
 }
 
+.item_review_wrapper {
+  background-color: #e5e5e5
+}
+
 #reviewCards {
-  display: flex;
-  flex-direction: row;
-  gap: 1px;
-  max-width: 100%;
-  padding: 30px 3rem;
-  flex-wrap: wrap;
+  padding: 0 10px;
+  margin-top: 30px;
+  /* display: flex;
+  flex-direction: row; */
+  /* gap: 1px; */
+  /* max-width: 100%; */
+  /* padding: 30px 3rem;
+  flex-wrap: wrap; */
+}
+
+#reviewCards img {
+  width: 120px;
+  object-fit: contain;
 }
 
 .card-date,
@@ -419,9 +431,6 @@ body {
   border-radius: 15px;
 }
 
-#reviewCards {
-  background-color: #e5e5e5;
-}
 
 /* responsive */
 /* Extra small devices (phones, 600px and down) */
