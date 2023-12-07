@@ -1,17 +1,13 @@
-import 'regenerator-runtime';
-import UrlParser from '../../../routes/url-parser';
-import WisataSource from '../../../data/wisata-source';
-import HotelSource from '../../../data/hotel-source';
-import LikeButtonInitiator
-  from '../../../utils/favorit-wisata-button-initiator';
-import {createDetailWisataTemplate} from '../../templates/FavoritTemplate';
-import ReviewSource from '../../../data/review-source';
-import {data} from 'jquery';
-import {async} from 'regenerator-runtime';
-import moment from 'moment'
+import "regenerator-runtime";
+import UrlParser from "../../../routes/url-parser";
+import WisataSource from "../../../data/wisata-source";
+import HotelSource from "../../../data/hotel-source";
+import LikeButtonInitiator from "../../../utils/favorit-wisata-button-initiator";
+import ReviewSource from "../../../data/review-source";
+import moment from "moment";
 
 const Detail = {
-  async render () {
+  async render() {
     return `
     <div class="container-like "></div>
     <div id="likeButtonContainer"></div>
@@ -56,11 +52,11 @@ const Detail = {
         `;
   },
 
-  async afterRender () {
-    const url = UrlParser.parseActiveUrlWithoutCombiner ();
-    const wisata = await WisataSource.getWisataById (url.id);
-    console.log (wisata);
-    const detailContainer = document.querySelector ('#posts');
+  async afterRender() {
+    const url = UrlParser.parseActiveUrlWithoutCombiner();
+    const wisata = await WisataSource.getWisataById(url.id);
+    console.log(wisata);
+    const detailContainer = document.querySelector("#posts");
     detailContainer.innerHTML += `
         <div class="col-md-10 mx-auto">
         <h1 class="text-center fw-bold mb-3">${wisata.data.nama}</h1>
@@ -78,54 +74,54 @@ const Detail = {
       </div>
       `;
     // swiper
-    var swiper = new Swiper ('.mySwiper', {
-      slidesPerView: 'auto',
+    var swiper = new Swiper(".mySwiper", {
+      slidesPerView: "auto",
       spaceBetween: 30,
       autoplay: {
         delay: 2500,
-        disableOnInteraction: false,
+        disableOnInteraction: false
       },
       pagination: {
-        el: '.swiper-pagination',
-        clickable: true,
-      },
+        el: ".swiper-pagination",
+        clickable: true
+      }
     });
 
-    var swipers = new Swiper ('.mySwipers', {
-      slidesPerView: 'auto',
+    var swipers = new Swiper(".mySwipers", {
+      slidesPerView: "auto",
       spaceBetween: 30,
       navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev',
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev"
       },
       breakpoints: {
         // when window width is >= 320px
         320: {
           slidesPerView: 1,
-          spaceBetween: 20,
+          spaceBetween: 20
         },
         // when window width is >= 480px
         480: {
           slidesPerView: 2,
-          spaceBetween: 30,
+          spaceBetween: 30
         },
         // when window width is >= 640px
         768: {
           slidesPerView: 3,
-          spaceBetween: 20,
+          spaceBetween: 20
         },
         992: {
           slidesPerView: 4,
-          spaceBetween: 40,
-        },
-      },
+          spaceBetween: 40
+        }
+      }
     });
     // end swiper
 
-    const hotel = await HotelSource.getHotelByWisataId (url.id);
+    const hotel = await HotelSource.getHotelByWisataId(url.id);
     const dataHotel = hotel.data;
-    const hotelContent = document.querySelector ('#wisata-lainnya');
-    dataHotel.forEach (data => {
+    const hotelContent = document.querySelector("#wisata-lainnya");
+    dataHotel.forEach((data) => {
       hotelContent.innerHTML += `
               <div class="swiper-slide item-wisata-lainnya">
                 <div class="card_items">
@@ -143,7 +139,7 @@ const Detail = {
             `;
     });
 
-    const reviewContent = document.querySelector ('#card-review');
+    const reviewContent = document.querySelector("#card-review");
     reviewContent.innerHTML += `
         <h3 class="fw-bold mt-4 text-center "
         data-aos="fade-up"
@@ -195,26 +191,26 @@ const Detail = {
       
         `;
 
-    const result = await ReviewSource.getReview (url.id);
+    const result = await ReviewSource.getReview(url.id);
     const dataresult = result.data;
-    const reviewresult = document.querySelector ('#reviewCards');
-    dataresult.forEach (data => {
-      const stars = '&#9733;'.repeat (data.rating);
+    const reviewresult = document.querySelector("#reviewCards");
+    dataresult.forEach((data) => {
+      const stars = "&#9733;".repeat(data.rating);
       const date = data.createdAt;
-      const dataDate = moment(date).format('MM/DD/YYYY')
-     
-      let imageUrl = '';
+      const dataDate = moment(date).format("MM/DD/YYYY");
+
+      let imageUrl = "";
       // Kondisi untuk menentukan gambar berdasarkan rating
       if (data.rating == 5) {
-        imageUrl = './images/bintang-5-emoji.png';
+        imageUrl = "./images/bintang-5-emoji.png";
       } else if (data.rating == 4) {
-        imageUrl = './images/bintang-4-emoji.png';
+        imageUrl = "./images/bintang-4-emoji.png";
       } else if (data.rating == 3) {
-        imageUrl = './images/bintang-3-emoji.png';
+        imageUrl = "./images/bintang-3-emoji.png";
       } else if (data.rating == 2) {
-        imageUrl = './images/bintang-2-emoji.png';
+        imageUrl = "./images/bintang-2-emoji.png";
       } else {
-        imageUrl = './images/bintang-1-emoji.png';
+        imageUrl = "./images/bintang-1-emoji.png";
       }
 
       reviewresult.innerHTML += `
@@ -244,30 +240,30 @@ const Detail = {
               <p class="card-review text-break fw-semibold mt-2">${data.review}</p>
             </div>
           </div>
-        </div>;
+        </div>
       </div>
       
     `;
     });
 
     // submit review
-    const form = document.getElementById ('reviewForm');
+    const form = document.getElementById("reviewForm");
 
-    form.addEventListener ('submit', async event => {
-      const formData = new FormData (form);
-      const data = Object.fromEntries (formData);
+    form.addEventListener("submit", async (event) => {
+      const formData = new FormData(form);
+      const data = Object.fromEntries(formData);
       try {
-        const review = await ReviewSource.addReview (url.id, data);
-        console.log (review);
+        const review = await ReviewSource.addReview(url.id, data);
+        console.log(review);
 
-        form.reset ();
+        form.reset();
       } catch (error) {
-        console.log (error);
+        console.log(error);
       }
     });
 
-    LikeButtonInitiator.init ({
-      likeButtonContainer: document.querySelector ('#likeButtonContainer'),
+    LikeButtonInitiator.init({
+      likeButtonContainer: document.querySelector("#likeButtonContainer"),
       wisata: {
         id: wisata.data.id,
         nama: wisata.data.nama,
@@ -282,16 +278,16 @@ const Detail = {
         total_rating: wisata.data.total_rating,
         total_viewers: wisata.data.total_viewers,
         created_at: wisata.data.created_at,
-        updated_at: wisata.data.updated_at,
-      },
+        updated_at: wisata.data.updated_at
+      }
     });
     document
-      .querySelector ('.detailCard')
-      .addEventListener ('click', async event => {
-        const likeContainer = document.querySelector ('.container-like');
-        likeContainer.innerHTML = '';
+      .querySelector(".detailCard")
+      .addEventListener("click", async (event) => {
+        const likeContainer = document.querySelector(".container-like");
+        likeContainer.innerHTML = "";
       });
-  },
+  }
 };
 
 export default Detail;

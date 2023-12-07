@@ -80,6 +80,7 @@
 .panduanLacakContainer {
   display: none;
   width: 100%;
+  min-height: 100vh;
   position: absolute;
   top: 90px;
   z-index: 2500;
@@ -202,6 +203,10 @@
   margin-right: 20px !important;
   border-radius: 10px;
   z-index: 5000 !important;
+  position: fixed;
+  top: 90px;
+  right: 0px;
+  /* z-index: 1000; */
 }
 #userMap .leaflet-control-geocoder input {
   font-weight: 600 !important;
@@ -218,7 +223,7 @@
 @media only screen and (max-width: 600px) {
   .arrow {
     display: block;
-    position: absolute;
+    position: fixed;
     top: 170px;
     left: 10px;
     z-index: 1000;
@@ -236,7 +241,7 @@
   .guide_map {
     display: flex;
     transition: all 1s;
-    position: absolute;
+    position: fixed;
     top: 220px;
     z-index: 500;
     left: -600px;
@@ -270,8 +275,8 @@
     z-index: 500;
   }
   .guide_map button {
-    position: absolute;
-    right: 0px;
+    position: fixed;
+    right: 20px;
     z-index: 500;
     padding: 10px 0;
     border-radius: 10px;
@@ -282,15 +287,15 @@
     background-color: rgba(255, 255, 255, 0.719);
   }
   .btn-destinasi {
-    top: 0px !important;
+    top: 170px !important;
   }
 
   .btn-lacak {
-    top: 60px !important;
+    top: 230px !important;
   }
 
   .btn-reset {
-    top: 120px !important;
+    top: 290px !important;
   }
 }
 @media only screen and (max-width: 912px) {

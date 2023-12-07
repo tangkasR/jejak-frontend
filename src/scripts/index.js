@@ -22,6 +22,7 @@ import "./views/templates/NavbarAdminElement.js";
 import "./views/templates/SideBarElement.js";
 import "./views/templates/Footer.js";
 import "./views/templates/FavoritTemplate.js";
+
 import App from "./views/app";
 
 import AOS from "aos";
