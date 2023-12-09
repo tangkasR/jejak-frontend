@@ -6,6 +6,7 @@ class AdminSource {
     try {
       const response = await axios.post(API_ENDPOINT.ADMIN_LOGIN, data, {
         withCredentials: true,
+        credentials: "include",
         headers: {
           "Content-Type": "multipart/form-data"
         }
