@@ -1,5 +1,5 @@
 const CONFIG = {
-  BASE_URL: "https://jejak-backend-tangkas-risdiantos-projects.vercel.app",
+  BASE_URL: "https://jejak-backend.vercel.app",
   // BASE_URL: "http://localhost:5000",
   BASE_IMAGE_URL: "",
   CACHE_NAME: new Date().toISOString(),

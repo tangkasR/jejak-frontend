@@ -81,6 +81,7 @@ const LoginPage = {
       const data = Object.fromEntries(formData);
       try {
         const response = await AdminSource.login(data);
+        console.log(response.data);
         if (response.length !== 0) {
           if (response.data) {
             Swal.fire({
@@ -90,6 +91,7 @@ const LoginPage = {
               showConfirmButton: false,
               timer: 1500
             });
+            localStorage.setItem("token", response.data);
             window.location.replace("#/dashboard");
             return;
           }

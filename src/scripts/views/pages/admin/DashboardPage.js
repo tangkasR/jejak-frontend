@@ -1,13 +1,13 @@
-import WisataSource from '../../../data/wisata-source';
-import HotelSource from '../../../data/hotel-source';
-import ReviewSource from '../../../data/review-source';
-import AdminSource from '../../../data/admin-source';
+import WisataSource from "../../../data/wisata-source";
+import HotelSource from "../../../data/hotel-source";
+import ReviewSource from "../../../data/review-source";
+import AdminSource from "../../../data/admin-source";
 
-import {async} from 'regenerator-runtime';
-import Swal from 'sweetalert2';
+import { async } from "regenerator-runtime";
+import Swal from "sweetalert2";
 
 const DashboardPage = {
-  async render () {
+  async render() {
     return `
       <div class="container-fluid">
         <div class="row">
@@ -102,94 +102,97 @@ const DashboardPage = {
       </div>
     `;
   },
-  async afterRender () {
+  async afterRender() {
     //   active side bar
-    const navLink = document.getElementById ('dashboard-link');
-    navLink.classList.add ('active');
+    const navLink = document.getElementById("dashboard-link");
+    navLink.classList.add("active");
 
     // grafik
-    const dataWisata = await WisataSource.getWisata ();
-    const dataHotel = await HotelSource.getAllHotel ();
-    const dataReviewWisata = await ReviewSource.getAllReviewWisata ();
-    const dataReviewHotel = await ReviewSource.getAllReviewHotel ();
-   
-    const profil = await AdminSource.getData ();
+    const dataWisata = await WisataSource.getWisata();
+    const dataHotel = await HotelSource.getAllHotel();
+    const dataReviewWisata = await ReviewSource.getAllReviewWisata();
+    const dataReviewHotel = await ReviewSource.getAllReviewHotel();
+
+    const token = localStorage.getItem("token");
+    console.log(token);
+    const profil = await AdminSource.getData(token);
+    console.log(profil);
     const dataProfil = profil.data;
-    const namaContainer = document.getElementById ('namaAdmin');
+    const namaContainer = document.getElementById("namaAdmin");
 
     namaContainer.innerHTML = `
       <h4 class="fw-semibold">Hi, ${dataProfil.name}</h4>
     `;
-    const totalDataAlam = dataWisata.data.filter (data => {
-      if (data.kategori === 'Alam') {
+    const totalDataAlam = dataWisata.data.filter((data) => {
+      if (data.kategori === "Alam") {
         return data;
       }
     });
-    const totalDataBudaya = dataWisata.data.filter (data => {
-      if (data.kategori === 'Budaya') {
+    const totalDataBudaya = dataWisata.data.filter((data) => {
+      if (data.kategori === "Budaya") {
         return data;
       }
     });
 
-    JSC.Chart ('chartDiv', {
-      type: 'horizontal column',
-      box_fill: ['white', 0.05],
+    JSC.Chart("chartDiv", {
+      type: "horizontal column",
+      box_fill: ["white", 0.05],
       title_label: {
-        text: 'JeJak in Numbers',
+        text: "JeJak in Numbers",
         style: {
-          fontFamily: 'Montserrat',
-          color: 'white',
+          fontFamily: "Montserrat",
+          color: "white",
           fontWeight: 900,
-          fontSize: 26,
-        },
+          fontSize: 26
+        }
       },
 
       xAxis: {
-        label_color: 'white',
+        label_color: "white",
         defaultTick: {
-          label_color: 'white',
-        },
+          label_color: "white"
+        }
       },
       yAxis: {
-        label_color: 'white',
+        label_color: "white",
         defaultTick: {
-          label_color: 'white',
-        },
+          label_color: "white"
+        }
       },
       legend: {
-        position: 'right top',
+        position: "right top",
         defaultEntry: {
-          style_fontFamily: 'Montserrat',
+          style_fontFamily: "Montserrat",
           width: 90,
-          color: 'white',
-          label_color: 'white',
+          color: "white",
+          label_color: "white",
           margin: 3,
-          checkbox: {enabled: true, size: 16},
-        },
+          checkbox: { enabled: true, size: 16 }
+        }
       },
       series: [
         {
-          name: 'Wisata Alam',
-          points: [{x: 'Total Data', y: totalDataAlam.length}],
+          name: "Wisata Alam",
+          points: [{ x: "Total Data", y: totalDataAlam.length }]
         },
         {
-          name: 'Wisata Budaya',
-          points: [{x: 'Total Data', y: totalDataBudaya.length}],
+          name: "Wisata Budaya",
+          points: [{ x: "Total Data", y: totalDataBudaya.length }]
         },
         {
-          name: 'Hotel',
-          points: [{x: 'Total Data', y: dataHotel.data.length}],
+          name: "Hotel",
+          points: [{ x: "Total Data", y: dataHotel.data.length }]
         },
         {
-          name: 'Review Wisata',
-          points: [{x: 'Total Data', y: dataReviewWisata.data.length}],
+          name: "Review Wisata",
+          points: [{ x: "Total Data", y: dataReviewWisata.data.length }]
         },
         {
-          name: 'Review Hotel',
-          points: [{x: 'Total Data', y: dataReviewHotel.data.length}],
-        },
-      ],
+          name: "Review Hotel",
+          points: [{ x: "Total Data", y: dataReviewHotel.data.length }]
+        }
+      ]
     });
-  },
+  }
 };
 export default DashboardPage;

@@ -70,7 +70,8 @@ const EditProfilPage = {
       });
 
     // render data dengan value
-    const profil = await AdminSource.getData();
+    const token = localStorage.getItem("token");
+    const profil = await AdminSource.getData(token);
     const dataProfil = profil.data;
     form.innerHTML = `
       <div class="row">
@@ -168,7 +169,7 @@ const EditProfilPage = {
       const formData = new FormData(form);
       const data = Object.fromEntries(formData);
       try {
-        const response = await AdminSource.editData(data);
+        const response = await AdminSource.editData(data, token);
         if (response.length !== 0) {
           if (response.data) {
             Swal.fire({
@@ -207,8 +208,8 @@ const EditProfilPage = {
       }).then(async (result) => {
         if (result.isConfirmed) {
           Swal.fire("Terhapus!", "Data berhasil dihapus.", "success");
-          const delData = await AdminSource.deleteData();
-          localStorage.removeItem("id");
+          const delData = await AdminSource.deleteData(token);
+          localStorage.removeItem("token");
           window.location.replace("#/login");
         }
       });

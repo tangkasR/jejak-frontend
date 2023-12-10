@@ -29,9 +29,9 @@ class AdminSource {
       return error;
     }
   }
-  static async logout() {
+  static async logout(token) {
     try {
-      const response = await axios.delete(API_ENDPOINT.ADMIN_LOGOUT, {
+      const response = await axios.delete(API_ENDPOINT.ADMIN_LOGOUT(token), {
         withCredentials: true
       });
       return response;
@@ -39,9 +39,9 @@ class AdminSource {
       return error;
     }
   }
-  static async getData() {
+  static async getData(token) {
     try {
-      const response = await axios.get(API_ENDPOINT.ADMIN_GETDATA, {
+      const response = await axios.get(API_ENDPOINT.ADMIN_GETDATA(token), {
         withCredentials: true
       });
       return response;
@@ -49,24 +49,31 @@ class AdminSource {
       console.log(error);
     }
   }
-  static async editData(data) {
+  static async editData(data, token) {
     try {
-      const response = await axios.put(API_ENDPOINT.ADMIN_EDITDATA, data, {
-        withCredentials: true,
-        headers: {
-          "Content-Type": "multipart/form-data"
+      const response = await axios.put(
+        API_ENDPOINT.ADMIN_EDITDATA(token),
+        data,
+        {
+          withCredentials: true,
+          headers: {
+            "Content-Type": "multipart/form-data"
+          }
         }
-      });
+      );
       return response;
     } catch (error) {
       return error;
     }
   }
-  static async deleteData() {
+  static async deleteData(token) {
     try {
-      const response = await axios.delete(API_ENDPOINT.ADMIN_DELETEDATA, {
-        withCredentials: true
-      });
+      const response = await axios.delete(
+        API_ENDPOINT.ADMIN_DELETEDATA(token),
+        {
+          withCredentials: true
+        }
+      );
       return response;
     } catch (error) {
       console.log(error);

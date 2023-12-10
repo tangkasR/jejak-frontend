@@ -29,7 +29,8 @@ const ProfilPage = {
 
     // menampilkan data
     const container = document.getElementById("container-profil");
-    const profil = await AdminSource.getData();
+    const token = localStorage.getItem("token");
+    const profil = await AdminSource.getData(token);
     console.log(profil);
     const dataProfil = profil.data;
     container.innerHTML = `
@@ -76,7 +77,7 @@ const ProfilPage = {
 
     // eksekusi logout
     document.getElementById("btnLogout").addEventListener("click", async () => {
-      const logout = await AdminSource.logout();
+      const logout = await AdminSource.logout(token);
       if (logout.length !== 0) {
         Swal.fire({
           position: "center",
@@ -85,7 +86,7 @@ const ProfilPage = {
           showConfirmButton: false,
           timer: 1500
         });
-        localStorage.removeItem("id");
+        localStorage.removeItem("token");
         window.location.replace("#/login");
       }
     });
