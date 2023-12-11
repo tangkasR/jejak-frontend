@@ -1,9 +1,9 @@
-import { async } from "regenerator-runtime";
-import AdminSource from "../../../data/admin-source";
-import Swal from "sweetalert2";
+import {async} from 'regenerator-runtime';
+import AdminSource from '../../../data/admin-source';
+import Swal from 'sweetalert2';
 
 const RegistrasiPage = {
-  async render() {
+  async render () {
     return `
       <div
         class="d-flex align-items-center justify-content-center w-100"
@@ -131,38 +131,38 @@ const RegistrasiPage = {
       </div>
     `;
   },
-  async afterRender() {
-    const form = document.querySelector(".registrasiform");
-    form.addEventListener("submit", async (event) => {
-      event.preventDefault();
-      const formData = new FormData(form);
-      const data = Object.fromEntries(formData);
-
+  async afterRender () {
+    const form = document.querySelector ('.registrasiform');
+    form.addEventListener ('submit', async event => {
+      event.preventDefault ();
+      const formData = new FormData (form);
+      const data = Object.fromEntries (formData);
+      console.log (data);
       try {
-        const response = await AdminSource.registrasi(data);
+        const response = await AdminSource.registrasi (data);
         if (response.length !== 0) {
           if (response.data) {
-            Swal.fire({
-              position: "center",
-              icon: "success",
-              title: "Berhasil Registrasi!",
+            Swal.fire ({
+              position: 'center',
+              icon: 'success',
+              title: 'Berhasil Registrasi!',
               showConfirmButton: false,
-              timer: 1500
+              timer: 1500,
             });
-            window.location.replace("#/login");
+            window.location.replace ('#/login');
             return;
           }
-          Swal.fire({
-            icon: "error",
+          Swal.fire ({
+            icon: 'error',
             title: `${response.response.data.msg}!`,
             text: `Tolong ulangi!`,
-            showConfirmButton: false
+            showConfirmButton: false,
           });
         }
       } catch (error) {
-        console.log(error);
+        console.log (error);
       }
     });
-  }
+  },
 };
 export default RegistrasiPage;
