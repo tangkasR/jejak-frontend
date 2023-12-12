@@ -305,28 +305,28 @@ const HomePage = {
             <div class="swiper-wrapper" id="wisata-lainnya">
               <div class="swiper-slide item-wisata-lainnya">
                 <div class="card_items">
-                  <div class="card card-wisata-lainnya"><a href="">
+                  <div class="card card-wisata-lainnya">
                     <div class="skeleton img-wisata-lainnya"></div>
                   </div>
                 </div>
               </div>
               <div class="swiper-slide item-wisata-lainnya">
                 <div class="card_items">
-                  <div class="card card-wisata-lainnya"><a href="">
+                  <div class="card card-wisata-lainnya">
                     <div class="skeleton img-wisata-lainnya"></div>
                   </div>
                 </div>
               </div>
               <div class="swiper-slide item-wisata-lainnya">
                 <div class="card_items">
-                  <div class="card card-wisata-lainnya"><a href="">
+                  <div class="card card-wisata-lainnya">
                     <div class="skeleton img-wisata-lainnya"></div>
                   </div>
                 </div>
               </div>
               <div class="swiper-slide item-wisata-lainnya">
                 <div class="card_items">
-                  <div class="card card-wisata-lainnya"><a href="">
+                  <div class="card card-wisata-lainnya">
                     <div class="skeleton img-wisata-lainnya"></div>
                   </div>
                 </div>
