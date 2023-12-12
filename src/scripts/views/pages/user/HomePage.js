@@ -42,17 +42,42 @@ const HomePage = {
         </p>
         <div class="row align-items-center justify-content-center destination-container">
           <div class="col-lg-6 mb-3 mb-md-0">
-            <div class="card_items"
-              data-aos="fade-right"
-              data-aos-delay="50"
-              data-aos-duration="1000"
-              data-aos-easing="ease-in-out"
-              id="container-destinasi-populer-left"
-            >
+            <div class="card_items" id="container-destinasi-populer-left">
+              <div class="card card-wrapper card-destination-left">
+                <div class="skeleton img-left"></div>
+              </div>
             </div>
           </div>
           <div class="col-lg-6">
             <div class="row align-items-center justify-content-center" id="container-destinasi-populer-right">
+              <div class="col-sm-6 py-2">
+                <div class="card_items">
+                  <div class="card card-destination-right">
+                    <div class="skeleton img-right"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-6 py-2">
+                <div class="card_items">
+                  <div class="card card-destination-right">
+                    <div class="skeleton img-right"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-6 py-2">
+                <div class="card_items">
+                  <div class="card card-destination-right">
+                    <div class="skeleton img-right"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-6 py-2">
+                <div class="card_items">
+                  <div class="card card-destination-right">
+                    <div class="skeleton img-right"></div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -149,7 +174,16 @@ const HomePage = {
           data-aos-easing="ease-in-out"
         >
           <div class="topPenginapanContainer swiper-wrapper">
-            
+          <div
+          class="swiper-slide item-wisata-lainnya"
+          style="background-color:#f1ede2"
+        >
+          <div class="card_item">
+              <div class="card card-penginapan">
+                <div class="skeleton img-hotel-homepage"></div>
+              </div>
+          </div>
+        </div>
           </div>
           <div class="swiper-pagination hidden"></div>
         </div>
@@ -269,6 +303,34 @@ const HomePage = {
         >
           <div class="swiper mySwipers">
             <div class="swiper-wrapper" id="wisata-lainnya">
+              <div class="swiper-slide item-wisata-lainnya">
+                <div class="card_items">
+                  <div class="card card-wisata-lainnya"><a href="">
+                    <div class="skeleton img-wisata-lainnya"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="swiper-slide item-wisata-lainnya">
+                <div class="card_items">
+                  <div class="card card-wisata-lainnya"><a href="">
+                    <div class="skeleton img-wisata-lainnya"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="swiper-slide item-wisata-lainnya">
+                <div class="card_items">
+                  <div class="card card-wisata-lainnya"><a href="">
+                    <div class="skeleton img-wisata-lainnya"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="swiper-slide item-wisata-lainnya">
+                <div class="card_items">
+                  <div class="card card-wisata-lainnya"><a href="">
+                    <div class="skeleton img-wisata-lainnya"></div>
+                  </div>
+                </div>
+              </div>
             </div>
             <div class="swiper-button-next"></div>
             <div class="swiper-button-prev"></div>
@@ -279,10 +341,10 @@ const HomePage = {
   },
 
   async afterRender() {
-     // active navbar
-     const homeLink = document.getElementById("link-home");
-     homeLink.classList.add("active");
-     // end active navbar
+    // active navbar
+    const homeLink = document.getElementById("link-home");
+    homeLink.classList.add("active");
+    // end active navbar
 
     // swiper
     var swiper = new Swiper(".mySwiper", {
@@ -331,103 +393,118 @@ const HomePage = {
 
     // get datas wisata
     const wisata = await WisataSource.getWisata();
-    const datasWisata = wisata.data;
-    // end get datas wisata
-
-    // render page destinasi populer
-    const destinasiPopulerContainer_left = document.getElementById(
+    let destinasiPopulerContainer_left = document.getElementById(
       "container-destinasi-populer-left"
     );
-    const destinasiPopulerContainer_right = document.getElementById(
+    let destinasiPopulerContainer_right = document.getElementById(
       "container-destinasi-populer-right"
     );
-    let indexDatasWisata = 0;
-    datasWisata.forEach((data) => {
-      indexDatasWisata++;
-      if (indexDatasWisata === 1) {
-        const deskripsi = data.deskripsi.slice(0, 250);
-        destinasiPopulerContainer_left.innerHTML += `
-          <div class="card card-wrapper card-destination-left">
-            <img src="${data.url}" />
-            <div class="content-card">
-              <div class="item-card">
-                <h5>${data.nama}</h5>
-                <p>${deskripsi}... <a href="#/detail/${data.id}">selengkapnya</a></p>
-              </div>
-            </div>
-          </div>
-        `;
-      }
-      if (indexDatasWisata !== 1 && indexDatasWisata <= 5) {
-        const deskripsi = data.deskripsi.slice(0, 200);
-        destinasiPopulerContainer_right.innerHTML += `
-          <div class="col-sm-6 py-2">
-            <div
-              class="card_items"
-              data-aos="fade-left"
+    let wisataLainnyaContainer = document.getElementById("wisata-lainnya");
+    if (wisata.length !== 0) {
+      destinasiPopulerContainer_left.innerHTML = "";
+      destinasiPopulerContainer_right.innerHTML = "";
+      wisataLainnyaContainer.innerHTML = "";
+
+      const datasWisata = wisata.data;
+      // end get datas wisata
+
+      // render page destinasi populer
+      let indexDatasWisata = 0;
+      datasWisata.forEach((data) => {
+        indexDatasWisata++;
+        if (indexDatasWisata === 1) {
+          const deskripsi = data.deskripsi.slice(0, 250);
+          destinasiPopulerContainer_left.innerHTML += `
+            <div class="card card-wrapper card-destination-left"
+              data-aos="fade-right"
               data-aos-delay="50"
               data-aos-duration="1000"
               data-aos-easing="ease-in-out"
             >
-              <div class="card card-destination-right">
+              <img class="img-left" src="${data.url}" />
+              <div class="content-card">
+                <div class="item-card">
+                  <h5>${data.nama}</h5>
+                  <p>${deskripsi}... <a href="#/detail/${data.id}">selengkapnya</a></p>
+                </div>
+              </div>
+            </div>
+          `;
+        }
+        if (indexDatasWisata !== 1 && indexDatasWisata <= 5) {
+          const deskripsi = data.deskripsi.slice(0, 200);
+          destinasiPopulerContainer_right.innerHTML += `
+            <div class="col-sm-6 py-2">
+              <div
+                class="card_items"
+                data-aos="fade-left"
+                data-aos-delay="50"
+                data-aos-duration="1000"
+                data-aos-easing="ease-in-out"
+              >
+                <div class="card card-destination-right">
+                  <img class="img-right" src="${data.url}" />
+                  <div class="content-card">
+                    <div class="item-card">
+                      <h5>${data.nama}</h5>
+                      <p>${deskripsi}... <a href="#/detail/${data.id}">selengkapnya</a></p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          `;
+        }
+      });
+      // end render page destinasi populer
+      // render page wisata lainnya
+
+      datasWisata.forEach((data) => {
+        wisataLainnyaContainer.innerHTML += `
+          <div class="swiper-slide item-wisata-lainnya">
+            <div class="card_items">
+              <div class="card card-wisata-lainnya"><a href="#/detail/${data.id}">
                 <img src="${data.url}" />
                 <div class="content-card">
                   <div class="item-card">
-                    <h5>${data.nama}</h5>
-                    <p>${deskripsi}... <a href="#/detail/${data.id}">selengkapnya</a></p>
+                    <h5 style="font-weight:800; font-size:25px">${data.nama}</h5>
+                    <p><i class='bx bxs-map'></i> ${data.lokasi}</p>
                   </div>
                 </div>
               </div>
             </div>
           </div>
         `;
-      }
-    });
-    // end render page destinasi populer
-    // render page wisata lainnya
-    const wisataLainnyaContainer = document.getElementById("wisata-lainnya");
-    datasWisata.forEach((data) => {
-      wisataLainnyaContainer.innerHTML += `
-        <div class="swiper-slide item-wisata-lainnya">
-          <div class="card_items">
-            <div class="card card-wisata-lainnya"><a href="#/detail/${data.id}">
-              <img src="${data.url}" />
-              <div class="content-card">
-                <div class="item-card">
-                  <h5 style="font-weight:800; font-size:25px">${data.nama}</h5>
-                  <p><i class='bx bxs-map'></i> ${data.lokasi}</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      `;
-    });
-    // end render page wisata lainnya
+      });
+      // end render page wisata lainnya
+    }
     // top penginapan
-    const topPenginapanContainer = document.querySelector(
+    let topPenginapanContainer = document.querySelector(
       ".topPenginapanContainer"
     );
     const dataHotel = await HotelSource.getAllHotel();
-    dataHotel.data.forEach((data) => {
-      topPenginapanContainer.innerHTML += `
-        <div class="swiper-slide item-wisata-lainnya" style="background-color:#f1ede2">
-          <div class="card_item">
-          <a href="#/detailhotel/${data.id}">
-            <div class="card card-penginapan">
-              <img src="${data.url}"/>
-              <div class="content-card">
-                <div class="item-card">
-                  <h5 style="font-weight:800; font-size:25px">${data.nama}</h5>
-                  <p><i class='bx bxs-map'></i> ${data.lokasi}</p>
+    if (dataHotel.length !== 0) {
+      topPenginapanContainer.innerHTML = "";
+      dataHotel.data.forEach((data) => {
+        topPenginapanContainer.innerHTML += `
+          <div class="swiper-slide item-wisata-lainnya" style="background-color:#f1ede2">
+            <div class="card_item">
+            <a href="#/detailhotel/${data.id}">
+              <div class="card card-penginapan">
+                <img src="${data.url}"/>
+                <div class="content-card">
+                  <div class="item-card">
+                    <h5 style="font-weight:800; font-size:25px">${data.nama}</h5>
+                    <p><i class='bx bxs-map'></i> ${data.lokasi}</p>
+                  </div>
                 </div>
               </div>
+              </a>
             </div>
-            </a>
           </div>
-        </div>
-      `;
-    });
+        `;
+      });
+    }
     // end top penginapan
   }
 };
