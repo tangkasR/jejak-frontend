@@ -1,9 +1,9 @@
-import { async } from "regenerator-runtime";
-import AdminSource from "../../../data/admin-source";
-import Swal from "sweetalert2";
+import {async} from 'regenerator-runtime';
+import AdminSource from '../../../data/admin-source';
+import Swal from 'sweetalert2';
 
 const RegistrasiPage = {
-  async render() {
+  async render () {
     return `
       <div
         class="d-flex align-items-center justify-content-center w-100"
@@ -135,63 +135,34 @@ const RegistrasiPage = {
     const form = document.querySelector(".registrasiform");
     form.addEventListener("submit", async (event) => {
       event.preventDefault();
+      const formData = new FormData(form);
+      const data = Object.fromEntries(formData);
 
-      const f = document.querySelector("#formFile");
-      const img = f.files[0];
-      if (img === undefined) {
-        Swal.fire({
-          icon: "error",
-          title: `Masukan file image!`,
-          text: `Tolong ulangi!`,
-          showConfirmButton: false
-        });
-        return;
-      }
-      const reader = new FileReader();
-
-      reader.readAsDataURL(img);
-
-      const setData = async (img) => {
-        const data = {
-          name: document.querySelector("#inputName").value,
-          email: document.querySelector("#inputEmail").value,
-          password: document.querySelector("#inputPassword").value,
-          confirmPassword: document.querySelector("#inputConfirmPassword")
-            .value,
-          jenis_kelamin: document.querySelector("#inputJenisKelamin").value,
-          file: img
-        };
-
-        try {
-          const response = await AdminSource.registrasi(data);
-          if (response.length !== 0) {
-            if (response.data) {
-              Swal.fire({
-                position: "center",
-                icon: "success",
-                title: "Berhasil Registrasi!",
-                showConfirmButton: false,
-                timer: 1500
-              });
-              window.location.replace("#/login");
-              return;
-            }
+      try {
+        const response = await AdminSource.registrasi(data);
+        if (response.length !== 0) {
+          if (response.data) {
             Swal.fire({
-              icon: "error",
-              title: `${response.response.data.msg}!`,
-              text: `Tolong ulangi!`,
-              showConfirmButton: false
+              position: "center",
+              icon: "success",
+              title: "Berhasil Registrasi!",
+              showConfirmButton: false,
+              timer: 1500
             });
+            window.location.replace("#/login");
+            return;
           }
-        } catch (error) {
-          console.log(error);
+          Swal.fire({
+            icon: "error",
+            title: `${response.response.data.msg}!`,
+            text: `Tolong ulangi!`,
+            showConfirmButton: false
+          });
         }
-      };
-
-      reader.onloadend = () => {
-        setData(reader.result);
-      };
+      } catch (error) {
+        console.log(error);
+      }
     });
-  }
+  },
 };
 export default RegistrasiPage;
