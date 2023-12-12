@@ -135,33 +135,62 @@ const RegistrasiPage = {
     const form = document.querySelector(".registrasiform");
     form.addEventListener("submit", async (event) => {
       event.preventDefault();
-      const formData = new FormData(form);
-      const data = Object.fromEntries(formData);
 
-      try {
-        const response = await AdminSource.registrasi(data);
-        if (response.length !== 0) {
-          if (response.data) {
-            Swal.fire({
-              position: "center",
-              icon: "success",
-              title: "Berhasil Registrasi!",
-              showConfirmButton: false,
-              timer: 1500
-            });
-            window.location.replace("#/login");
-            return;
-          }
-          Swal.fire({
-            icon: "error",
-            title: `${response.response.data.msg}!`,
-            text: `Tolong ulangi!`,
-            showConfirmButton: false
-          });
-        }
-      } catch (error) {
-        console.log(error);
+      const f = document.querySelector("#formFile");
+      const img = f.files[0];
+      if (img === undefined) {
+        Swal.fire({
+          icon: "error",
+          title: `Masukan file image!`,
+          text: `Tolong ulangi!`,
+          showConfirmButton: false
+        });
+        return;
       }
+      const reader = new FileReader();
+
+      reader.readAsDataURL(img);
+
+      const setData = async (img) => {
+        const data = {
+          name: document.querySelector("#inputName").value,
+          email: document.querySelector("#inputEmail").value,
+          password: document.querySelector("#inputPassword").value,
+          confirmPassword: document.querySelector("#inputConfirmPassword")
+            .value,
+          jenis_kelamin: document.querySelector("#inputJenisKelamin").value,
+          file: img
+        };
+
+        try {
+          const response = await AdminSource.registrasi(data);
+          if (response.length !== 0) {
+            if (response.data) {
+              Swal.fire({
+                position: "center",
+                icon: "success",
+                title: "Berhasil Registrasi!",
+                showConfirmButton: false,
+                timer: 1500
+              });
+              window.location.replace("#/login");
+              return;
+            }
+            Swal.fire({
+              icon: "error",
+              title: `${response.response.data.msg}!`,
+              text: `Tolong ulangi!`,
+              showConfirmButton: false
+            });
+          }
+        } catch (error) {
+          console.log(error);
+        }
+      };
+
+      reader.onloadend = () => {
+        setData(reader.result);
+      };
     });
   }
 };

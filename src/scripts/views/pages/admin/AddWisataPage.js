@@ -129,32 +129,56 @@ const AddWisataPage = {
     const form = document.querySelector(".addWisataForm");
     form.addEventListener("submit", async (event) => {
       event.preventDefault();
-      const formData = new FormData(form);
-      const data = Object.fromEntries(formData);
-      try {
-        const response = await WisataSource.addWisata(data);
-        if (response.length !== 0) {
-          if (response.data) {
-            Swal.fire({
-              position: "center",
-              icon: "success",
-              title: "Berhasil Menambah Wisata!",
-              showConfirmButton: false,
-              timer: 1500
-            });
-            window.location.replace("#/wisata");
-            return;
-          }
-          Swal.fire({
-            icon: "error",
-            title: `${response.response.data.msg}!`,
-            text: `Tolong ulangi!`,
-            showConfirmButton: false
-          });
-        }
-      } catch (error) {
-        console.log(error);
+
+      const f = document.querySelector("#formFile");
+      const img = f.files[0];
+      if (img === undefined) {
+        Swal.fire({
+          icon: "error",
+          title: `Masukan file image!`,
+          text: `Tolong ulangi!`,
+          showConfirmButton: false
+        });
+        return;
       }
+      const reader = new FileReader();
+
+      reader.readAsDataURL(img);
+      reader.onloadend = async () => {
+        const data = {
+          nama: document.querySelector("#inputNama").value,
+          kategori: document.querySelector("#inputKategori").value,
+          lokasi: document.querySelector("#inputLokasi").value,
+          deskripsi: document.querySelector("#inputDeskripsi").value,
+          latitude: document.querySelector("#inputLatitude").value,
+          longitude: document.querySelector("#inputLongitude").value,
+          file: reader.result
+        };
+        try {
+          const response = await WisataSource.addWisata(data);
+          if (response.length !== 0) {
+            if (response.data) {
+              Swal.fire({
+                position: "center",
+                icon: "success",
+                title: "Berhasil Menambah Wisata!",
+                showConfirmButton: false,
+                timer: 1500
+              });
+              window.location.replace("#/wisata");
+              return;
+            }
+            Swal.fire({
+              icon: "error",
+              title: `${response.response.data.msg}!`,
+              text: `Tolong ulangi!`,
+              showConfirmButton: false
+            });
+          }
+        } catch (error) {
+          console.log(error);
+        }
+      };
     });
   }
 };

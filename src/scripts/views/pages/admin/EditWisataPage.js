@@ -165,32 +165,59 @@ const EditWisataPage = {
     // eksekusi tambah wisata
     form.addEventListener("submit", async (event) => {
       event.preventDefault();
-      const formData = new FormData(form);
-      const data = Object.fromEntries(formData);
-      const response = await WisataSource.editWisata(url.id, data);
-      if (response.length !== 0) {
-        if (response.data) {
-          Swal.fire({
-            position: "center",
-            icon: "success",
-            title: "Berhasil Mengubah Wisata!",
-            showConfirmButton: false,
-            timer: 1500
-          });
-          window.location.replace("#/wisata");
-          return;
-        }
+      const f = document.querySelector("#formFile");
+      const img = f.files[0];
+      if (img === undefined) {
         Swal.fire({
           icon: "error",
-          title: `${response.response.data.msg}!`,
+          title: `Masukan file image!`,
           text: `Tolong ulangi!`,
           showConfirmButton: false
         });
+        return;
       }
+      const reader = new FileReader();
+
+      reader.readAsDataURL(img);
+      reader.onloadend = async () => {
+        const data = {
+          nama: document.querySelector("#inputNama").value,
+          kategori: document.querySelector("#inputKategori").value,
+          lokasi: document.querySelector("#inputLokasi").value,
+          deskripsi: document.querySelector("#inputDeskripsi").value,
+          latitude: document.querySelector("#inputLatitude").value,
+          longitude: document.querySelector("#inputLongitude").value,
+          file: reader.result
+        };
+        console.log(data);
+        try {
+          const response = await WisataSource.editWisata(url.id, data);
+          if (response.length !== 0) {
+            if (response.data) {
+              Swal.fire({
+                position: "center",
+                icon: "success",
+                title: "Berhasil Mengubah Wisata!",
+                showConfirmButton: false,
+                timer: 1500
+              });
+              window.location.replace("#/wisata");
+              return;
+            }
+            Swal.fire({
+              icon: "error",
+              title: `${response.response.data.msg}!`,
+              text: `Tolong ulangi!`,
+              showConfirmButton: false
+            });
+          }
+        } catch (error) {
+          console.log(error);
+        }
+      };
     });
 
     // eksekusi delete wisata
-
     document.getElementById("btnDel").addEventListener("click", async () => {
       Swal.fire({
         title: "Apakah anda yakin?",

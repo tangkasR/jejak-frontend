@@ -2,14 +2,13 @@ import WisataSource from "../../../data/wisata-source";
 import GallerySource from "../../../data/gallery-source";
 import UrlParser from "../../../routes/url-parser";
 
-
 const detailGalleryPage = {
   async render() {
     return `
     <section class="detailGalleryCard">
       <div class="container">
         <div class="row gy-5">
-          <div id="wisata-content" class="d-flex flex-wrap justify-content-between"></div>
+          <div id="wisata-content"></div>
           <h2 class="text-center fw-bold mx-auto"
           data-aos="fade-down"
           data-aos-delay="50"
@@ -23,9 +22,9 @@ const detailGalleryPage = {
 
   async afterRender() {
     const url = UrlParser.parseActiveUrlWithoutCombiner();
-    
+
     const wisata = await WisataSource.getWisataById(url.id);
-    const wisataContent = document.querySelector('#wisata-content');
+    const wisataContent = document.querySelector("#wisata-content");
     wisataContent.innerHTML += `
     <div class="main-detail-gallery">
       <h1 class="detail-gallery-title text-center fw-bold mt-2" 
@@ -56,7 +55,9 @@ const detailGalleryPage = {
 
     const detailGallery = await GallerySource.getGalleryByWisataId(url.id);
     let datasDetailGallery = detailGallery.data;
-    const detailGalleryContent = document.getElementById("detail-gallery-content");
+    const detailGalleryContent = document.getElementById(
+      "detail-gallery-content"
+    );
 
     function renderDetailGallery(data) {
       detailGalleryContent.innerHTML = "";
@@ -75,9 +76,7 @@ const detailGalleryPage = {
     }
 
     renderDetailGallery(datasDetailGallery);
-
-    
-  },
+  }
 };
 
 export default detailGalleryPage;

@@ -92,28 +92,50 @@ const GalleryAddDelPage = {
     // Eksekusi add foto
     const form = document.querySelector(".addFotoForm");
     form.addEventListener("submit", async (event) => {
-      const formData = new FormData(form);
-      const dataObjek = Object.fromEntries(formData);
-      const gallery = await GallerySource.addGallery(url.id, dataObjek);
-      if (gallery.length !== 0) {
-        if (gallery.data) {
-          Swal.fire({
-            position: "center",
-            icon: "success",
-            title: "Berhasil Menambah Foto!",
-            showConfirmButton: false,
-            timer: 1500
-          });
-          window.location.replace("#/galleryadmin");
-          return;
-        }
+      event.preventDefault();
+      const f = document.querySelector("#formFile");
+      const img = f.files[0];
+      if (img === undefined) {
         Swal.fire({
           icon: "error",
-          title: `${gallery.response.data.msg}!`,
+          title: `Masukan file image!`,
           text: `Tolong ulangi!`,
           showConfirmButton: false
         });
+        return;
       }
+      const reader = new FileReader();
+
+      reader.readAsDataURL(img);
+      reader.onloadend = async () => {
+        const data = {
+          file: reader.result
+        };
+        try {
+          const gallery = await GallerySource.addGallery(url.id, data);
+          if (gallery.length !== 0) {
+            if (gallery.data) {
+              Swal.fire({
+                position: "center",
+                icon: "success",
+                title: "Berhasil Menambah Foto!",
+                showConfirmButton: false,
+                timer: 1500
+              });
+              window.location.replace("#/galleryadmin");
+              return;
+            }
+            Swal.fire({
+              icon: "error",
+              title: `${gallery.response.data.msg}!`,
+              text: `Tolong ulangi!`,
+              showConfirmButton: false
+            });
+          }
+        } catch (error) {
+          console.log(error);
+        }
+      };
     });
   }
 };

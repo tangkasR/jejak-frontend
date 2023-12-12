@@ -113,35 +113,62 @@ const EditHotelPage = {
     // eksekusi tambah wisata
     form.addEventListener("submit", async (event) => {
       event.preventDefault();
-      const formData = new FormData(form);
-      const data = Object.fromEntries(formData);
-      const response = await HotelSource.editHotel(url.id, data);
-      if (response.length !== 0) {
-        if (response.data) {
-          Swal.fire({
-            position: "center",
-            icon: "success",
-            title: "Berhasil Mengubah Hotel!",
-            showConfirmButton: false,
-            timer: 1500
-          });
-          window.location.replace("#/hotel");
-          return;
-        }
+
+      const f = document.querySelector("#formFile");
+      const img = f.files[0];
+      if (img === undefined) {
         Swal.fire({
           icon: "error",
-          title: `${response.response.data.msg}!`,
+          title: `Masukan file image!`,
           text: `Tolong ulangi!`,
           showConfirmButton: false
         });
+        return;
       }
+      const reader = new FileReader();
+
+      reader.readAsDataURL(img);
+      reader.onloadend = async () => {
+        const data = {
+          nama: document.querySelector("#inputNama").value,
+          lokasi: document.querySelector("#inputLokasi").value,
+          deskripsi: document.querySelector("#inputDeskripsi").value,
+          file: reader.result,
+          wisatumId: document.querySelector("#inputWisata").value
+        };
+
+        try {
+          const response = await HotelSource.editHotel(url.id, data);
+          if (response.length !== 0) {
+            if (response.data) {
+              Swal.fire({
+                position: "center",
+                icon: "success",
+                title: "Berhasil Mengubah Hotel!",
+                showConfirmButton: false,
+                timer: 1500
+              });
+              window.location.replace("#/hotel");
+              return;
+            }
+            Swal.fire({
+              icon: "error",
+              title: `${response.response.data.msg}!`,
+              text: `Tolong ulangi!`,
+              showConfirmButton: false
+            });
+          }
+        } catch (error) {
+          console.log(error);
+        }
+      };
     });
 
     // eksekusi delete wisata
     document.getElementById("btnDel").addEventListener("click", async () => {
       Swal.fire({
         title: "Apakah anda yakin?",
-        text: `Data ${data.nama} akan dihapus!"`,
+        text: `Data ${data.nama} akan dihapus!`,
         icon: "warning",
         showCancelButton: true,
         confirmButtonColor: "#3085d6",

@@ -98,28 +98,55 @@ const AddHotelPage = {
     const form = document.querySelector(".addHotelForm");
     form.addEventListener("submit", async (event) => {
       event.preventDefault();
-      const formData = new FormData(form);
-      const data = Object.fromEntries(formData);
-      const response = await HotelSource.addHotel(data);
-      if (response.length !== 0) {
-        if (response.data) {
-          Swal.fire({
-            position: "center",
-            icon: "success",
-            title: "Berhasil Menambah Hotel!",
-            showConfirmButton: false,
-            timer: 1500
-          });
-          window.location.replace("#/hotel");
-          return;
-        }
+
+      const f = document.querySelector("#formFile");
+      const img = f.files[0];
+      if (img === undefined) {
         Swal.fire({
           icon: "error",
-          title: `${response.response.data.msg}!`,
+          title: `Masukan file image!`,
           text: `Tolong ulangi!`,
           showConfirmButton: false
         });
+        return;
       }
+      const reader = new FileReader();
+
+      reader.readAsDataURL(img);
+      reader.onloadend = async () => {
+        const data = {
+          nama: document.querySelector("#inputNama").value,
+          lokasi: document.querySelector("#inputLokasi").value,
+          deskripsi: document.querySelector("#inputDeskripsi").value,
+          file: reader.result,
+          wisatumId: document.querySelector("#inputWisata").value
+        };
+
+        try {
+          const response = await HotelSource.addHotel(data);
+          if (response.length !== 0) {
+            if (response.data) {
+              Swal.fire({
+                position: "center",
+                icon: "success",
+                title: "Berhasil Menambah Hotel!",
+                showConfirmButton: false,
+                timer: 1500
+              });
+              window.location.replace("#/hotel");
+              return;
+            }
+            Swal.fire({
+              icon: "error",
+              title: `${response.response.data.msg}!`,
+              text: `Tolong ulangi!`,
+              showConfirmButton: false
+            });
+          }
+        } catch (error) {
+          console.log(error);
+        }
+      };
     });
   }
 };

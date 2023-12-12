@@ -8,7 +8,6 @@ const API_ENDPOINT = {
   ADMIN_GETDATA: (token) => `${CONFIG.BASE_URL}/getadmin/${token}`,
   ADMIN_EDITDATA: (token) => `${CONFIG.BASE_URL}/editadmin/${token}`,
   ADMIN_DELETEDATA: (token) => `${CONFIG.BASE_URL}/deleteadmin/${token}`,
-  ADMIN_REFRESH_TOKEN: `${CONFIG.BASE_URL}/token`,
   // wisata api
   GETWISATA: `${CONFIG.BASE_URL}/getwisata`,
   GETWISATABYID: (id) => `${CONFIG.BASE_URL}/getwisatabyid/${id}`,

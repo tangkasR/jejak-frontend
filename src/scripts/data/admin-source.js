@@ -79,15 +79,5 @@ class AdminSource {
       console.log(error);
     }
   }
-  static async refreshToken() {
-    try {
-      const response = await axios.post(API_ENDPOINT.ADMIN_REFRESH_TOKEN, {
-        withCredentials: true
-      });
-      return response;
-    } catch (error) {
-      console.log(error);
-    }
-  }
 }
 export default AdminSource;

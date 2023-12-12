@@ -78,6 +78,7 @@ const ProfilPage = {
     // eksekusi logout
     document.getElementById("btnLogout").addEventListener("click", async () => {
       const logout = await AdminSource.logout(token);
+      console.log(logout);
       if (logout.length !== 0) {
         Swal.fire({
           position: "center",
