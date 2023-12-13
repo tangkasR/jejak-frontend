@@ -5,24 +5,29 @@ import UrlParser from "../../../routes/url-parser";
 const detailGalleryPage = {
   async render() {
     return `
-    <section class="detailGalleryCard">
-      <div class="container">
-        <div class="row gy-5">
+      <section class="detailGalleryCard" style="overflow-x: hidden">
+        <div class="container">
           <div id="wisata-content">
-              <div class="skeleton_container_detail">
-                <div class="skeleton skeleton_title"></div>
-                <div class="skeleton skeleton_deskripsi"></div>
-                <div class="skeleton skeleton_image"></div>
-              </div>
+            <div class="skeleton_container_detail">
+              <div class="skeleton skeleton_title"></div>
+              <div class="skeleton skeleton_deskripsi"></div>
+              <div class="skeleton skeleton_image"></div>
+            </div>
           </div>
-          <h2 class="text-center fw-bold mx-auto"
-          data-aos="fade-down"
-          data-aos-delay="50"
-          data-aos-duration="1000">Gambar dan Foto Wisata</h2>
-          <div id="detail-gallery-content" class="d-flex flex-wrap justify-content-between"></div>
+          <h2
+            class="text-center fw-bold mx-auto"
+            data-aos="fade-down"
+            data-aos-delay="50"
+            data-aos-duration="1000"
+          >
+            Gambar dan Foto Wisata
+          </h2>
+          <div
+            id="detail-gallery-content"
+            class="d-flex flex-wrap justify-content-center align-item-center gap-3"
+          ></div>
         </div>
-      </div>
-    </section>
+      </section>
     `;
   },
 
@@ -52,11 +57,13 @@ const detailGalleryPage = {
         data-aos-delay="50"
         data-aos-duration="1000"
         style="color: #3f4e4f;">${wisata.data.deskripsi}</p>
-        <div class="image-container" style="overflow: hidden;">
-          <img src="${wisata.data.url}" class="card-img-top rounded-4 mb-5" 
+        <div 
           data-aos="fade-right"
           data-aos-delay="50"
-          data-aos-duration="1000" style="height: 600px; object-fit: cover;" alt="${wisata.data.nama}">
+          data-aos-duration="1000" 
+        >
+          <img src="${wisata.data.url}" class="rounded-4 mb-5" 
+          style="min-height: 600px; width:100%; object-fit: cover;" alt="${wisata.data.nama}">
         </div>
       </div>
       `;
