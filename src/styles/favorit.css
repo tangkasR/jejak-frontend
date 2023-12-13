@@ -262,6 +262,7 @@ a:hover {
   right: 25px;
   width: 450px;
   padding: 20px;
+  z-index: 3000;
   background-color: #3f4e4f;
   color: #e1e5ea;
 }

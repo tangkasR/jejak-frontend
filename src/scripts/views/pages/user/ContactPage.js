@@ -2,7 +2,7 @@ import Swal from "sweetalert2";
 const ContactPage = {
   async render() {
     return `
-          <section section class = "contactCard d-flex align-items-center justify-content-center" style="min-height:100vh">
+          <section section class = "contactCard d-flex align-items-center justify-content-center mx-2 mx-md-0" style="min-height:100vh">
               <div class = "contact-container container rounded-4">
                   <div class="row g-0" style="color: #dcd7c9;">
                       <div class="contactTitle mt-5 col-md-6 px-5 d-flex align-items-center justify-content-center flex-column";>
