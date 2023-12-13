@@ -165,6 +165,16 @@ a:hover {
   width: 100%;
 }
 @media screen and (min-width: 769px) {
+  .like_card {
+    position: fixed;
+    top: 120px;
+    right: 20px !important;
+    width: 450px !important;
+    padding: 20px;
+    z-index: 3000;
+    background-color: #3f4e4f;
+    color: #e1e5ea;
+  }
   .postcard {
     flex-wrap: inherit;
   }
@@ -259,15 +269,16 @@ a:hover {
 .like_card {
   position: fixed;
   top: 120px;
-  right: 25px;
-  width: 450px;
+  right: 10px;
+  width: 250px;
   padding: 20px;
   z-index: 3000;
   background-color: #3f4e4f;
   color: #e1e5ea;
 }
 
-.like_card h5, p {
+.like_card h5,
+p {
   font-size: 16px;
   font-weight: 500;
   text-wrap: wrap;
