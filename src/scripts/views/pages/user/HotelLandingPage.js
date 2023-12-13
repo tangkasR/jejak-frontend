@@ -7,7 +7,7 @@ const HotelLandingPage = {
       <section class="alamItemCard">
         <div class="container">
           <div class="row gy-5">
-            <div class="col-md-8 d-none d-md-block">
+            <div class="col-md-8">
               <div class="mb-3 px-3 rounded-3" id="hotel-content">
                 <div
                   class="wisata-card border-0 mb-5 rounded-bottom-5 position-relative"
