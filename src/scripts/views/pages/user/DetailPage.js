@@ -213,7 +213,7 @@ const Detail = {
             <i class="bx bxs-map bx-sm"></i> ${wisata.data.lokasi}
           </p>
           <p
-            class="subtitle mt-4 mx-5"
+            class="subtitle mt-4 mx-2 mx-md-0"
             style="text-align: justify;"
             data-aos="fade-up"
             data-aos-delay="50"

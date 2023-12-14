@@ -203,7 +203,7 @@ const Detail = {
           <img src="${hotel.data.url}" class="card-img-top rounded-4" alt="${hotel.data.nama}">
           <p class="location text-left d-flex gap-2 mt-3 fw-bold">
           <i class='bx bxs-map bx-sm'></i> ${hotel.data.lokasi}</p>
-          <p class="subtitle mt-4 mx-5" style="text-align: justify;"
+          <p class="subtitle mt-4 mx-2 mx-md-0" style="text-align: justify;"
             data-aos="fade-up"
             data-aos-delay="50"
             data-aos-duration="2000">${hotel.data.deskripsi}</p>
