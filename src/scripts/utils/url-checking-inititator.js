@@ -1,6 +1,9 @@
 import Swal from "sweetalert2";
 
 export const checkUrl = (url, isLogin) => {
+  if (navigator.onLine === false) {
+    return (url = "offline");
+  }
   if (
     url === "/dashboard" ||
     url === "/profil" ||

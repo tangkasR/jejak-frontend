@@ -33,10 +33,12 @@ import wisataAlamPage from "../views/pages/user/wisataAlamPage";
 import wisataBudayaPage from "../views/pages/user/wisataBudayaPage";
 import NotFoundPage from "../views/pages/user/NotFoundPage";
 
+import OfflinePage from "../views/pages/user/OfflinePage";
 const routes = {
   // 404
-  "notfound": NotFoundPage,
-
+  'notfound': NotFoundPage,
+  // offline
+  'offline': OfflinePage,
   // USER
   "/": StarterPage,
   "/home": HomePage,
