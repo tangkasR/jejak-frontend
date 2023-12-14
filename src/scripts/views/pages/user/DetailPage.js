@@ -230,12 +230,12 @@ const Detail = {
       spaceBetween: 30,
       autoplay: {
         delay: 2500,
-        disableOnInteraction: false,
+        disableOnInteraction: false
       },
       pagination: {
         el: ".swiper-pagination",
-        clickable: true,
-      },
+        clickable: true
+      }
     });
 
     var swipers = new Swiper(".mySwipers", {
@@ -243,29 +243,29 @@ const Detail = {
       spaceBetween: 30,
       navigation: {
         nextEl: ".swiper-button-next",
-        prevEl: ".swiper-button-prev",
+        prevEl: ".swiper-button-prev"
       },
       breakpoints: {
         // when window width is >= 320px
         320: {
           slidesPerView: 1,
-          spaceBetween: 20,
+          spaceBetween: 20
         },
         // when window width is >= 480px
         480: {
           slidesPerView: 2,
-          spaceBetween: 30,
+          spaceBetween: 30
         },
         // when window width is >= 640px
         768: {
           slidesPerView: 3,
-          spaceBetween: 20,
+          spaceBetween: 20
         },
         992: {
           slidesPerView: 4,
-          spaceBetween: 40,
-        },
-      },
+          spaceBetween: 40
+        }
+      }
     });
     // end swiper
 
@@ -321,36 +321,32 @@ const Detail = {
         }
 
         reviewresult.innerHTML += `
-        <div class="col-12 rounded-3 item_review_wrapper "
-          data-aos="fade-left"
-          data-aos-delay="50"
-          data-aos-duration="1000"
-          data-aos-easing="ease-in-out"
-        >
-          <div class="row align-items-center justify-content-center">
-            <div class="col-md-2 d-flex align-items-center justify-content-center">
-              <div>
-                <img
-                  src="${imageUrl}"
-                />
+          <div
+            class="col-12 rounded-3 item_review_wrapper "
+            data-aos="fade-left"
+            data-aos-delay="50"
+            data-aos-duration="1000"
+            data-aos-easing="ease-in-out"
+          >
+            <div class="d-flex align-items-center pt-2 justify-content-between">
+              <div class="d-flex gap-2">
+                <img src="${imageUrl}" />
+                <div>
+                  <h5 class="card-name fw-bold mb-0">${data.name}</h5>
+                  <div class="star-container">
+                    <span class="star-result stars">${stars}</span>
+                  </div>
+                </div>
+              </div>
+              <div class="content-review">
+                <p class=" fw-semibold">${dataDate}</p>
               </div>
             </div>
-            <div class="col-md-10 pe-5 py-2">
-              <div class="mt-3 content-review">
-                <div class="d-flex justify-content-between">
-                  <h5 class="card-name fw-bold mb-0">${data.name}</h5>
-                  <p class="py-2 mb-0 fw-semibold">${dataDate}</p>
-                </div>
-                <div class="star-container">
-                  <span class="star-result stars">${stars}</span>
-                </div>
-                <p class="card-review text-break fw-semibold mt-2">${data.review}</p>
-              </div>
+            <div class=" col-11">
+              <p class="card-review text-break">${data.review}</p>
             </div>
           </div>
-        </div>
-        
-      `;
+        `;
       });
     }
 
@@ -385,8 +381,8 @@ const Detail = {
         total_rating: wisata.data.total_rating,
         total_viewers: wisata.data.total_viewers,
         created_at: wisata.data.created_at,
-        updated_at: wisata.data.updated_at,
-      },
+        updated_at: wisata.data.updated_at
+      }
     });
     document
       .querySelector(".detailCard")
@@ -394,7 +390,7 @@ const Detail = {
         const likeContainer = document.querySelector(".container-like");
         likeContainer.innerHTML = "";
       });
-  },
+  }
 };
 
 export default Detail;

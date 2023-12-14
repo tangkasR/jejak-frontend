@@ -282,56 +282,55 @@ const Detail = {
     const result = await ReviewSource.getReviewHotel(url.id);
     if (result.length !== 0) {
       const dataresult = result.data;
+      console.log(result.data);
       const reviewresult = document.querySelector("#reviewCards");
 
       let imageUrl = "";
       // Kondisi untuk menentukan gambar berdasarkan rating
-      if (data.rating == 5) {
-        imageUrl = "./images/bintang-5-emoji.png";
-      } else if (data.rating == 4) {
-        imageUrl = "./images/bintang-4-emoji.png";
-      } else if (data.rating == 3) {
-        imageUrl = "./images/bintang-3-emoji.png";
-      } else if (data.rating == 2) {
-        imageUrl = "./images/bintang-2-emoji.png";
-      } else {
-        imageUrl = "./images/bintang-1-emoji.png";
-      }
 
       dataresult.forEach((data) => {
+        if (data.rating == 5) {
+          imageUrl = "./images/bintang-5-emoji.png";
+        } else if (data.rating == 4) {
+          imageUrl = "./images/bintang-4-emoji.png";
+        } else if (data.rating == 3) {
+          imageUrl = "./images/bintang-3-emoji.png";
+        } else if (data.rating == 2) {
+          imageUrl = "./images/bintang-2-emoji.png";
+        } else {
+          imageUrl = "./images/bintang-1-emoji.png";
+        }
+
         const stars = "&#9733;".repeat(data.rating);
         const date = data.createdAt;
         const dataDate = moment(date).format("MM/DD/YYYY");
         reviewresult.innerHTML += `
-            <div
-              class="col-12 rounded-3 item_review_wrapper "
-              data-aos="fade-left"
-              data-aos-delay="50"
-              data-aos-duration="1000"
-              data-aos-easing="ease-in-out"
-            >
-              <div class="row align-items-center justify-content-center">
-                <div class="col-md-2 d-flex align-items-center justify-content-center">
-                  <div>
-                    <img src="${imageUrl}" />
-                  </div>
-                </div>
-                <div class="col-md-10 pe-5 py-2">
-                  <div class="mt-3 content-review">
-                    <div class="d-flex justify-content-between">
-                      <h5 class="card-name fw-bold mb-0">${data.name}</h5>
-                      <p class="py-2 mb-0 fw-semibold">${dataDate}</p>
-                    </div>
-                    <div class="star-container">
-                      <span class="star-result stars">${stars}</span>
-                    </div>
-                    <p class="card-review text-break fw-semibold mt-2">${data.review}</p>
+          <div
+            class="col-12 rounded-3 item_review_wrapper "
+            data-aos="fade-left"
+            data-aos-delay="50"
+            data-aos-duration="1000"
+            data-aos-easing="ease-in-out"
+          >
+            <div class="d-flex align-items-center pt-2 justify-content-between">
+              <div class="d-flex gap-2">
+                <img src="${imageUrl}" />
+                <div>
+                  <h5 class="card-name fw-bold mb-0">${data.name}</h5>
+                  <div class="star-container">
+                    <span class="star-result stars">${stars}</span>
                   </div>
                 </div>
               </div>
+              <div class="content-review">
+                <p class=" fw-semibold">${dataDate}</p>
+              </div>
             </div>
-  
-          `;
+            <div class=" col-11">
+              <p class="card-review text-break">${data.review}</p>
+            </div>
+          </div>
+        `;
       });
     }
 

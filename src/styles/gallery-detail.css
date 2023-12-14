@@ -15,10 +15,9 @@
   margin: auto;
 }
 
-
 .btn-review {
   padding: 0px 12px;
-  background-color: #A27B5C;
+  background-color: #a27b5c;
   color: white;
   height: 42px;
   font-weight: 600;
@@ -26,20 +25,24 @@
 
 .btn-review:hover {
   padding: 8px 12px;
-  border: 2px solid #A27B5C;
-  color: #A27B5C;
+  border: 2px solid #a27b5c;
+  color: #a27b5c;
 }
 
 .star-container {
-  margin-top: -14px;
-}
-
-.content-review h5 {
-  font-size: 24px;
-  text-transform: capitalize;
 }
 
 .content-review p {
-  font-size: 17px;
+  font-size: 14px;
+  text-transform: capitalize;
+  margin-top: 20px;
+}
+.card-review {
+  font-size: 14px;
+  font-weight: 500;
+  text-transform: capitalize;
+}
+.card-name {
+  font-size: 15px;
   text-transform: capitalize;
 }

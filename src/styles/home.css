@@ -360,17 +360,20 @@ body {
 .star-rating label {
   display: inline-block;
   cursor: pointer;
-  width: 40px;
-  height: 40px;
-  font-size: 40px;
-  line-height: 40px;
+  width: 10px;
+  height: 10px;
+  font-size: 30px;
+  line-height: 20px;
+  margin: 0 10px;
   transition: color 0.3s ease;
 }
 
-.star-rating label:before {
+.star-rating label::before {
   content: "★";
 }
-
+.reverse-star {
+  margin-left: -15px !important;
+}
 .reverse-star label:hover,
 .reverse-star input[type="radio"]:hover ~ label,
 .reverse-star input[type="radio"]:checked ~ label {
@@ -387,9 +390,9 @@ body {
 
 .stars {
   color: #ffc107;
-  width: 20px;
-  height: 20px;
-  font-size: 30px;
+  width: 10px;
+  height: 10px;
+  font-size: 20px;
 }
 
 .item_review_wrapper {
@@ -408,12 +411,11 @@ body {
 }
 
 #reviewCards img {
-  width: 120px;
+  width: 40px;
   object-fit: contain;
 }
 
-.card-date,
-.card-review {
+.card-date {
   font-size: 15px;
   font-weight: 600;
 }
