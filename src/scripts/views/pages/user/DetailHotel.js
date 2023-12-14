@@ -70,7 +70,7 @@ const Detail = {
           </div>
         </div>
       </section>
-      <section class="reviewCard">
+      <section class="reviewCard" style="overflow-x: hidden">
         <div class="container">
           <div class="carditemreview pb-2 pt-1  rounded-3" id="card-review">
             <h3
@@ -179,7 +179,7 @@ const Detail = {
           </div>
         </div>
       </section>
-      <section class="resultCard">
+      <section class="resultCard" style="overflow-x: hidden">
         <div class="container">
           <div id="reviewCards" class="row gap-4 justify-content-center"></div>
         </div>
@@ -216,12 +216,12 @@ const Detail = {
       spaceBetween: 30,
       autoplay: {
         delay: 2500,
-        disableOnInteraction: false,
+        disableOnInteraction: false
       },
       pagination: {
         el: ".swiper-pagination",
-        clickable: true,
-      },
+        clickable: true
+      }
     });
 
     var swipers = new Swiper(".mySwipers", {
@@ -229,29 +229,29 @@ const Detail = {
       spaceBetween: 30,
       navigation: {
         nextEl: ".swiper-button-next",
-        prevEl: ".swiper-button-prev",
+        prevEl: ".swiper-button-prev"
       },
       breakpoints: {
         // when window width is >= 320px
         320: {
           slidesPerView: 1,
-          spaceBetween: 20,
+          spaceBetween: 20
         },
         // when window width is >= 480px
         480: {
           slidesPerView: 2,
-          spaceBetween: 30,
+          spaceBetween: 30
         },
         // when window width is >= 640px
         768: {
           slidesPerView: 3,
-          spaceBetween: 20,
+          spaceBetween: 20
         },
         992: {
           slidesPerView: 4,
-          spaceBetween: 40,
-        },
-      },
+          spaceBetween: 40
+        }
+      }
     });
     // end swiper
 
@@ -365,8 +365,8 @@ const Detail = {
         rating: hotel.data.rating,
         created_at: hotel.data.created_at,
         updated_at: hotel.data.updated_at,
-        wisatumId: hotel.data.wisatumId,
-      },
+        wisatumId: hotel.data.wisatumId
+      }
     });
     document
       .querySelector(".detailCard")
@@ -374,7 +374,7 @@ const Detail = {
         const likeContainer = document.querySelector(".container-like");
         likeContainer.innerHTML = "";
       });
-  },
+  }
 };
 
 export default Detail;

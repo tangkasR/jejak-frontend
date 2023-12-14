@@ -70,7 +70,7 @@ const Detail = {
           </div>
         </div>
       </section>
-      <section class="reviewCard">
+      <section class="reviewCard" style="overflow-x: hidden">
         <div class="container">
           <div class="carditemreview pb-2 pt-1 rounded-3" id="card-review">
             <h3
@@ -179,7 +179,7 @@ const Detail = {
           </div>
         </div>
       </section>
-      <section class="resultCard">
+      <section class="resultCard" style="overflow-x: hidden">
         <div class="container">
           <div id="reviewCards" class="row gap-4 justify-content-center"></div>
         </div>
