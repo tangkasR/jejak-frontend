@@ -245,7 +245,7 @@ const MapPage = {
     panduanContainer.innerHTML = `
       <div
         class="panduan_item"
-        data-aos="fade-down"
+        data-aos="fade-up"
         data-aos-delay="50"
         data-aos-duration="1500"
         data-aos-easing="ease-in-out"

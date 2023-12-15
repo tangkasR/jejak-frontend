@@ -169,10 +169,11 @@
 /* peanduan */
 .petunjuk_container {
   position: fixed;
-  top: 110px;
+  bottom: 20px;
   z-index: 2000;
-  left: 60px;
+  left: 30px;
   width: 40%;
+  opacity: 90%;
 }
 .panduan_item {
   padding: 20px 40px;
