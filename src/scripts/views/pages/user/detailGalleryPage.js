@@ -15,7 +15,7 @@ const detailGalleryPage = {
             </div>
           </div>
           <h2
-            class="text-center fw-bold mx-auto"
+            class="text-center fw-bold mx-auto mt-4 mb-5"
             data-aos="fade-down"
             data-aos-delay="50"
             data-aos-duration="1000"
@@ -24,7 +24,7 @@ const detailGalleryPage = {
           </h2>
           <div
             id="detail-gallery-content"
-            class="d-flex flex-wrap justify-content-center align-item-center gap-3"
+            class="d-flex flex-wrap justify-content-center align-item-center gap-5"
           ></div>
         </div>
       </section>
@@ -79,7 +79,7 @@ const detailGalleryPage = {
       detailGalleryContent.innerHTML = "";
       data.forEach((item) => {
         detailGalleryContent.innerHTML += `
-        <div class="detail-gallery-card border-0 mb-5 position-relative" 
+        <div class="detail-gallery-card border-0 position-relative" 
         data-aos="fade-left"
         data-aos-delay="50"
         data-aos-duration="1000" style="width: 350px;">
