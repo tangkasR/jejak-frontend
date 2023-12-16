@@ -23,7 +23,7 @@ const EditWisataPage = {
                 <form class="editWisataForm"></form>
                 <button
                   id="btnDel"
-                  class="btn btn-danger px-4 my-3"
+                  class="btn btn-danger px-4 my-3 ms-auto"
                   style="width:120px;"
                 >
                   Hapus
