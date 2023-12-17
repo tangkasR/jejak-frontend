@@ -1,9 +1,11 @@
 <h1>Getting Started</h1>
 <br>
 <p>Run the project using: </p>
+<br>
 <p>Delevopment</p>
 <p>npm run start-dev</p>
 <p>yarn start-dev</p>
+<br>
 <p>Build</p>
 <p>npm run build</p>
 <p>yarn build</p>
